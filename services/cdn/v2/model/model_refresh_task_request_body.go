@@ -40,6 +40,7 @@ type RefreshTaskRequestBodyType struct {
 type RefreshTaskRequestBodyTypeEnum struct {
 	FILE      RefreshTaskRequestBodyType
 	DIRECTORY RefreshTaskRequestBodyType
+	PREFIX    RefreshTaskRequestBodyType
 }
 
 func GetRefreshTaskRequestBodyTypeEnum() RefreshTaskRequestBodyTypeEnum {
@@ -49,6 +50,9 @@ func GetRefreshTaskRequestBodyTypeEnum() RefreshTaskRequestBodyTypeEnum {
 		},
 		DIRECTORY: RefreshTaskRequestBodyType{
 			value: "directory",
+		},
+		PREFIX: RefreshTaskRequestBodyType{
+			value: "prefix",
 		},
 	}
 }
