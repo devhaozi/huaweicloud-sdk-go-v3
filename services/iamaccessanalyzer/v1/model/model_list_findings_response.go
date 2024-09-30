@@ -8,7 +8,9 @@ import (
 
 // ListFindingsResponse Response Object
 type ListFindingsResponse struct {
-	Findings *[]Finding `json:"findings,omitempty"`
+
+	// 访问分析结果列表。
+	Findings *[]FindingSummary `json:"findings,omitempty"`
 
 	PageInfo       *PageInfo `json:"page_info,omitempty"`
 	HttpStatusCode int       `json:"-"`

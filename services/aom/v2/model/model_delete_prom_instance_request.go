@@ -11,6 +11,9 @@ type DeletePromInstanceRequest struct {
 
 	// Prometheus实例id。
 	PromId string `json:"prom_id"`
+
+	// 企业项目id。 - 删除单个企业项目下实例，填写企业项目id。
+	EnterpriseProjectId string `json:"Enterprise-Project-Id"`
 }
 
 func (o DeletePromInstanceRequest) String() string {

@@ -22,6 +22,10 @@ const (
 	xSdkContentSha256 = "X-Sdk-Content-Sha256"
 )
 
+func Sign(req *request.DefaultHttpRequest, ak, sk string) (map[string]string, error) {
+	return Signer{}.Sign(req, ak, sk)
+}
+
 type Signer struct {
 }
 
@@ -260,7 +264,7 @@ func canonicalHeaders(r *request.DefaultHttpRequest, signerHeaders []string) str
 func extractSignedHeaders(headers map[string]string) []string {
 	var sh []string
 	for key := range headers {
-		if strings.HasPrefix(strings.ToLower(key), "content-type") {
+		if strings.HasPrefix(strings.ToLower(key), "content-type") || strings.Contains(key, "_") {
 			continue
 		}
 		sh = append(sh, strings.ToLower(key))

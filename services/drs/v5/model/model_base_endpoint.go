@@ -15,10 +15,10 @@ type BaseEndpoint struct {
 	// 数据库信息ID。
 	Id *string `json:"id,omitempty"`
 
-	// 数据库场景类型。取值： - oracle：云下自建Oracle数据库。 - ecs_oracle：华为云ECS自建Oracle数据库。 - cloud_gaussdbv5：华为云数据库GaussDB分布式。 - mysql：他云/本地自建MySQL数据库。 - ecs_mysql：华为云ECS自建MySQL数据库。 - cloud_mysql：华为云数据库RDS for MySQL。 - redis：云下自建Redis数据。 - ecs_redis：华为云ECS自建Redis数据。 - rediscluster：云下自建Redis集群数据库。 - ecs_rediscluster：华为云ECS自建Redis集群数据库。 - cloud_gaussdb_redis：华为云数据库GeminiDB Redis。
+	// 数据库场景类型。取值： - oracle：云下自建Oracle数据库。 - ecs_oracle：华为云ECS自建Oracle数据库。 - cloud_gaussdbv5：华为云数据库GaussDB分布式。 - mysql：他云/本地自建MySQL数据库。 - ecs_mysql：华为云ECS自建MySQL数据库。 - cloud_mysql：华为云数据库RDS for MySQL。 - redis：云下自建Redis数据。 - ecs_redis：华为云ECS自建Redis数据。 - rediscluster：云下自建Redis集群数据库。 - ecs_rediscluster：华为云ECS自建Redis集群数据库。 - cloud_gaussdb_redis：华为云数据库GeminiDB Redis。 - postgresql: 云下自建PostgreSQL数据库。 - ecs_postgresql: 华为云ECS自建PostgreSQL数据库。 - cloud_postgresql: 华为云数据库RDS for PostgreSQL。 - mongodb: 云下自建MongoDB数据库。 - ecs_mongodb: 华为云ECS自建MongoDB数据库。 - cloud_mongodb: 华为云文档数据库服务DDS。
 	EndpointName BaseEndpointEndpointName `json:"endpoint_name"`
 
-	// 数据库IP。 约束： - 数据库为自建MongoDB时，数据库IP与端口之间用“:”英文冒号拼接，多个值之间请用“,”英文逗号隔开，最多支持填写3个IP地址或域名。 - 数据库为DDS实例时，数据库IP与端口之间用“:”英文冒号拼接，多个IP端口之间请用“,”英文逗号分隔。 - 数据库为Redis集群时，请填写源端Redis集群所有分片的IP地址和对应端口，数据库IP与端口之间用“:”英文冒号拼接，多个IP端口之间请用“,”英文逗号分隔，并且推荐填写集群分片的Slave节点的IP地址。最多支持填写32个IP地址或域名，多个值之间请用英文逗号隔开。 示例： - MySQL：192.168.0.10 - MongoDB：192.168.0.10:8080,192.168.0.11:8080,192.168.0.12:8080 - DDS：192.168.205.130:8635,192.168.250.64:8635  - Redis集群：192.168.0.1:8080,192.168.0.2:8080
+	// 数据库IP。 约束： - 数据库为自建MongoDB时，数据库IP与端口之间用“:”英文冒号拼接，多个值之间请用“,”英文逗号隔开，最多支持填写3个IP地址或域名。 - 数据库为DDS实例时，数据库IP与端口之间用“:”英文冒号拼接，多个IP端口之间请用“,”英文逗号分隔。 - 数据库为Redis集群时，请填写源端Redis集群所有分片的IP地址和对应端口，数据库IP与端口之间用“:”英文冒号拼接，多个IP端口之间请用“,”英文逗号分隔，并且推荐填写集群分片的Slave节点的IP地址。最多支持填写32个IP地址或域名，多个值之间请用英文逗号隔开。 示例： - MySQL：ip - MongoDB：ip:port,ip:port,ip:port - DDS：ip:port,ip:port  - Redis集群：ip:port,ip:port
 	Ip *string `json:"ip,omitempty"`
 
 	// 数据库端口。  约束：输入范围为1-65535之间的整数。
@@ -68,6 +68,12 @@ type BaseEndpointEndpointNameEnum struct {
 	REDISCLUSTER        BaseEndpointEndpointName
 	ECS_REDISCLUSTER    BaseEndpointEndpointName
 	CLOUD_GAUSSDB_REDIS BaseEndpointEndpointName
+	POSTGRESQL          BaseEndpointEndpointName
+	ECS_POSTGRESQL      BaseEndpointEndpointName
+	CLOUD_POSTGRESQL    BaseEndpointEndpointName
+	MONGODB             BaseEndpointEndpointName
+	ECS_MONGODB         BaseEndpointEndpointName
+	CLOUD_MONGODB       BaseEndpointEndpointName
 }
 
 func GetBaseEndpointEndpointNameEnum() BaseEndpointEndpointNameEnum {
@@ -104,6 +110,24 @@ func GetBaseEndpointEndpointNameEnum() BaseEndpointEndpointNameEnum {
 		},
 		CLOUD_GAUSSDB_REDIS: BaseEndpointEndpointName{
 			value: "cloud_gaussdb_redis",
+		},
+		POSTGRESQL: BaseEndpointEndpointName{
+			value: "postgresql",
+		},
+		ECS_POSTGRESQL: BaseEndpointEndpointName{
+			value: "ecs_postgresql",
+		},
+		CLOUD_POSTGRESQL: BaseEndpointEndpointName{
+			value: "cloud_postgresql",
+		},
+		MONGODB: BaseEndpointEndpointName{
+			value: "mongodb",
+		},
+		ECS_MONGODB: BaseEndpointEndpointName{
+			value: "ecs_mongodb",
+		},
+		CLOUD_MONGODB: BaseEndpointEndpointName{
+			value: "cloud_mongodb",
 		},
 	}
 }

@@ -31,6 +31,8 @@ type UpdateScalingV2PolicyOption struct {
 
 	ScalingPolicyAction *ScalingPolicyActionV2 `json:"scaling_policy_action,omitempty"`
 
+	IntervalAlarmActions *[]IntervalAlarmActionsV2 `json:"interval_alarm_actions,omitempty"`
+
 	// 冷却时间，取值范围0-86400，默认为300，单位是秒。
 	CoolDownTime *int32 `json:"cool_down_time,omitempty"`
 
@@ -99,9 +101,10 @@ type UpdateScalingV2PolicyOptionScalingPolicyType struct {
 }
 
 type UpdateScalingV2PolicyOptionScalingPolicyTypeEnum struct {
-	ALARM      UpdateScalingV2PolicyOptionScalingPolicyType
-	SCHEDULED  UpdateScalingV2PolicyOptionScalingPolicyType
-	RECURRENCE UpdateScalingV2PolicyOptionScalingPolicyType
+	ALARM          UpdateScalingV2PolicyOptionScalingPolicyType
+	SCHEDULED      UpdateScalingV2PolicyOptionScalingPolicyType
+	RECURRENCE     UpdateScalingV2PolicyOptionScalingPolicyType
+	INTERVAL_ALARM UpdateScalingV2PolicyOptionScalingPolicyType
 }
 
 func GetUpdateScalingV2PolicyOptionScalingPolicyTypeEnum() UpdateScalingV2PolicyOptionScalingPolicyTypeEnum {
@@ -114,6 +117,9 @@ func GetUpdateScalingV2PolicyOptionScalingPolicyTypeEnum() UpdateScalingV2Policy
 		},
 		RECURRENCE: UpdateScalingV2PolicyOptionScalingPolicyType{
 			value: "RECURRENCE",
+		},
+		INTERVAL_ALARM: UpdateScalingV2PolicyOptionScalingPolicyType{
+			value: "INTERVAL_ALARM",
 		},
 	}
 }

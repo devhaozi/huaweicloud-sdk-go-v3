@@ -12,10 +12,13 @@ import (
 // CreateTagResourceRequest Request Object
 type CreateTagResourceRequest struct {
 
-	// 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts 帐号信息 organizations:roots根
+	// 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+	XSecurityToken *string `json:"X-Security-Token,omitempty"`
+
+	// 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
 	ResourceType CreateTagResourceRequestResourceType `json:"resource_type"`
 
-	// 根、组织单元、帐号或策略的唯一标识符（ID）。
+	// 根、组织单元、账号或策略的唯一标识符（ID）。
 	ResourceId string `json:"resource_id"`
 
 	Body *TagResourceReqBody `json:"body,omitempty"`
@@ -35,16 +38,16 @@ type CreateTagResourceRequestResourceType struct {
 }
 
 type CreateTagResourceRequestResourceTypeEnum struct {
-	ORGANIZATIONSROOTS    CreateTagResourceRequestResourceType
+	ORGANIZATIONSPOLICIES CreateTagResourceRequestResourceType
 	ORGANIZATIONSOUS      CreateTagResourceRequestResourceType
 	ORGANIZATIONSACCOUNTS CreateTagResourceRequestResourceType
-	ORGANIZATIONSPOLICIES CreateTagResourceRequestResourceType
+	ORGANIZATIONSROOTS    CreateTagResourceRequestResourceType
 }
 
 func GetCreateTagResourceRequestResourceTypeEnum() CreateTagResourceRequestResourceTypeEnum {
 	return CreateTagResourceRequestResourceTypeEnum{
-		ORGANIZATIONSROOTS: CreateTagResourceRequestResourceType{
-			value: "organizations:roots",
+		ORGANIZATIONSPOLICIES: CreateTagResourceRequestResourceType{
+			value: "organizations:policies",
 		},
 		ORGANIZATIONSOUS: CreateTagResourceRequestResourceType{
 			value: "organizations:ous",
@@ -52,8 +55,8 @@ func GetCreateTagResourceRequestResourceTypeEnum() CreateTagResourceRequestResou
 		ORGANIZATIONSACCOUNTS: CreateTagResourceRequestResourceType{
 			value: "organizations:accounts",
 		},
-		ORGANIZATIONSPOLICIES: CreateTagResourceRequestResourceType{
-			value: "organizations:policies",
+		ORGANIZATIONSROOTS: CreateTagResourceRequestResourceType{
+			value: "organizations:roots",
 		},
 	}
 }

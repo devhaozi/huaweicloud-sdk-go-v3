@@ -90,6 +90,9 @@ type FlavorExtraSpec struct {
 	// 存储约束  - 支持磁盘特性，不配置时以UI配置为准。 - scsi，支持scsi - localdisk，支持本地盘 - ib，支持ib
 	Condstorage *string `json:"cond:storage,omitempty"`
 
+	// 存储约束  - 支持磁盘特性，不配置时以UI配置为准。
+	Condstoragetype *string `json:"cond:storage:type,omitempty"`
+
 	// 计算约束  - true，支持在线扩容。 - false或不存在该字段，不支持在线扩容。
 	CondcomputeliveResizable *string `json:"cond:compute:live_resizable,omitempty"`
 
@@ -113,6 +116,18 @@ type FlavorExtraSpec struct {
 
 	// 该规格对应的CPU架构，且仅鲲鹏实例架构规格返回该字段  - 取值为arm64表示CPU架构为鲲鹏计算。
 	EcsinstanceArchitecture *string `json:"ecs:instance_architecture,omitempty"`
+
+	// 该规格是否支持流量镜像。
+	NetworkInterfacetrafficMirroringSupported *string `json:"network_interface:traffic_mirroring_supported,omitempty"`
+
+	// 该规格是否支持QingTian Enclave。
+	SecurityenclaveSupported *string `json:"security:enclave_supported,omitempty"`
+
+	// 该规格的GPU卡信息。  name：GPU名称 memory_mb：GPU显存大小 count：GPU显卡数量 alias_prefix：GPU显卡内部别名
+	Infogpus *string `json:"info:gpus,omitempty"`
+
+	// 该规格的加速器信息。  name：加速器名称 memory_mb：加速器显存大小 count：加速器显卡数量 alias_prefix：加速器显卡内部别名
+	InfoasicAccelerators *string `json:"info:asic_accelerators,omitempty"`
 }
 
 func (o FlavorExtraSpec) String() string {

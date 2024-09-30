@@ -17,6 +17,18 @@ func (i *AcceptOrRejectEndpointConnectionsInvoker) Invoke() (*model.AcceptOrReje
 	}
 }
 
+type AddCustomIngressPortInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *AddCustomIngressPortInvoker) Invoke() (*model.AddCustomIngressPortResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.AddCustomIngressPortResponse), nil
+	}
+}
+
 type AddEipV2Invoker struct {
 	*invoker.BaseInvoker
 }
@@ -281,6 +293,18 @@ func (i *CreateInstanceV2Invoker) Invoke() (*model.CreateInstanceV2Response, err
 	}
 }
 
+type CreateOrchestrationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateOrchestrationInvoker) Invoke() (*model.CreateOrchestrationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateOrchestrationResponse), nil
+	}
+}
+
 type CreateOrderInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -425,6 +449,18 @@ func (i *DeleteCustomAuthorizerV2Invoker) Invoke() (*model.DeleteCustomAuthorize
 	}
 }
 
+type DeleteCustomIngressPortInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteCustomIngressPortInvoker) Invoke() (*model.DeleteCustomIngressPortResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteCustomIngressPortResponse), nil
+	}
+}
+
 type DeleteEndpointPermissionsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -494,6 +530,18 @@ func (i *DeleteInstancesV2Invoker) Invoke() (*model.DeleteInstancesV2Response, e
 		return nil, err
 	} else {
 		return result.(*model.DeleteInstancesV2Response), nil
+	}
+}
+
+type DeleteOrchestrationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteOrchestrationInvoker) Invoke() (*model.DeleteOrchestrationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteOrchestrationResponse), nil
 	}
 }
 
@@ -614,6 +662,30 @@ func (i *DisassociateSignatureKeyV2Invoker) Invoke() (*model.DisassociateSignatu
 		return nil, err
 	} else {
 		return result.(*model.DisassociateSignatureKeyV2Response), nil
+	}
+}
+
+type ExportApiDefinitionsAsyncInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ExportApiDefinitionsAsyncInvoker) Invoke() (*model.ExportApiDefinitionsAsyncResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ExportApiDefinitionsAsyncResponse), nil
+	}
+}
+
+type ImportApiDefinitionsAsyncInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ImportApiDefinitionsAsyncInvoker) Invoke() (*model.ImportApiDefinitionsAsyncResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ImportApiDefinitionsAsyncResponse), nil
 	}
 }
 
@@ -797,6 +869,30 @@ func (i *ListCustomAuthorizersV2Invoker) Invoke() (*model.ListCustomAuthorizersV
 	}
 }
 
+type ListCustomIngressPortDomainsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListCustomIngressPortDomainsInvoker) Invoke() (*model.ListCustomIngressPortDomainsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListCustomIngressPortDomainsResponse), nil
+	}
+}
+
+type ListCustomIngressPortsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListCustomIngressPortsInvoker) Invoke() (*model.ListCustomIngressPortsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListCustomIngressPortsResponse), nil
+	}
+}
+
 type ListEndpointConnectionsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -881,6 +977,18 @@ func (i *ListInstanceConfigsV2Invoker) Invoke() (*model.ListInstanceConfigsV2Res
 	}
 }
 
+type ListInstanceFeaturesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListInstanceFeaturesInvoker) Invoke() (*model.ListInstanceFeaturesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListInstanceFeaturesResponse), nil
+	}
+}
+
 type ListInstanceTagsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -890,6 +998,18 @@ func (i *ListInstanceTagsInvoker) Invoke() (*model.ListInstanceTagsResponse, err
 		return nil, err
 	} else {
 		return result.(*model.ListInstanceTagsResponse), nil
+	}
+}
+
+type ListInstancesByTagsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListInstancesByTagsInvoker) Invoke() (*model.ListInstancesByTagsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListInstancesByTagsResponse), nil
 	}
 }
 
@@ -938,6 +1058,30 @@ func (i *ListMetricDataInvoker) Invoke() (*model.ListMetricDataResponse, error) 
 		return nil, err
 	} else {
 		return result.(*model.ListMetricDataResponse), nil
+	}
+}
+
+type ListOrchestrationAttachedApisInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListOrchestrationAttachedApisInvoker) Invoke() (*model.ListOrchestrationAttachedApisResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListOrchestrationAttachedApisResponse), nil
+	}
+}
+
+type ListOrchestrationsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListOrchestrationsInvoker) Invoke() (*model.ListOrchestrationsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListOrchestrationsResponse), nil
 	}
 }
 
@@ -1133,6 +1277,18 @@ func (i *ShowAppQuotaInvoker) Invoke() (*model.ShowAppQuotaResponse, error) {
 	}
 }
 
+type ShowAsyncTaskResultInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowAsyncTaskResultInvoker) Invoke() (*model.ShowAsyncTaskResultResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowAsyncTaskResultResponse), nil
+	}
+}
+
 type ShowDetailsOfAppAclInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1253,6 +1409,18 @@ func (i *ShowDetailsOfInstanceV2Invoker) Invoke() (*model.ShowDetailsOfInstanceV
 	}
 }
 
+type ShowDetailsOfOrchestrationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowDetailsOfOrchestrationInvoker) Invoke() (*model.ShowDetailsOfOrchestrationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowDetailsOfOrchestrationResponse), nil
+	}
+}
+
 type ShowDetailsOfRequestThrottlingPolicyV2Invoker struct {
 	*invoker.BaseInvoker
 }
@@ -1262,6 +1430,18 @@ func (i *ShowDetailsOfRequestThrottlingPolicyV2Invoker) Invoke() (*model.ShowDet
 		return nil, err
 	} else {
 		return result.(*model.ShowDetailsOfRequestThrottlingPolicyV2Response), nil
+	}
+}
+
+type ShowInstancesNumByTagsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowInstancesNumByTagsInvoker) Invoke() (*model.ShowInstancesNumByTagsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowInstancesNumByTagsResponse), nil
 	}
 }
 
@@ -1433,6 +1613,18 @@ func (i *UpdateInstanceV2Invoker) Invoke() (*model.UpdateInstanceV2Response, err
 	}
 }
 
+type UpdateOrchestrationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateOrchestrationInvoker) Invoke() (*model.UpdateOrchestrationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateOrchestrationResponse), nil
+	}
+}
+
 type UpdatePluginInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1466,6 +1658,18 @@ func (i *UpdateSignatureKeyV2Invoker) Invoke() (*model.UpdateSignatureKeyV2Respo
 		return nil, err
 	} else {
 		return result.(*model.UpdateSignatureKeyV2Response), nil
+	}
+}
+
+type UpdateSlDomainSettingV2Invoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateSlDomainSettingV2Invoker) Invoke() (*model.UpdateSlDomainSettingV2Response, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateSlDomainSettingV2Response), nil
 	}
 }
 

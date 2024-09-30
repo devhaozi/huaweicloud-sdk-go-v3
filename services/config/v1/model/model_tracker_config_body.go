@@ -12,8 +12,16 @@ type TrackerConfigBody struct {
 
 	Selector *SelectorConfigBody `json:"selector"`
 
+	// 存储历史信息的天数
+	RetentionPeriodInDays *int32 `json:"retention_period_in_days,omitempty"`
+
 	// IAM委托名称
 	AgencyName string `json:"agency_name"`
+
+	// 账号ID
+	DomainId *string `json:"domain_id,omitempty"`
+
+	FrozenStatus *FrozenStatus `json:"frozen_status,omitempty"`
 }
 
 func (o TrackerConfigBody) String() string {

@@ -47,6 +47,25 @@ func GenReqDefForBatchDeleteVolumeTags() *def.HttpRequestDef {
 	return requestDef
 }
 
+func GenReqDefForChangeVolumeChargeMode() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v2/{project_id}/cloudvolumes/change-charge-mode").
+		WithResponse(new(model.ChangeVolumeChargeModeResponse)).
+		WithContentType("application/json;charset=UTF-8")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
 func GenReqDefForCinderAcceptVolumeTransfer() *def.HttpRequestDef {
 	reqDefBuilder := def.NewHttpRequestDefBuilder().
 		WithMethod(http.MethodPost).
@@ -385,6 +404,10 @@ func GenReqDefForListVolumes() *def.HttpRequestDef {
 		WithName("ServerId").
 		WithJsonTag("server_id").
 		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SnapshotPolicyId").
+		WithJsonTag("snapshot_policy_id").
+		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -430,6 +453,26 @@ func GenReqDefForResizeVolume() *def.HttpRequestDef {
 		WithMethod(http.MethodPost).
 		WithPath("/v2.1/{project_id}/cloudvolumes/{volume_id}/action").
 		WithResponse(new(model.ResizeVolumeResponse)).
+		WithContentType("application/json;charset=UTF-8")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("VolumeId").
+		WithJsonTag("volume_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForRetypeVolume() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v2/{project_id}/volumes/{volume_id}/retype").
+		WithResponse(new(model.RetypeVolumeResponse)).
 		WithContentType("application/json;charset=UTF-8")
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
@@ -524,6 +567,25 @@ func GenReqDefForShowVolumeTags() *def.HttpRequestDef {
 		WithName("VolumeId").
 		WithJsonTag("volume_id").
 		WithLocationType(def.Path))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForUnsubscribePostpaidVolume() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v2/{project_id}/cloudvolumes/unsubscribe").
+		WithResponse(new(model.UnsubscribePostpaidVolumeResponse)).
+		WithContentType("application/json;charset=UTF-8")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef

@@ -19,6 +19,27 @@ func MeetingClientBuilder() *httpclient.HcHttpClientBuilder {
 	return builder
 }
 
+// AddAppId 添加企业应用
+//
+// 企业默认管理员添加应用，添加应用后，记录返回信息，后续可通过[[执行App ID鉴权](https://support.huaweicloud.com/api-meeting/meeting_21_0311.html)](tag:hws) [[执行App ID鉴权](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0311.html)](tag:hk)获取accessToken
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *MeetingClient) AddAppId(request *model.AddAppIdRequest) (*model.AddAppIdResponse, error) {
+	requestDef := GenReqDefForAddAppId()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.AddAppIdResponse), nil
+	}
+}
+
+// AddAppIdInvoker 添加企业应用
+func (c *MeetingClient) AddAppIdInvoker(request *model.AddAppIdRequest) *AddAppIdInvoker {
+	requestDef := GenReqDefForAddAppId()
+	return &AddAppIdInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // AddCorp SP管理员创建企业
 //
 // 创建企业，默认管理员及分配资源。
@@ -462,6 +483,27 @@ func (c *MeetingClient) BatchHandInvoker(request *model.BatchHandRequest) *Batch
 	return &BatchHandInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// BatchSearchAppId 分页查询企业应用
+//
+// 企业默认管理员分页查询企业应用
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *MeetingClient) BatchSearchAppId(request *model.BatchSearchAppIdRequest) (*model.BatchSearchAppIdResponse, error) {
+	requestDef := GenReqDefForBatchSearchAppId()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchSearchAppIdResponse), nil
+	}
+}
+
+// BatchSearchAppIdInvoker 分页查询企业应用
+func (c *MeetingClient) BatchSearchAppIdInvoker(request *model.BatchSearchAppIdRequest) *BatchSearchAppIdInvoker {
+	requestDef := GenReqDefForBatchSearchAppId()
+	return &BatchSearchAppIdInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // BatchShowUserDetails 批量查询用户详情
 //
 // 批量查询用户详情，支持指定第三方账号查询详情。
@@ -735,6 +777,27 @@ func (c *MeetingClient) CreateAnonymousAuthRandomInvoker(request *model.CreateAn
 	return &CreateAnonymousAuthRandomInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateAuthRandom 获取会议鉴权随机数
+//
+// 根据会议ID + 密码鉴权返回鉴权随机数，如果是小程序调用时，需要企业支持小程序功能
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *MeetingClient) CreateAuthRandom(request *model.CreateAuthRandomRequest) (*model.CreateAuthRandomResponse, error) {
+	requestDef := GenReqDefForCreateAuthRandom()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateAuthRandomResponse), nil
+	}
+}
+
+// CreateAuthRandomInvoker 获取会议鉴权随机数
+func (c *MeetingClient) CreateAuthRandomInvoker(request *model.CreateAuthRandomRequest) *CreateAuthRandomInvoker {
+	requestDef := GenReqDefForCreateAuthRandom()
+	return &CreateAuthRandomInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateConfToken 获取会控Token
 //
 // 该接口用于获取正在召开会议的会控Token（未开始的会议调用该接口返回失败）。Token有效期是半个小时。
@@ -880,6 +943,27 @@ func (c *MeetingClient) CreateWebinar(request *model.CreateWebinarRequest) (*mod
 func (c *MeetingClient) CreateWebinarInvoker(request *model.CreateWebinarRequest) *CreateWebinarInvoker {
 	requestDef := GenReqDefForCreateWebinar()
 	return &CreateWebinarInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteAppId 删除企业应用
+//
+// 企业管理员删除企业应用
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *MeetingClient) DeleteAppId(request *model.DeleteAppIdRequest) (*model.DeleteAppIdResponse, error) {
+	requestDef := GenReqDefForDeleteAppId()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteAppIdResponse), nil
+	}
+}
+
+// DeleteAppIdInvoker 删除企业应用
+func (c *MeetingClient) DeleteAppIdInvoker(request *model.DeleteAppIdRequest) *DeleteAppIdInvoker {
+	requestDef := GenReqDefForDeleteAppId()
+	return &DeleteAppIdInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // DeleteAttendees 删除与会者
@@ -1308,6 +1392,27 @@ func (c *MeetingClient) ListHistoryWebinarsInvoker(request *model.ListHistoryWeb
 	return &ListHistoryWebinarsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ListNetworkQuality 查询会场网络质量
+//
+// 查询会场网络质量
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *MeetingClient) ListNetworkQuality(request *model.ListNetworkQualityRequest) (*model.ListNetworkQualityResponse, error) {
+	requestDef := GenReqDefForListNetworkQuality()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListNetworkQualityResponse), nil
+	}
+}
+
+// ListNetworkQualityInvoker 查询会场网络质量
+func (c *MeetingClient) ListNetworkQualityInvoker(request *model.ListNetworkQualityRequest) *ListNetworkQualityInvoker {
+	requestDef := GenReqDefForListNetworkQuality()
+	return &ListNetworkQualityInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ListOngoingWebinars 查询正在召开的网络研讨会列表
 //
 // 该接口用于查询正在召开的网络研讨会。管理员可查询企业内正在召开网络研讨会，非管理员可查询自己预订的正在召开的网络研讨会。
@@ -1558,6 +1663,27 @@ func (c *MeetingClient) ResetActivecode(request *model.ResetActivecodeRequest) (
 func (c *MeetingClient) ResetActivecodeInvoker(request *model.ResetActivecodeRequest) *ResetActivecodeInvoker {
 	requestDef := GenReqDefForResetActivecode()
 	return &ResetActivecodeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ResetAppKey 重置企业应用appkey
+//
+// 企业默认管理员重置企业应用appkey
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *MeetingClient) ResetAppKey(request *model.ResetAppKeyRequest) (*model.ResetAppKeyResponse, error) {
+	requestDef := GenReqDefForResetAppKey()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ResetAppKeyResponse), nil
+	}
+}
+
+// ResetAppKeyInvoker 重置企业应用appkey
+func (c *MeetingClient) ResetAppKeyInvoker(request *model.ResetAppKeyRequest) *ResetAppKeyInvoker {
+	requestDef := GenReqDefForResetAppKey()
+	return &ResetAppKeyInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ResetPwd 用户重置密码
@@ -2935,6 +3061,27 @@ func (c *MeetingClient) ShowRealTimeInfoOfMeetingInvoker(request *model.ShowReal
 	return &ShowRealTimeInfoOfMeetingInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ShowRecordInfo 查询单会议录制文件信息
+//
+// 查询单会议录制文件信息
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *MeetingClient) ShowRecordInfo(request *model.ShowRecordInfoRequest) (*model.ShowRecordInfoResponse, error) {
+	requestDef := GenReqDefForShowRecordInfo()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowRecordInfoResponse), nil
+	}
+}
+
+// ShowRecordInfoInvoker 查询单会议录制文件信息
+func (c *MeetingClient) ShowRecordInfoInvoker(request *model.ShowRecordInfoRequest) *ShowRecordInfoInvoker {
+	requestDef := GenReqDefForShowRecordInfo()
+	return &ShowRecordInfoInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ShowRecordingDetail 查询录制详情
 //
 // 改接口用于查询某个会议录制的详情。
@@ -3211,6 +3358,27 @@ func (c *MeetingClient) SwitchMode(request *model.SwitchModeRequest) (*model.Swi
 func (c *MeetingClient) SwitchModeInvoker(request *model.SwitchModeRequest) *SwitchModeInvoker {
 	requestDef := GenReqDefForSwitchMode()
 	return &SwitchModeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UpdateAppId 修改企业应用
+//
+// 企业默认管理员修改企业应用
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *MeetingClient) UpdateAppId(request *model.UpdateAppIdRequest) (*model.UpdateAppIdResponse, error) {
+	requestDef := GenReqDefForUpdateAppId()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateAppIdResponse), nil
+	}
+}
+
+// UpdateAppIdInvoker 修改企业应用
+func (c *MeetingClient) UpdateAppIdInvoker(request *model.UpdateAppIdRequest) *UpdateAppIdInvoker {
+	requestDef := GenReqDefForUpdateAppId()
+	return &UpdateAppIdInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // UpdateContact 修改手机或邮箱

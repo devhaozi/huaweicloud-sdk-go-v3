@@ -137,6 +137,18 @@ func (i *ChangeVulStatusInvoker) Invoke() (*model.ChangeVulStatusResponse, error
 	}
 }
 
+type CreateQuotasOrderInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateQuotasOrderInvoker) Invoke() (*model.CreateQuotasOrderResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateQuotasOrderResponse), nil
+	}
+}
+
 type CreateVulnerabilityScanTaskInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -170,6 +182,18 @@ func (i *DeleteResourceInstanceTagInvoker) Invoke() (*model.DeleteResourceInstan
 		return nil, err
 	} else {
 		return result.(*model.DeleteResourceInstanceTagResponse), nil
+	}
+}
+
+type ExportVulsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ExportVulsInvoker) Invoke() (*model.ExportVulsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ExportVulsResponse), nil
 	}
 }
 
@@ -281,6 +305,30 @@ func (i *ListContainerNodesInvoker) Invoke() (*model.ListContainerNodesResponse,
 	}
 }
 
+type ListContainersInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListContainersInvoker) Invoke() (*model.ListContainersResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListContainersResponse), nil
+	}
+}
+
+type ListDownloadExportedFileInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListDownloadExportedFileInvoker) Invoke() (*model.ListDownloadExportedFileResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListDownloadExportedFileResponse), nil
+	}
+}
+
 type ListHostGroupsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -338,6 +386,18 @@ func (i *ListHostVulsInvoker) Invoke() (*model.ListHostVulsResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ListHostVulsResponse), nil
+	}
+}
+
+type ListImageLocalInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListImageLocalInvoker) Invoke() (*model.ListImageLocalResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListImageLocalResponse), nil
 	}
 }
 
@@ -518,6 +578,18 @@ func (i *ListProtectionServerInvoker) Invoke() (*model.ListProtectionServerRespo
 		return nil, err
 	} else {
 		return result.(*model.ListProtectionServerResponse), nil
+	}
+}
+
+type ListQueryExportTaskInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListQueryExportTaskInvoker) Invoke() (*model.ListQueryExportTaskResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListQueryExportTaskResponse), nil
 	}
 }
 
@@ -794,6 +866,18 @@ func (i *ShowImageCheckRuleDetailInvoker) Invoke() (*model.ShowImageCheckRuleDet
 		return nil, err
 	} else {
 		return result.(*model.ShowImageCheckRuleDetailResponse), nil
+	}
+}
+
+type ShowProductdataOfferingInfosInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowProductdataOfferingInfosInvoker) Invoke() (*model.ShowProductdataOfferingInfosResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowProductdataOfferingInfosResponse), nil
 	}
 }
 

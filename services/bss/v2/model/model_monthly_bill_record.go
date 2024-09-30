@@ -2,6 +2,7 @@ package model
 
 import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/utils"
+	"github.com/shopspring/decimal"
 
 	"strings"
 )
@@ -35,7 +36,7 @@ type MonthlyBillRecord struct {
 	// 企业项目的名称。
 	EnterpriseProjectName *string `json:"enterprise_project_name,omitempty"`
 
-	// 计费模式。 1：包年/包月3：按需10：预留实例
+	// 计费模式。 1：包年/包月3：按需10：预留实例11：节省计划
 	ChargingMode *int32 `json:"charging_mode,omitempty"`
 
 	// 消费时间。 计费模式为包年/包月和预留实例场景时为订单的支付时间。计费模式为按需场景时为话单的生/失效时间。
@@ -50,47 +51,50 @@ type MonthlyBillRecord struct {
 	// 订单ID或交易ID，扣费维度的唯一标识。
 	TradeId *string `json:"trade_id,omitempty"`
 
-	// 账单类型。 1：消费-新购2：消费-续订3：消费-变更4：退款-退订5：消费-使用8：消费-自动续订9：调账-补偿14：消费-服务支持计划月末扣费16：调账-扣费18：消费-按月付费20：退款-变更
+	// 唯一标识。 该字段为预留字段。
+	Id *string `json:"id,omitempty"`
+
+	// 账单类型。 1：消费-新购2：消费-续订3：消费-变更4：退款-退订5：消费-使用8：消费-自动续订9：调账-补偿14：消费-服务支持计划月末扣费16：调账-扣费18：消费-按月付费20：退款-变更23：消费-节省计划抵扣24：退款-包年/包月转按需
 	BillType *int32 `json:"bill_type,omitempty"`
 
 	// 支付状态。 1：已支付2：未结清3：未结算
 	Status *int32 `json:"status,omitempty"`
 
 	// 官网价。单位：元。  说明： official_amount = official_discount_amount + erase_amount + consume_amount
-	OfficialAmount *float64 `json:"official_amount,omitempty"`
+	OfficialAmount *decimal.Decimal `json:"official_amount,omitempty"`
 
 	// 折扣金额。单位：元。
-	OfficialDiscountAmount *float64 `json:"official_discount_amount,omitempty"`
+	OfficialDiscountAmount *decimal.Decimal `json:"official_discount_amount,omitempty"`
 
 	// 抹零金额。单位：元。
-	EraseAmount *float64 `json:"erase_amount,omitempty"`
+	EraseAmount *decimal.Decimal `json:"erase_amount,omitempty"`
 
 	// 应付金额，包括现金券和储值卡和代金券金额。单位：元。  说明： consume_amount的值等于cash_amount，credit_amount，coupon_amount，flexipurchase_coupon_amount，stored_value_card_amount，bonus_amount，debt_amount，writeoff_amount的总和。
-	ConsumeAmount *float64 `json:"consume_amount,omitempty"`
+	ConsumeAmount *decimal.Decimal `json:"consume_amount,omitempty"`
 
 	// 现金支付金额。单位：元.
-	CashAmount *float64 `json:"cash_amount,omitempty"`
+	CashAmount *decimal.Decimal `json:"cash_amount,omitempty"`
 
 	// 信用额度支付金额。单位：元。
-	CreditAmount *float64 `json:"credit_amount,omitempty"`
+	CreditAmount *decimal.Decimal `json:"credit_amount,omitempty"`
 
 	// 代金券支付金额。单位：元。
-	CouponAmount *float64 `json:"coupon_amount,omitempty"`
+	CouponAmount *decimal.Decimal `json:"coupon_amount,omitempty"`
 
 	// 现金券支付金额。单位：元。
-	FlexipurchaseCouponAmount *float64 `json:"flexipurchase_coupon_amount,omitempty"`
+	FlexipurchaseCouponAmount *decimal.Decimal `json:"flexipurchase_coupon_amount,omitempty"`
 
 	// 储值卡支付金额。单位：元。
-	StoredValueCardAmount *float64 `json:"stored_value_card_amount,omitempty"`
+	StoredValueCardAmount *decimal.Decimal `json:"stored_value_card_amount,omitempty"`
 
 	// 奖励金支付金额（奖励金已经下线，目前用于现网客户未使用完的奖励金）。单位：元。
-	BonusAmount *float64 `json:"bonus_amount,omitempty"`
+	BonusAmount *decimal.Decimal `json:"bonus_amount,omitempty"`
 
 	// 欠费金额。单位：元。  说明： 对于月结客户，欠费金额即页面上的月度结算金额。
-	DebtAmount *float64 `json:"debt_amount,omitempty"`
+	DebtAmount *decimal.Decimal `json:"debt_amount,omitempty"`
 
 	// 欠费核销金额。单位：元。
-	WriteoffAmount *float64 `json:"writeoff_amount,omitempty"`
+	WriteoffAmount *decimal.Decimal `json:"writeoff_amount,omitempty"`
 
 	// 云服务区名称，例如：“华北-北京一”。具体请参见地区和终端节点对应云服务的“区域名称”列的值。
 	RegionName *string `json:"region_name,omitempty"`

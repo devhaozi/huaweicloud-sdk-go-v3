@@ -124,6 +124,48 @@ func (c *IoTEdgeClient) ShowEdgeNodeInvoker(request *model.ShowEdgeNodeRequest) 
 	return &ShowEdgeNodeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ShowEdgeNodeHostsInfo 查询边缘节点下的主机详情
+//
+// 查询边缘节点下的主机详情
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *IoTEdgeClient) ShowEdgeNodeHostsInfo(request *model.ShowEdgeNodeHostsInfoRequest) (*model.ShowEdgeNodeHostsInfoResponse, error) {
+	requestDef := GenReqDefForShowEdgeNodeHostsInfo()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowEdgeNodeHostsInfoResponse), nil
+	}
+}
+
+// ShowEdgeNodeHostsInfoInvoker 查询边缘节点下的主机详情
+func (c *IoTEdgeClient) ShowEdgeNodeHostsInfoInvoker(request *model.ShowEdgeNodeHostsInfoRequest) *ShowEdgeNodeHostsInfoInvoker {
+	requestDef := GenReqDefForShowEdgeNodeHostsInfo()
+	return &ShowEdgeNodeHostsInfoInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UpdateEdgeNode 修改边缘节点
+//
+// 修改边缘节点
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *IoTEdgeClient) UpdateEdgeNode(request *model.UpdateEdgeNodeRequest) (*model.UpdateEdgeNodeResponse, error) {
+	requestDef := GenReqDefForUpdateEdgeNode()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateEdgeNodeResponse), nil
+	}
+}
+
+// UpdateEdgeNodeInvoker 修改边缘节点
+func (c *IoTEdgeClient) UpdateEdgeNodeInvoker(request *model.UpdateEdgeNodeRequest) *UpdateEdgeNodeInvoker {
+	requestDef := GenReqDefForUpdateEdgeNode()
+	return &UpdateEdgeNodeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ExecuteDeviceControlsRelease 设备控制释放
 //
 // 设备控制释放
@@ -164,6 +206,27 @@ func (c *IoTEdgeClient) ExecuteDeviceControlsSet(request *model.ExecuteDeviceCon
 func (c *IoTEdgeClient) ExecuteDeviceControlsSetInvoker(request *model.ExecuteDeviceControlsSetRequest) *ExecuteDeviceControlsSetInvoker {
 	requestDef := GenReqDefForExecuteDeviceControlsSet()
 	return &ExecuteDeviceControlsSetInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// SetDeviceControlDefaultValues 设备控制默认值
+//
+// 设备控制默认值
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *IoTEdgeClient) SetDeviceControlDefaultValues(request *model.SetDeviceControlDefaultValuesRequest) (*model.SetDeviceControlDefaultValuesResponse, error) {
+	requestDef := GenReqDefForSetDeviceControlDefaultValues()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.SetDeviceControlDefaultValuesResponse), nil
+	}
+}
+
+// SetDeviceControlDefaultValuesInvoker 设备控制默认值
+func (c *IoTEdgeClient) SetDeviceControlDefaultValuesInvoker(request *model.SetDeviceControlDefaultValuesRequest) *SetDeviceControlDefaultValuesInvoker {
+	requestDef := GenReqDefForSetDeviceControlDefaultValues()
+	return &SetDeviceControlDefaultValuesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // AddDevice 添加设备
@@ -796,6 +859,27 @@ func (c *IoTEdgeClient) DeleteDcPointInvoker(request *model.DeleteDcPointRequest
 	return &DeleteDcPointInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// DeleteDcPoints 批量删除点位表配置
+//
+// 批量删除点位表配置
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *IoTEdgeClient) DeleteDcPoints(request *model.DeleteDcPointsRequest) (*model.DeleteDcPointsResponse, error) {
+	requestDef := GenReqDefForDeleteDcPoints()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteDcPointsResponse), nil
+	}
+}
+
+// DeleteDcPointsInvoker 批量删除点位表配置
+func (c *IoTEdgeClient) DeleteDcPointsInvoker(request *model.DeleteDcPointsRequest) *DeleteDcPointsInvoker {
+	requestDef := GenReqDefForDeleteDcPoints()
+	return &DeleteDcPointsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ShowDcPoint 查询点位表配置详情
 //
 // 查询点位表配置详情
@@ -983,6 +1067,27 @@ func (c *IoTEdgeClient) DeleteModule(request *model.DeleteModuleRequest) (*model
 func (c *IoTEdgeClient) DeleteModuleInvoker(request *model.DeleteModuleRequest) *DeleteModuleInvoker {
 	requestDef := GenReqDefForDeleteModule()
 	return &DeleteModuleInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// InvokeModuleMsg 代理边缘模块消息
+//
+// iotedge通过该接口透明代理用户到模块的请求
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *IoTEdgeClient) InvokeModuleMsg(request *model.InvokeModuleMsgRequest) (*model.InvokeModuleMsgResponse, error) {
+	requestDef := GenReqDefForInvokeModuleMsg()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.InvokeModuleMsgResponse), nil
+	}
+}
+
+// InvokeModuleMsgInvoker 代理边缘模块消息
+func (c *IoTEdgeClient) InvokeModuleMsgInvoker(request *model.InvokeModuleMsgRequest) *InvokeModuleMsgInvoker {
+	requestDef := GenReqDefForInvokeModuleMsg()
+	return &InvokeModuleMsgInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowModule 查询边缘模块

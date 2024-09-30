@@ -42,7 +42,7 @@ type CreateJobReq struct {
 	// 节点个数。MongoDB数据库时对应源端分片个数，源库为集群时必填，[1-32]，MySQL双主灾备时会默认设置为2。
 	NodeNum *int32 `json:"node_num,omitempty"`
 
-	// 规格类型。
+	// 规格类型。取值： - micro：极小规格。 - small：小规格。 - medium：中规格。 - high：大规格。 - xlarge：超大规格。 - 2xlarge：极大规格。 具体某种场景支持的取值可以通过[查询可用的Node规格接口](https://support.huaweicloud.com/api-drs/drs_03_0239.html)获取。
 	NodeType CreateJobReqNodeType `json:"node_type"`
 
 	SourceEndpoint *Endpoint `json:"source_endpoint"`
@@ -61,7 +61,7 @@ type CreateJobReq struct {
 	// 产品id。
 	ProductId *string `json:"product_id,omitempty"`
 
-	// 企业项目，不填默认为default，key值必须为_sys_enterprise_project_id，value为企业项目ID，只能有一个企业项目。
+	// 企业项目，不填默认为default，key值必须为_sys_enterprise_project_id，value为企业项目ID，只能填一个企业项目。
 	SysTags *[]ResourceTag `json:"sys_tags,omitempty"`
 
 	// 任务处于异常状态一段时间后，将会自动结束，单位为天。(范围14-100)，不传默认为14天。
@@ -77,6 +77,12 @@ type CreateJobReq struct {
 	ChargingMode *CreateJobReqChargingMode `json:"charging_mode,omitempty"`
 
 	PeriodOrder *PeriodOrderInfo `json:"period_order,omitempty"`
+
+	// 指定公网IP的信息。
+	PublicIpList *[]PublicIpConfig `json:"public_ip_list,omitempty"`
+
+	// 是否开启云数据库RDS for MySQL/MariaDB的binlog快速清理。不传默认为false，不开启快速清理。
+	IsOpenFastClean *bool `json:"is_open_fast_clean,omitempty"`
 }
 
 func (o CreateJobReq) String() string {
@@ -317,13 +323,33 @@ type CreateJobReqNodeType struct {
 }
 
 type CreateJobReqNodeTypeEnum struct {
-	HIGH CreateJobReqNodeType
+	MICRO     CreateJobReqNodeType
+	SMALL     CreateJobReqNodeType
+	MEDIUM    CreateJobReqNodeType
+	HIGH      CreateJobReqNodeType
+	XLARGE    CreateJobReqNodeType
+	E_2XLARGE CreateJobReqNodeType
 }
 
 func GetCreateJobReqNodeTypeEnum() CreateJobReqNodeTypeEnum {
 	return CreateJobReqNodeTypeEnum{
+		MICRO: CreateJobReqNodeType{
+			value: "micro",
+		},
+		SMALL: CreateJobReqNodeType{
+			value: "small",
+		},
+		MEDIUM: CreateJobReqNodeType{
+			value: "medium",
+		},
 		HIGH: CreateJobReqNodeType{
 			value: "high",
+		},
+		XLARGE: CreateJobReqNodeType{
+			value: "xlarge",
+		},
+		E_2XLARGE: CreateJobReqNodeType{
+			value: "2xlarge",
 		},
 	}
 }

@@ -10,7 +10,7 @@ import (
 type RegisterOrganizationalUnitRequest struct {
 
 	// 注册OU ID。
-	OrganizationUnitId string `json:"organization_unit_id"`
+	OrganizationalUnitId string `json:"organizational_unit_id"`
 }
 
 func (o RegisterOrganizationalUnitRequest) String() string {

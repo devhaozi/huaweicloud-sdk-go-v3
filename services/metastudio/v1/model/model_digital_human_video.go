@@ -15,7 +15,7 @@ type DigitalHumanVideo struct {
 	// 任务ID。
 	JobId string `json:"job_id"`
 
-	// 任务的状态。 * WAITING：等待 * PROCESSING：处理中 * SUCCEED：成功 * FAILED：失败 * CANCELED：取消
+	// 任务的状态。 * WAITING：等待 * PROCESSING：处理中 * SUCCEED：成功 * FAILED：失败 * CANCELED：取消 * BLOCK: 冻结
 	State DigitalHumanVideoState `json:"state"`
 
 	// 任务类型。 * 2D_DIGITAL_HUMAN_VIDEO: 分身数字人视频制作任务 * PHOTO_DIGITAL_HUMAN_VIDEO: 照片数字人视频制作任务
@@ -27,7 +27,7 @@ type DigitalHumanVideo struct {
 	// 数字人视频制作结束时间。
 	EndTime *string `json:"end_time,omitempty"`
 
-	// 数字人视频内容时长。
+	// **参数解释**： 数字人视频内容时长。
 	Duration *float32 `json:"duration,omitempty"`
 
 	OutputAssetConfig *OutputAssetInfo `json:"output_asset_config,omitempty"`
@@ -60,6 +60,7 @@ type DigitalHumanVideoStateEnum struct {
 	SUCCEED    DigitalHumanVideoState
 	FAILED     DigitalHumanVideoState
 	CANCELED   DigitalHumanVideoState
+	BLOCK      DigitalHumanVideoState
 }
 
 func GetDigitalHumanVideoStateEnum() DigitalHumanVideoStateEnum {
@@ -78,6 +79,9 @@ func GetDigitalHumanVideoStateEnum() DigitalHumanVideoStateEnum {
 		},
 		CANCELED: DigitalHumanVideoState{
 			value: "CANCELED",
+		},
+		BLOCK: DigitalHumanVideoState{
+			value: "BLOCK",
 		},
 	}
 }

@@ -28,8 +28,15 @@ type ActionParams struct {
 	// 再编辑任务启动时取值true。
 	IsSyncReEdit *bool `json:"is_sync_re_edit,omitempty"`
 
+	// 是否支持只初始化任务。仅支持白名单用户使用，需要提交工单申请才能使用。
+	IsOnlyInitTask *bool `json:"is_only_init_task,omitempty"`
+
 	// 强制结束时取值为true。
 	ForceDelete *bool `json:"force_delete,omitempty"`
+
+	PublicIpConfig *PublicIpConfig `json:"public_ip_config,omitempty"`
+
+	ReplayConfig *ReplayConfigInfo `json:"replay_config,omitempty"`
 }
 
 func (o ActionParams) String() string {

@@ -137,6 +137,18 @@ func (i *CreateComponentInvoker) Invoke() (*model.CreateComponentResponse, error
 	}
 }
 
+type CreateComponentWithConfigurationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateComponentWithConfigurationInvoker) Invoke() (*model.CreateComponentWithConfigurationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateComponentWithConfigurationResponse), nil
+	}
+}
+
 type DeleteComponentInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -158,18 +170,6 @@ func (i *ExecuteActionInvoker) Invoke() (*model.ExecuteActionResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ExecuteActionResponse), nil
-	}
-}
-
-type ListComponentEventsInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ListComponentEventsInvoker) Invoke() (*model.ListComponentEventsResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ListComponentEventsResponse), nil
 	}
 }
 
@@ -425,6 +425,66 @@ func (i *UpdateMonitorSystemInvoker) Invoke() (*model.UpdateMonitorSystemRespons
 	}
 }
 
+type CreateNoticeRuleInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateNoticeRuleInvoker) Invoke() (*model.CreateNoticeRuleResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateNoticeRuleResponse), nil
+	}
+}
+
+type DeleteNoticeRuleInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteNoticeRuleInvoker) Invoke() (*model.DeleteNoticeRuleResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteNoticeRuleResponse), nil
+	}
+}
+
+type ListNoticeRulesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListNoticeRulesInvoker) Invoke() (*model.ListNoticeRulesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListNoticeRulesResponse), nil
+	}
+}
+
+type ShowNoticeRuleInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowNoticeRuleInvoker) Invoke() (*model.ShowNoticeRuleResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowNoticeRuleResponse), nil
+	}
+}
+
+type UpdateNoticeRuleInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateNoticeRuleInvoker) Invoke() (*model.UpdateNoticeRuleResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateNoticeRuleResponse), nil
+	}
+}
+
 type CreateTimerRuleInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -518,5 +578,41 @@ func (i *ListVolumesInvoker) Invoke() (*model.ListVolumesResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ListVolumesResponse), nil
+	}
+}
+
+type CreateVpcEgressInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateVpcEgressInvoker) Invoke() (*model.CreateVpcEgressResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateVpcEgressResponse), nil
+	}
+}
+
+type DeleteVpcEgressInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteVpcEgressInvoker) Invoke() (*model.DeleteVpcEgressResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteVpcEgressResponse), nil
+	}
+}
+
+type ListVpcEgressInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListVpcEgressInvoker) Invoke() (*model.ListVpcEgressResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListVpcEgressResponse), nil
 	}
 }

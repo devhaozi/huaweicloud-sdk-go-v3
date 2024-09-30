@@ -10,6 +10,7 @@ import (
 
 // AnalyzerSummary 包含有关分析器的信息。
 type AnalyzerSummary struct {
+	Configuration *AnalyzerConfiguration `json:"configuration,omitempty"`
 
 	// 分析器创建的时间。
 	CreatedAt *sdktime.SdkTime `json:"created_at"`
@@ -17,25 +18,29 @@ type AnalyzerSummary struct {
 	// 分析器的唯一标识符。
 	Id string `json:"id"`
 
-	// 唯一的资源名称。
+	// 最近分析的资源的唯一资源标识符。
 	LastAnalyzedResource *string `json:"last_analyzed_resource,omitempty"`
 
-	// 分析最近分析的资源的时间。
+	// 最近一次分析资源的时间。
 	LastResourceAnalyzedAt *sdktime.SdkTime `json:"last_resource_analyzed_at,omitempty"`
 
 	// 分析器的名称。
 	Name string `json:"name"`
 
-	// 分析器的状态
+	// 组织ID。
+	OrganizationId *string `json:"organization_id,omitempty"`
+
+	// 分析器的状态。
 	Status AnalyzerSummaryStatus `json:"status"`
 
 	StatusReason *StatusReason `json:"status_reason,omitempty"`
 
+	// 自定义标签列表。
 	Tags *[]Tag `json:"tags,omitempty"`
 
 	Type *AnalyzerType `json:"type"`
 
-	// 唯一的资源名称。
+	// 分析器的唯一资源标识符。
 	Urn string `json:"urn"`
 }
 
@@ -55,6 +60,7 @@ type AnalyzerSummaryStatus struct {
 type AnalyzerSummaryStatusEnum struct {
 	ACTIVE   AnalyzerSummaryStatus
 	CREATING AnalyzerSummaryStatus
+	DISABLED AnalyzerSummaryStatus
 	FAILED   AnalyzerSummaryStatus
 }
 
@@ -65,6 +71,9 @@ func GetAnalyzerSummaryStatusEnum() AnalyzerSummaryStatusEnum {
 		},
 		CREATING: AnalyzerSummaryStatus{
 			value: "creating",
+		},
+		DISABLED: AnalyzerSummaryStatus{
+			value: "disabled",
 		},
 		FAILED: AnalyzerSummaryStatus{
 			value: "failed",

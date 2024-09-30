@@ -257,6 +257,27 @@ func (c *DwsClient) CancelReadonlyClusterInvoker(request *model.CancelReadonlyCl
 	return &CancelReadonlyClusterInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ChangeSecurityGroup 修改集群安全组
+//
+// 该接口用于修改集群安全组
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DwsClient) ChangeSecurityGroup(request *model.ChangeSecurityGroupRequest) (*model.ChangeSecurityGroupResponse, error) {
+	requestDef := GenReqDefForChangeSecurityGroup()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ChangeSecurityGroupResponse), nil
+	}
+}
+
+// ChangeSecurityGroupInvoker 修改集群安全组
+func (c *DwsClient) ChangeSecurityGroupInvoker(request *model.ChangeSecurityGroupRequest) *ChangeSecurityGroupInvoker {
+	requestDef := GenReqDefForChangeSecurityGroup()
+	return &ChangeSecurityGroupInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CheckCluster 创建集群前检查
 //
 // 创建集群前预检查
@@ -917,9 +938,9 @@ func (c *DwsClient) DeleteWorkloadPlanStageInvoker(request *model.DeleteWorkload
 	return &DeleteWorkloadPlanStageInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
-// DeleteWorkloadQueue 删除工作负载队列
+// DeleteWorkloadQueue 删除资源池
 //
-// 该接口用于删除工作负载队列。
+// 该接口用于删除资源池。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *DwsClient) DeleteWorkloadQueue(request *model.DeleteWorkloadQueueRequest) (*model.DeleteWorkloadQueueResponse, error) {
@@ -932,7 +953,7 @@ func (c *DwsClient) DeleteWorkloadQueue(request *model.DeleteWorkloadQueueReques
 	}
 }
 
-// DeleteWorkloadQueueInvoker 删除工作负载队列
+// DeleteWorkloadQueueInvoker 删除资源池
 func (c *DwsClient) DeleteWorkloadQueueInvoker(request *model.DeleteWorkloadQueueRequest) *DeleteWorkloadQueueInvoker {
 	requestDef := GenReqDefForDeleteWorkloadQueue()
 	return &DeleteWorkloadQueueInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
@@ -1870,6 +1891,48 @@ func (c *DwsClient) ListLtsLogsInvoker(request *model.ListLtsLogsRequest) *ListL
 	return &ListLtsLogsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ListMetrics 查询集群使用指标列表
+//
+// 查询集群使用指标列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DwsClient) ListMetrics(request *model.ListMetricsRequest) (*model.ListMetricsResponse, error) {
+	requestDef := GenReqDefForListMetrics()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListMetricsResponse), nil
+	}
+}
+
+// ListMetricsInvoker 查询集群使用指标列表
+func (c *DwsClient) ListMetricsInvoker(request *model.ListMetricsRequest) *ListMetricsInvoker {
+	requestDef := GenReqDefForListMetrics()
+	return &ListMetricsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListMetricsData 获取指定指标相关采集数据
+//
+// 获取指定指标相关采集数据
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DwsClient) ListMetricsData(request *model.ListMetricsDataRequest) (*model.ListMetricsDataResponse, error) {
+	requestDef := GenReqDefForListMetricsData()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListMetricsDataResponse), nil
+	}
+}
+
+// ListMetricsDataInvoker 获取指定指标相关采集数据
+func (c *DwsClient) ListMetricsDataInvoker(request *model.ListMetricsDataRequest) *ListMetricsDataInvoker {
+	requestDef := GenReqDefForListMetricsData()
+	return &ListMetricsDataInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ListMonitorIndicatorData openApi查询历史监控数据
 //
 // openApi查询历史监控数据
@@ -2567,6 +2630,27 @@ func (c *DwsClient) SaveClusterDescriptionInfo(request *model.SaveClusterDescrip
 func (c *DwsClient) SaveClusterDescriptionInfoInvoker(request *model.SaveClusterDescriptionInfoRequest) *SaveClusterDescriptionInfoInvoker {
 	requestDef := GenReqDefForSaveClusterDescriptionInfo()
 	return &SaveClusterDescriptionInfoInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowClusterFlavor 查询集群规格详情
+//
+// 查询集群使用的规格详情
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DwsClient) ShowClusterFlavor(request *model.ShowClusterFlavorRequest) (*model.ShowClusterFlavorResponse, error) {
+	requestDef := GenReqDefForShowClusterFlavor()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowClusterFlavorResponse), nil
+	}
+}
+
+// ShowClusterFlavorInvoker 查询集群规格详情
+func (c *DwsClient) ShowClusterFlavorInvoker(request *model.ShowClusterFlavorRequest) *ShowClusterFlavorInvoker {
+	requestDef := GenReqDefForShowClusterFlavor()
+	return &ShowClusterFlavorInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowClusterRedistribution 查询重分布详情

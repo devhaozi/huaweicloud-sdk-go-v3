@@ -14,7 +14,7 @@ type UpdateFunctionConfigRequestBody struct {
 	// 函数名称。
 	FuncName string `json:"func_name"`
 
-	// FunctionGraph函数的执行环境 Python2.7: Python语言2.7版本。 Python3.6: Pyton语言3.6版本。 Python3.9: Python语言3.9版本。 Go1.8: Go语言1.8版本。 Go1.x: Go语言1.x版本。 Java8: Java语言8版本。 Java11: Java语言11版本。 Node.js6.10: Nodejs语言6.10版本。 Node.js8.10: Nodejs语言8.10版本。 Node.js10.16: Nodejs语言10.16版本。 Node.js12.13: Nodejs语言12.13版本。 Node.js14.18: Nodejs语言14.18版本。 C#(.NET Core 2.0): C#语言2.0版本。 C#(.NET Core 2.1): C#语言2.1版本。 C#(.NET Core 3.1): C#语言3.1版本。 Custom: 自定义运行时。 PHP7.3: Php语言7.3版本。 http: HTTP函数。
+	// FunctionGraph函数的执行环境 Java8: Java语言8版本。 Java11: Java语言11版本。 Java17: Java语言17版本（当前仅支持华北-乌兰察布二零二） Python2.7: Python语言2.7版本。 Python3.6: Pyton语言3.6版本。 Python3.9: Python语言3.9版本。 Python3.10: Python语言3.10版本。 Go1.8: Go语言1.8版本。 Go1.x: Go语言1.x版本。 Node.js6.10: Nodejs语言6.10版本。 Node.js8.10: Nodejs语言8.10版本。 Node.js10.16: Nodejs语言10.16版本。 Node.js12.13: Nodejs语言12.13版本。 Node.js14.18: Nodejs语言14.18版本。 Node.js16.17: Nodejs语言16.17版本。 Node.js18.15: Nodejs语言18.15版本。 C#(.NET Core 2.0): C#语言2.0版本。 C#(.NET Core 2.1): C#语言2.1版本。 C#(.NET Core 3.1): C#语言3.1版本。 C#(.NET Core 6.0): C#语言6.0版本（当前仅支持华北-乌兰察布二零二）。 Custom: 自定义运行时。 PHP7.3: Php语言7.3版本。 Cangjie1.0：仓颉语言1.0版本。 http: HTTP函数。 Custom Image: 自定义镜像函数。
 	Runtime UpdateFunctionConfigRequestBodyRuntime `json:"runtime"`
 
 	// 函数执行超时时间，超时函数将被强行停止，范围3～259200秒。
@@ -28,6 +28,9 @@ type UpdateFunctionConfigRequestBody struct {
 
 	// 函数消耗的显存，只支持自定义运行时与自定义镜像函数配置GPU。 单位MB。 取值范围为：1024、2048、3072、4096、5120、6144、7168、8192、9216、10240、11264、12288、13312、14336、15360、16384。 最小值为1024，最大值为16384。
 	GpuMemory *int32 `json:"gpu_memory,omitempty"`
+
+	// 显卡类型。
+	GpuType *string `json:"gpu_type,omitempty"`
 
 	// 用户自定义的name/value信息。 在函数中使用的参数。 举例：如函数要访问某个主机，可以设置自定义参数：Host={host_ip}，最多定义20个，总长度不超过4KB。
 	UserData *string `json:"user_data,omitempty"`
@@ -100,9 +103,6 @@ type UpdateFunctionConfigRequestBody struct {
 
 	// 类隔离开关，只支持JAVA运行时配置。开启类隔离后可以支持Kafka转储并提升类加载效率，但也可能会导致某些兼容性问题，请谨慎开启。
 	EnableClassIsolation *bool `json:"enable_class_isolation,omitempty"`
-
-	// 显卡类型。
-	GpuType *string `json:"gpu_type,omitempty"`
 }
 
 func (o UpdateFunctionConfigRequestBody) String() string {
@@ -121,22 +121,29 @@ type UpdateFunctionConfigRequestBodyRuntime struct {
 type UpdateFunctionConfigRequestBodyRuntimeEnum struct {
 	JAVA8           UpdateFunctionConfigRequestBodyRuntime
 	JAVA11          UpdateFunctionConfigRequestBodyRuntime
+	JAVA17          UpdateFunctionConfigRequestBodyRuntime
+	PYTHON2_7       UpdateFunctionConfigRequestBodyRuntime
+	PYTHON3_6       UpdateFunctionConfigRequestBodyRuntime
+	PYTHON3_9       UpdateFunctionConfigRequestBodyRuntime
+	PYTHON3_10      UpdateFunctionConfigRequestBodyRuntime
+	GO1_8           UpdateFunctionConfigRequestBodyRuntime
+	GO1_X           UpdateFunctionConfigRequestBodyRuntime
 	NODE_JS6_10     UpdateFunctionConfigRequestBodyRuntime
 	NODE_JS8_10     UpdateFunctionConfigRequestBodyRuntime
 	NODE_JS10_16    UpdateFunctionConfigRequestBodyRuntime
 	NODE_JS12_13    UpdateFunctionConfigRequestBodyRuntime
 	NODE_JS14_18    UpdateFunctionConfigRequestBodyRuntime
-	PYTHON2_7       UpdateFunctionConfigRequestBodyRuntime
-	PYTHON3_6       UpdateFunctionConfigRequestBodyRuntime
-	GO1_8           UpdateFunctionConfigRequestBodyRuntime
-	GO1_X           UpdateFunctionConfigRequestBodyRuntime
+	NODE_JS16_17    UpdateFunctionConfigRequestBodyRuntime
+	NODE_JS18_15    UpdateFunctionConfigRequestBodyRuntime
 	C__NET_CORE_2_0 UpdateFunctionConfigRequestBodyRuntime
 	C__NET_CORE_2_1 UpdateFunctionConfigRequestBodyRuntime
 	C__NET_CORE_3_1 UpdateFunctionConfigRequestBodyRuntime
-	PHP7_3          UpdateFunctionConfigRequestBodyRuntime
-	PYTHON3_9       UpdateFunctionConfigRequestBodyRuntime
+	C__NET_CORE_6_0 UpdateFunctionConfigRequestBodyRuntime
 	CUSTOM          UpdateFunctionConfigRequestBodyRuntime
+	PHP7_3          UpdateFunctionConfigRequestBodyRuntime
+	CANGJIE1_0      UpdateFunctionConfigRequestBodyRuntime
 	HTTP            UpdateFunctionConfigRequestBodyRuntime
+	CUSTOM_IMAGE    UpdateFunctionConfigRequestBodyRuntime
 }
 
 func GetUpdateFunctionConfigRequestBodyRuntimeEnum() UpdateFunctionConfigRequestBodyRuntimeEnum {
@@ -146,6 +153,27 @@ func GetUpdateFunctionConfigRequestBodyRuntimeEnum() UpdateFunctionConfigRequest
 		},
 		JAVA11: UpdateFunctionConfigRequestBodyRuntime{
 			value: "Java11",
+		},
+		JAVA17: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Java17",
+		},
+		PYTHON2_7: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Python2.7",
+		},
+		PYTHON3_6: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Python3.6",
+		},
+		PYTHON3_9: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Python3.9",
+		},
+		PYTHON3_10: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Python3.10",
+		},
+		GO1_8: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Go1.8",
+		},
+		GO1_X: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Go1.x",
 		},
 		NODE_JS6_10: UpdateFunctionConfigRequestBodyRuntime{
 			value: "Node.js6.10",
@@ -162,17 +190,11 @@ func GetUpdateFunctionConfigRequestBodyRuntimeEnum() UpdateFunctionConfigRequest
 		NODE_JS14_18: UpdateFunctionConfigRequestBodyRuntime{
 			value: "Node.js14.18",
 		},
-		PYTHON2_7: UpdateFunctionConfigRequestBodyRuntime{
-			value: "Python2.7",
+		NODE_JS16_17: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Node.js16.17",
 		},
-		PYTHON3_6: UpdateFunctionConfigRequestBodyRuntime{
-			value: "Python3.6",
-		},
-		GO1_8: UpdateFunctionConfigRequestBodyRuntime{
-			value: "Go1.8",
-		},
-		GO1_X: UpdateFunctionConfigRequestBodyRuntime{
-			value: "Go1.x",
+		NODE_JS18_15: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Node.js18.15",
 		},
 		C__NET_CORE_2_0: UpdateFunctionConfigRequestBodyRuntime{
 			value: "C#(.NET Core 2.0)",
@@ -183,17 +205,23 @@ func GetUpdateFunctionConfigRequestBodyRuntimeEnum() UpdateFunctionConfigRequest
 		C__NET_CORE_3_1: UpdateFunctionConfigRequestBodyRuntime{
 			value: "C#(.NET Core 3.1)",
 		},
-		PHP7_3: UpdateFunctionConfigRequestBodyRuntime{
-			value: "PHP7.3",
-		},
-		PYTHON3_9: UpdateFunctionConfigRequestBodyRuntime{
-			value: "Python3.9",
+		C__NET_CORE_6_0: UpdateFunctionConfigRequestBodyRuntime{
+			value: "C#(.NET Core 6.0)",
 		},
 		CUSTOM: UpdateFunctionConfigRequestBodyRuntime{
 			value: "Custom",
 		},
+		PHP7_3: UpdateFunctionConfigRequestBodyRuntime{
+			value: "PHP7.3",
+		},
+		CANGJIE1_0: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Cangjie1.0",
+		},
 		HTTP: UpdateFunctionConfigRequestBodyRuntime{
 			value: "http",
+		},
+		CUSTOM_IMAGE: UpdateFunctionConfigRequestBodyRuntime{
+			value: "Custom Image",
 		},
 	}
 }

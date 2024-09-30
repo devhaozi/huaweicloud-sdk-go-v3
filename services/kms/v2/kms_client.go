@@ -586,6 +586,27 @@ func (c *KmsClient) EncryptDatakeyInvoker(request *model.EncryptDatakeyRequest) 
 	return &EncryptDatakeyInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// GenerateMac 生成消息验证码
+//
+// 功能介绍：生成消息验证码
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *KmsClient) GenerateMac(request *model.GenerateMacRequest) (*model.GenerateMacResponse, error) {
+	requestDef := GenReqDefForGenerateMac()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.GenerateMacResponse), nil
+	}
+}
+
+// GenerateMacInvoker 生成消息验证码
+func (c *KmsClient) GenerateMacInvoker(request *model.GenerateMacRequest) *GenerateMacInvoker {
+	requestDef := GenReqDefForGenerateMac()
+	return &GenerateMacInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ImportKeyMaterial 导入密钥材料
 //
 // - 功能介绍：导入密钥材料。
@@ -752,6 +773,48 @@ func (c *KmsClient) ListRetirableGrants(request *model.ListRetirableGrantsReques
 func (c *KmsClient) ListRetirableGrantsInvoker(request *model.ListRetirableGrantsRequest) *ListRetirableGrantsInvoker {
 	requestDef := GenReqDefForListRetirableGrants()
 	return &ListRetirableGrantsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListSupportRegions 查询跨区域密钥所支持的区域
+//
+// - 功能介绍：查询跨区域密钥所支持的区域。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *KmsClient) ListSupportRegions(request *model.ListSupportRegionsRequest) (*model.ListSupportRegionsResponse, error) {
+	requestDef := GenReqDefForListSupportRegions()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListSupportRegionsResponse), nil
+	}
+}
+
+// ListSupportRegionsInvoker 查询跨区域密钥所支持的区域
+func (c *KmsClient) ListSupportRegionsInvoker(request *model.ListSupportRegionsRequest) *ListSupportRegionsInvoker {
+	requestDef := GenReqDefForListSupportRegions()
+	return &ListSupportRegionsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ReplicateKey 复制密钥到指定区域
+//
+// 将本区域的密钥复制到指定区域。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *KmsClient) ReplicateKey(request *model.ReplicateKeyRequest) (*model.ReplicateKeyResponse, error) {
+	requestDef := GenReqDefForReplicateKey()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ReplicateKeyResponse), nil
+	}
+}
+
+// ReplicateKeyInvoker 复制密钥到指定区域
+func (c *KmsClient) ReplicateKeyInvoker(request *model.ReplicateKeyRequest) *ReplicateKeyInvoker {
+	requestDef := GenReqDefForReplicateKey()
+	return &ReplicateKeyInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowKeyRotationStatus 查询密钥轮换状态
@@ -970,6 +1033,27 @@ func (c *KmsClient) UpdateKeyRotationIntervalInvoker(request *model.UpdateKeyRot
 	return &UpdateKeyRotationIntervalInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// UpdatePrimaryRegion 修改密钥所属的主区域
+//
+// 修改密钥所属的主区域。修改后当前区域会变为副本区域。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *KmsClient) UpdatePrimaryRegion(request *model.UpdatePrimaryRegionRequest) (*model.UpdatePrimaryRegionResponse, error) {
+	requestDef := GenReqDefForUpdatePrimaryRegion()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdatePrimaryRegionResponse), nil
+	}
+}
+
+// UpdatePrimaryRegionInvoker 修改密钥所属的主区域
+func (c *KmsClient) UpdatePrimaryRegionInvoker(request *model.UpdatePrimaryRegionRequest) *UpdatePrimaryRegionInvoker {
+	requestDef := GenReqDefForUpdatePrimaryRegion()
+	return &UpdatePrimaryRegionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ValidateSignature 验证签名
 //
 // - 功能介绍：使用非对称密钥的私钥对消息或消息摘要进行签名验证。
@@ -989,6 +1073,27 @@ func (c *KmsClient) ValidateSignature(request *model.ValidateSignatureRequest) (
 func (c *KmsClient) ValidateSignatureInvoker(request *model.ValidateSignatureRequest) *ValidateSignatureInvoker {
 	requestDef := GenReqDefForValidateSignature()
 	return &ValidateSignatureInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// VerifyMac 校验消息验证码
+//
+// 功能介绍：校验消息验证码
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *KmsClient) VerifyMac(request *model.VerifyMacRequest) (*model.VerifyMacResponse, error) {
+	requestDef := GenReqDefForVerifyMac()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.VerifyMacResponse), nil
+	}
+}
+
+// VerifyMacInvoker 校验消息验证码
+func (c *KmsClient) VerifyMacInvoker(request *model.VerifyMacRequest) *VerifyMacInvoker {
+	requestDef := GenReqDefForVerifyMac()
+	return &VerifyMacInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowVersion 查询指定版本信息

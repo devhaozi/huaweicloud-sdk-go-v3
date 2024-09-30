@@ -57,7 +57,7 @@ type CreateFlinkSqlJobRequestBody struct {
 	// 空闲状态过期周期，单位为秒，默认值为3600。
 	IdleStateRetention *int32 `json:"idle_state_retention,omitempty"`
 
-	// 作业类型：flink_sql_job和flink_sql_edge_job。 run_mode为edge_node时，作业类型须为flink_sql_edge_job。 run_mode为shared_cluster跟exclusive_cluster时，作业类型须为flink_sql_job。 默认值：flink_sql_job。
+	// 作业类型：flink_sql_job、flink_opensource_sql_job。 默认值：“flink_opensource_sql_job”。  “run_mode”为“exclusive_cluster”时，作业类型须为“flink_sql_job”或“flink_opensource_sql_job”。  “run_mode””为“shared_cluster”时作业类型必须为”flink_sql_job“。
 	JobType *string `json:"job_type,omitempty"`
 
 	// 边缘计算组ID列表。
@@ -79,7 +79,7 @@ type CreateFlinkSqlJobRequestBody struct {
 	TmSlotNum *int32 `json:"tm_slot_num,omitempty"`
 
 	// 标签
-	Tags *[]TmsTagEntity `json:"tags,omitempty"`
+	Tags *[]Tag `json:"tags,omitempty"`
 
 	// 异常重启是否从checkpoint恢复。
 	ResumeCheckpoint *bool `json:"resume_checkpoint,omitempty"`

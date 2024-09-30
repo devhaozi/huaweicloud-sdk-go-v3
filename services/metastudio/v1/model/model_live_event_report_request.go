@@ -24,13 +24,13 @@ type LiveEventReportRequest struct {
 	// 使用AK/SK方式认证时必选，携带项目ID信息。
 	XProjectId *string `json:"X-Project-Id,omitempty"`
 
-	// 第三方用户ID。 > * 不允许输入中文。
+	// 第三方用户ID。不允许输入中文。
 	XAppUserId *string `json:"X-App-UserId,omitempty"`
 
 	// 鉴权Key。通过HmacSHA256生成的鉴权key
 	AuthKey *string `json:"auth_key,omitempty"`
 
-	// 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的豪秒数。
+	// **参数解释**： 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的豪秒数。
 	ExpiresTime *int64 `json:"expires_time,omitempty"`
 
 	// 是否刷新URL

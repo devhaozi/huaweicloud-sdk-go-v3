@@ -18,6 +18,12 @@ func GenReqDefForBatchCopyDomain() *def.HttpRequestDef {
 		WithName("Body").
 		WithLocationType(def.Body))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -33,6 +39,12 @@ func GenReqDefForBatchDeleteTags() *def.HttpRequestDef {
 		WithName("Body").
 		WithLocationType(def.Body))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -47,6 +59,12 @@ func GenReqDefForCreateDomain() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -68,6 +86,12 @@ func GenReqDefForCreatePreheatingTasks() *def.HttpRequestDef {
 		WithName("Body").
 		WithLocationType(def.Body))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -88,6 +112,12 @@ func GenReqDefForCreateRefreshTasks() *def.HttpRequestDef {
 		WithName("Body").
 		WithLocationType(def.Body))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -102,6 +132,12 @@ func GenReqDefForCreateTags() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -124,6 +160,12 @@ func GenReqDefForDeleteDomain() *def.HttpRequestDef {
 		WithJsonTag("enterprise_project_id").
 		WithLocationType(def.Query))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -144,6 +186,12 @@ func GenReqDefForDisableDomain() *def.HttpRequestDef {
 		WithName("EnterpriseProjectId").
 		WithJsonTag("enterprise_project_id").
 		WithLocationType(def.Query))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -262,6 +310,12 @@ func GenReqDefForEnableDomain() *def.HttpRequestDef {
 		WithJsonTag("enterprise_project_id").
 		WithLocationType(def.Query))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -350,6 +404,12 @@ func GenReqDefForListDomains() *def.HttpRequestDef {
 		WithJsonTag("enterprise_project_id").
 		WithLocationType(def.Query))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -433,6 +493,12 @@ func GenReqDefForShowCertificatesHttpsInfo() *def.HttpRequestDef {
 		WithJsonTag("enterprise_project_id").
 		WithLocationType(def.Query))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -478,6 +544,12 @@ func GenReqDefForShowDomainDetailByName() *def.HttpRequestDef {
 		WithJsonTag("enterprise_project_id").
 		WithLocationType(def.Query))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -502,6 +574,12 @@ func GenReqDefForShowDomainFullConfig() *def.HttpRequestDef {
 		WithName("ShowSpecialConfigs").
 		WithJsonTag("show_special_configs").
 		WithLocationType(def.Query))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -648,6 +726,12 @@ func GenReqDefForShowHistoryTaskDetails() *def.HttpRequestDef {
 		WithJsonTag("create_time").
 		WithLocationType(def.Query))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -700,6 +784,12 @@ func GenReqDefForShowHistoryTasks() *def.HttpRequestDef {
 		WithJsonTag("task_type").
 		WithLocationType(def.Query))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -719,6 +809,12 @@ func GenReqDefForShowIpInfo() *def.HttpRequestDef {
 		WithName("Ips").
 		WithJsonTag("ips").
 		WithLocationType(def.Query))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -760,6 +856,17 @@ func GenReqDefForShowLogs() *def.HttpRequestDef {
 	return requestDef
 }
 
+func GenReqDefForShowQuota() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodGet).
+		WithPath("/v1.0/cdn/quota").
+		WithResponse(new(model.ShowQuotaResponse)).
+		WithContentType("application/json")
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
 func GenReqDefForShowTags() *def.HttpRequestDef {
 	reqDefBuilder := def.NewHttpRequestDefBuilder().
 		WithMethod(http.MethodGet).
@@ -771,6 +878,12 @@ func GenReqDefForShowTags() *def.HttpRequestDef {
 		WithName("ResourceId").
 		WithJsonTag("resource_id").
 		WithLocationType(def.Query))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -910,6 +1023,12 @@ func GenReqDefForShowVerifyDomainOwnerInfo() *def.HttpRequestDef {
 		WithJsonTag("domain_name").
 		WithLocationType(def.Path))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -935,6 +1054,12 @@ func GenReqDefForUpdateDomainFullConfig() *def.HttpRequestDef {
 		WithName("Body").
 		WithLocationType(def.Body))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -954,6 +1079,12 @@ func GenReqDefForUpdateDomainMultiCertificates() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -980,6 +1111,12 @@ func GenReqDefForUpdatePrivateBucketAccess() *def.HttpRequestDef {
 		WithName("Body").
 		WithLocationType(def.Body))
 
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
+
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -999,6 +1136,12 @@ func GenReqDefForVerifyDomainOwner() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("XRequestId").
+		WithJsonTag("X-Request-Id").
+		WithKindName("string").
+		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef

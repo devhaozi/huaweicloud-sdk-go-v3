@@ -16,6 +16,8 @@ type ResourceType struct {
 
 type ResourceTypeEnum struct {
 	IAMAGENCY ResourceType
+	IAMUSER   ResourceType
+	KMSCMK    ResourceType
 	OBSBUCKET ResourceType
 }
 
@@ -23,6 +25,12 @@ func GetResourceTypeEnum() ResourceTypeEnum {
 	return ResourceTypeEnum{
 		IAMAGENCY: ResourceType{
 			value: "iam:agency",
+		},
+		IAMUSER: ResourceType{
+			value: "iam:user",
+		},
+		KMSCMK: ResourceType{
+			value: "kms:cmk",
 		},
 		OBSBUCKET: ResourceType{
 			value: "obs:bucket",

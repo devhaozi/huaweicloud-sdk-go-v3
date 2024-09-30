@@ -20,11 +20,14 @@ type SmartLiveRoomBaseInfo struct {
 	// 直播间名称
 	RoomName *string `json:"room_name,omitempty"`
 
-	// 直播间类型。 * NORMAL: 普通直播间，直播间一直存在，可以反复开播 * TEMP: 临时直播间,直播任务结束后自动清理直播间。 * TEMPLATE: 直播间模板。
+	// 直播间类型。 * NORMAL：普通直播间，直播间一直存在，可以反复开播 * TEMP：临时直播间，直播任务结束后自动清理直播间。 * TEMPLATE：直播间模板。
 	RoomType *SmartLiveRoomBaseInfoRoomType `json:"room_type,omitempty"`
 
 	// 直播间配置状态。 - ENABLE: 直播间正常可用。 - DISABLE： 直播间不可用。不可用原因在error_info中说明。 - BLOCKED：直播间被冻结。冻结原因在error_info中说明。
 	RoomState *SmartLiveRoomBaseInfoRoomState `json:"room_state,omitempty"`
+
+	// 横竖屏类型。默认值为：VERTICAL。 * LANDSCAPE：横屏。 * VERTICAL： 竖屏。
+	ViewMode *SmartLiveRoomBaseInfoViewMode `json:"view_mode,omitempty"`
 
 	ErrorInfo *ErrorResponse `json:"error_info,omitempty"`
 
@@ -36,23 +39,29 @@ type SmartLiveRoomBaseInfo struct {
 	// 直播间封面图URL
 	CoverUrl *string `json:"cover_url,omitempty"`
 
+	// 直播间封面图URL
+	Thumbnail *string `json:"thumbnail,omitempty"`
+
 	// 数字人模型信息
 	ModelInfos *[]ModelInfo `json:"model_infos,omitempty"`
 
-	// 创建时间，格式遵循：RFC 3339 如\"2021-01-10T08:43:17Z\"。
+	// 创建时间，格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
 	CreateTime *string `json:"create_time,omitempty"`
 
-	// 更新时间，格式遵循：RFC 3339 如\"2021-01-10T08:43:17Z\"。
+	// 更新时间，格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
 	UpdateTime *string `json:"update_time,omitempty"`
 
-	// 开始直播时间，格式遵循：RFC 3339 如\"2021-01-10T08:43:17Z\"。
+	// 开始直播时间，格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
 	LastJobStartTime *string `json:"last_job_start_time,omitempty"`
 
-	// 结束直播时间，格式遵循：RFC 3339 如\"2021-01-10T08:43:17Z\"。
+	// 结束直播时间，格式遵循：RFC 3339 如“2021-01-10T08:43:17Z”。
 	LastJobEndTime *string `json:"last_job_end_time,omitempty"`
 
-	// 当前直播状态 - WAITING：任务等待执行 - PROCESSING：任务执行中 - SUCCEED：任务处理成功 - FAILED：任务处理时变 - CANCELED：任务取消
+	// 当前直播状态 - WAITING：任务等待执行 - PROCESSING：任务执行中 - SUCCEED：任务处理成功 - FAILED：任务处理时变 - CANCELED：任务取消 - BLOCKED：任务被冻结
 	LastJobStatus *SmartLiveRoomBaseInfoLastJobStatus `json:"last_job_status,omitempty"`
+
+	// 私有数据，用户填写，原样带回。
+	PrivData *string `json:"priv_data,omitempty"`
 }
 
 func (o SmartLiveRoomBaseInfo) String() string {
@@ -148,6 +157,53 @@ func (c SmartLiveRoomBaseInfoRoomState) MarshalJSON() ([]byte, error) {
 }
 
 func (c *SmartLiveRoomBaseInfoRoomState) UnmarshalJSON(b []byte) error {
+	myConverter := converter.StringConverterFactory("string")
+	if myConverter == nil {
+		return errors.New("unsupported StringConverter type: string")
+	}
+
+	interf, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
+	if err != nil {
+		return err
+	}
+
+	if val, ok := interf.(string); ok {
+		c.value = val
+		return nil
+	} else {
+		return errors.New("convert enum data to string error")
+	}
+}
+
+type SmartLiveRoomBaseInfoViewMode struct {
+	value string
+}
+
+type SmartLiveRoomBaseInfoViewModeEnum struct {
+	LANDSCAPE SmartLiveRoomBaseInfoViewMode
+	VERTICAL  SmartLiveRoomBaseInfoViewMode
+}
+
+func GetSmartLiveRoomBaseInfoViewModeEnum() SmartLiveRoomBaseInfoViewModeEnum {
+	return SmartLiveRoomBaseInfoViewModeEnum{
+		LANDSCAPE: SmartLiveRoomBaseInfoViewMode{
+			value: "LANDSCAPE",
+		},
+		VERTICAL: SmartLiveRoomBaseInfoViewMode{
+			value: "VERTICAL",
+		},
+	}
+}
+
+func (c SmartLiveRoomBaseInfoViewMode) Value() string {
+	return c.value
+}
+
+func (c SmartLiveRoomBaseInfoViewMode) MarshalJSON() ([]byte, error) {
+	return utils.Marshal(c.value)
+}
+
+func (c *SmartLiveRoomBaseInfoViewMode) UnmarshalJSON(b []byte) error {
 	myConverter := converter.StringConverterFactory("string")
 	if myConverter == nil {
 		return errors.New("unsupported StringConverter type: string")

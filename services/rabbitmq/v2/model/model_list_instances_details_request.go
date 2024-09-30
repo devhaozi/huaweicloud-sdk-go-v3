@@ -12,8 +12,8 @@ import (
 // ListInstancesDetailsRequest Request Object
 type ListInstancesDetailsRequest struct {
 
-	// 引擎类型：rabbitmq，参数缺失查询所有实例。
-	Engine *string `json:"engine,omitempty"`
+	// 引擎类型：rabbitmq。
+	Engine ListInstancesDetailsRequestEngine `json:"engine"`
 
 	// 实例名称。
 	Name *string `json:"name,omitempty"`
@@ -21,7 +21,7 @@ type ListInstancesDetailsRequest struct {
 	// 实例ID。
 	InstanceId *string `json:"instance_id,omitempty"`
 
-	// 实例状态，详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)。
+	// 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。
 	Status *ListInstancesDetailsRequestStatus `json:"status,omitempty"`
 
 	// 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
@@ -47,6 +47,49 @@ func (o ListInstancesDetailsRequest) String() string {
 	}
 
 	return strings.Join([]string{"ListInstancesDetailsRequest", string(data)}, " ")
+}
+
+type ListInstancesDetailsRequestEngine struct {
+	value string
+}
+
+type ListInstancesDetailsRequestEngineEnum struct {
+	RABBITMQ ListInstancesDetailsRequestEngine
+}
+
+func GetListInstancesDetailsRequestEngineEnum() ListInstancesDetailsRequestEngineEnum {
+	return ListInstancesDetailsRequestEngineEnum{
+		RABBITMQ: ListInstancesDetailsRequestEngine{
+			value: "rabbitmq",
+		},
+	}
+}
+
+func (c ListInstancesDetailsRequestEngine) Value() string {
+	return c.value
+}
+
+func (c ListInstancesDetailsRequestEngine) MarshalJSON() ([]byte, error) {
+	return utils.Marshal(c.value)
+}
+
+func (c *ListInstancesDetailsRequestEngine) UnmarshalJSON(b []byte) error {
+	myConverter := converter.StringConverterFactory("string")
+	if myConverter == nil {
+		return errors.New("unsupported StringConverter type: string")
+	}
+
+	interf, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
+	if err != nil {
+		return err
+	}
+
+	if val, ok := interf.(string); ok {
+		c.value = val
+		return nil
+	} else {
+		return errors.New("convert enum data to string error")
+	}
 }
 
 type ListInstancesDetailsRequestStatus struct {

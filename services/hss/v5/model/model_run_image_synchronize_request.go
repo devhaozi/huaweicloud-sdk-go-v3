@@ -9,10 +9,10 @@ import (
 // RunImageSynchronizeRequest Request Object
 type RunImageSynchronizeRequest struct {
 
-	// region id
-	Region string `json:"region"`
+	// Region ID
+	Region *string `json:"region,omitempty"`
 
-	// 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+	// 企业项目ID，查询所有企业项目时填写：all_granted_eps
 	EnterpriseProjectId *string `json:"enterprise_project_id,omitempty"`
 
 	Body *RunImageSynchronizeRequestInfo `json:"body,omitempty"`

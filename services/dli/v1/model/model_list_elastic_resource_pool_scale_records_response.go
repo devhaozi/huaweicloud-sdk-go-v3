@@ -10,10 +10,10 @@ import (
 type ListElasticResourcePoolScaleRecordsResponse struct {
 
 	// 返回数组长度
-	Count *int32 `json:"count,omitempty"`
+	Count *int64 `json:"count,omitempty"`
 
 	// 数组中返回的数据
-	Items *[][]interface{} `json:"items,omitempty"`
+	Items *[]ElasticResourcePoolScaleRecord `json:"items,omitempty"`
 
 	XAuthToken     *string `json:"X-Auth-Token,omitempty"`
 	HttpStatusCode int     `json:"-"`

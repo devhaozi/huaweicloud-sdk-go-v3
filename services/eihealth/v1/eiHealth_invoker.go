@@ -5,6 +5,18 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/eihealth/v1/model"
 )
 
+type AddDrugDatabaseFileInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *AddDrugDatabaseFileInvoker) Invoke() (*model.AddDrugDatabaseFileResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.AddDrugDatabaseFileResponse), nil
+	}
+}
+
 type BatchCancelJobInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -365,6 +377,18 @@ func (i *CreateDockingJobInvoker) Invoke() (*model.CreateDockingJobResponse, err
 	}
 }
 
+type CreateDrugDatabaseInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateDrugDatabaseInvoker) Invoke() (*model.CreateDrugDatabaseResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateDrugDatabaseResponse), nil
+	}
+}
+
 type CreateDrugModelInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -386,6 +410,18 @@ func (i *CreateFepJobInvoker) Invoke() (*model.CreateFepJobResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.CreateFepJobResponse), nil
+	}
+}
+
+type CreateGenJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateGenJobInvoker) Invoke() (*model.CreateGenJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateGenJobResponse), nil
 	}
 }
 
@@ -434,6 +470,18 @@ func (i *CreateLabelPageInvoker) Invoke() (*model.CreateLabelPageResponse, error
 		return nil, err
 	} else {
 		return result.(*model.CreateLabelPageResponse), nil
+	}
+}
+
+type CreateMolBatchDownloadTaskInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateMolBatchDownloadTaskInvoker) Invoke() (*model.CreateMolBatchDownloadTaskResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateMolBatchDownloadTaskResponse), nil
 	}
 }
 
@@ -509,6 +557,18 @@ func (i *CreateScaleOutPolicyInvoker) Invoke() (*model.CreateScaleOutPolicyRespo
 	}
 }
 
+type CreateSearchJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateSearchJobInvoker) Invoke() (*model.CreateSearchJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateSearchJobResponse), nil
+	}
+}
+
 type CreateStudyInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -542,6 +602,18 @@ func (i *CreateSynthesisJobInvoker) Invoke() (*model.CreateSynthesisJobResponse,
 		return nil, err
 	} else {
 		return result.(*model.CreateSynthesisJobResponse), nil
+	}
+}
+
+type CreateTargetOptJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateTargetOptJobInvoker) Invoke() (*model.CreateTargetOptJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateTargetOptJobResponse), nil
 	}
 }
 
@@ -674,6 +746,18 @@ func (i *DeleteDatabaseResourceInvoker) Invoke() (*model.DeleteDatabaseResourceR
 		return nil, err
 	} else {
 		return result.(*model.DeleteDatabaseResourceResponse), nil
+	}
+}
+
+type DeleteDrugDatabaseInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteDrugDatabaseInvoker) Invoke() (*model.DeleteDrugDatabaseResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteDrugDatabaseResponse), nil
 	}
 }
 
@@ -1121,6 +1205,18 @@ func (i *ListBackupInvoker) Invoke() (*model.ListBackupResponse, error) {
 	}
 }
 
+type ListBaseModelInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListBaseModelInvoker) Invoke() (*model.ListBaseModelResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListBaseModelResponse), nil
+	}
+}
+
 type ListBucketInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1238,6 +1334,18 @@ func (i *ListDatabaseResourceFlavorInvoker) Invoke() (*model.ListDatabaseResourc
 		return nil, err
 	} else {
 		return result.(*model.ListDatabaseResourceFlavorResponse), nil
+	}
+}
+
+type ListDrugDatabaseInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListDrugDatabaseInvoker) Invoke() (*model.ListDrugDatabaseResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListDrugDatabaseResponse), nil
 	}
 }
 
@@ -1793,6 +1901,18 @@ func (i *RetryJobInvoker) Invoke() (*model.RetryJobResponse, error) {
 	}
 }
 
+type RunFastaPreprocessInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RunFastaPreprocessInvoker) Invoke() (*model.RunFastaPreprocessResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RunFastaPreprocessResponse), nil
+	}
+}
+
 type Show3dStructureContentInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -2009,6 +2129,18 @@ func (i *ShowFepJobInvoker) Invoke() (*model.ShowFepJobResponse, error) {
 	}
 }
 
+type ShowGenJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowGenJobInvoker) Invoke() (*model.ShowGenJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowGenJobResponse), nil
+	}
+}
+
 type ShowInstanceInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -2114,6 +2246,18 @@ func (i *ShowMessageReceiveConfigInvoker) Invoke() (*model.ShowMessageReceiveCon
 		return nil, err
 	} else {
 		return result.(*model.ShowMessageReceiveConfigResponse), nil
+	}
+}
+
+type ShowMolBatchDownloadTaskInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowMolBatchDownloadTaskInvoker) Invoke() (*model.ShowMolBatchDownloadTaskResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowMolBatchDownloadTaskResponse), nil
 	}
 }
 
@@ -2249,6 +2393,18 @@ func (i *ShowScheduleInvoker) Invoke() (*model.ShowScheduleResponse, error) {
 	}
 }
 
+type ShowSearchJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowSearchJobInvoker) Invoke() (*model.ShowSearchJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowSearchJobResponse), nil
+	}
+}
+
 type ShowSynthesisJobInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -2258,6 +2414,18 @@ func (i *ShowSynthesisJobInvoker) Invoke() (*model.ShowSynthesisJobResponse, err
 		return nil, err
 	} else {
 		return result.(*model.ShowSynthesisJobResponse), nil
+	}
+}
+
+type ShowTargetOptJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowTargetOptJobInvoker) Invoke() (*model.ShowTargetOptJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowTargetOptJobResponse), nil
 	}
 }
 
@@ -2597,6 +2765,30 @@ func (i *UpdateDatabaseDataInvoker) Invoke() (*model.UpdateDatabaseDataResponse,
 	}
 }
 
+type UpdateDrugDatabaseInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateDrugDatabaseInvoker) Invoke() (*model.UpdateDrugDatabaseResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateDrugDatabaseResponse), nil
+	}
+}
+
+type UpdateDrugJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateDrugJobInvoker) Invoke() (*model.UpdateDrugJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateDrugJobResponse), nil
+	}
+}
+
 type UpdateDrugModelInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -2909,6 +3101,18 @@ func (i *ShowAdmetPropertiesInvoker) Invoke() (*model.ShowAdmetPropertiesRespons
 	}
 }
 
+type CreateCpiJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateCpiJobInvoker) Invoke() (*model.CreateCpiJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateCpiJobResponse), nil
+	}
+}
+
 type CreateCpiTaskInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -2921,6 +3125,18 @@ func (i *CreateCpiTaskInvoker) Invoke() (*model.CreateCpiTaskResponse, error) {
 	}
 }
 
+type ShowCpiJobInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowCpiJobInvoker) Invoke() (*model.ShowCpiJobResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowCpiJobResponse), nil
+	}
+}
+
 type ShowCpiTaskResultInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -2930,6 +3146,66 @@ func (i *ShowCpiTaskResultInvoker) Invoke() (*model.ShowCpiTaskResultResponse, e
 		return nil, err
 	} else {
 		return result.(*model.ShowCpiTaskResultResponse), nil
+	}
+}
+
+type CreateCssClusterInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateCssClusterInvoker) Invoke() (*model.CreateCssClusterResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateCssClusterResponse), nil
+	}
+}
+
+type DeleteCssClusterInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteCssClusterInvoker) Invoke() (*model.DeleteCssClusterResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteCssClusterResponse), nil
+	}
+}
+
+type ListCssClusterInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListCssClusterInvoker) Invoke() (*model.ListCssClusterResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListCssClusterResponse), nil
+	}
+}
+
+type ListTermTenantCssClusterInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListTermTenantCssClusterInvoker) Invoke() (*model.ListTermTenantCssClusterResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListTermTenantCssClusterResponse), nil
+	}
+}
+
+type ValidateCssConnectionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ValidateCssConnectionInvoker) Invoke() (*model.ValidateCssConnectionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ValidateCssConnectionResponse), nil
 	}
 }
 

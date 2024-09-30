@@ -317,6 +317,18 @@ func (i *EncryptDatakeyInvoker) Invoke() (*model.EncryptDatakeyResponse, error) 
 	}
 }
 
+type GenerateMacInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *GenerateMacInvoker) Invoke() (*model.GenerateMacResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.GenerateMacResponse), nil
+	}
+}
+
 type ImportKeyMaterialInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -410,6 +422,30 @@ func (i *ListRetirableGrantsInvoker) Invoke() (*model.ListRetirableGrantsRespons
 		return nil, err
 	} else {
 		return result.(*model.ListRetirableGrantsResponse), nil
+	}
+}
+
+type ListSupportRegionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListSupportRegionsInvoker) Invoke() (*model.ListSupportRegionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListSupportRegionsResponse), nil
+	}
+}
+
+type ReplicateKeyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ReplicateKeyInvoker) Invoke() (*model.ReplicateKeyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ReplicateKeyResponse), nil
 	}
 }
 
@@ -533,6 +569,18 @@ func (i *UpdateKeyRotationIntervalInvoker) Invoke() (*model.UpdateKeyRotationInt
 	}
 }
 
+type UpdatePrimaryRegionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdatePrimaryRegionInvoker) Invoke() (*model.UpdatePrimaryRegionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdatePrimaryRegionResponse), nil
+	}
+}
+
 type ValidateSignatureInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -542,6 +590,18 @@ func (i *ValidateSignatureInvoker) Invoke() (*model.ValidateSignatureResponse, e
 		return nil, err
 	} else {
 		return result.(*model.ValidateSignatureResponse), nil
+	}
+}
+
+type VerifyMacInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *VerifyMacInvoker) Invoke() (*model.VerifyMacResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.VerifyMacResponse), nil
 	}
 }
 

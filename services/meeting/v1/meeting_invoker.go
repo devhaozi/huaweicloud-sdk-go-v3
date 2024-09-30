@@ -5,6 +5,18 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/meeting/v1/model"
 )
 
+type AddAppIdInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *AddAppIdInvoker) Invoke() (*model.AddAppIdResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.AddAppIdResponse), nil
+	}
+}
+
 type AddCorpInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -257,6 +269,18 @@ func (i *BatchHandInvoker) Invoke() (*model.BatchHandResponse, error) {
 	}
 }
 
+type BatchSearchAppIdInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchSearchAppIdInvoker) Invoke() (*model.BatchSearchAppIdResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchSearchAppIdResponse), nil
+	}
+}
+
 type BatchShowUserDetailsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -413,6 +437,18 @@ func (i *CreateAnonymousAuthRandomInvoker) Invoke() (*model.CreateAnonymousAuthR
 	}
 }
 
+type CreateAuthRandomInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateAuthRandomInvoker) Invoke() (*model.CreateAuthRandomResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateAuthRandomResponse), nil
+	}
+}
+
 type CreateConfTokenInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -494,6 +530,18 @@ func (i *CreateWebinarInvoker) Invoke() (*model.CreateWebinarResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.CreateWebinarResponse), nil
+	}
+}
+
+type DeleteAppIdInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteAppIdInvoker) Invoke() (*model.DeleteAppIdResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteAppIdResponse), nil
 	}
 }
 
@@ -737,6 +785,18 @@ func (i *ListHistoryWebinarsInvoker) Invoke() (*model.ListHistoryWebinarsRespons
 	}
 }
 
+type ListNetworkQualityInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListNetworkQualityInvoker) Invoke() (*model.ListNetworkQualityResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListNetworkQualityResponse), nil
+	}
+}
+
 type ListOngoingWebinarsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -878,6 +938,18 @@ func (i *ResetActivecodeInvoker) Invoke() (*model.ResetActivecodeResponse, error
 		return nil, err
 	} else {
 		return result.(*model.ResetActivecodeResponse), nil
+	}
+}
+
+type ResetAppKeyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ResetAppKeyInvoker) Invoke() (*model.ResetAppKeyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ResetAppKeyResponse), nil
 	}
 }
 
@@ -1661,6 +1733,18 @@ func (i *ShowRealTimeInfoOfMeetingInvoker) Invoke() (*model.ShowRealTimeInfoOfMe
 	}
 }
 
+type ShowRecordInfoInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowRecordInfoInvoker) Invoke() (*model.ShowRecordInfoResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowRecordInfoResponse), nil
+	}
+}
+
 type ShowRecordingDetailInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1814,6 +1898,18 @@ func (i *SwitchModeInvoker) Invoke() (*model.SwitchModeResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.SwitchModeResponse), nil
+	}
+}
+
+type UpdateAppIdInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateAppIdInvoker) Invoke() (*model.UpdateAppIdResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateAppIdResponse), nil
 	}
 }
 

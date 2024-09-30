@@ -406,6 +406,11 @@ func GenReqDefForCreateConformancePack() *def.HttpRequestDef {
 		WithContentType("application/json")
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("XLanguage").
+		WithJsonTag("X-Language").
+		WithLocationType(def.Header))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
 
@@ -424,6 +429,11 @@ func GenReqDefForCreateOrganizationConformancePack() *def.HttpRequestDef {
 		WithName("OrganizationId").
 		WithJsonTag("organization_id").
 		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("XLanguage").
+		WithJsonTag("X-Language").
+		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -625,6 +635,10 @@ func GenReqDefForListOrganizationConformancePackStatuses() *def.HttpRequestDef {
 		WithJsonTag("marker").
 		WithLocationType(def.Query))
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationConformancePackId").
+		WithJsonTag("organization_conformance_pack_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("ConformancePackName").
 		WithJsonTag("conformance_pack_name").
 		WithLocationType(def.Query))
@@ -652,6 +666,10 @@ func GenReqDefForListOrganizationConformancePacks() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Marker").
 		WithJsonTag("marker").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationConformancePackId").
+		WithJsonTag("organization_conformance_pack_id").
 		WithLocationType(def.Query))
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("ConformancePackName").
@@ -736,6 +754,10 @@ func GenReqDefForShowOrganizationConformancePackDetailedStatuses() *def.HttpRequ
 		WithJsonTag("conformance_pack_name").
 		WithLocationType(def.Query))
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationConformancePackId").
+		WithJsonTag("organization_conformance_pack_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("State").
 		WithJsonTag("state").
 		WithLocationType(def.Query))
@@ -747,6 +769,50 @@ func GenReqDefForShowOrganizationConformancePackDetailedStatuses() *def.HttpRequ
 		WithName("Marker").
 		WithJsonTag("marker").
 		WithLocationType(def.Query))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForUpdateConformancePack() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPut).
+		WithPath("/v1/resource-manager/domains/{domain_id}/conformance-packs/{conformance_pack_id}").
+		WithResponse(new(model.UpdateConformancePackResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ConformancePackId").
+		WithJsonTag("conformance_pack_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForUpdateOrganizationConformancePack() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPut).
+		WithPath("/v1/resource-manager/organizations/{organization_id}/conformance-packs/{conformance_pack_id}").
+		WithResponse(new(model.UpdateOrganizationConformancePackResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationId").
+		WithJsonTag("organization_id").
+		WithLocationType(def.Path))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ConformancePackId").
+		WithJsonTag("conformance_pack_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -784,6 +850,95 @@ func GenReqDefForShowResourceHistory() *def.HttpRequestDef {
 		WithName("ChronologicalOrder").
 		WithJsonTag("chronological_order").
 		WithLocationType(def.Query))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForBatchCreateRemediationExceptions() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-exception/create").
+		WithResponse(new(model.BatchCreateRemediationExceptionsResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForBatchDeleteRemediationExceptions() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-exception/delete").
+		WithResponse(new(model.BatchDeleteRemediationExceptionsResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForCollectRemediationExecutionStatusesSummary() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-execution-statuses/summary").
+		WithResponse(new(model.CollectRemediationExecutionStatusesSummaryResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Limit").
+		WithJsonTag("limit").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Marker").
+		WithJsonTag("marker").
+		WithLocationType(def.Query))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForCreateOrUpdateRemediationConfiguration() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPut).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-configuration").
+		WithResponse(new(model.CreateOrUpdateRemediationConfigurationResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -860,6 +1015,22 @@ func GenReqDefForDeletePolicyAssignment() *def.HttpRequestDef {
 	return requestDef
 }
 
+func GenReqDefForDeleteRemediationConfiguration() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodDelete).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-configuration").
+		WithResponse(new(model.DeleteRemediationConfigurationResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
 func GenReqDefForDisablePolicyAssignment() *def.HttpRequestDef {
 	reqDefBuilder := def.NewHttpRequestDefBuilder().
 		WithMethod(http.MethodPost).
@@ -921,6 +1092,10 @@ func GenReqDefForListOrganizationPolicyAssignments() *def.HttpRequestDef {
 		WithLocationType(def.Path))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationPolicyAssignmentId").
+		WithJsonTag("organization_policy_assignment_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("OrganizationPolicyAssignmentName").
 		WithJsonTag("organization_policy_assignment_name").
 		WithLocationType(def.Query))
@@ -943,6 +1118,19 @@ func GenReqDefForListPolicyAssignments() *def.HttpRequestDef {
 		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments").
 		WithResponse(new(model.ListPolicyAssignmentsResponse)).
 		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentName").
+		WithJsonTag("policy_assignment_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Limit").
+		WithJsonTag("limit").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Marker").
+		WithJsonTag("marker").
+		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1046,6 +1234,68 @@ func GenReqDefForListPolicyStatesByResourceId() *def.HttpRequestDef {
 	return requestDef
 }
 
+func GenReqDefForListRemediationExceptions() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodGet).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-exception").
+		WithResponse(new(model.ListRemediationExceptionsResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Limit").
+		WithJsonTag("limit").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Marker").
+		WithJsonTag("marker").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceId").
+		WithJsonTag("resource_id").
+		WithLocationType(def.Query))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForListRemediationExecutionStatuses() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodGet).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-execution-statuses").
+		WithResponse(new(model.ListRemediationExecutionStatusesResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Limit").
+		WithJsonTag("limit").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Marker").
+		WithJsonTag("marker").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceId").
+		WithJsonTag("resource_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceName").
+		WithJsonTag("resource_name").
+		WithLocationType(def.Query))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
 func GenReqDefForRunEvaluationByPolicyAssignmentId() *def.HttpRequestDef {
 	reqDefBuilder := def.NewHttpRequestDefBuilder().
 		WithMethod(http.MethodPost).
@@ -1057,6 +1307,26 @@ func GenReqDefForRunEvaluationByPolicyAssignmentId() *def.HttpRequestDef {
 		WithName("PolicyAssignmentId").
 		WithJsonTag("policy_assignment_id").
 		WithLocationType(def.Path))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForRunRemediationExecution() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-execution").
+		WithResponse(new(model.RunRemediationExecutionResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1136,6 +1406,10 @@ func GenReqDefForShowOrganizationPolicyAssignmentDetailedStatus() *def.HttpReque
 		WithJsonTag("organization_policy_assignment_name").
 		WithLocationType(def.Query))
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationPolicyAssignmentId").
+		WithJsonTag("organization_policy_assignment_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Status").
 		WithJsonTag("status").
 		WithLocationType(def.Query))
@@ -1165,6 +1439,10 @@ func GenReqDefForShowOrganizationPolicyAssignmentStatuses() *def.HttpRequestDef 
 		WithLocationType(def.Path))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationPolicyAssignmentId").
+		WithJsonTag("organization_policy_assignment_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("OrganizationPolicyAssignmentName").
 		WithJsonTag("organization_policy_assignment_name").
 		WithLocationType(def.Query))
@@ -1192,6 +1470,46 @@ func GenReqDefForShowPolicyAssignment() *def.HttpRequestDef {
 		WithName("PolicyAssignmentId").
 		WithJsonTag("policy_assignment_id").
 		WithLocationType(def.Path))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForShowRemediationConfiguration() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodGet).
+		WithPath("/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-configuration").
+		WithResponse(new(model.ShowRemediationConfigurationResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("PolicyAssignmentId").
+		WithJsonTag("policy_assignment_id").
+		WithLocationType(def.Path))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForUpdateOrganizationPolicyAssignment() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPut).
+		WithPath("/v1/resource-manager/organizations/{organization_id}/policy-assignments/{organization_policy_assignment_id}").
+		WithResponse(new(model.UpdateOrganizationPolicyAssignmentResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationId").
+		WithJsonTag("organization_id").
+		WithLocationType(def.Path))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("OrganizationPolicyAssignmentId").
+		WithJsonTag("organization_policy_assignment_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1503,6 +1821,10 @@ func GenReqDefForCollectTrackedResourcesSummary() *def.HttpRequestDef {
 		WithName("Tags").
 		WithJsonTag("tags").
 		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceDeleted").
+		WithJsonTag("resource_deleted").
+		WithLocationType(def.Query))
 
 	reqDefBuilder.WithResponseField(def.NewFieldDef().
 		WithName("Body").
@@ -1586,6 +1908,10 @@ func GenReqDefForCountTrackedResources() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Tags").
 		WithJsonTag("tags").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceDeleted").
+		WithJsonTag("resource_deleted").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -1749,6 +2075,10 @@ func GenReqDefForListTrackedResourceTags() *def.HttpRequestDef {
 		WithName("Limit").
 		WithJsonTag("limit").
 		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceDeleted").
+		WithJsonTag("resource_deleted").
+		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1792,6 +2122,10 @@ func GenReqDefForListTrackedResources() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Tags").
 		WithJsonTag("tags").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceDeleted").
+		WithJsonTag("resource_deleted").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -1849,6 +2183,148 @@ func GenReqDefForShowTrackedResourceDetail() *def.HttpRequestDef {
 		WithName("ResourceId").
 		WithJsonTag("resource_id").
 		WithLocationType(def.Path))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForCountResourcesByTag() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/resource-manager/{resource_type}/resource-instances/count").
+		WithResponse(new(model.CountResourcesByTagResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceType").
+		WithJsonTag("resource_type").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForListResourcesByTag() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/resource-manager/{resource_type}/resource-instances/filter").
+		WithResponse(new(model.ListResourcesByTagResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceType").
+		WithJsonTag("resource_type").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Limit").
+		WithJsonTag("limit").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Offset").
+		WithJsonTag("offset").
+		WithLocationType(def.Query))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForListTagsForResource() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodGet).
+		WithPath("/v1/resource-manager/{resource_type}/{resource_id}/tags").
+		WithResponse(new(model.ListTagsForResourceResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceType").
+		WithJsonTag("resource_type").
+		WithLocationType(def.Path))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceId").
+		WithJsonTag("resource_id").
+		WithLocationType(def.Path))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForListTagsForResourceType() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodGet).
+		WithPath("/v1/resource-manager/{resource_type}/tags").
+		WithResponse(new(model.ListTagsForResourceTypeResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceType").
+		WithJsonTag("resource_type").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Limit").
+		WithJsonTag("limit").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Offset").
+		WithJsonTag("offset").
+		WithLocationType(def.Query))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForTagResource() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/resource-manager/{resource_type}/{resource_id}/tags/create").
+		WithResponse(new(model.TagResourceResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceType").
+		WithJsonTag("resource_type").
+		WithLocationType(def.Path))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceId").
+		WithJsonTag("resource_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForUnTagResource() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/resource-manager/{resource_type}/{resource_id}/tags/delete").
+		WithResponse(new(model.UnTagResourceResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceType").
+		WithJsonTag("resource_type").
+		WithLocationType(def.Path))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ResourceId").
+		WithJsonTag("resource_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef

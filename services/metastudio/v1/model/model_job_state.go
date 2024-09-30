@@ -9,21 +9,27 @@ import (
 	"strings"
 )
 
-// JobState 任务状态。 * CREATING: 创建中 * SYSTEM_AUDITING: 系统审核中 * AUDITING: 人工审核中 * WAITING: 等待训练 * PROCESSING: 任务训练中 * RESULT_REVIEW: 审核结果 * AUDIT_FAILED: 审核失败,等待用户重传数据 * FAILED: 失败 * SUCCEED: 成功
+// JobState 任务状态。 * CREATING: 创建中 * SYSTEM_AUDITING: 系统审核中 * AUDITING: 人工审核中 * WAITING_SPLIT: 等待切割 * SPLITTING: 切割中 * SPLIT_FAILED: 切割失败 * ANNOTATING: 标注中 * WAITING: 等待训练 * PROCESSING: 任务训练中 * RESULT_REVIEW: 审核结果 * AUDIT_FAILED: 审核失败,等待用户重传数据 * FAILED: 失败 * SUCCEED: 成功
 type JobState struct {
 	value string
 }
 
 type JobStateEnum struct {
-	CREATING        JobState
-	SYSTEM_AUDITING JobState
-	AUDITING        JobState
-	WAITING         JobState
-	PROCESSING      JobState
-	RESULT_REVIEW   JobState
-	AUDIT_FAILED    JobState
-	FAILED          JobState
-	SUCCEED         JobState
+	CREATING           JobState
+	SYSTEM_AUDITING    JobState
+	AUDITING           JobState
+	WAITING_SPLIT      JobState
+	SPLITTING          JobState
+	SPLIT_FAILED       JobState
+	ANNOTATING         JobState
+	WAITING            JobState
+	PROCESSING         JobState
+	RESULT_REVIEW      JobState
+	AUDIT_FAILED       JobState
+	USER_RESULT_REVIEW JobState
+	USER_REVIEW_REJECT JobState
+	FAILED             JobState
+	SUCCEED            JobState
 }
 
 func GetJobStateEnum() JobStateEnum {
@@ -37,6 +43,18 @@ func GetJobStateEnum() JobStateEnum {
 		AUDITING: JobState{
 			value: "AUDITING",
 		},
+		WAITING_SPLIT: JobState{
+			value: "WAITING_SPLIT",
+		},
+		SPLITTING: JobState{
+			value: "SPLITTING",
+		},
+		SPLIT_FAILED: JobState{
+			value: "SPLIT_FAILED",
+		},
+		ANNOTATING: JobState{
+			value: "ANNOTATING",
+		},
 		WAITING: JobState{
 			value: "WAITING",
 		},
@@ -48,6 +66,12 @@ func GetJobStateEnum() JobStateEnum {
 		},
 		AUDIT_FAILED: JobState{
 			value: "AUDIT_FAILED",
+		},
+		USER_RESULT_REVIEW: JobState{
+			value: "USER_RESULT_REVIEW",
+		},
+		USER_REVIEW_REJECT: JobState{
+			value: "USER_REVIEW_REJECT",
 		},
 		FAILED: JobState{
 			value: "FAILED",

@@ -35,10 +35,10 @@ type ShowManagedAccountResponse struct {
 	Message *string `json:"message,omitempty"`
 
 	// 父注册OU ID。
-	ParentOrganizationUnitId *string `json:"parent_organization_unit_id,omitempty"`
+	ParentOrganizationalUnitId *string `json:"parent_organizational_unit_id,omitempty"`
 
 	// 父注册OU名称。
-	ParentOrganizationUnitName *string `json:"parent_organization_unit_name,omitempty"`
+	ParentOrganizationalUnitName *string `json:"parent_organizational_unit_name,omitempty"`
 
 	// Identity Center用户名。
 	IdentityStoreUserName *string `json:"identity_store_user_name,omitempty"`
@@ -51,6 +51,9 @@ type ShowManagedAccountResponse struct {
 
 	// 模板部署状态，包括失败, 完成, 进行中。
 	BlueprintStatus *string `json:"blueprint_status,omitempty"`
+
+	// 模板是否包含多账号资源。
+	IsBlueprintHasMultiAccountResource *bool `json:"is_blueprint_has_multi_account_resource,omitempty"`
 
 	// 区域信息。
 	Regions *[]RegionManagedList `json:"regions,omitempty"`

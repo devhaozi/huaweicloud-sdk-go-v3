@@ -572,6 +572,27 @@ func (c *DrsClient) BatchValidateConnectionsInvoker(request *model.BatchValidate
 	return &BatchValidateConnectionsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateCompareResultFile 导出对比任务结果文件
+//
+// 导出对比任务结果文件。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) CreateCompareResultFile(request *model.CreateCompareResultFileRequest) (*model.CreateCompareResultFileResponse, error) {
+	requestDef := GenReqDefForCreateCompareResultFile()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateCompareResultFileResponse), nil
+	}
+}
+
+// CreateCompareResultFileInvoker 导出对比任务结果文件
+func (c *DrsClient) CreateCompareResultFileInvoker(request *model.CreateCompareResultFileRequest) *CreateCompareResultFileInvoker {
+	requestDef := GenReqDefForCreateCompareResultFile()
+	return &CreateCompareResultFileInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateCompareTask 创建对比任务
 //
 // 创建对比任务。
@@ -591,6 +612,111 @@ func (c *DrsClient) CreateCompareTask(request *model.CreateCompareTaskRequest) (
 func (c *DrsClient) CreateCompareTaskInvoker(request *model.CreateCompareTaskRequest) *CreateCompareTaskInvoker {
 	requestDef := GenReqDefForCreateCompareTask()
 	return &CreateCompareTaskInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateDataLevelTableCompareJob 创建数据级表对比任务
+//
+// 创建数据级表对比任务。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) CreateDataLevelTableCompareJob(request *model.CreateDataLevelTableCompareJobRequest) (*model.CreateDataLevelTableCompareJobResponse, error) {
+	requestDef := GenReqDefForCreateDataLevelTableCompareJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateDataLevelTableCompareJobResponse), nil
+	}
+}
+
+// CreateDataLevelTableCompareJobInvoker 创建数据级表对比任务
+func (c *DrsClient) CreateDataLevelTableCompareJobInvoker(request *model.CreateDataLevelTableCompareJobRequest) *CreateDataLevelTableCompareJobInvoker {
+	requestDef := GenReqDefForCreateDataLevelTableCompareJob()
+	return &CreateDataLevelTableCompareJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateObjectLevelCompareJob 创建对象级对比任务
+//
+// 创建对象级对比任务。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) CreateObjectLevelCompareJob(request *model.CreateObjectLevelCompareJobRequest) (*model.CreateObjectLevelCompareJobResponse, error) {
+	requestDef := GenReqDefForCreateObjectLevelCompareJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateObjectLevelCompareJobResponse), nil
+	}
+}
+
+// CreateObjectLevelCompareJobInvoker 创建对象级对比任务
+func (c *DrsClient) CreateObjectLevelCompareJobInvoker(request *model.CreateObjectLevelCompareJobRequest) *CreateObjectLevelCompareJobInvoker {
+	requestDef := GenReqDefForCreateObjectLevelCompareJob()
+	return &CreateObjectLevelCompareJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteCompareJob 取消对比任务
+//
+// 取消对比任务。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) DeleteCompareJob(request *model.DeleteCompareJobRequest) (*model.DeleteCompareJobResponse, error) {
+	requestDef := GenReqDefForDeleteCompareJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteCompareJobResponse), nil
+	}
+}
+
+// DeleteCompareJobInvoker 取消对比任务
+func (c *DrsClient) DeleteCompareJobInvoker(request *model.DeleteCompareJobRequest) *DeleteCompareJobInvoker {
+	requestDef := GenReqDefForDeleteCompareJob()
+	return &DeleteCompareJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DownloadCompareResultFile 下载对比任务结果文件
+//
+// 下载对比任务结果文件。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) DownloadCompareResultFile(request *model.DownloadCompareResultFileRequest) (*model.DownloadCompareResultFileResponse, error) {
+	requestDef := GenReqDefForDownloadCompareResultFile()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DownloadCompareResultFileResponse), nil
+	}
+}
+
+// DownloadCompareResultFileInvoker 下载对比任务结果文件
+func (c *DrsClient) DownloadCompareResultFileInvoker(request *model.DownloadCompareResultFileRequest) *DownloadCompareResultFileInvoker {
+	requestDef := GenReqDefForDownloadCompareResultFile()
+	return &DownloadCompareResultFileInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListAvailableNodeTypes 查询可用的Node规格
+//
+// 查询可用的Node规格。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListAvailableNodeTypes(request *model.ListAvailableNodeTypesRequest) (*model.ListAvailableNodeTypesResponse, error) {
+	requestDef := GenReqDefForListAvailableNodeTypes()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListAvailableNodeTypesResponse), nil
+	}
+}
+
+// ListAvailableNodeTypesInvoker 查询可用的Node规格
+func (c *DrsClient) ListAvailableNodeTypesInvoker(request *model.ListAvailableNodeTypesRequest) *ListAvailableNodeTypesInvoker {
+	requestDef := GenReqDefForListAvailableNodeTypes()
+	return &ListAvailableNodeTypesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListAvailableZone 查询规格未售罄的可用区
@@ -633,6 +759,174 @@ func (c *DrsClient) ListCompareResult(request *model.ListCompareResultRequest) (
 func (c *DrsClient) ListCompareResultInvoker(request *model.ListCompareResultRequest) *ListCompareResultInvoker {
 	requestDef := GenReqDefForListCompareResult()
 	return &ListCompareResultInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListContentCompareDetail 查询内容对比详情
+//
+// 查询内容对比详情
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListContentCompareDetail(request *model.ListContentCompareDetailRequest) (*model.ListContentCompareDetailResponse, error) {
+	requestDef := GenReqDefForListContentCompareDetail()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListContentCompareDetailResponse), nil
+	}
+}
+
+// ListContentCompareDetailInvoker 查询内容对比详情
+func (c *DrsClient) ListContentCompareDetailInvoker(request *model.ListContentCompareDetailRequest) *ListContentCompareDetailInvoker {
+	requestDef := GenReqDefForListContentCompareDetail()
+	return &ListContentCompareDetailInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListContentCompareDifference 查询内容对比差异
+//
+// 查询内容对比差异。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListContentCompareDifference(request *model.ListContentCompareDifferenceRequest) (*model.ListContentCompareDifferenceResponse, error) {
+	requestDef := GenReqDefForListContentCompareDifference()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListContentCompareDifferenceResponse), nil
+	}
+}
+
+// ListContentCompareDifferenceInvoker 查询内容对比差异
+func (c *DrsClient) ListContentCompareDifferenceInvoker(request *model.ListContentCompareDifferenceRequest) *ListContentCompareDifferenceInvoker {
+	requestDef := GenReqDefForListContentCompareDifference()
+	return &ListContentCompareDifferenceInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListContentCompareOverview 查询内容对比总览
+//
+// 查询内容对比总览。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListContentCompareOverview(request *model.ListContentCompareOverviewRequest) (*model.ListContentCompareOverviewResponse, error) {
+	requestDef := GenReqDefForListContentCompareOverview()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListContentCompareOverviewResponse), nil
+	}
+}
+
+// ListContentCompareOverviewInvoker 查询内容对比总览
+func (c *DrsClient) ListContentCompareOverviewInvoker(request *model.ListContentCompareOverviewRequest) *ListContentCompareOverviewInvoker {
+	requestDef := GenReqDefForListContentCompareOverview()
+	return &ListContentCompareOverviewInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListDataCompareDetail 查询行数对比详情
+//
+// 查询行数对比详情。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListDataCompareDetail(request *model.ListDataCompareDetailRequest) (*model.ListDataCompareDetailResponse, error) {
+	requestDef := GenReqDefForListDataCompareDetail()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListDataCompareDetailResponse), nil
+	}
+}
+
+// ListDataCompareDetailInvoker 查询行数对比详情
+func (c *DrsClient) ListDataCompareDetailInvoker(request *model.ListDataCompareDetailRequest) *ListDataCompareDetailInvoker {
+	requestDef := GenReqDefForListDataCompareDetail()
+	return &ListDataCompareDetailInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListDataCompareOverview 查询行数对比总览
+//
+// 查询行数对比总览。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListDataCompareOverview(request *model.ListDataCompareOverviewRequest) (*model.ListDataCompareOverviewResponse, error) {
+	requestDef := GenReqDefForListDataCompareOverview()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListDataCompareOverviewResponse), nil
+	}
+}
+
+// ListDataCompareOverviewInvoker 查询行数对比总览
+func (c *DrsClient) ListDataCompareOverviewInvoker(request *model.ListDataCompareOverviewRequest) *ListDataCompareOverviewInvoker {
+	requestDef := GenReqDefForListDataCompareOverview()
+	return &ListDataCompareOverviewInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListDataLevelTableCompareJobs 查询数据级表对比任务列表
+//
+// 查询数据级表对比任务列表。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListDataLevelTableCompareJobs(request *model.ListDataLevelTableCompareJobsRequest) (*model.ListDataLevelTableCompareJobsResponse, error) {
+	requestDef := GenReqDefForListDataLevelTableCompareJobs()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListDataLevelTableCompareJobsResponse), nil
+	}
+}
+
+// ListDataLevelTableCompareJobsInvoker 查询数据级表对比任务列表
+func (c *DrsClient) ListDataLevelTableCompareJobsInvoker(request *model.ListDataLevelTableCompareJobsRequest) *ListDataLevelTableCompareJobsInvoker {
+	requestDef := GenReqDefForListDataLevelTableCompareJobs()
+	return &ListDataLevelTableCompareJobsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListObejectLevelCompareDetail 查询对象对比任务详情
+//
+// 查询对象对比任务详情。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListObejectLevelCompareDetail(request *model.ListObejectLevelCompareDetailRequest) (*model.ListObejectLevelCompareDetailResponse, error) {
+	requestDef := GenReqDefForListObejectLevelCompareDetail()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListObejectLevelCompareDetailResponse), nil
+	}
+}
+
+// ListObejectLevelCompareDetailInvoker 查询对象对比任务详情
+func (c *DrsClient) ListObejectLevelCompareDetailInvoker(request *model.ListObejectLevelCompareDetailRequest) *ListObejectLevelCompareDetailInvoker {
+	requestDef := GenReqDefForListObejectLevelCompareDetail()
+	return &ListObejectLevelCompareDetailInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListObejectLevelCompareOverview 查询对象对比任务概览
+//
+// 查询对象对比任务概览。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) ListObejectLevelCompareOverview(request *model.ListObejectLevelCompareOverviewRequest) (*model.ListObejectLevelCompareOverviewResponse, error) {
+	requestDef := GenReqDefForListObejectLevelCompareOverview()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListObejectLevelCompareOverviewResponse), nil
+	}
+}
+
+// ListObejectLevelCompareOverviewInvoker 查询对象对比任务概览
+func (c *DrsClient) ListObejectLevelCompareOverviewInvoker(request *model.ListObejectLevelCompareOverviewRequest) *ListObejectLevelCompareOverviewInvoker {
+	requestDef := GenReqDefForListObejectLevelCompareOverview()
+	return &ListObejectLevelCompareOverviewInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListUsers 获取源库迁移用户列表
@@ -717,6 +1011,27 @@ func (c *DrsClient) ShowQuotas(request *model.ShowQuotasRequest) (*model.ShowQuo
 func (c *DrsClient) ShowQuotasInvoker(request *model.ShowQuotasRequest) *ShowQuotasInvoker {
 	requestDef := GenReqDefForShowQuotas()
 	return &ShowQuotasInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// StartPromptlyDataLevelTableCompareJob 立即启动数据级表对比任务
+//
+// 立即启动数据级表对比任务。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *DrsClient) StartPromptlyDataLevelTableCompareJob(request *model.StartPromptlyDataLevelTableCompareJobRequest) (*model.StartPromptlyDataLevelTableCompareJobResponse, error) {
+	requestDef := GenReqDefForStartPromptlyDataLevelTableCompareJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.StartPromptlyDataLevelTableCompareJobResponse), nil
+	}
+}
+
+// StartPromptlyDataLevelTableCompareJobInvoker 立即启动数据级表对比任务
+func (c *DrsClient) StartPromptlyDataLevelTableCompareJobInvoker(request *model.StartPromptlyDataLevelTableCompareJobRequest) *StartPromptlyDataLevelTableCompareJobInvoker {
+	requestDef := GenReqDefForStartPromptlyDataLevelTableCompareJob()
+	return &StartPromptlyDataLevelTableCompareJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // UpdateParams 修改数据库参数

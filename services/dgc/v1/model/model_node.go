@@ -86,6 +86,8 @@ type NodeTypeEnum struct {
 	MRS_HETU_ENGINE    NodeType
 	RDS_SQL            NodeType
 	DATA_MIGRATION     NodeType
+	ONECLICK_CDC       NodeType
+	DUMMY              NodeType
 }
 
 func GetNodeTypeEnum() NodeTypeEnum {
@@ -152,6 +154,12 @@ func GetNodeTypeEnum() NodeTypeEnum {
 		},
 		DATA_MIGRATION: NodeType{
 			value: "DataMigration",
+		},
+		ONECLICK_CDC: NodeType{
+			value: "OneclickCDC",
+		},
+		DUMMY: NodeType{
+			value: "Dummy",
 		},
 	}
 }

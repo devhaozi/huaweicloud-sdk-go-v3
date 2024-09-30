@@ -37,9 +37,23 @@ type ShowSmartChatJobResponse struct {
 
 	RtcRoomInfo *RtcRoomInfoList `json:"rtc_room_info,omitempty"`
 
-	ChatSubtitleConfig *ChatSubtitleConfig `json:"chat_subtitle_config,omitempty"`
+	ChatSubtitleConfig *SmartChatSubtitleConfig `json:"chat_subtitle_config,omitempty"`
 
-	VideoConfig *ChatVideoConfigRsp `json:"video_config,omitempty"`
+	VideoConfig *SmartChatVideoConfig `json:"video_config,omitempty"`
+
+	// 数字人智能交互对话的状态。 0: 等待建链 1: 等待关闭链路 2: 建链成功 3: 进入休眠 4: 等待休眠
+	ChatState *int32 `json:"chat_state,omitempty"`
+
+	Language *LanguageEnum `json:"language,omitempty"`
+
+	// 智能交互对话端配置。 * COMPUTER: 电脑端 * MOBILE: 手机端 * HUB: 大屏
+	ChatVideoType *ShowSmartChatJobResponseChatVideoType `json:"chat_video_type,omitempty"`
+
+	// 智能交互接入地址。
+	ChatAccessAddress *string `json:"chat_access_address,omitempty"`
+
+	// 是否透明背景
+	IsTransparent *bool `json:"is_transparent,omitempty"`
 
 	XRequestId     *string `json:"X-Request-Id,omitempty"`
 	HttpStatusCode int     `json:"-"`
@@ -99,6 +113,57 @@ func (c ShowSmartChatJobResponseState) MarshalJSON() ([]byte, error) {
 }
 
 func (c *ShowSmartChatJobResponseState) UnmarshalJSON(b []byte) error {
+	myConverter := converter.StringConverterFactory("string")
+	if myConverter == nil {
+		return errors.New("unsupported StringConverter type: string")
+	}
+
+	interf, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
+	if err != nil {
+		return err
+	}
+
+	if val, ok := interf.(string); ok {
+		c.value = val
+		return nil
+	} else {
+		return errors.New("convert enum data to string error")
+	}
+}
+
+type ShowSmartChatJobResponseChatVideoType struct {
+	value string
+}
+
+type ShowSmartChatJobResponseChatVideoTypeEnum struct {
+	COMPUTER ShowSmartChatJobResponseChatVideoType
+	MOBILE   ShowSmartChatJobResponseChatVideoType
+	HUB      ShowSmartChatJobResponseChatVideoType
+}
+
+func GetShowSmartChatJobResponseChatVideoTypeEnum() ShowSmartChatJobResponseChatVideoTypeEnum {
+	return ShowSmartChatJobResponseChatVideoTypeEnum{
+		COMPUTER: ShowSmartChatJobResponseChatVideoType{
+			value: "COMPUTER",
+		},
+		MOBILE: ShowSmartChatJobResponseChatVideoType{
+			value: "MOBILE",
+		},
+		HUB: ShowSmartChatJobResponseChatVideoType{
+			value: "HUB",
+		},
+	}
+}
+
+func (c ShowSmartChatJobResponseChatVideoType) Value() string {
+	return c.value
+}
+
+func (c ShowSmartChatJobResponseChatVideoType) MarshalJSON() ([]byte, error) {
+	return utils.Marshal(c.value)
+}
+
+func (c *ShowSmartChatJobResponseChatVideoType) UnmarshalJSON(b []byte) error {
 	myConverter := converter.StringConverterFactory("string")
 	if myConverter == nil {
 		return errors.New("unsupported StringConverter type: string")

@@ -31,6 +31,8 @@ Run the following command to install Huawei Cloud Go SDK:
 go get github.com/huaweicloud/huaweicloud-sdk-go-v3
 ```
 
+You can get the SDK version information through [SDK center](https://console-intl.huaweicloud.com/apiexplorer/#/sdkcenter?language=Go) or [Github Releases](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/releases?page=1).
+
 ## Code Example
 
 - The following example shows how to query a list of VPCs in a specific region, you need to substitute your
@@ -201,7 +203,7 @@ func main() {
 
 ## Online Debugging
 
-[API Explorer](https://apiexplorer.developer.intl.huaweicloud.com/apiexplorer/overview) provides api retrieval and online debugging, supports full fast retrieval, visual debugging, help document viewing, and online consultation.
+[API Explorer](https://apiexplorer.developer.intl.huaweicloud.com/apiexplorer/overview) provides api retrieval, SDK samples and online debugging, supports full fast retrieval, visual debugging, help document viewing, and online consultation.
 
 ## Changelog
 
@@ -337,13 +339,16 @@ client := vpc.NewVpcClient(hcClient)
 
 #### 1.6 Custom HTTP Transport [:top:](#user-manual-top)
 
-**NOTE:** The configuration has the highest priority.
+Supports configuring **HttpTransport** or **HttpRoundTripper** (v0.1.114 or above). The former is an interface implementation of the latter. Just choose one to configure.
 
-Specifying the custom HTTP transport **will invalidate the configurations [1.2 Network Proxy](#12-network-proxy-top), [1.4 SSL Certification](#14-ssl-certification-top), [1.5 Custom Network Connection](#15-custom-network-connection-top).**
+**NOTE:** HttpTransport has the highest priority.
+
+Specifying the custom HTTP transport or roundTripper  **will invalidate the configurations [1.2 Network Proxy](#12-network-proxy-top), [1.4 SSL Certification](#14-ssl-certification-top), [1.5 Custom Network Connection](#15-custom-network-connection-top).**
 
 ``` go
 transport := &http.Transport{}
 httpConfig := config.DefaultHttpConfig().WithHttpTransport(transport)
+// httpConfig.WithHttpRoundTripper(&YourRoundTripper{})
 
 hcClient, err := vpc.VpcClientBuilder().
     WithHttpConfig(httpConfig).
@@ -816,9 +821,8 @@ func main() {
 
 - Multiple ProjectId situation is **not supported**.
 
-- Supported region list: af-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-3, cn-east-2, cn-east-3, cn-north-1,
-  cn-north-4, cn-south-1, cn-southwest-2, ru-northwest-2. You may get exception such as `Unsupported regionId` if your
-  region don't in the list above.
+- You can query the supported regions through [Regions and Endpoints](https://console-intl.huaweicloud.com/apiexplorer/#/endpoint
+). You may get exception such as `Unsupported regionId` if you specify an unsupported region.
 
 **Comparison of the two ways:**
 

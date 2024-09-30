@@ -20,6 +20,9 @@ type ShowOptmJobResponse struct {
 
 	BindingSite *BindSiteDto `json:"binding_site,omitempty"`
 
+	// 受体列表和受体是二选一的关系，受体列表优先级最高
+	BindingSites *[]BindSiteDto `json:"binding_sites,omitempty"`
+
 	// 弱约束集合
 	WeakConstraints *[]WeakConstraintDto `json:"weak_constraints,omitempty"`
 
@@ -28,6 +31,8 @@ type ShowOptmJobResponse struct {
 
 	// 初始化采样权重
 	SamplerMixinWeight *float32 `json:"sampler_mixin_weight,omitempty"`
+
+	BaseModel *BaseModel `json:"base_model,omitempty"`
 
 	// 模型列表
 	Models *[]BasicDrugModel `json:"models,omitempty"`

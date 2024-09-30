@@ -21,11 +21,8 @@ type ImageMediaTaggingReq struct {
 	// 置信度的阈值（0~100），低于此置信数的标签，将不会返回。  默认值：60。  最小值：0。  最大值：100。  默认值：0。
 	Threshold *float32 `json:"threshold,omitempty"`
 
-	// 最多返回的tag数（取值范围：1~150），默认值： 50
+	// 最多返回的tag数（取值范围：1~150），默认值： 10。
 	Limit *int32 `json:"limit,omitempty"`
-
-	// \"true\"：使用系统默认标签体系。  \"false\"：使用用户自定义标签体系（用户需预先调用接口进行自定义标签体系的构建）。  默认值为\"true\"。
-	UseDefaultTags *string `json:"use_default_tags,omitempty"`
 }
 
 func (o ImageMediaTaggingReq) String() string {

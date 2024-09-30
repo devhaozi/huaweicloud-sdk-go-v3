@@ -19,16 +19,16 @@ type CreateManagedAccountRequest struct {
 	Phone *string `json:"phone,omitempty"`
 
 	// Identity Center用户名。
-	IdentityStoreUserName string `json:"identity_store_user_name"`
+	IdentityStoreUserName *string `json:"identity_store_user_name,omitempty"`
 
 	// Identity Center邮箱。
-	IdentityStoreEmail string `json:"identity_store_email"`
+	IdentityStoreEmail *string `json:"identity_store_email,omitempty"`
 
 	// 父注册OU ID。
-	ParentOrganizationUnitId string `json:"parent_organization_unit_id"`
+	ParentOrganizationalUnitId string `json:"parent_organizational_unit_id"`
 
 	// 父注册OU名称。
-	ParentOrganizationUnitName string `json:"parent_organization_unit_name"`
+	ParentOrganizationalUnitName string `json:"parent_organizational_unit_name"`
 
 	Blueprint *Blueprint `json:"blueprint,omitempty"`
 }

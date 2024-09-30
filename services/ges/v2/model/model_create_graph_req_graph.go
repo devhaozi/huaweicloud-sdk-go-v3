@@ -67,6 +67,12 @@ type CreateGraphReqGraph struct {
 
 	// 图的容量倍率。该参数只有持久化版百亿规格图支持，且从2.3.18版本后开始支持。
 	CapacityRatio *int32 `json:"capacity_ratio,omitempty"`
+
+	// 是否为动态图
+	IsDynamicGraph *bool `json:"is_dynamic_graph,omitempty"`
+
+	// 持久化版图数据的sortKey的类型，通过配置不同SortKey的值来区分重复边（源点，终点，Label三者都相同的边），仅持久化图需要填写。取值为： - int：整型 - string：字节长度小于等于40的字符串 - varString：不限长度字符串，过长会影响读写性能，建议长度控制在1K字节以内，最大不要超过2K字节
+	SortKeyType *string `json:"sort_key_type,omitempty"`
 }
 
 func (o CreateGraphReqGraph) String() string {

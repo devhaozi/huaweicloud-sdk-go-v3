@@ -12,8 +12,8 @@ import (
 // ListInstancesRequest Request Object
 type ListInstancesRequest struct {
 
-	// 消息引擎。
-	Engine *ListInstancesRequestEngine `json:"engine,omitempty"`
+	// 消息引擎：rocketmq。
+	Engine ListInstancesRequestEngine `json:"engine"`
 
 	// 实例名称。
 	Name *string `json:"name,omitempty"`
@@ -21,7 +21,7 @@ type ListInstancesRequest struct {
 	// 实例ID。
 	InstanceId *string `json:"instance_id,omitempty"`
 
-	// 实例状态，[详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。](tag:hws,hws_hk,ctc,hws_eu,ocb,g42,hk_g42,tm,cmcc,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。](tag:hcs)
+	// 实例状态，[详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。](tag:hws,hws_hk,ctc,hws_eu,ocb,g42,hk_g42,tm,sbc,hk_sbc,cmcc,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。](tag:hcs,fcs)
 	Status *ListInstancesRequestStatus `json:"status,omitempty"`
 
 	// 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
@@ -36,7 +36,7 @@ type ListInstancesRequest struct {
 	// 当次查询返回的最大个数，默认值为10，取值范围为1~50。
 	Limit *int32 `json:"limit,omitempty"`
 
-	// 偏移量，表示从此偏移量开始查询， offset大于等于0。
+	// 偏移量，表示从此偏移量开始查询，offset大于等于0。
 	Offset *int32 `json:"offset,omitempty"`
 }
 
@@ -54,13 +54,13 @@ type ListInstancesRequestEngine struct {
 }
 
 type ListInstancesRequestEngineEnum struct {
-	RELIABILITY ListInstancesRequestEngine
+	ROCKETMQ ListInstancesRequestEngine
 }
 
 func GetListInstancesRequestEngineEnum() ListInstancesRequestEngineEnum {
 	return ListInstancesRequestEngineEnum{
-		RELIABILITY: ListInstancesRequestEngine{
-			value: "reliability",
+		ROCKETMQ: ListInstancesRequestEngine{
+			value: "rocketmq",
 		},
 	}
 }

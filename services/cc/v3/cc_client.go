@@ -549,6 +549,27 @@ func (c *CcClient) ListCentralNetworksInvoker(request *model.ListCentralNetworks
 	return &ListCentralNetworksInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ListCentralNetworksByTags 通过标签过滤中心网络实例
+//
+// 通过标签过滤中心网络实例。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) ListCentralNetworksByTags(request *model.ListCentralNetworksByTagsRequest) (*model.ListCentralNetworksByTagsResponse, error) {
+	requestDef := GenReqDefForListCentralNetworksByTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListCentralNetworksByTagsResponse), nil
+	}
+}
+
+// ListCentralNetworksByTagsInvoker 通过标签过滤中心网络实例
+func (c *CcClient) ListCentralNetworksByTagsInvoker(request *model.ListCentralNetworksByTagsRequest) *ListCentralNetworksByTagsInvoker {
+	requestDef := GenReqDefForListCentralNetworksByTags()
+	return &ListCentralNetworksByTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ShowCentralNetwork 查询中心网络详情
 //
 // 查询中心网络详情。
@@ -633,6 +654,27 @@ func (c *CcClient) UpdateCentralNetworkInvoker(request *model.UpdateCentralNetwo
 	return &UpdateCentralNetworkInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateCentralNetworkErRouteTableAttachment 创建中心网络ER路由表附件
+//
+// 创建中心网络的路由表附件。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) CreateCentralNetworkErRouteTableAttachment(request *model.CreateCentralNetworkErRouteTableAttachmentRequest) (*model.CreateCentralNetworkErRouteTableAttachmentResponse, error) {
+	requestDef := GenReqDefForCreateCentralNetworkErRouteTableAttachment()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateCentralNetworkErRouteTableAttachmentResponse), nil
+	}
+}
+
+// CreateCentralNetworkErRouteTableAttachmentInvoker 创建中心网络ER路由表附件
+func (c *CcClient) CreateCentralNetworkErRouteTableAttachmentInvoker(request *model.CreateCentralNetworkErRouteTableAttachmentRequest) *CreateCentralNetworkErRouteTableAttachmentInvoker {
+	requestDef := GenReqDefForCreateCentralNetworkErRouteTableAttachment()
+	return &CreateCentralNetworkErRouteTableAttachmentInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateCentralNetworkGdgwAttachment 创建中心网络GDGW附件
 //
 // 创建中心网络的GDGW附件。
@@ -696,6 +738,28 @@ func (c *CcClient) ListCentralNetworkAttachmentsInvoker(request *model.ListCentr
 	return &ListCentralNetworkAttachmentsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ListCentralNetworkErRouteTableAttachments 查询中心网络ER路由表附件列表
+//
+// 查询中心网络ER路由表附件列表。
+// 分页查询使用的参数为marker、limit。limit默认值为0，没有指定marker时返回第一条数据。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) ListCentralNetworkErRouteTableAttachments(request *model.ListCentralNetworkErRouteTableAttachmentsRequest) (*model.ListCentralNetworkErRouteTableAttachmentsResponse, error) {
+	requestDef := GenReqDefForListCentralNetworkErRouteTableAttachments()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListCentralNetworkErRouteTableAttachmentsResponse), nil
+	}
+}
+
+// ListCentralNetworkErRouteTableAttachmentsInvoker 查询中心网络ER路由表附件列表
+func (c *CcClient) ListCentralNetworkErRouteTableAttachmentsInvoker(request *model.ListCentralNetworkErRouteTableAttachmentsRequest) *ListCentralNetworkErRouteTableAttachmentsInvoker {
+	requestDef := GenReqDefForListCentralNetworkErRouteTableAttachments()
+	return &ListCentralNetworkErRouteTableAttachmentsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ListCentralNetworkGdgwAttachments 查询中心网络GDGW附件列表
 //
 // 查询中心网络GDGW附件列表。
@@ -718,6 +782,27 @@ func (c *CcClient) ListCentralNetworkGdgwAttachmentsInvoker(request *model.ListC
 	return &ListCentralNetworkGdgwAttachmentsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ShowCentralNetworkErRouteTableAttachment 查询中心网络ER路由表附件详情
+//
+// 查询中心网络ER路由表附件详情。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) ShowCentralNetworkErRouteTableAttachment(request *model.ShowCentralNetworkErRouteTableAttachmentRequest) (*model.ShowCentralNetworkErRouteTableAttachmentResponse, error) {
+	requestDef := GenReqDefForShowCentralNetworkErRouteTableAttachment()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowCentralNetworkErRouteTableAttachmentResponse), nil
+	}
+}
+
+// ShowCentralNetworkErRouteTableAttachmentInvoker 查询中心网络ER路由表附件详情
+func (c *CcClient) ShowCentralNetworkErRouteTableAttachmentInvoker(request *model.ShowCentralNetworkErRouteTableAttachmentRequest) *ShowCentralNetworkErRouteTableAttachmentInvoker {
+	requestDef := GenReqDefForShowCentralNetworkErRouteTableAttachment()
+	return &ShowCentralNetworkErRouteTableAttachmentInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ShowCentralNetworkGdgwAttachment 查询中心网络GDGW附件详情
 //
 // 查询中心网络GDGW附件详情。
@@ -737,6 +822,27 @@ func (c *CcClient) ShowCentralNetworkGdgwAttachment(request *model.ShowCentralNe
 func (c *CcClient) ShowCentralNetworkGdgwAttachmentInvoker(request *model.ShowCentralNetworkGdgwAttachmentRequest) *ShowCentralNetworkGdgwAttachmentInvoker {
 	requestDef := GenReqDefForShowCentralNetworkGdgwAttachment()
 	return &ShowCentralNetworkGdgwAttachmentInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UpdateCentralNetworkErRouteTableAttachment 更新中心网络ER路由表附件
+//
+// 更新中心网络ER路由表附件。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) UpdateCentralNetworkErRouteTableAttachment(request *model.UpdateCentralNetworkErRouteTableAttachmentRequest) (*model.UpdateCentralNetworkErRouteTableAttachmentResponse, error) {
+	requestDef := GenReqDefForUpdateCentralNetworkErRouteTableAttachment()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateCentralNetworkErRouteTableAttachmentResponse), nil
+	}
+}
+
+// UpdateCentralNetworkErRouteTableAttachmentInvoker 更新中心网络ER路由表附件
+func (c *CcClient) UpdateCentralNetworkErRouteTableAttachmentInvoker(request *model.UpdateCentralNetworkErRouteTableAttachmentRequest) *UpdateCentralNetworkErRouteTableAttachmentInvoker {
+	requestDef := GenReqDefForUpdateCentralNetworkErRouteTableAttachment()
+	return &UpdateCentralNetworkErRouteTableAttachmentInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // UpdateCentralNetworkGdgwAttachment 更新中心网络GDGW附件
@@ -1098,6 +1204,174 @@ func (c *CcClient) ShowCloudConnectionRoutes(request *model.ShowCloudConnectionR
 func (c *CcClient) ShowCloudConnectionRoutesInvoker(request *model.ShowCloudConnectionRoutesRequest) *ShowCloudConnectionRoutesInvoker {
 	requestDef := GenReqDefForShowCloudConnectionRoutes()
 	return &ShowCloudConnectionRoutesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// BatchCreateGcbResourceTags 批量添加账户全域互联带宽资源标签
+//
+// # TMS批量添加资源标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) BatchCreateGcbResourceTags(request *model.BatchCreateGcbResourceTagsRequest) (*model.BatchCreateGcbResourceTagsResponse, error) {
+	requestDef := GenReqDefForBatchCreateGcbResourceTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchCreateGcbResourceTagsResponse), nil
+	}
+}
+
+// BatchCreateGcbResourceTagsInvoker 批量添加账户全域互联带宽资源标签
+func (c *CcClient) BatchCreateGcbResourceTagsInvoker(request *model.BatchCreateGcbResourceTagsRequest) *BatchCreateGcbResourceTagsInvoker {
+	requestDef := GenReqDefForBatchCreateGcbResourceTags()
+	return &BatchCreateGcbResourceTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// BatchDeleteGcbResourceTags 批量删除账户全域互联带宽资源标签
+//
+// 批量删除账户全域互联带宽资源标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) BatchDeleteGcbResourceTags(request *model.BatchDeleteGcbResourceTagsRequest) (*model.BatchDeleteGcbResourceTagsResponse, error) {
+	requestDef := GenReqDefForBatchDeleteGcbResourceTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchDeleteGcbResourceTagsResponse), nil
+	}
+}
+
+// BatchDeleteGcbResourceTagsInvoker 批量删除账户全域互联带宽资源标签
+func (c *CcClient) BatchDeleteGcbResourceTagsInvoker(request *model.BatchDeleteGcbResourceTagsRequest) *BatchDeleteGcbResourceTagsInvoker {
+	requestDef := GenReqDefForBatchDeleteGcbResourceTags()
+	return &BatchDeleteGcbResourceTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CountGcbResourceByTag 查询账户全域互联带宽资源标签数量
+//
+// 查询账户全域互联带宽资源标签数量
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) CountGcbResourceByTag(request *model.CountGcbResourceByTagRequest) (*model.CountGcbResourceByTagResponse, error) {
+	requestDef := GenReqDefForCountGcbResourceByTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CountGcbResourceByTagResponse), nil
+	}
+}
+
+// CountGcbResourceByTagInvoker 查询账户全域互联带宽资源标签数量
+func (c *CcClient) CountGcbResourceByTagInvoker(request *model.CountGcbResourceByTagRequest) *CountGcbResourceByTagInvoker {
+	requestDef := GenReqDefForCountGcbResourceByTag()
+	return &CountGcbResourceByTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateGcbResourceTag 添加账户全域互联带宽资源标签
+//
+// 添加账户全域互联带宽资源标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) CreateGcbResourceTag(request *model.CreateGcbResourceTagRequest) (*model.CreateGcbResourceTagResponse, error) {
+	requestDef := GenReqDefForCreateGcbResourceTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateGcbResourceTagResponse), nil
+	}
+}
+
+// CreateGcbResourceTagInvoker 添加账户全域互联带宽资源标签
+func (c *CcClient) CreateGcbResourceTagInvoker(request *model.CreateGcbResourceTagRequest) *CreateGcbResourceTagInvoker {
+	requestDef := GenReqDefForCreateGcbResourceTag()
+	return &CreateGcbResourceTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteGcbResourceTag 删除账户全域互联带宽资源标签
+//
+// 删除账户全域互联带宽资源标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) DeleteGcbResourceTag(request *model.DeleteGcbResourceTagRequest) (*model.DeleteGcbResourceTagResponse, error) {
+	requestDef := GenReqDefForDeleteGcbResourceTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteGcbResourceTagResponse), nil
+	}
+}
+
+// DeleteGcbResourceTagInvoker 删除账户全域互联带宽资源标签
+func (c *CcClient) DeleteGcbResourceTagInvoker(request *model.DeleteGcbResourceTagRequest) *DeleteGcbResourceTagInvoker {
+	requestDef := GenReqDefForDeleteGcbResourceTag()
+	return &DeleteGcbResourceTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListGcbResourceByTag 查询账户全域互联带宽资源实例列表
+//
+// 查询账户全域互联带宽资源实例列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) ListGcbResourceByTag(request *model.ListGcbResourceByTagRequest) (*model.ListGcbResourceByTagResponse, error) {
+	requestDef := GenReqDefForListGcbResourceByTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListGcbResourceByTagResponse), nil
+	}
+}
+
+// ListGcbResourceByTagInvoker 查询账户全域互联带宽资源实例列表
+func (c *CcClient) ListGcbResourceByTagInvoker(request *model.ListGcbResourceByTagRequest) *ListGcbResourceByTagInvoker {
+	requestDef := GenReqDefForListGcbResourceByTag()
+	return &ListGcbResourceByTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListGcbResourceTags 查询账户全域互联带宽资源的标签
+//
+// 查询账户全域互联带宽资源的标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) ListGcbResourceTags(request *model.ListGcbResourceTagsRequest) (*model.ListGcbResourceTagsResponse, error) {
+	requestDef := GenReqDefForListGcbResourceTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListGcbResourceTagsResponse), nil
+	}
+}
+
+// ListGcbResourceTagsInvoker 查询账户全域互联带宽资源的标签
+func (c *CcClient) ListGcbResourceTagsInvoker(request *model.ListGcbResourceTagsRequest) *ListGcbResourceTagsInvoker {
+	requestDef := GenReqDefForListGcbResourceTags()
+	return &ListGcbResourceTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListGcbTenantTags 查询账户全域互联带宽所有资源标签
+//
+// 查询账户全域互联带宽所有资源标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CcClient) ListGcbTenantTags(request *model.ListGcbTenantTagsRequest) (*model.ListGcbTenantTagsResponse, error) {
+	requestDef := GenReqDefForListGcbTenantTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListGcbTenantTagsResponse), nil
+	}
+}
+
+// ListGcbTenantTagsInvoker 查询账户全域互联带宽所有资源标签
+func (c *CcClient) ListGcbTenantTagsInvoker(request *model.ListGcbTenantTagsRequest) *ListGcbTenantTagsInvoker {
+	requestDef := GenReqDefForListGcbTenantTags()
+	return &ListGcbTenantTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // AssociateGlobalConnectionBandwidthInstance 全域互联带宽绑定实例

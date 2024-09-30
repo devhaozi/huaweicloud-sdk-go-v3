@@ -13,16 +13,16 @@ var (
 	AP_SOUTHEAST_3 = region.NewRegion("ap-southeast-3",
 		"https://sms.ap-southeast-3.myhuaweicloud.com")
 	MY_KUALALUMPUR_1 = region.NewRegion("my-kualalumpur-1",
-		"https://sms.my-kualalumpur-1.alphaedge.tmone.com.my")
-	EU_WEST_101 = region.NewRegion("eu-west-101",
-		"https://sms.eu-west-101.myhuaweicloud.eu")
+		"https://sms.my-kualalumpur-1.myhuaweicloud.com")
+	RU_MOSCOW_1 = region.NewRegion("ru-moscow-1",
+		"https://sms-api.ru-moscow-1.myhuaweicloud.com")
 )
 
 var staticFields = map[string]*region.Region{
 	"ap-southeast-1":   AP_SOUTHEAST_1,
 	"ap-southeast-3":   AP_SOUTHEAST_3,
 	"my-kualalumpur-1": MY_KUALALUMPUR_1,
-	"eu-west-101":      EU_WEST_101,
+	"ru-moscow-1":      RU_MOSCOW_1,
 }
 
 var provider = region.DefaultProviderChain("SMS")

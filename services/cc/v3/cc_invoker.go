@@ -305,6 +305,18 @@ func (i *ListCentralNetworksInvoker) Invoke() (*model.ListCentralNetworksRespons
 	}
 }
 
+type ListCentralNetworksByTagsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListCentralNetworksByTagsInvoker) Invoke() (*model.ListCentralNetworksByTagsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListCentralNetworksByTagsResponse), nil
+	}
+}
+
 type ShowCentralNetworkInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -353,6 +365,18 @@ func (i *UpdateCentralNetworkInvoker) Invoke() (*model.UpdateCentralNetworkRespo
 	}
 }
 
+type CreateCentralNetworkErRouteTableAttachmentInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateCentralNetworkErRouteTableAttachmentInvoker) Invoke() (*model.CreateCentralNetworkErRouteTableAttachmentResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateCentralNetworkErRouteTableAttachmentResponse), nil
+	}
+}
+
 type CreateCentralNetworkGdgwAttachmentInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -389,6 +413,18 @@ func (i *ListCentralNetworkAttachmentsInvoker) Invoke() (*model.ListCentralNetwo
 	}
 }
 
+type ListCentralNetworkErRouteTableAttachmentsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListCentralNetworkErRouteTableAttachmentsInvoker) Invoke() (*model.ListCentralNetworkErRouteTableAttachmentsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListCentralNetworkErRouteTableAttachmentsResponse), nil
+	}
+}
+
 type ListCentralNetworkGdgwAttachmentsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -401,6 +437,18 @@ func (i *ListCentralNetworkGdgwAttachmentsInvoker) Invoke() (*model.ListCentralN
 	}
 }
 
+type ShowCentralNetworkErRouteTableAttachmentInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowCentralNetworkErRouteTableAttachmentInvoker) Invoke() (*model.ShowCentralNetworkErRouteTableAttachmentResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowCentralNetworkErRouteTableAttachmentResponse), nil
+	}
+}
+
 type ShowCentralNetworkGdgwAttachmentInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -410,6 +458,18 @@ func (i *ShowCentralNetworkGdgwAttachmentInvoker) Invoke() (*model.ShowCentralNe
 		return nil, err
 	} else {
 		return result.(*model.ShowCentralNetworkGdgwAttachmentResponse), nil
+	}
+}
+
+type UpdateCentralNetworkErRouteTableAttachmentInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateCentralNetworkErRouteTableAttachmentInvoker) Invoke() (*model.UpdateCentralNetworkErRouteTableAttachmentResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateCentralNetworkErRouteTableAttachmentResponse), nil
 	}
 }
 
@@ -614,6 +674,102 @@ func (i *ShowCloudConnectionRoutesInvoker) Invoke() (*model.ShowCloudConnectionR
 		return nil, err
 	} else {
 		return result.(*model.ShowCloudConnectionRoutesResponse), nil
+	}
+}
+
+type BatchCreateGcbResourceTagsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchCreateGcbResourceTagsInvoker) Invoke() (*model.BatchCreateGcbResourceTagsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchCreateGcbResourceTagsResponse), nil
+	}
+}
+
+type BatchDeleteGcbResourceTagsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchDeleteGcbResourceTagsInvoker) Invoke() (*model.BatchDeleteGcbResourceTagsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchDeleteGcbResourceTagsResponse), nil
+	}
+}
+
+type CountGcbResourceByTagInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CountGcbResourceByTagInvoker) Invoke() (*model.CountGcbResourceByTagResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CountGcbResourceByTagResponse), nil
+	}
+}
+
+type CreateGcbResourceTagInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateGcbResourceTagInvoker) Invoke() (*model.CreateGcbResourceTagResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateGcbResourceTagResponse), nil
+	}
+}
+
+type DeleteGcbResourceTagInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteGcbResourceTagInvoker) Invoke() (*model.DeleteGcbResourceTagResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteGcbResourceTagResponse), nil
+	}
+}
+
+type ListGcbResourceByTagInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListGcbResourceByTagInvoker) Invoke() (*model.ListGcbResourceByTagResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListGcbResourceByTagResponse), nil
+	}
+}
+
+type ListGcbResourceTagsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListGcbResourceTagsInvoker) Invoke() (*model.ListGcbResourceTagsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListGcbResourceTagsResponse), nil
+	}
+}
+
+type ListGcbTenantTagsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListGcbTenantTagsInvoker) Invoke() (*model.ListGcbTenantTagsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListGcbTenantTagsResponse), nil
 	}
 }
 

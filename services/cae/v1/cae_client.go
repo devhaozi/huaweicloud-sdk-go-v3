@@ -250,6 +250,27 @@ func (c *CaeClient) CreateComponentInvoker(request *model.CreateComponentRequest
 	return &CreateComponentInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateComponentWithConfiguration 创建、生效配置并部署组件
+//
+// 创建、生效配置并部署组件。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) CreateComponentWithConfiguration(request *model.CreateComponentWithConfigurationRequest) (*model.CreateComponentWithConfigurationResponse, error) {
+	requestDef := GenReqDefForCreateComponentWithConfiguration()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateComponentWithConfigurationResponse), nil
+	}
+}
+
+// CreateComponentWithConfigurationInvoker 创建、生效配置并部署组件
+func (c *CaeClient) CreateComponentWithConfigurationInvoker(request *model.CreateComponentWithConfigurationRequest) *CreateComponentWithConfigurationInvoker {
+	requestDef := GenReqDefForCreateComponentWithConfiguration()
+	return &CreateComponentWithConfigurationInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // DeleteComponent 删除组件
 //
 // 删除组件。
@@ -290,27 +311,6 @@ func (c *CaeClient) ExecuteAction(request *model.ExecuteActionRequest) (*model.E
 func (c *CaeClient) ExecuteActionInvoker(request *model.ExecuteActionRequest) *ExecuteActionInvoker {
 	requestDef := GenReqDefForExecuteAction()
 	return &ExecuteActionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
-}
-
-// ListComponentEvents 获取组件事件列表
-//
-// 获取组件事件列表。
-//
-// Please refer to HUAWEI cloud API Explorer for details.
-func (c *CaeClient) ListComponentEvents(request *model.ListComponentEventsRequest) (*model.ListComponentEventsResponse, error) {
-	requestDef := GenReqDefForListComponentEvents()
-
-	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
-		return nil, err
-	} else {
-		return resp.(*model.ListComponentEventsResponse), nil
-	}
-}
-
-// ListComponentEventsInvoker 获取组件事件列表
-func (c *CaeClient) ListComponentEventsInvoker(request *model.ListComponentEventsRequest) *ListComponentEventsInvoker {
-	requestDef := GenReqDefForListComponentEvents()
-	return &ListComponentEventsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListComponentInstances 获取组件实例列表
@@ -565,9 +565,9 @@ func (c *CaeClient) ListEipsInvoker(request *model.ListEipsRequest) *ListEipsInv
 	return &ListEipsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
-// UpdateEip 修改带宽
+// UpdateEip 修改出入网带宽以及开闭状态
 //
-// 修改带宽。
+// 修改出入网带宽以及开闭状态。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *CaeClient) UpdateEip(request *model.UpdateEipRequest) (*model.UpdateEipResponse, error) {
@@ -580,7 +580,7 @@ func (c *CaeClient) UpdateEip(request *model.UpdateEipRequest) (*model.UpdateEip
 	}
 }
 
-// UpdateEipInvoker 修改带宽
+// UpdateEipInvoker 修改出入网带宽以及开闭状态
 func (c *CaeClient) UpdateEipInvoker(request *model.UpdateEipRequest) *UpdateEipInvoker {
 	requestDef := GenReqDefForUpdateEip()
 	return &UpdateEipInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
@@ -754,6 +754,111 @@ func (c *CaeClient) UpdateMonitorSystemInvoker(request *model.UpdateMonitorSyste
 	return &UpdateMonitorSystemInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateNoticeRule 创建事件通知规则。
+//
+// 创建事件通知规则。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) CreateNoticeRule(request *model.CreateNoticeRuleRequest) (*model.CreateNoticeRuleResponse, error) {
+	requestDef := GenReqDefForCreateNoticeRule()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateNoticeRuleResponse), nil
+	}
+}
+
+// CreateNoticeRuleInvoker 创建事件通知规则。
+func (c *CaeClient) CreateNoticeRuleInvoker(request *model.CreateNoticeRuleRequest) *CreateNoticeRuleInvoker {
+	requestDef := GenReqDefForCreateNoticeRule()
+	return &CreateNoticeRuleInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteNoticeRule 删除事件通知规则。
+//
+// 删除事件通知规则。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) DeleteNoticeRule(request *model.DeleteNoticeRuleRequest) (*model.DeleteNoticeRuleResponse, error) {
+	requestDef := GenReqDefForDeleteNoticeRule()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteNoticeRuleResponse), nil
+	}
+}
+
+// DeleteNoticeRuleInvoker 删除事件通知规则。
+func (c *CaeClient) DeleteNoticeRuleInvoker(request *model.DeleteNoticeRuleRequest) *DeleteNoticeRuleInvoker {
+	requestDef := GenReqDefForDeleteNoticeRule()
+	return &DeleteNoticeRuleInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListNoticeRules 查询事件通知规则列表。
+//
+// 查询事件通知规则列表。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) ListNoticeRules(request *model.ListNoticeRulesRequest) (*model.ListNoticeRulesResponse, error) {
+	requestDef := GenReqDefForListNoticeRules()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListNoticeRulesResponse), nil
+	}
+}
+
+// ListNoticeRulesInvoker 查询事件通知规则列表。
+func (c *CaeClient) ListNoticeRulesInvoker(request *model.ListNoticeRulesRequest) *ListNoticeRulesInvoker {
+	requestDef := GenReqDefForListNoticeRules()
+	return &ListNoticeRulesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowNoticeRule 查询事件通知规则。
+//
+// 查询事件通知规则。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) ShowNoticeRule(request *model.ShowNoticeRuleRequest) (*model.ShowNoticeRuleResponse, error) {
+	requestDef := GenReqDefForShowNoticeRule()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowNoticeRuleResponse), nil
+	}
+}
+
+// ShowNoticeRuleInvoker 查询事件通知规则。
+func (c *CaeClient) ShowNoticeRuleInvoker(request *model.ShowNoticeRuleRequest) *ShowNoticeRuleInvoker {
+	requestDef := GenReqDefForShowNoticeRule()
+	return &ShowNoticeRuleInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UpdateNoticeRule 修改事件通知规则。
+//
+// 修改事件通知规则。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) UpdateNoticeRule(request *model.UpdateNoticeRuleRequest) (*model.UpdateNoticeRuleResponse, error) {
+	requestDef := GenReqDefForUpdateNoticeRule()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateNoticeRuleResponse), nil
+	}
+}
+
+// UpdateNoticeRuleInvoker 修改事件通知规则。
+func (c *CaeClient) UpdateNoticeRuleInvoker(request *model.UpdateNoticeRuleRequest) *UpdateNoticeRuleInvoker {
+	requestDef := GenReqDefForUpdateNoticeRule()
+	return &UpdateNoticeRuleInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateTimerRule 创建定时启停规则
 //
 // 创建定时启停规则。
@@ -920,4 +1025,67 @@ func (c *CaeClient) ListVolumes(request *model.ListVolumesRequest) (*model.ListV
 func (c *CaeClient) ListVolumesInvoker(request *model.ListVolumesRequest) *ListVolumesInvoker {
 	requestDef := GenReqDefForListVolumes()
 	return &ListVolumesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateVpcEgress 创建CAE环境访问VPC配置
+//
+// 创建CAE环境访问VPC配置。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) CreateVpcEgress(request *model.CreateVpcEgressRequest) (*model.CreateVpcEgressResponse, error) {
+	requestDef := GenReqDefForCreateVpcEgress()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateVpcEgressResponse), nil
+	}
+}
+
+// CreateVpcEgressInvoker 创建CAE环境访问VPC配置
+func (c *CaeClient) CreateVpcEgressInvoker(request *model.CreateVpcEgressRequest) *CreateVpcEgressInvoker {
+	requestDef := GenReqDefForCreateVpcEgress()
+	return &CreateVpcEgressInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteVpcEgress 删除CAE环境访问VPC配置
+//
+// 删除CAE环境访问VPC配置。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) DeleteVpcEgress(request *model.DeleteVpcEgressRequest) (*model.DeleteVpcEgressResponse, error) {
+	requestDef := GenReqDefForDeleteVpcEgress()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteVpcEgressResponse), nil
+	}
+}
+
+// DeleteVpcEgressInvoker 删除CAE环境访问VPC配置
+func (c *CaeClient) DeleteVpcEgressInvoker(request *model.DeleteVpcEgressRequest) *DeleteVpcEgressInvoker {
+	requestDef := GenReqDefForDeleteVpcEgress()
+	return &DeleteVpcEgressInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListVpcEgress 获取CAE环境访问VPC配置
+//
+// 获取CAE环境访问VPC配置。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *CaeClient) ListVpcEgress(request *model.ListVpcEgressRequest) (*model.ListVpcEgressResponse, error) {
+	requestDef := GenReqDefForListVpcEgress()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListVpcEgressResponse), nil
+	}
+}
+
+// ListVpcEgressInvoker 获取CAE环境访问VPC配置
+func (c *CaeClient) ListVpcEgressInvoker(request *model.ListVpcEgressRequest) *ListVpcEgressInvoker {
+	requestDef := GenReqDefForListVpcEgress()
+	return &ListVpcEgressInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }

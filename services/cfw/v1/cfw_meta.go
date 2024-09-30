@@ -252,11 +252,59 @@ func GenReqDefForBatchDeleteServiceItems() *def.HttpRequestDef {
 	return requestDef
 }
 
+func GenReqDefForCancelCaptureTask() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/{project_id}/capture-task/stop").
+		WithResponse(new(model.CancelCaptureTaskResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("FwInstanceId").
+		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("EnterpriseProjectId").
+		WithJsonTag("enterprise_project_id").
+		WithLocationType(def.Query))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
 func GenReqDefForChangeEastWestFirewallStatus() *def.HttpRequestDef {
 	reqDefBuilder := def.NewHttpRequestDefBuilder().
 		WithMethod(http.MethodPost).
 		WithPath("/v1/{project_id}/firewall/east-west/protect").
 		WithResponse(new(model.ChangeEastWestFirewallStatusResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("EnterpriseProjectId").
+		WithJsonTag("enterprise_project_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("FwInstanceId").
+		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForCreateCaptureTask() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/{project_id}/capture-task").
+		WithResponse(new(model.CreateCaptureTaskResponse)).
 		WithContentType("application/json")
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
@@ -311,12 +359,32 @@ func GenReqDefForCreateFirewall() *def.HttpRequestDef {
 		WithName("XClientToken").
 		WithJsonTag("X-Client-Token").
 		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XTraceId").
-		WithJsonTag("X-Trace-Id").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForCreateTag() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v2/{project_id}/cfw-cfw/{fw_instance_id}/tags/create").
+		WithResponse(new(model.CreateTagResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("FwInstanceId").
+		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
 
@@ -394,6 +462,30 @@ func GenReqDefForDeleteBlackWhiteList() *def.HttpRequestDef {
 		WithName("FwInstanceId").
 		WithJsonTag("fw_instance_id").
 		WithLocationType(def.Query))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForDeleteCaptureTask() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodPost).
+		WithPath("/v1/{project_id}/capture-task/batch-delete").
+		WithResponse(new(model.DeleteCaptureTaskResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("FwInstanceId").
+		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("EnterpriseProjectId").
+		WithJsonTag("enterprise_project_id").
+		WithLocationType(def.Query))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -515,6 +607,30 @@ func GenReqDefForDeleteServiceSet() *def.HttpRequestDef {
 	return requestDef
 }
 
+func GenReqDefForDeleteTag() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodDelete).
+		WithPath("/v2/{project_id}/cfw-cfw/{fw_instance_id}/tags/delete").
+		WithResponse(new(model.DeleteTagResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("FwInstanceId").
+		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Path))
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	reqDefBuilder.WithResponseField(def.NewFieldDef().
+		WithName("Body").
+		WithLocationType(def.Body))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
 func GenReqDefForListAccessControlLogs() *def.HttpRequestDef {
 	reqDefBuilder := def.NewHttpRequestDefBuilder().
 		WithMethod(http.MethodGet).
@@ -598,6 +714,30 @@ func GenReqDefForListAccessControlLogs() *def.HttpRequestDef {
 		WithName("Action").
 		WithJsonTag("action").
 		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcRegionName").
+		WithJsonTag("src_region_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstRegionName").
+		WithJsonTag("dst_region_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcProvinceName").
+		WithJsonTag("src_province_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstProvinceName").
+		WithJsonTag("dst_province_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcCityName").
+		WithJsonTag("src_city_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstCityName").
+		WithJsonTag("dst_city_name").
+		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -637,6 +777,10 @@ func GenReqDefForListAddressItems() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("FwInstanceId").
 		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("QueryAddressSetType").
+		WithJsonTag("query_address_set_type").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -714,6 +858,10 @@ func GenReqDefForListAddressSets() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("QueryAddressSetType").
 		WithJsonTag("query_address_set_type").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("AddressSetType").
+		WithJsonTag("address_set_type").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -800,10 +948,6 @@ func GenReqDefForListAttackLogs() *def.HttpRequestDef {
 		WithJsonTag("level").
 		WithLocationType(def.Query))
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Source").
-		WithJsonTag("source").
-		WithLocationType(def.Query))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("EnterpriseProjectId").
 		WithJsonTag("enterprise_project_id").
 		WithLocationType(def.Query))
@@ -814,6 +958,34 @@ func GenReqDefForListAttackLogs() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("LogType").
 		WithJsonTag("log_type").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("AttackRuleId").
+		WithJsonTag("attack_rule_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcRegionName").
+		WithJsonTag("src_region_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstRegionName").
+		WithJsonTag("dst_region_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcProvinceName").
+		WithJsonTag("src_province_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstProvinceName").
+		WithJsonTag("dst_province_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcCityName").
+		WithJsonTag("src_city_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstCityName").
+		WithJsonTag("dst_city_name").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -862,6 +1034,66 @@ func GenReqDefForListBlackWhiteLists() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("FwInstanceId").
 		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForListCaptureResult() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodGet).
+		WithPath("/v1/{project_id}/capture-task/capture-result").
+		WithResponse(new(model.ListCaptureResultResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("FwInstanceId").
+		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("TaskId").
+		WithJsonTag("task_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Type").
+		WithJsonTag("type").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Ip").
+		WithJsonTag("ip").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("EnterpriseProjectId").
+		WithJsonTag("enterprise_project_id").
+		WithLocationType(def.Query))
+
+	requestDef := reqDefBuilder.Build()
+	return requestDef
+}
+
+func GenReqDefForListCaptureTask() *def.HttpRequestDef {
+	reqDefBuilder := def.NewHttpRequestDefBuilder().
+		WithMethod(http.MethodGet).
+		WithPath("/v1/{project_id}/capture-task").
+		WithResponse(new(model.ListCaptureTaskResponse)).
+		WithContentType("application/json")
+
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("EnterpriseProjectId").
+		WithJsonTag("enterprise_project_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("FwInstanceId").
+		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Limit").
+		WithJsonTag("limit").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Offset").
+		WithJsonTag("offset").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -1002,14 +1234,6 @@ func GenReqDefForListDomains() *def.HttpRequestDef {
 		WithJsonTag("domain_name").
 		WithLocationType(def.Query))
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Description").
-		WithJsonTag("description").
-		WithLocationType(def.Query))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("SetId").
-		WithJsonTag("set_id").
-		WithLocationType(def.Query))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("ObjectId").
 		WithJsonTag("object_Id").
 		WithLocationType(def.Query))
@@ -1072,6 +1296,10 @@ func GenReqDefForListFirewallDetail() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("FwInstanceId").
 		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Name").
+		WithJsonTag("name").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -1173,6 +1401,30 @@ func GenReqDefForListFlowLogs() *def.HttpRequestDef {
 		WithName("DstHost").
 		WithJsonTag("dst_host").
 		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcRegionName").
+		WithJsonTag("src_region_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstRegionName").
+		WithJsonTag("dst_region_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcProvinceName").
+		WithJsonTag("src_province_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstProvinceName").
+		WithJsonTag("dst_province_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("SrcCityName").
+		WithJsonTag("src_city_name").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("DstCityName").
+		WithJsonTag("dst_city_name").
+		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1269,6 +1521,10 @@ func GenReqDefForListServiceItems() *def.HttpRequestDef {
 		WithName("FwInstanceId").
 		WithJsonTag("fw_instance_id").
 		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("QueryServiceSetType").
+		WithJsonTag("query_service_set_type").
+		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1293,6 +1549,10 @@ func GenReqDefForListServiceSetDetail() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("FwInstanceId").
 		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("QueryServiceSetType").
+		WithJsonTag("query_service_set_type").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -1329,6 +1589,10 @@ func GenReqDefForListServiceSets() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("FwInstanceId").
 		WithJsonTag("fw_instance_id").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("QueryServiceSetType").
+		WithJsonTag("query_service_set_type").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -1660,10 +1924,6 @@ func GenReqDefForListAclRules() *def.HttpRequestDef {
 		WithJsonTag("type").
 		WithLocationType(def.Query))
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Protocol").
-		WithJsonTag("protocol").
-		WithLocationType(def.Query))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Ip").
 		WithJsonTag("ip").
 		WithLocationType(def.Query))
@@ -1718,6 +1978,10 @@ func GenReqDefForListAclRules() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Service").
 		WithJsonTag("service").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Application").
+		WithJsonTag("application").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()

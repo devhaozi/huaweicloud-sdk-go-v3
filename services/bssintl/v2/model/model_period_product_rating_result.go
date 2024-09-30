@@ -2,6 +2,7 @@ package model
 
 import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/utils"
+	"github.com/shopspring/decimal"
 
 	"strings"
 )
@@ -15,19 +16,16 @@ type PeriodProductRatingResult struct {
 	ProductId *string `json:"product_id,omitempty"`
 
 	// 总额，即最终优惠后的金额。 amount= official_website_amount - discountAmount。
-	Amount *float64 `json:"amount,omitempty"`
+	Amount *decimal.Decimal `json:"amount,omitempty"`
 
 	// 包年/包月产品的官网价。
-	OfficialWebsiteAmount *float64 `json:"official_website_amount,omitempty"`
+	OfficialWebsiteAmount *decimal.Decimal `json:"official_website_amount,omitempty"`
 
 	// 可选折扣优惠额，如商务折扣、伙伴折扣、促销折扣和折扣券选用时的优惠额。
-	DiscountAmount *float64 `json:"discount_amount,omitempty"`
+	DiscountAmount *decimal.Decimal `json:"discount_amount,omitempty"`
 
 	// 价格度量单位标识。 1：元
 	MeasureId *int32 `json:"measure_id,omitempty"`
-
-	// |参数名称：每页数量| |参数的约束及描述：该参数非必填，且只允许1-100数字，默认10，最多100|
-	Limit *int32 `json:"limit,omitempty"`
 }
 
 func (o PeriodProductRatingResult) String() string {

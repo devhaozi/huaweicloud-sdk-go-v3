@@ -2,6 +2,7 @@ package model
 
 import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/utils"
+	"github.com/shopspring/decimal"
 
 	"strings"
 )
@@ -14,7 +15,7 @@ type MonthlyBillRes struct {
 	// 消费日期，东八区时间，格式为YYYY-MM-DD。  说明： 当statistic_type=2时该字段才有值，否则返回null。
 	BillDate *string `json:"bill_date,omitempty"`
 
-	// 账单类型。 1：消费-新购2：消费-续订3：消费-变更4：退款-退订5：消费-使用8：消费-自动续订9：调账-补偿14：消费-服务支持计划月末扣费15：消费-税金16：调账-扣费17：消费-保底差额 说明： 保底差额=客户签约保底合同后，如果没有达到保底消费，客户需要补交的费用，仅限于直销或者伙伴顾问销售类子客户，且为后付费用户。 20：退款-变更100：退款-退订税金101：调账-补偿税金102：调账-扣费税金
+	// 账单类型。 1：消费-新购2：消费-续订3：消费-变更4：退款-退订5：消费-使用8：消费-自动续订9：调账-补偿14：消费-服务支持计划月末扣费15：消费-税金16：调账-扣费17：消费-保底差额 说明： 保底差额=客户签约保底合同后，如果没有达到保底消费，客户需要补交的费用，仅限于直销或者伙伴顾问销售类子客户，且为后付费用户。 20：退款-变更 23：消费-节省计划抵扣 24：退款-包年/包月转按需 100：退款-退订税金101：调账-补偿税金102：调账-扣费税金
 	BillType *int32 `json:"bill_type,omitempty"`
 
 	// 消费的客户账号ID。 如果是普通客户或者企业子客户查询消费记录，只能查询到客户自己的消费记录，且此处显示的是客户自己的客户ID。如果是企业主查询消费记录，可以查询到企业主以及企业子客户的消费记录，此处为消费的实际客户ID。如果是企业主自己的消费记录，则为企业主ID；如果是某个企业子客户的消费记录，则此处为企业子账号ID。
@@ -56,41 +57,41 @@ type MonthlyBillRes struct {
 	// 企业项目名称。
 	EnterpriseProjectName *string `json:"enterprise_project_name,omitempty"`
 
-	// 计费模式。 1 : 包年/包月3：按需10：预留实例
+	// 计费模式。 1 : 包年/包月3：按需10：预留实例11：节省计划。
 	ChargeMode *int32 `json:"charge_mode,omitempty"`
 
 	// 客户购买云服务类型的消费金额，包含代金券、现金券，精确到小数点后8位。  说明： consume_amount的值等于cash_amount，credit_amount，coupon_amount，flexipurchase_coupon_amount，stored_card_amount，bonus_amount，debt_amount，adjustment_amount的总和。
-	ConsumeAmount *float64 `json:"consume_amount,omitempty"`
+	ConsumeAmount *decimal.Decimal `json:"consume_amount,omitempty"`
 
 	// 现金支付金额。
-	CashAmount *float64 `json:"cash_amount,omitempty"`
+	CashAmount *decimal.Decimal `json:"cash_amount,omitempty"`
 
 	// 信用额度支付金额。
-	CreditAmount *float64 `json:"credit_amount,omitempty"`
+	CreditAmount *decimal.Decimal `json:"credit_amount,omitempty"`
 
 	// 代金券支付金额。
-	CouponAmount *float64 `json:"coupon_amount,omitempty"`
+	CouponAmount *decimal.Decimal `json:"coupon_amount,omitempty"`
 
 	// 现金券支付金额。
-	FlexipurchaseCouponAmount *float64 `json:"flexipurchase_coupon_amount,omitempty"`
+	FlexipurchaseCouponAmount *decimal.Decimal `json:"flexipurchase_coupon_amount,omitempty"`
 
 	// 储值卡支付金额。
-	StoredCardAmount *float64 `json:"stored_card_amount,omitempty"`
+	StoredCardAmount *decimal.Decimal `json:"stored_card_amount,omitempty"`
 
 	// 奖励金支付金额（用于现网客户未使用完的奖励金）。
-	BonusAmount *float64 `json:"bonus_amount,omitempty"`
+	BonusAmount *decimal.Decimal `json:"bonus_amount,omitempty"`
 
 	// 欠费金额。
-	DebtAmount *float64 `json:"debt_amount,omitempty"`
+	DebtAmount *decimal.Decimal `json:"debt_amount,omitempty"`
 
 	// 欠费核销金额。
-	AdjustmentAmount *float64 `json:"adjustment_amount,omitempty"`
+	AdjustmentAmount *decimal.Decimal `json:"adjustment_amount,omitempty"`
 
 	// 官网价。
-	OfficialAmount *float64 `json:"official_amount,omitempty"`
+	OfficialAmount *decimal.Decimal `json:"official_amount,omitempty"`
 
 	// 对应官网价折扣金额。
-	DiscountAmount *float64 `json:"discount_amount,omitempty"`
+	DiscountAmount *decimal.Decimal `json:"discount_amount,omitempty"`
 
 	// 金额单位。 1：元
 	MeasureId *int32 `json:"measure_id,omitempty"`
@@ -136,6 +137,15 @@ type MonthlyBillRes struct {
 
 	// |参数名称：可用区信息列表| |参数的约束及描述：该参数非必填，且只允许字符串|
 	AzCodeInfos *[]AzCodeInfo `json:"az_code_infos,omitempty"`
+
+	// |参数名称：支付账号ID。| |参数的约束及描述：如果是普通客户或者财务独立企业子客户或者企业主客户查询消费记录，此处为客户自己的客户ID。如果是财务托管企业子查询消费记录，此处为企业主客户ID或自己的客户ID。|
+	PayerAccountId *string `json:"payer_account_id,omitempty"`
+
+	// |参数名称：费用对应的资源使用的开始时间| |参数的约束及描述：费用对应的资源使用的开始时间，statistic_type=3有效，statistic_type=1或者2该字段保留。|
+	EffectiveTime *string `json:"effective_time,omitempty"`
+
+	// |参数名称：费用对应的资源使用的结束时间| |参数的约束及描述：费用对应的资源使用的结束时间，statistic_type=3有效，statistic_type=1或者2该字段保留。|
+	ExpireTime *string `json:"expire_time,omitempty"`
 }
 
 func (o MonthlyBillRes) String() string {

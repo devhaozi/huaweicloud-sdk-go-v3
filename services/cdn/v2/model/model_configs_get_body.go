@@ -29,7 +29,7 @@ type ConfigsGetBody struct {
 	Https *HttpGetBody `json:"https,omitempty"`
 
 	// 源站配置。
-	Sources *[]SourcesConfig `json:"sources,omitempty"`
+	Sources *[]SourcesConfigResponseBody `json:"sources,omitempty"`
 
 	// 回源协议，follow：协议跟随回源，http：HTTP回源(默认)，https：https回源。
 	OriginProtocol *string `json:"origin_protocol,omitempty"`
@@ -90,6 +90,16 @@ type ConfigsGetBody struct {
 
 	// 自定义错误页面
 	ErrorCodeRedirectRules *[]ErrorCodeRedirectRules `json:"error_code_redirect_rules,omitempty"`
+
+	Sni *Sni `json:"sni,omitempty"`
+
+	// 访问URL重写。
+	RequestUrlRewrite *[]RequestUrlRewrite `json:"request_url_rewrite,omitempty"`
+
+	// 浏览器缓存过期时间。
+	BrowserCacheRules *[]BrowserCacheRules `json:"browser_cache_rules,omitempty"`
+
+	AccessAreaFilter *[]AccessAreaFilter `json:"access_area_filter,omitempty"`
 }
 
 func (o ConfigsGetBody) String() string {

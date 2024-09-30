@@ -137,6 +137,18 @@ func (i *CancelReadonlyClusterInvoker) Invoke() (*model.CancelReadonlyClusterRes
 	}
 }
 
+type ChangeSecurityGroupInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ChangeSecurityGroupInvoker) Invoke() (*model.ChangeSecurityGroupResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ChangeSecurityGroupResponse), nil
+	}
+}
+
 type CheckClusterInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1049,6 +1061,30 @@ func (i *ListLtsLogsInvoker) Invoke() (*model.ListLtsLogsResponse, error) {
 	}
 }
 
+type ListMetricsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListMetricsInvoker) Invoke() (*model.ListMetricsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListMetricsResponse), nil
+	}
+}
+
+type ListMetricsDataInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListMetricsDataInvoker) Invoke() (*model.ListMetricsDataResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListMetricsDataResponse), nil
+	}
+}
+
 type ListMonitorIndicatorDataInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1442,6 +1478,18 @@ func (i *SaveClusterDescriptionInfoInvoker) Invoke() (*model.SaveClusterDescript
 		return nil, err
 	} else {
 		return result.(*model.SaveClusterDescriptionInfoResponse), nil
+	}
+}
+
+type ShowClusterFlavorInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowClusterFlavorInvoker) Invoke() (*model.ShowClusterFlavorResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowClusterFlavorResponse), nil
 	}
 }
 

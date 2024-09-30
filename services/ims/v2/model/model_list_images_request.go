@@ -105,7 +105,7 @@ type ListImagesRequest struct {
 	// 镜像使用环境类型：FusionCompute，Ironic，DataImage。如果弹性云服务器镜像，则取值为FusionCompute，如果是数据卷镜像则取值是DataImage，如果是裸金属服务器镜像，则取值是Ironic。
 	VirtualEnvType *ListImagesRequestVirtualEnvType `json:"virtual_env_type,omitempty"`
 
-	// 是否被其他租户可见，取值为public或private
+	// 是否被其他租户可见，取值为public、private或shared
 	Visibility *ListImagesRequestVisibility `json:"visibility,omitempty"`
 
 	// 请求的发生时间,格式为YYYYMMDDTHHMMSSZ。取值为当前系统的GMT时间。使用AK/SK认证时该字段必选
@@ -338,18 +338,19 @@ type ListImagesRequestPlatform struct {
 }
 
 type ListImagesRequestPlatformEnum struct {
-	WINDOWS      ListImagesRequestPlatform
-	UBUNTU       ListImagesRequestPlatform
-	RED_HAT      ListImagesRequestPlatform
-	SUSE         ListImagesRequestPlatform
-	CENT_OS      ListImagesRequestPlatform
-	DEBIAN       ListImagesRequestPlatform
-	OPEN_SUSE    ListImagesRequestPlatform
-	ORACLE_LINUX ListImagesRequestPlatform
-	FEDORA       ListImagesRequestPlatform
-	OTHER        ListImagesRequestPlatform
-	CORE_OS      ListImagesRequestPlatform
-	EULER_OS     ListImagesRequestPlatform
+	WINDOWS               ListImagesRequestPlatform
+	UBUNTU                ListImagesRequestPlatform
+	RED_HAT               ListImagesRequestPlatform
+	SUSE                  ListImagesRequestPlatform
+	CENT_OS               ListImagesRequestPlatform
+	DEBIAN                ListImagesRequestPlatform
+	OPEN_SUSE             ListImagesRequestPlatform
+	ORACLE_LINUX          ListImagesRequestPlatform
+	FEDORA                ListImagesRequestPlatform
+	OTHER                 ListImagesRequestPlatform
+	CORE_OS               ListImagesRequestPlatform
+	EULER_OS              ListImagesRequestPlatform
+	HUAWEI_CLOUD_EULER_OS ListImagesRequestPlatform
 }
 
 func GetListImagesRequestPlatformEnum() ListImagesRequestPlatformEnum {
@@ -389,6 +390,9 @@ func GetListImagesRequestPlatformEnum() ListImagesRequestPlatformEnum {
 		},
 		EULER_OS: ListImagesRequestPlatform{
 			value: "EulerOS",
+		},
+		HUAWEI_CLOUD_EULER_OS: ListImagesRequestPlatform{
+			value: "Huawei Cloud EulerOS",
 		},
 	}
 }
@@ -761,6 +765,7 @@ type ListImagesRequestVisibility struct {
 type ListImagesRequestVisibilityEnum struct {
 	PUBLIC  ListImagesRequestVisibility
 	PRIVATE ListImagesRequestVisibility
+	SHARED  ListImagesRequestVisibility
 }
 
 func GetListImagesRequestVisibilityEnum() ListImagesRequestVisibilityEnum {
@@ -770,6 +775,9 @@ func GetListImagesRequestVisibilityEnum() ListImagesRequestVisibilityEnum {
 		},
 		PRIVATE: ListImagesRequestVisibility{
 			value: "private",
+		},
+		SHARED: ListImagesRequestVisibility{
+			value: "shared",
 		},
 	}
 }

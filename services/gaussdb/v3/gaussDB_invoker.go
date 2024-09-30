@@ -221,6 +221,18 @@ func (i *CreateGaussMysqlDnsInvoker) Invoke() (*model.CreateGaussMysqlDnsRespons
 	}
 }
 
+type CreateLtsConfigsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateLtsConfigsInvoker) Invoke() (*model.CreateLtsConfigsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateLtsConfigsResponse), nil
+	}
+}
+
 type CreateRestoreTablesInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -326,6 +338,18 @@ func (i *DeleteGaussMySqlReadonlyNodeInvoker) Invoke() (*model.DeleteGaussMySqlR
 		return nil, err
 	} else {
 		return result.(*model.DeleteGaussMySqlReadonlyNodeResponse), nil
+	}
+}
+
+type DeleteLtsConfigsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteLtsConfigsInvoker) Invoke() (*model.DeleteLtsConfigsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteLtsConfigsResponse), nil
 	}
 }
 
@@ -629,6 +653,18 @@ func (i *ListModifyHistoryInvoker) Invoke() (*model.ListModifyHistoryResponse, e
 	}
 }
 
+type ListParamsTemplateApplyHistoryInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListParamsTemplateApplyHistoryInvoker) Invoke() (*model.ListParamsTemplateApplyHistoryResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListParamsTemplateApplyHistoryResponse), nil
+	}
+}
+
 type ListProjectTagsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -638,6 +674,18 @@ func (i *ListProjectTagsInvoker) Invoke() (*model.ListProjectTagsResponse, error
 		return nil, err
 	} else {
 		return result.(*model.ListProjectTagsResponse), nil
+	}
+}
+
+type ListRecycleInstancesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListRecycleInstancesInvoker) Invoke() (*model.ListRecycleInstancesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListRecycleInstancesResponse), nil
 	}
 }
 
@@ -689,6 +737,30 @@ func (i *ModifyGaussMysqlDnsInvoker) Invoke() (*model.ModifyGaussMysqlDnsRespons
 	}
 }
 
+type ModifyNodePriorityInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ModifyNodePriorityInvoker) Invoke() (*model.ModifyNodePriorityResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ModifyNodePriorityResponse), nil
+	}
+}
+
+type RenameInstanceNodeInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RenameInstanceNodeInvoker) Invoke() (*model.RenameInstanceNodeResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RenameInstanceNodeResponse), nil
+	}
+}
+
 type ResetGaussMySqlDatabasePasswordInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -737,6 +809,18 @@ func (i *RestartGaussMySqlNodeInvoker) Invoke() (*model.RestartGaussMySqlNodeRes
 	}
 }
 
+type RestartProxyInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RestartProxyInstanceInvoker) Invoke() (*model.RestartProxyInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RestartProxyInstanceResponse), nil
+	}
+}
+
 type RestoreOldInstanceInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -773,6 +857,18 @@ func (i *SetGaussMySqlQuotasInvoker) Invoke() (*model.SetGaussMySqlQuotasRespons
 	}
 }
 
+type SetRecyclePolicyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SetRecyclePolicyInvoker) Invoke() (*model.SetRecyclePolicyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SetRecyclePolicyResponse), nil
+	}
+}
+
 type ShowAuditLogInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -782,6 +878,18 @@ func (i *ShowAuditLogInvoker) Invoke() (*model.ShowAuditLogResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ShowAuditLogResponse), nil
+	}
+}
+
+type ShowAutoScalingHistoryInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowAutoScalingHistoryInvoker) Invoke() (*model.ShowAutoScalingHistoryResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowAutoScalingHistoryResponse), nil
 	}
 }
 
@@ -989,6 +1097,18 @@ func (i *ShowInstanceDatabaseVersionInvoker) Invoke() (*model.ShowInstanceDataba
 	}
 }
 
+type ShowInstanceEipInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowInstanceEipInvoker) Invoke() (*model.ShowInstanceEipResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowInstanceEipResponse), nil
+	}
+}
+
 type ShowInstanceMonitorExtendInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1025,6 +1145,66 @@ func (i *ShowIntelligentDiagnosisInstanceInfosPerMetricInvoker) Invoke() (*model
 	}
 }
 
+type ShowLtsConfigsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowLtsConfigsInvoker) Invoke() (*model.ShowLtsConfigsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowLtsConfigsResponse), nil
+	}
+}
+
+type ShowProxyConfigurationsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowProxyConfigurationsInvoker) Invoke() (*model.ShowProxyConfigurationsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowProxyConfigurationsResponse), nil
+	}
+}
+
+type ShowProxyIpgroupInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowProxyIpgroupInvoker) Invoke() (*model.ShowProxyIpgroupResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowProxyIpgroupResponse), nil
+	}
+}
+
+type ShowProxyVersionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowProxyVersionInvoker) Invoke() (*model.ShowProxyVersionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowProxyVersionResponse), nil
+	}
+}
+
+type ShowRecyclePolicyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowRecyclePolicyInvoker) Invoke() (*model.ShowRecyclePolicyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowRecyclePolicyResponse), nil
+	}
+}
+
 type ShowRestoreTablesInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1034,6 +1214,18 @@ func (i *ShowRestoreTablesInvoker) Invoke() (*model.ShowRestoreTablesResponse, e
 		return nil, err
 	} else {
 		return result.(*model.ShowRestoreTablesResponse), nil
+	}
+}
+
+type ShowSlowlogSensitiveStatusInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowSlowlogSensitiveStatusInvoker) Invoke() (*model.ShowSlowlogSensitiveStatusResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowSlowlogSensitiveStatusResponse), nil
 	}
 }
 
@@ -1325,6 +1517,18 @@ func (i *UpdateProxyConnectionPoolTypeInvoker) Invoke() (*model.UpdateProxyConne
 	}
 }
 
+type UpdateProxyNameInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateProxyNameInvoker) Invoke() (*model.UpdateProxyNameResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateProxyNameResponse), nil
+	}
+}
+
 type UpdateProxyNewConfigurationsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1361,6 +1565,30 @@ func (i *UpdateProxySessionConsistenceInvoker) Invoke() (*model.UpdateProxySessi
 	}
 }
 
+type UpdateServerlessPolicyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateServerlessPolicyInvoker) Invoke() (*model.UpdateServerlessPolicyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateServerlessPolicyResponse), nil
+	}
+}
+
+type UpdateSlowlogSensitiveSwitchInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateSlowlogSensitiveSwitchInvoker) Invoke() (*model.UpdateSlowlogSensitiveSwitchResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateSlowlogSensitiveSwitchResponse), nil
+	}
+}
+
 type UpdateTransactionSplitStatusInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1382,6 +1610,714 @@ func (i *UpgradeGaussMySqlInstanceDatabaseInvoker) Invoke() (*model.UpgradeGauss
 		return nil, err
 	} else {
 		return result.(*model.UpgradeGaussMySqlInstanceDatabaseResponse), nil
+	}
+}
+
+type UpgradeProxyVersionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpgradeProxyVersionInvoker) Invoke() (*model.UpgradeProxyVersionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpgradeProxyVersionResponse), nil
+	}
+}
+
+type CheckClickHouseDataBaseConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CheckClickHouseDataBaseConfigInvoker) Invoke() (*model.CheckClickHouseDataBaseConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CheckClickHouseDataBaseConfigResponse), nil
+	}
+}
+
+type CheckClickHouseTableConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CheckClickHouseTableConfigInvoker) Invoke() (*model.CheckClickHouseTableConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CheckClickHouseTableConfigResponse), nil
+	}
+}
+
+type CheckDataBaseConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CheckDataBaseConfigInvoker) Invoke() (*model.CheckDataBaseConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CheckDataBaseConfigResponse), nil
+	}
+}
+
+type CheckStarRocksResourceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CheckStarRocksResourceInvoker) Invoke() (*model.CheckStarRocksResourceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CheckStarRocksResourceResponse), nil
+	}
+}
+
+type CheckStarrocksParamsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CheckStarrocksParamsInvoker) Invoke() (*model.CheckStarrocksParamsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CheckStarrocksParamsResponse), nil
+	}
+}
+
+type CheckTableConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CheckTableConfigInvoker) Invoke() (*model.CheckTableConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CheckTableConfigResponse), nil
+	}
+}
+
+type CreateClickHouseDataBaseReplicationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateClickHouseDataBaseReplicationInvoker) Invoke() (*model.CreateClickHouseDataBaseReplicationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateClickHouseDataBaseReplicationResponse), nil
+	}
+}
+
+type CreateClickHouseDatabaseUserInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateClickHouseDatabaseUserInvoker) Invoke() (*model.CreateClickHouseDatabaseUserResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateClickHouseDatabaseUserResponse), nil
+	}
+}
+
+type CreateClickHouseInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateClickHouseInstanceInvoker) Invoke() (*model.CreateClickHouseInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateClickHouseInstanceResponse), nil
+	}
+}
+
+type CreateStarRocksDataReplicationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateStarRocksDataReplicationInvoker) Invoke() (*model.CreateStarRocksDataReplicationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateStarRocksDataReplicationResponse), nil
+	}
+}
+
+type CreateStarRocksDatabaseUserInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateStarRocksDatabaseUserInvoker) Invoke() (*model.CreateStarRocksDatabaseUserResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateStarRocksDatabaseUserResponse), nil
+	}
+}
+
+type CreateStarrocksInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateStarrocksInstanceInvoker) Invoke() (*model.CreateStarrocksInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateStarrocksInstanceResponse), nil
+	}
+}
+
+type DeleteClickHouseDataBaseConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteClickHouseDataBaseConfigInvoker) Invoke() (*model.DeleteClickHouseDataBaseConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteClickHouseDataBaseConfigResponse), nil
+	}
+}
+
+type DeleteClickHouseDataBaseReplicationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteClickHouseDataBaseReplicationInvoker) Invoke() (*model.DeleteClickHouseDataBaseReplicationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteClickHouseDataBaseReplicationResponse), nil
+	}
+}
+
+type DeleteClickHouseDatabaseUserInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteClickHouseDatabaseUserInvoker) Invoke() (*model.DeleteClickHouseDatabaseUserResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteClickHouseDatabaseUserResponse), nil
+	}
+}
+
+type DeleteClickHouseInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteClickHouseInstanceInvoker) Invoke() (*model.DeleteClickHouseInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteClickHouseInstanceResponse), nil
+	}
+}
+
+type DeleteClickHouseLtsConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteClickHouseLtsConfigInvoker) Invoke() (*model.DeleteClickHouseLtsConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteClickHouseLtsConfigResponse), nil
+	}
+}
+
+type DeleteStarRocksDataReplicationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteStarRocksDataReplicationInvoker) Invoke() (*model.DeleteStarRocksDataReplicationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteStarRocksDataReplicationResponse), nil
+	}
+}
+
+type DeleteStarRocksDatabaseUserInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteStarRocksDatabaseUserInvoker) Invoke() (*model.DeleteStarRocksDatabaseUserResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteStarRocksDatabaseUserResponse), nil
+	}
+}
+
+type DeleteStarrocksInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteStarrocksInstanceInvoker) Invoke() (*model.DeleteStarrocksInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteStarrocksInstanceResponse), nil
+	}
+}
+
+type ListClickHouseDataBaseInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListClickHouseDataBaseInvoker) Invoke() (*model.ListClickHouseDataBaseResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListClickHouseDataBaseResponse), nil
+	}
+}
+
+type ListClickHouseDataBaseParameterInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListClickHouseDataBaseParameterInvoker) Invoke() (*model.ListClickHouseDataBaseParameterResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListClickHouseDataBaseParameterResponse), nil
+	}
+}
+
+type ListClickHouseDataBaseReplicationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListClickHouseDataBaseReplicationInvoker) Invoke() (*model.ListClickHouseDataBaseReplicationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListClickHouseDataBaseReplicationResponse), nil
+	}
+}
+
+type ListClickHouseDataBaseReplicationConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListClickHouseDataBaseReplicationConfigInvoker) Invoke() (*model.ListClickHouseDataBaseReplicationConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListClickHouseDataBaseReplicationConfigResponse), nil
+	}
+}
+
+type ListClickHouseInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListClickHouseInstanceInvoker) Invoke() (*model.ListClickHouseInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListClickHouseInstanceResponse), nil
+	}
+}
+
+type ListClickHouseInstanceNodeInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListClickHouseInstanceNodeInvoker) Invoke() (*model.ListClickHouseInstanceNodeResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListClickHouseInstanceNodeResponse), nil
+	}
+}
+
+type ListHtapDataStoreInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListHtapDataStoreInvoker) Invoke() (*model.ListHtapDataStoreResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListHtapDataStoreResponse), nil
+	}
+}
+
+type ListHtapFlavorInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListHtapFlavorInvoker) Invoke() (*model.ListHtapFlavorResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListHtapFlavorResponse), nil
+	}
+}
+
+type ListHtapInstanceInfoInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListHtapInstanceInfoInvoker) Invoke() (*model.ListHtapInstanceInfoResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListHtapInstanceInfoResponse), nil
+	}
+}
+
+type ListHtapStorageTypeInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListHtapStorageTypeInvoker) Invoke() (*model.ListHtapStorageTypeResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListHtapStorageTypeResponse), nil
+	}
+}
+
+type ListStarRocksDataBasesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListStarRocksDataBasesInvoker) Invoke() (*model.ListStarRocksDataBasesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListStarRocksDataBasesResponse), nil
+	}
+}
+
+type ListStarRocksDataReplicationConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListStarRocksDataReplicationConfigInvoker) Invoke() (*model.ListStarRocksDataReplicationConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListStarRocksDataReplicationConfigResponse), nil
+	}
+}
+
+type ListStarRocksDataReplicationsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListStarRocksDataReplicationsInvoker) Invoke() (*model.ListStarRocksDataReplicationsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListStarRocksDataReplicationsResponse), nil
+	}
+}
+
+type ListStarRocksDbParametersInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListStarRocksDbParametersInvoker) Invoke() (*model.ListStarRocksDbParametersResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListStarRocksDbParametersResponse), nil
+	}
+}
+
+type ListStarrocksInstanceInfoInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListStarrocksInstanceInfoInvoker) Invoke() (*model.ListStarrocksInstanceInfoResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListStarrocksInstanceInfoResponse), nil
+	}
+}
+
+type PauseStarRocksDataReplicationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *PauseStarRocksDataReplicationInvoker) Invoke() (*model.PauseStarRocksDataReplicationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.PauseStarRocksDataReplicationResponse), nil
+	}
+}
+
+type RebootClickHouseInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RebootClickHouseInstanceInvoker) Invoke() (*model.RebootClickHouseInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RebootClickHouseInstanceResponse), nil
+	}
+}
+
+type ResizeClickHouseFlavorInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ResizeClickHouseFlavorInvoker) Invoke() (*model.ResizeClickHouseFlavorResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ResizeClickHouseFlavorResponse), nil
+	}
+}
+
+type ResizeClickHouseInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ResizeClickHouseInstanceInvoker) Invoke() (*model.ResizeClickHouseInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ResizeClickHouseInstanceResponse), nil
+	}
+}
+
+type ResizeStarRocksFlavorInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ResizeStarRocksFlavorInvoker) Invoke() (*model.ResizeStarRocksFlavorResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ResizeStarRocksFlavorResponse), nil
+	}
+}
+
+type RestartStarrocksInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RestartStarrocksInstanceInvoker) Invoke() (*model.RestartStarrocksInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RestartStarrocksInstanceResponse), nil
+	}
+}
+
+type RestartStarrocksNodeInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RestartStarrocksNodeInvoker) Invoke() (*model.RestartStarrocksNodeResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RestartStarrocksNodeResponse), nil
+	}
+}
+
+type ResumeStarRocksDataReplicationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ResumeStarRocksDataReplicationInvoker) Invoke() (*model.ResumeStarRocksDataReplicationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ResumeStarRocksDataReplicationResponse), nil
+	}
+}
+
+type ShowClickHouseDatabaseUserInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowClickHouseDatabaseUserInvoker) Invoke() (*model.ShowClickHouseDatabaseUserResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowClickHouseDatabaseUserResponse), nil
+	}
+}
+
+type ShowClickHouseLtsConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowClickHouseLtsConfigInvoker) Invoke() (*model.ShowClickHouseLtsConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowClickHouseLtsConfigResponse), nil
+	}
+}
+
+type ShowClickHouseSlowLogDetailInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowClickHouseSlowLogDetailInvoker) Invoke() (*model.ShowClickHouseSlowLogDetailResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowClickHouseSlowLogDetailResponse), nil
+	}
+}
+
+type ShowClickHouseSlowLogSensitiveStatusInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowClickHouseSlowLogSensitiveStatusInvoker) Invoke() (*model.ShowClickHouseSlowLogSensitiveStatusResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowClickHouseSlowLogSensitiveStatusResponse), nil
+	}
+}
+
+type ShowStarRocksDatabaseUserInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowStarRocksDatabaseUserInvoker) Invoke() (*model.ShowStarRocksDatabaseUserResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowStarRocksDatabaseUserResponse), nil
+	}
+}
+
+type ShowStarrocksParamsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowStarrocksParamsInvoker) Invoke() (*model.ShowStarrocksParamsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowStarrocksParamsResponse), nil
+	}
+}
+
+type SyncStarRocksUsersInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SyncStarRocksUsersInvoker) Invoke() (*model.SyncStarRocksUsersResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SyncStarRocksUsersResponse), nil
+	}
+}
+
+type UpdateClickHouseDataBaseConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateClickHouseDataBaseConfigInvoker) Invoke() (*model.UpdateClickHouseDataBaseConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateClickHouseDataBaseConfigResponse), nil
+	}
+}
+
+type UpdateClickHouseDatabaseUserPasswordInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateClickHouseDatabaseUserPasswordInvoker) Invoke() (*model.UpdateClickHouseDatabaseUserPasswordResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateClickHouseDatabaseUserPasswordResponse), nil
+	}
+}
+
+type UpdateClickHouseDatabaseUserPermissionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateClickHouseDatabaseUserPermissionInvoker) Invoke() (*model.UpdateClickHouseDatabaseUserPermissionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateClickHouseDatabaseUserPermissionResponse), nil
+	}
+}
+
+type UpdateClickHouseLtsConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateClickHouseLtsConfigInvoker) Invoke() (*model.UpdateClickHouseLtsConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateClickHouseLtsConfigResponse), nil
+	}
+}
+
+type UpdateClickHouseSlowLogSensitiveStatusInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateClickHouseSlowLogSensitiveStatusInvoker) Invoke() (*model.UpdateClickHouseSlowLogSensitiveStatusResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateClickHouseSlowLogSensitiveStatusResponse), nil
+	}
+}
+
+type UpdateStarRocksDatabaseUserPasswordInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateStarRocksDatabaseUserPasswordInvoker) Invoke() (*model.UpdateStarRocksDatabaseUserPasswordResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateStarRocksDatabaseUserPasswordResponse), nil
+	}
+}
+
+type UpdateStarRocksDatabaseUserPermissionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateStarRocksDatabaseUserPermissionInvoker) Invoke() (*model.UpdateStarRocksDatabaseUserPermissionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateStarRocksDatabaseUserPermissionResponse), nil
+	}
+}
+
+type UpdateStarrocksParamsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateStarrocksParamsInvoker) Invoke() (*model.UpdateStarrocksParamsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateStarrocksParamsResponse), nil
 	}
 }
 

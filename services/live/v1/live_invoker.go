@@ -197,6 +197,18 @@ func (i *DeleteRecordRuleInvoker) Invoke() (*model.DeleteRecordRuleResponse, err
 	}
 }
 
+type DeleteRefererChainInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteRefererChainInvoker) Invoke() (*model.DeleteRefererChainResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteRefererChainResponse), nil
+	}
+}
+
 type DeleteSnapshotConfigInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -254,6 +266,18 @@ func (i *ListGeoBlockingConfigInvoker) Invoke() (*model.ListGeoBlockingConfigRes
 		return nil, err
 	} else {
 		return result.(*model.ListGeoBlockingConfigResponse), nil
+	}
+}
+
+type ListHlsConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListHlsConfigInvoker) Invoke() (*model.ListHlsConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListHlsConfigResponse), nil
 	}
 }
 
@@ -377,6 +401,18 @@ func (i *RunRecordInvoker) Invoke() (*model.RunRecordResponse, error) {
 	}
 }
 
+type SetRefererChainInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SetRefererChainInvoker) Invoke() (*model.SetRefererChainResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SetRefererChainResponse), nil
+	}
+}
+
 type ShowDomainInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -434,6 +470,18 @@ func (i *ShowRecordRuleInvoker) Invoke() (*model.ShowRecordRuleResponse, error) 
 		return nil, err
 	} else {
 		return result.(*model.ShowRecordRuleResponse), nil
+	}
+}
+
+type ShowRefererChainInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowRefererChainInvoker) Invoke() (*model.ShowRefererChainResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowRefererChainResponse), nil
 	}
 }
 
@@ -506,6 +554,18 @@ func (i *UpdateGeoBlockingConfigInvoker) Invoke() (*model.UpdateGeoBlockingConfi
 		return nil, err
 	} else {
 		return result.(*model.UpdateGeoBlockingConfigResponse), nil
+	}
+}
+
+type UpdateHlsConfigInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateHlsConfigInvoker) Invoke() (*model.UpdateHlsConfigResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateHlsConfigResponse), nil
 	}
 }
 
@@ -641,6 +701,66 @@ func (i *UpdateDomainHttpsCertInvoker) Invoke() (*model.UpdateDomainHttpsCertRes
 	}
 }
 
+type CreateHarvestTaskInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateHarvestTaskInvoker) Invoke() (*model.CreateHarvestTaskResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateHarvestTaskResponse), nil
+	}
+}
+
+type DeleteHarvestTaskInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteHarvestTaskInvoker) Invoke() (*model.DeleteHarvestTaskResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteHarvestTaskResponse), nil
+	}
+}
+
+type ListHarvestTaskInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListHarvestTaskInvoker) Invoke() (*model.ListHarvestTaskResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListHarvestTaskResponse), nil
+	}
+}
+
+type ModifyHarvestTaskInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ModifyHarvestTaskInvoker) Invoke() (*model.ModifyHarvestTaskResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ModifyHarvestTaskResponse), nil
+	}
+}
+
+type UpdateHarvestJobStatusInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateHarvestJobStatusInvoker) Invoke() (*model.UpdateHarvestJobStatusResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateHarvestJobStatusResponse), nil
+	}
+}
+
 type UpdateObsBucketAuthorityPublicInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -650,5 +770,113 @@ func (i *UpdateObsBucketAuthorityPublicInvoker) Invoke() (*model.UpdateObsBucket
 		return nil, err
 	} else {
 		return result.(*model.UpdateObsBucketAuthorityPublicResponse), nil
+	}
+}
+
+type CreateOttChannelInfoInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateOttChannelInfoInvoker) Invoke() (*model.CreateOttChannelInfoResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateOttChannelInfoResponse), nil
+	}
+}
+
+type DeleteOttChannelInfoInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteOttChannelInfoInvoker) Invoke() (*model.DeleteOttChannelInfoResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteOttChannelInfoResponse), nil
+	}
+}
+
+type ListOttChannelInfoInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListOttChannelInfoInvoker) Invoke() (*model.ListOttChannelInfoResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListOttChannelInfoResponse), nil
+	}
+}
+
+type ModifyOttChannelInfoEncoderSettingsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ModifyOttChannelInfoEncoderSettingsInvoker) Invoke() (*model.ModifyOttChannelInfoEncoderSettingsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ModifyOttChannelInfoEncoderSettingsResponse), nil
+	}
+}
+
+type ModifyOttChannelInfoEndPointsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ModifyOttChannelInfoEndPointsInvoker) Invoke() (*model.ModifyOttChannelInfoEndPointsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ModifyOttChannelInfoEndPointsResponse), nil
+	}
+}
+
+type ModifyOttChannelInfoGeneralInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ModifyOttChannelInfoGeneralInvoker) Invoke() (*model.ModifyOttChannelInfoGeneralResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ModifyOttChannelInfoGeneralResponse), nil
+	}
+}
+
+type ModifyOttChannelInfoInputInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ModifyOttChannelInfoInputInvoker) Invoke() (*model.ModifyOttChannelInfoInputResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ModifyOttChannelInfoInputResponse), nil
+	}
+}
+
+type ModifyOttChannelInfoRecordSettingsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ModifyOttChannelInfoRecordSettingsInvoker) Invoke() (*model.ModifyOttChannelInfoRecordSettingsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ModifyOttChannelInfoRecordSettingsResponse), nil
+	}
+}
+
+type ModifyOttChannelInfoStatsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ModifyOttChannelInfoStatsInvoker) Invoke() (*model.ModifyOttChannelInfoStatsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ModifyOttChannelInfoStatsResponse), nil
 	}
 }

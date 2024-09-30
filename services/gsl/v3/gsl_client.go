@@ -187,6 +187,48 @@ func (c *GslClient) ListBackPoolsInvoker(request *model.ListBackPoolsRequest) *L
 	return &ListBackPoolsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// AddNetworkSwitchPolicy 新增网络切换策略
+//
+// 新增网络切换策略
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *GslClient) AddNetworkSwitchPolicy(request *model.AddNetworkSwitchPolicyRequest) (*model.AddNetworkSwitchPolicyResponse, error) {
+	requestDef := GenReqDefForAddNetworkSwitchPolicy()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.AddNetworkSwitchPolicyResponse), nil
+	}
+}
+
+// AddNetworkSwitchPolicyInvoker 新增网络切换策略
+func (c *GslClient) AddNetworkSwitchPolicyInvoker(request *model.AddNetworkSwitchPolicyRequest) *AddNetworkSwitchPolicyInvoker {
+	requestDef := GenReqDefForAddNetworkSwitchPolicy()
+	return &AddNetworkSwitchPolicyInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListNetworkSwitchPolicies 查询策略列表
+//
+// 查询策略列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *GslClient) ListNetworkSwitchPolicies(request *model.ListNetworkSwitchPoliciesRequest) (*model.ListNetworkSwitchPoliciesResponse, error) {
+	requestDef := GenReqDefForListNetworkSwitchPolicies()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListNetworkSwitchPoliciesResponse), nil
+	}
+}
+
+// ListNetworkSwitchPoliciesInvoker 查询策略列表
+func (c *GslClient) ListNetworkSwitchPoliciesInvoker(request *model.ListNetworkSwitchPoliciesRequest) *ListNetworkSwitchPoliciesInvoker {
+	requestDef := GenReqDefForListNetworkSwitchPolicies()
+	return &ListNetworkSwitchPoliciesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ListProPricePlans 查询套餐列表信息
 //
 // 查询套餐列表信息
@@ -210,7 +252,7 @@ func (c *GslClient) ListProPricePlansInvoker(request *model.ListProPricePlansReq
 
 // DeleteRealName 清除实名认证信息
 //
-// 清除实名认证信息，接口仅支持中国电信卡调用。
+// 清除实名认证信息，接口仅支持中国电信卡调用。注：由于运营商侧业务限制，建议您同一张SIM卡不要同时执行多种不同业务的操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GslClient) DeleteRealName(request *model.DeleteRealNameRequest) (*model.DeleteRealNameResponse, error) {
@@ -231,7 +273,7 @@ func (c *GslClient) DeleteRealNameInvoker(request *model.DeleteRealNameRequest) 
 
 // EnableSimCard 激活实体卡
 //
-// 创建激活实体卡申请，返回业务受理单号。1~2个工作日完成激活操作。
+// 创建激活实体卡申请，返回业务受理单号。1~2个工作日完成激活操作。注：由于运营商侧业务限制，建议您同一张SIM卡不要同时执行多种不同业务的操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GslClient) EnableSimCard(request *model.EnableSimCardRequest) (*model.EnableSimCardResponse, error) {
@@ -248,6 +290,27 @@ func (c *GslClient) EnableSimCard(request *model.EnableSimCardRequest) (*model.E
 func (c *GslClient) EnableSimCardInvoker(request *model.EnableSimCardRequest) *EnableSimCardInvoker {
 	requestDef := GenReqDefForEnableSimCard()
 	return &EnableSimCardInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListSimCardFlowPerDay 批量查询SIM卡日用量
+//
+// 批量查询SIM卡日用量接口，支持按天或按月查询。SIM卡标识和容器ID只能选一个参数，天和月也只能选一个参数
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *GslClient) ListSimCardFlowPerDay(request *model.ListSimCardFlowPerDayRequest) (*model.ListSimCardFlowPerDayResponse, error) {
+	requestDef := GenReqDefForListSimCardFlowPerDay()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListSimCardFlowPerDayResponse), nil
+	}
+}
+
+// ListSimCardFlowPerDayInvoker 批量查询SIM卡日用量
+func (c *GslClient) ListSimCardFlowPerDayInvoker(request *model.ListSimCardFlowPerDayRequest) *ListSimCardFlowPerDayInvoker {
+	requestDef := GenReqDefForListSimCardFlowPerDay()
+	return &ListSimCardFlowPerDayInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListSimCards 查询SIM卡列表
@@ -273,7 +336,7 @@ func (c *GslClient) ListSimCardsInvoker(request *model.ListSimCardsRequest) *Lis
 
 // RegisterImei SIM卡机卡重绑
 //
-// 支持固定机卡重绑(需要上传IMEI，将SIM卡绑定到指定IMEI的设备)和普通机卡重绑(会清除之前绑定的设备,将SIM卡绑定到正在使用的设备)，接口仅支持中国电信卡，中国移动卡调用。中国电信卡单卡每月只允许重绑2次，中国移动卡仅支持普通机卡重绑。
+// 支持固定机卡重绑(需要上传IMEI，将SIM卡绑定到指定IMEI的设备)和普通机卡重绑(会清除之前绑定的设备,将SIM卡绑定到正在使用的设备)，接口仅支持中国电信卡，中国移动卡调用。中国电信卡单卡每月只允许重绑2次，中国移动卡仅支持普通机卡重绑。注：由于运营商侧业务限制，建议您同一张SIM卡不要同时执行多种不同业务的操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GslClient) RegisterImei(request *model.RegisterImeiRequest) (*model.RegisterImeiResponse, error) {
@@ -294,7 +357,7 @@ func (c *GslClient) RegisterImeiInvoker(request *model.RegisterImeiRequest) *Reg
 
 // ResetSimCard SIM卡单卡复机
 //
-// 创建复机申请，返回业务受理单号。1~2个工作日完成复机操作。
+// 创建复机申请，返回业务受理单号。1~2个工作日完成复机操作。注：由于运营商侧业务限制，建议您同一张SIM卡不要同时执行多种不同业务的操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GslClient) ResetSimCard(request *model.ResetSimCardRequest) (*model.ResetSimCardResponse, error) {
@@ -315,7 +378,7 @@ func (c *GslClient) ResetSimCardInvoker(request *model.ResetSimCardRequest) *Res
 
 // SetExceedCutNet SIM卡达量断网/取消达量断网
 //
-// SIM卡达量断网/取消达量断网，接口仅支持中国电信的卡以及中国联通、中国移动的组池卡调用。
+// SIM卡达量断网/取消达量断网，接口仅支持中国电信的卡以及中国联通、中国移动的组池卡调用。注：由于运营商侧业务限制，建议您同一张SIM卡不要同时执行多种不同业务的操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GslClient) SetExceedCutNet(request *model.SetExceedCutNetRequest) (*model.SetExceedCutNetResponse, error) {
@@ -336,7 +399,7 @@ func (c *GslClient) SetExceedCutNetInvoker(request *model.SetExceedCutNetRequest
 
 // SetSpeedValue 实体卡限速
 //
-// 实体卡限速接口，接口仅支持中国电信和中国联通实体卡调用。中国联通卡需要个人实名认证后才能使用限速功能。
+// 实体卡限速接口，接口仅支持中国电信和中国联通实体卡调用。中国联通卡需要个人实名认证后才能使用限速功能。注：由于运营商侧业务限制，建议您同一张SIM卡不要同时执行多种不同业务的操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GslClient) SetSpeedValue(request *model.SetSpeedValueRequest) (*model.SetSpeedValueResponse, error) {
@@ -420,7 +483,7 @@ func (c *GslClient) ShowSimCardInvoker(request *model.ShowSimCardRequest) *ShowS
 
 // StartStopNet SIM卡申请断网/恢复在用
 //
-// SIM卡申请断网/恢复在用，接口仅支持中国电信卡调用。
+// SIM卡申请断网/恢复在用，接口仅支持中国电信卡调用。注：由于运营商侧业务限制，建议您同一张SIM卡不要同时执行多种不同业务的操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GslClient) StartStopNet(request *model.StartStopNetRequest) (*model.StartStopNetResponse, error) {
@@ -441,7 +504,7 @@ func (c *GslClient) StartStopNetInvoker(request *model.StartStopNetRequest) *Sta
 
 // StopSimCard SIM卡单卡停机
 //
-// 创建停机申请，返回业务受理单号。1~2个工作日完成停机操作。
+// 创建停机申请，返回业务受理单号。1~2个工作日完成停机操作。注：由于运营商侧业务限制，建议您同一张SIM卡不要同时执行多种不同业务的操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GslClient) StopSimCard(request *model.StopSimCardRequest) (*model.StopSimCardResponse, error) {
@@ -458,6 +521,69 @@ func (c *GslClient) StopSimCard(request *model.StopSimCardRequest) (*model.StopS
 func (c *GslClient) StopSimCardInvoker(request *model.StopSimCardRequest) *StopSimCardInvoker {
 	requestDef := GenReqDefForStopSimCard()
 	return &StopSimCardInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListSimDeviceMultiply 查询三网卡列表
+//
+// 通过cid或全量查询三网卡列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *GslClient) ListSimDeviceMultiply(request *model.ListSimDeviceMultiplyRequest) (*model.ListSimDeviceMultiplyResponse, error) {
+	requestDef := GenReqDefForListSimDeviceMultiply()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListSimDeviceMultiplyResponse), nil
+	}
+}
+
+// ListSimDeviceMultiplyInvoker 查询三网卡列表
+func (c *GslClient) ListSimDeviceMultiplyInvoker(request *model.ListSimDeviceMultiplyRequest) *ListSimDeviceMultiplyInvoker {
+	requestDef := GenReqDefForListSimDeviceMultiply()
+	return &ListSimDeviceMultiplyInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// SetNetworkSwitchPolicy SIM卡设置网络切换策略
+//
+// SIM卡设置网络切换策略，接口仅支持三网卡调用。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *GslClient) SetNetworkSwitchPolicy(request *model.SetNetworkSwitchPolicyRequest) (*model.SetNetworkSwitchPolicyResponse, error) {
+	requestDef := GenReqDefForSetNetworkSwitchPolicy()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.SetNetworkSwitchPolicyResponse), nil
+	}
+}
+
+// SetNetworkSwitchPolicyInvoker SIM卡设置网络切换策略
+func (c *GslClient) SetNetworkSwitchPolicyInvoker(request *model.SetNetworkSwitchPolicyRequest) *SetNetworkSwitchPolicyInvoker {
+	requestDef := GenReqDefForSetNetworkSwitchPolicy()
+	return &SetNetworkSwitchPolicyInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// SwitchNetwork 切换网络
+//
+// 切换网络
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *GslClient) SwitchNetwork(request *model.SwitchNetworkRequest) (*model.SwitchNetworkResponse, error) {
+	requestDef := GenReqDefForSwitchNetwork()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.SwitchNetworkResponse), nil
+	}
+}
+
+// SwitchNetworkInvoker 切换网络
+func (c *GslClient) SwitchNetworkInvoker(request *model.SwitchNetworkRequest) *SwitchNetworkInvoker {
+	requestDef := GenReqDefForSwitchNetwork()
+	return &SwitchNetworkInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListSimPoolMembers 查询流量池成员列表

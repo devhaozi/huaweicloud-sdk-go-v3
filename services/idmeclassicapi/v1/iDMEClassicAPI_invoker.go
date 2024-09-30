@@ -5,327 +5,735 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/idmeclassicapi/v1/model"
 )
 
-type ShowBatchCheckinUsingPostInvoker struct {
+type AddTagInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchCheckinUsingPostInvoker) Invoke() (*model.ShowBatchCheckinUsingPostResponse, error) {
+func (i *AddTagInvoker) Invoke() (*model.AddTagResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchCheckinUsingPostResponse), nil
+		return result.(*model.AddTagResponse), nil
 	}
 }
 
-type ShowBatchCheckoutAndUpdateUsingPostInvoker struct {
+type BatchAddChildNodeInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchCheckoutAndUpdateUsingPostInvoker) Invoke() (*model.ShowBatchCheckoutAndUpdateUsingPostResponse, error) {
+func (i *BatchAddChildNodeInvoker) Invoke() (*model.BatchAddChildNodeResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchCheckoutAndUpdateUsingPostResponse), nil
+		return result.(*model.BatchAddChildNodeResponse), nil
 	}
 }
 
-type ShowBatchCheckoutUsingPostInvoker struct {
+type BatchCheckinInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchCheckoutUsingPostInvoker) Invoke() (*model.ShowBatchCheckoutUsingPostResponse, error) {
+func (i *BatchCheckinInvoker) Invoke() (*model.BatchCheckinResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchCheckoutUsingPostResponse), nil
+		return result.(*model.BatchCheckinResponse), nil
 	}
 }
 
-type ShowBatchCreateUsingPostInvoker struct {
+type BatchCheckoutInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchCreateUsingPostInvoker) Invoke() (*model.ShowBatchCreateUsingPostResponse, error) {
+func (i *BatchCheckoutInvoker) Invoke() (*model.BatchCheckoutResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchCreateUsingPostResponse), nil
+		return result.(*model.BatchCheckoutResponse), nil
 	}
 }
 
-type ShowBatchDeleteBranchUsingPostInvoker struct {
+type BatchCheckoutAndUpdateInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchDeleteBranchUsingPostInvoker) Invoke() (*model.ShowBatchDeleteBranchUsingPostResponse, error) {
+func (i *BatchCheckoutAndUpdateInvoker) Invoke() (*model.BatchCheckoutAndUpdateResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchDeleteBranchUsingPostResponse), nil
+		return result.(*model.BatchCheckoutAndUpdateResponse), nil
 	}
 }
 
-type ShowBatchDeleteUsingPostInvoker struct {
+type BatchCheckoutUndoInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchDeleteUsingPostInvoker) Invoke() (*model.ShowBatchDeleteUsingPostResponse, error) {
+func (i *BatchCheckoutUndoInvoker) Invoke() (*model.BatchCheckoutUndoResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchDeleteUsingPostResponse), nil
+		return result.(*model.BatchCheckoutUndoResponse), nil
 	}
 }
 
-type ShowBatchGetUsingPostInvoker struct {
+type BatchCheckoutUndoByAdminInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchGetUsingPostInvoker) Invoke() (*model.ShowBatchGetUsingPostResponse, error) {
+func (i *BatchCheckoutUndoByAdminInvoker) Invoke() (*model.BatchCheckoutUndoByAdminResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchGetUsingPostResponse), nil
+		return result.(*model.BatchCheckoutUndoByAdminResponse), nil
 	}
 }
 
-type ShowBatchLogicalDeleteBranchUsingPostInvoker struct {
+type BatchCreateUsingPostInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchLogicalDeleteBranchUsingPostInvoker) Invoke() (*model.ShowBatchLogicalDeleteBranchUsingPostResponse, error) {
+func (i *BatchCreateUsingPostInvoker) Invoke() (*model.BatchCreateUsingPostResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchLogicalDeleteBranchUsingPostResponse), nil
+		return result.(*model.BatchCreateUsingPostResponse), nil
 	}
 }
 
-type ShowBatchLogicalDeleteUsingPostInvoker struct {
+type BatchCreateViewInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchLogicalDeleteUsingPostInvoker) Invoke() (*model.ShowBatchLogicalDeleteUsingPostResponse, error) {
+func (i *BatchCreateViewInvoker) Invoke() (*model.BatchCreateViewResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchLogicalDeleteUsingPostResponse), nil
+		return result.(*model.BatchCreateViewResponse), nil
 	}
 }
 
-type ShowBatchReviseAndUpdateUsingPostInvoker struct {
+type BatchDeleteBranchInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchReviseAndUpdateUsingPostInvoker) Invoke() (*model.ShowBatchReviseAndUpdateUsingPostResponse, error) {
+func (i *BatchDeleteBranchInvoker) Invoke() (*model.BatchDeleteBranchResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchReviseAndUpdateUsingPostResponse), nil
+		return result.(*model.BatchDeleteBranchResponse), nil
 	}
 }
 
-type ShowBatchReviseUsingPostInvoker struct {
+type BatchDeleteLogicalBranchInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchReviseUsingPostInvoker) Invoke() (*model.ShowBatchReviseUsingPostResponse, error) {
+func (i *BatchDeleteLogicalBranchInvoker) Invoke() (*model.BatchDeleteLogicalBranchResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchReviseUsingPostResponse), nil
+		return result.(*model.BatchDeleteLogicalBranchResponse), nil
 	}
 }
 
-type ShowBatchUndoCheckoutByAdminUsingPostInvoker struct {
+type BatchDeleteLogicalUsingPostInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchUndoCheckoutByAdminUsingPostInvoker) Invoke() (*model.ShowBatchUndoCheckoutByAdminUsingPostResponse, error) {
+func (i *BatchDeleteLogicalUsingPostInvoker) Invoke() (*model.BatchDeleteLogicalUsingPostResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchUndoCheckoutByAdminUsingPostResponse), nil
+		return result.(*model.BatchDeleteLogicalUsingPostResponse), nil
 	}
 }
 
-type ShowBatchUndoCheckoutUsingPostInvoker struct {
+type BatchDeleteUsingPostInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchUndoCheckoutUsingPostInvoker) Invoke() (*model.ShowBatchUndoCheckoutUsingPostResponse, error) {
+func (i *BatchDeleteUsingPostInvoker) Invoke() (*model.BatchDeleteUsingPostResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchUndoCheckoutUsingPostResponse), nil
+		return result.(*model.BatchDeleteUsingPostResponse), nil
 	}
 }
 
-type ShowBatchUpdateAndCheckinUsingPostInvoker struct {
+type BatchExecuteReviseInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchUpdateAndCheckinUsingPostInvoker) Invoke() (*model.ShowBatchUpdateAndCheckinUsingPostResponse, error) {
+func (i *BatchExecuteReviseInvoker) Invoke() (*model.BatchExecuteReviseResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchUpdateAndCheckinUsingPostResponse), nil
+		return result.(*model.BatchExecuteReviseResponse), nil
 	}
 }
 
-type ShowBatchUpdateByAdminUsingPostInvoker struct {
+type BatchRemoveChildNodeInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchUpdateByAdminUsingPostInvoker) Invoke() (*model.ShowBatchUpdateByAdminUsingPostResponse, error) {
+func (i *BatchRemoveChildNodeInvoker) Invoke() (*model.BatchRemoveChildNodeResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchUpdateByAdminUsingPostResponse), nil
+		return result.(*model.BatchRemoveChildNodeResponse), nil
 	}
 }
 
-type ShowBatchUpdateUsingPostInvoker struct {
+type BatchShowGetUsingPostInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchUpdateUsingPostInvoker) Invoke() (*model.ShowBatchUpdateUsingPostResponse, error) {
+func (i *BatchShowGetUsingPostInvoker) Invoke() (*model.BatchShowGetUsingPostResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchUpdateUsingPostResponse), nil
+		return result.(*model.BatchShowGetUsingPostResponse), nil
 	}
 }
 
-type ShowBatchUpdateVersionUsingPostInvoker struct {
+type BatchUpdateAndCheckinInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowBatchUpdateVersionUsingPostInvoker) Invoke() (*model.ShowBatchUpdateVersionUsingPostResponse, error) {
+func (i *BatchUpdateAndCheckinInvoker) Invoke() (*model.BatchUpdateAndCheckinResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowBatchUpdateVersionUsingPostResponse), nil
+		return result.(*model.BatchUpdateAndCheckinResponse), nil
 	}
 }
 
-type ShowCheckinUsingPostInvoker struct {
+type BatchUpdateAndReviseInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowCheckinUsingPostInvoker) Invoke() (*model.ShowCheckinUsingPostResponse, error) {
+func (i *BatchUpdateAndReviseInvoker) Invoke() (*model.BatchUpdateAndReviseResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowCheckinUsingPostResponse), nil
+		return result.(*model.BatchUpdateAndReviseResponse), nil
 	}
 }
 
-type ShowCheckoutAndUpdateUsingPostInvoker struct {
+type BatchUpdateByAdminInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowCheckoutAndUpdateUsingPostInvoker) Invoke() (*model.ShowCheckoutAndUpdateUsingPostResponse, error) {
+func (i *BatchUpdateByAdminInvoker) Invoke() (*model.BatchUpdateByAdminResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowCheckoutAndUpdateUsingPostResponse), nil
+		return result.(*model.BatchUpdateByAdminResponse), nil
 	}
 }
 
-type ShowCheckoutUsingPostInvoker struct {
+type BatchUpdateUsingPostInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowCheckoutUsingPostInvoker) Invoke() (*model.ShowCheckoutUsingPostResponse, error) {
+func (i *BatchUpdateUsingPostInvoker) Invoke() (*model.BatchUpdateUsingPostResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowCheckoutUsingPostResponse), nil
+		return result.(*model.BatchUpdateUsingPostResponse), nil
 	}
 }
 
-type ShowCompareBusinessVersionUsingPostInvoker struct {
+type BatchUpdateVersionInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowCompareBusinessVersionUsingPostInvoker) Invoke() (*model.ShowCompareBusinessVersionUsingPostResponse, error) {
+func (i *BatchUpdateVersionInvoker) Invoke() (*model.BatchUpdateVersionResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowCompareBusinessVersionUsingPostResponse), nil
+		return result.(*model.BatchUpdateVersionResponse), nil
 	}
 }
 
-type ShowCountUsingPostInvoker struct {
+type CheckinInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowCountUsingPostInvoker) Invoke() (*model.ShowCountUsingPostResponse, error) {
+func (i *CheckinInvoker) Invoke() (*model.CheckinResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowCountUsingPostResponse), nil
+		return result.(*model.CheckinResponse), nil
 	}
 }
 
-type ShowCreateUsingPostInvoker struct {
+type CheckoutInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowCreateUsingPostInvoker) Invoke() (*model.ShowCreateUsingPostResponse, error) {
+func (i *CheckoutInvoker) Invoke() (*model.CheckoutResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowCreateUsingPostResponse), nil
+		return result.(*model.CheckoutResponse), nil
 	}
 }
 
-type ShowDeleteBranchUsingPostInvoker struct {
+type CheckoutAndUpdateInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowDeleteBranchUsingPostInvoker) Invoke() (*model.ShowDeleteBranchUsingPostResponse, error) {
+func (i *CheckoutAndUpdateInvoker) Invoke() (*model.CheckoutAndUpdateResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowDeleteBranchUsingPostResponse), nil
+		return result.(*model.CheckoutAndUpdateResponse), nil
 	}
 }
 
-type ShowDeleteByConditionUsingPostInvoker struct {
+type CheckoutUndoInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowDeleteByConditionUsingPostInvoker) Invoke() (*model.ShowDeleteByConditionUsingPostResponse, error) {
+func (i *CheckoutUndoInvoker) Invoke() (*model.CheckoutUndoResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowDeleteByConditionUsingPostResponse), nil
+		return result.(*model.CheckoutUndoResponse), nil
 	}
 }
 
-type ShowDeleteLatestVersionUsingPostInvoker struct {
+type CheckoutUndoByAdminInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowDeleteLatestVersionUsingPostInvoker) Invoke() (*model.ShowDeleteLatestVersionUsingPostResponse, error) {
+func (i *CheckoutUndoByAdminInvoker) Invoke() (*model.CheckoutUndoByAdminResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowDeleteLatestVersionUsingPostResponse), nil
+		return result.(*model.CheckoutUndoByAdminResponse), nil
 	}
 }
 
-type ShowDeleteUsingPostInvoker struct {
+type CollectHistoryDataInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowDeleteUsingPostInvoker) Invoke() (*model.ShowDeleteUsingPostResponse, error) {
+func (i *CollectHistoryDataInvoker) Invoke() (*model.CollectHistoryDataResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowDeleteUsingPostResponse), nil
+		return result.(*model.CollectHistoryDataResponse), nil
+	}
+}
+
+type CompareBusinessVersionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CompareBusinessVersionInvoker) Invoke() (*model.CompareBusinessVersionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CompareBusinessVersionResponse), nil
+	}
+}
+
+type CompareVersionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CompareVersionInvoker) Invoke() (*model.CompareVersionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CompareVersionResponse), nil
+	}
+}
+
+type CountUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CountUsingPostInvoker) Invoke() (*model.CountUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CountUsingPostResponse), nil
+	}
+}
+
+type CreateMultiViewInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateMultiViewInvoker) Invoke() (*model.CreateMultiViewResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateMultiViewResponse), nil
+	}
+}
+
+type CreateUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateUsingPostInvoker) Invoke() (*model.CreateUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateUsingPostResponse), nil
+	}
+}
+
+type CreateViewInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateViewInvoker) Invoke() (*model.CreateViewResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateViewResponse), nil
+	}
+}
+
+type DeleteBranchInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteBranchInvoker) Invoke() (*model.DeleteBranchResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteBranchResponse), nil
+	}
+}
+
+type DeleteByConditionMultiViewInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteByConditionMultiViewInvoker) Invoke() (*model.DeleteByConditionMultiViewResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteByConditionMultiViewResponse), nil
+	}
+}
+
+type DeleteByConditionUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteByConditionUsingPostInvoker) Invoke() (*model.DeleteByConditionUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteByConditionUsingPostResponse), nil
+	}
+}
+
+type DeleteLatestVersionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteLatestVersionInvoker) Invoke() (*model.DeleteLatestVersionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteLatestVersionResponse), nil
+	}
+}
+
+type DeleteLogicalBranchInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteLogicalBranchInvoker) Invoke() (*model.DeleteLogicalBranchResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteLogicalBranchResponse), nil
+	}
+}
+
+type DeleteLogicalLatestVersionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteLogicalLatestVersionInvoker) Invoke() (*model.DeleteLogicalLatestVersionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteLogicalLatestVersionResponse), nil
+	}
+}
+
+type DeleteTargetInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteTargetInvoker) Invoke() (*model.DeleteTargetResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteTargetResponse), nil
+	}
+}
+
+type DeleteUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteUsingPostInvoker) Invoke() (*model.DeleteUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteUsingPostResponse), nil
+	}
+}
+
+type DisableDataInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DisableDataInstanceInvoker) Invoke() (*model.DisableDataInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DisableDataInstanceResponse), nil
+	}
+}
+
+type EnableDataInstanceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *EnableDataInstanceInvoker) Invoke() (*model.EnableDataInstanceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.EnableDataInstanceResponse), nil
+	}
+}
+
+type ExecuteReviseInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ExecuteReviseInvoker) Invoke() (*model.ExecuteReviseResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ExecuteReviseResponse), nil
+	}
+}
+
+type GenerateBusinessCodeInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *GenerateBusinessCodeInvoker) Invoke() (*model.GenerateBusinessCodeResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.GenerateBusinessCodeResponse), nil
+	}
+}
+
+type ListAllVersionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListAllVersionsInvoker) Invoke() (*model.ListAllVersionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListAllVersionsResponse), nil
+	}
+}
+
+type ListBatchQueryRelatedObjectsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListBatchQueryRelatedObjectsInvoker) Invoke() (*model.ListBatchQueryRelatedObjectsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListBatchQueryRelatedObjectsResponse), nil
+	}
+}
+
+type ListGetAllParentListInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListGetAllParentListInvoker) Invoke() (*model.ListGetAllParentListResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListGetAllParentListResponse), nil
+	}
+}
+
+type ListGetChildListInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListGetChildListInvoker) Invoke() (*model.ListGetChildListResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListGetChildListResponse), nil
+	}
+}
+
+type ListHistoryDataInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListHistoryDataInvoker) Invoke() (*model.ListHistoryDataResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListHistoryDataResponse), nil
+	}
+}
+
+type ListQueryRelatedObjectsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListQueryRelatedObjectsInvoker) Invoke() (*model.ListQueryRelatedObjectsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListQueryRelatedObjectsResponse), nil
+	}
+}
+
+type ListQueryRelationshipInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListQueryRelationshipInvoker) Invoke() (*model.ListQueryRelationshipResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListQueryRelationshipResponse), nil
+	}
+}
+
+type ListQueryTargetInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListQueryTargetInvoker) Invoke() (*model.ListQueryTargetResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListQueryTargetResponse), nil
+	}
+}
+
+type ListQueryUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListQueryUsingPostInvoker) Invoke() (*model.ListQueryUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListQueryUsingPostResponse), nil
+	}
+}
+
+type ListSelectUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListSelectUsingPostInvoker) Invoke() (*model.ListSelectUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListSelectUsingPostResponse), nil
+	}
+}
+
+type ListUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListUsingPostInvoker) Invoke() (*model.ListUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListUsingPostResponse), nil
+	}
+}
+
+type RefreshInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RefreshInvoker) Invoke() (*model.RefreshResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RefreshResponse), nil
+	}
+}
+
+type RemoveTagInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RemoveTagInvoker) Invoke() (*model.RemoveTagResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RemoveTagResponse), nil
+	}
+}
+
+type SaveAllUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SaveAllUsingPostInvoker) Invoke() (*model.SaveAllUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SaveAllUsingPostResponse), nil
+	}
+}
+
+type SaveAsUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SaveAsUsingPostInvoker) Invoke() (*model.SaveAsUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SaveAsUsingPostResponse), nil
+	}
+}
+
+type SaveUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SaveUsingPostInvoker) Invoke() (*model.SaveUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SaveUsingPostResponse), nil
 	}
 }
 
@@ -341,27 +749,39 @@ func (i *ShowFindUsingPostInvoker) Invoke() (*model.ShowFindUsingPostResponse, e
 	}
 }
 
-type ShowGetAllVersionsUsingPostInvoker struct {
+type ShowGetByUniqueKeyInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowGetAllVersionsUsingPostInvoker) Invoke() (*model.ShowGetAllVersionsUsingPostResponse, error) {
+func (i *ShowGetByUniqueKeyInvoker) Invoke() (*model.ShowGetByUniqueKeyResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowGetAllVersionsUsingPostResponse), nil
+		return result.(*model.ShowGetByUniqueKeyResponse), nil
 	}
 }
 
-type ShowGetByUniqueKeyUsingPostInvoker struct {
+type ShowGetParentInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowGetByUniqueKeyUsingPostInvoker) Invoke() (*model.ShowGetByUniqueKeyUsingPostResponse, error) {
+func (i *ShowGetParentInvoker) Invoke() (*model.ShowGetParentResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowGetByUniqueKeyUsingPostResponse), nil
+		return result.(*model.ShowGetParentResponse), nil
+	}
+}
+
+type ShowGetRootInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowGetRootInvoker) Invoke() (*model.ShowGetRootResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowGetRootResponse), nil
 	}
 }
 
@@ -377,42 +797,6 @@ func (i *ShowGetUsingPostInvoker) Invoke() (*model.ShowGetUsingPostResponse, err
 	}
 }
 
-type ShowGetVersionByMasterUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowGetVersionByMasterUsingPostInvoker) Invoke() (*model.ShowGetVersionByMasterUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowGetVersionByMasterUsingPostResponse), nil
-	}
-}
-
-type ShowListUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowListUsingPostInvoker) Invoke() (*model.ShowListUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowListUsingPostResponse), nil
-	}
-}
-
-type ShowLogicalDeleteBranchUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowLogicalDeleteBranchUsingPostInvoker) Invoke() (*model.ShowLogicalDeleteBranchUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowLogicalDeleteBranchUsingPostResponse), nil
-	}
-}
-
 type ShowLogicalDeleteByConditionUsingPostInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -422,18 +806,6 @@ func (i *ShowLogicalDeleteByConditionUsingPostInvoker) Invoke() (*model.ShowLogi
 		return nil, err
 	} else {
 		return result.(*model.ShowLogicalDeleteByConditionUsingPostResponse), nil
-	}
-}
-
-type ShowLogicalDeleteLatestVersionUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowLogicalDeleteLatestVersionUsingPostInvoker) Invoke() (*model.ShowLogicalDeleteLatestVersionUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowLogicalDeleteLatestVersionUsingPostResponse), nil
 	}
 }
 
@@ -449,90 +821,6 @@ func (i *ShowLogicalDeleteUsingPostInvoker) Invoke() (*model.ShowLogicalDeleteUs
 	}
 }
 
-type ShowQueryUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowQueryUsingPostInvoker) Invoke() (*model.ShowQueryUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowQueryUsingPostResponse), nil
-	}
-}
-
-type ShowReviseAndUpdateUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowReviseAndUpdateUsingPostInvoker) Invoke() (*model.ShowReviseAndUpdateUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowReviseAndUpdateUsingPostResponse), nil
-	}
-}
-
-type ShowReviseUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowReviseUsingPostInvoker) Invoke() (*model.ShowReviseUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowReviseUsingPostResponse), nil
-	}
-}
-
-type ShowSaveAllUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowSaveAllUsingPostInvoker) Invoke() (*model.ShowSaveAllUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowSaveAllUsingPostResponse), nil
-	}
-}
-
-type ShowSaveAsUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowSaveAsUsingPostInvoker) Invoke() (*model.ShowSaveAsUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowSaveAsUsingPostResponse), nil
-	}
-}
-
-type ShowSaveUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowSaveUsingPostInvoker) Invoke() (*model.ShowSaveUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowSaveUsingPostResponse), nil
-	}
-}
-
-type ShowSelectUsingPostInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowSelectUsingPostInvoker) Invoke() (*model.ShowSelectUsingPostResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowSelectUsingPostResponse), nil
-	}
-}
-
 type ShowStaticsUsingPostInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -545,74 +833,122 @@ func (i *ShowStaticsUsingPostInvoker) Invoke() (*model.ShowStaticsUsingPostRespo
 	}
 }
 
-type ShowUndoCheckoutByAdminUsingPostInvoker struct {
+type ShowTagInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowUndoCheckoutByAdminUsingPostInvoker) Invoke() (*model.ShowUndoCheckoutByAdminUsingPostResponse, error) {
+func (i *ShowTagInvoker) Invoke() (*model.ShowTagResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowUndoCheckoutByAdminUsingPostResponse), nil
+		return result.(*model.ShowTagResponse), nil
 	}
 }
 
-type ShowUndoCheckoutUsingPostInvoker struct {
+type ShowVersionByMasterInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowUndoCheckoutUsingPostInvoker) Invoke() (*model.ShowUndoCheckoutUsingPostResponse, error) {
+func (i *ShowVersionByMasterInvoker) Invoke() (*model.ShowVersionByMasterResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowUndoCheckoutUsingPostResponse), nil
+		return result.(*model.ShowVersionByMasterResponse), nil
 	}
 }
 
-type ShowUpdateAndCheckinUsingPostInvoker struct {
+type SwitchLifecycleTemplateInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowUpdateAndCheckinUsingPostInvoker) Invoke() (*model.ShowUpdateAndCheckinUsingPostResponse, error) {
+func (i *SwitchLifecycleTemplateInvoker) Invoke() (*model.SwitchLifecycleTemplateResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowUpdateAndCheckinUsingPostResponse), nil
+		return result.(*model.SwitchLifecycleTemplateResponse), nil
 	}
 }
 
-type ShowUpdateByAdminUsingPostInvoker struct {
+type UpdateAndCheckinInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowUpdateByAdminUsingPostInvoker) Invoke() (*model.ShowUpdateByAdminUsingPostResponse, error) {
+func (i *UpdateAndCheckinInvoker) Invoke() (*model.UpdateAndCheckinResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowUpdateByAdminUsingPostResponse), nil
+		return result.(*model.UpdateAndCheckinResponse), nil
 	}
 }
 
-type ShowUpdateByConditionUsingPostInvoker struct {
+type UpdateAndReviseInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowUpdateByConditionUsingPostInvoker) Invoke() (*model.ShowUpdateByConditionUsingPostResponse, error) {
+func (i *UpdateAndReviseInvoker) Invoke() (*model.UpdateAndReviseResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowUpdateByConditionUsingPostResponse), nil
+		return result.(*model.UpdateAndReviseResponse), nil
 	}
 }
 
-type ShowUpdateUsingPostInvoker struct {
+type UpdateByAdminInvoker struct {
 	*invoker.BaseInvoker
 }
 
-func (i *ShowUpdateUsingPostInvoker) Invoke() (*model.ShowUpdateUsingPostResponse, error) {
+func (i *UpdateByAdminInvoker) Invoke() (*model.UpdateByAdminResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
 	} else {
-		return result.(*model.ShowUpdateUsingPostResponse), nil
+		return result.(*model.UpdateByAdminResponse), nil
+	}
+}
+
+type UpdateByConditionUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateByConditionUsingPostInvoker) Invoke() (*model.UpdateByConditionUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateByConditionUsingPostResponse), nil
+	}
+}
+
+type UpdateStateInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateStateInvoker) Invoke() (*model.UpdateStateResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateStateResponse), nil
+	}
+}
+
+type UpdateUsingPostInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateUsingPostInvoker) Invoke() (*model.UpdateUsingPostResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateUsingPostResponse), nil
+	}
+}
+
+type UpdateViewInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateViewInvoker) Invoke() (*model.UpdateViewResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateViewResponse), nil
 	}
 }

@@ -15,7 +15,7 @@ type Show2DDigitalHumanVideoResponse struct {
 	// 任务ID。
 	JobId string `json:"job_id"`
 
-	// 任务的状态。 * WAITING：等待 * PROCESSING：处理中 * SUCCEED：成功 * FAILED：失败 * CANCELED：取消
+	// 任务的状态。 * WAITING：等待 * PROCESSING：处理中 * SUCCEED：成功 * FAILED：失败 * CANCELED：取消 * BLOCK: 冻结
 	State Show2DDigitalHumanVideoResponseState `json:"state"`
 
 	// 任务类型。 * 2D_DIGITAL_HUMAN_VIDEO: 分身数字人视频制作任务 * PHOTO_DIGITAL_HUMAN_VIDEO: 照片数字人视频制作任务
@@ -27,7 +27,7 @@ type Show2DDigitalHumanVideoResponse struct {
 	// 数字人视频制作结束时间。
 	EndTime *string `json:"end_time,omitempty"`
 
-	// 数字人视频内容时长。
+	// **参数解释**： 数字人视频内容时长。
 	Duration *float32 `json:"duration,omitempty"`
 
 	OutputAssetConfig *OutputAssetInfo `json:"output_asset_config,omitempty"`
@@ -49,7 +49,7 @@ type Show2DDigitalHumanVideoResponse struct {
 	// 人物照片，需要Base64编码。 > * 该参数已废弃，照片数字人视频制作使用“创建照片分身数字人视频制作任务”接口。
 	HumanImage *string `json:"human_image,omitempty"`
 
-	// 分身数字人模型资产ID。
+	// 分身数字人模型资产ID，可以从资产库中查询。
 	ModelAssetId *string `json:"model_asset_id,omitempty"`
 
 	VoiceConfig *VoiceConfig `json:"voice_config,omitempty"`
@@ -84,6 +84,7 @@ type Show2DDigitalHumanVideoResponseStateEnum struct {
 	SUCCEED    Show2DDigitalHumanVideoResponseState
 	FAILED     Show2DDigitalHumanVideoResponseState
 	CANCELED   Show2DDigitalHumanVideoResponseState
+	BLOCK      Show2DDigitalHumanVideoResponseState
 }
 
 func GetShow2DDigitalHumanVideoResponseStateEnum() Show2DDigitalHumanVideoResponseStateEnum {
@@ -102,6 +103,9 @@ func GetShow2DDigitalHumanVideoResponseStateEnum() Show2DDigitalHumanVideoRespon
 		},
 		CANCELED: Show2DDigitalHumanVideoResponseState{
 			value: "CANCELED",
+		},
+		BLOCK: Show2DDigitalHumanVideoResponseState{
+			value: "BLOCK",
 		},
 	}
 }

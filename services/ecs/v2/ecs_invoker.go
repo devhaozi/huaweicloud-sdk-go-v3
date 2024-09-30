@@ -173,6 +173,18 @@ func (i *ChangeServerChargeModeInvoker) Invoke() (*model.ChangeServerChargeModeR
 	}
 }
 
+type ChangeServerNetworkInterfaceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ChangeServerNetworkInterfaceInvoker) Invoke() (*model.ChangeServerNetworkInterfaceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ChangeServerNetworkInterfaceResponse), nil
+	}
+}
+
 type ChangeServerOsWithCloudInitInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -194,6 +206,18 @@ func (i *ChangeServerOsWithoutCloudInitInvoker) Invoke() (*model.ChangeServerOsW
 		return nil, err
 	} else {
 		return result.(*model.ChangeServerOsWithoutCloudInitResponse), nil
+	}
+}
+
+type ChangeVpcInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ChangeVpcInvoker) Invoke() (*model.ChangeVpcResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ChangeVpcResponse), nil
 	}
 }
 
@@ -314,6 +338,18 @@ func (i *DisassociateServerVirtualIpInvoker) Invoke() (*model.DisassociateServer
 		return nil, err
 	} else {
 		return result.(*model.DisassociateServerVirtualIpResponse), nil
+	}
+}
+
+type ListCloudServersInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListCloudServersInvoker) Invoke() (*model.ListCloudServersResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListCloudServersResponse), nil
 	}
 }
 
@@ -606,18 +642,6 @@ func (i *NovaShowServerInterfaceInvoker) Invoke() (*model.NovaShowServerInterfac
 	}
 }
 
-type RegisterServerAutoRecoveryInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *RegisterServerAutoRecoveryInvoker) Invoke() (*model.RegisterServerAutoRecoveryResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.RegisterServerAutoRecoveryResponse), nil
-	}
-}
-
 type RegisterServerMonitorInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -711,18 +735,6 @@ func (i *ShowServerInvoker) Invoke() (*model.ShowServerResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ShowServerResponse), nil
-	}
-}
-
-type ShowServerAutoRecoveryInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowServerAutoRecoveryInvoker) Invoke() (*model.ShowServerAutoRecoveryResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowServerAutoRecoveryResponse), nil
 	}
 }
 
@@ -843,6 +855,30 @@ func (i *UpdateServerMetadataInvoker) Invoke() (*model.UpdateServerMetadataRespo
 		return nil, err
 	} else {
 		return result.(*model.UpdateServerMetadataResponse), nil
+	}
+}
+
+type NovaListVersionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *NovaListVersionsInvoker) Invoke() (*model.NovaListVersionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.NovaListVersionsResponse), nil
+	}
+}
+
+type NovaShowVersionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *NovaShowVersionInvoker) Invoke() (*model.NovaShowVersionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.NovaShowVersionResponse), nil
 	}
 }
 

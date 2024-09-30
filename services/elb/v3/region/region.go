@@ -9,7 +9,7 @@ import (
 
 var (
 	EU_WEST_101 = region.NewRegion("eu-west-101",
-		"https://elb.eu-west-101.myhuaweicloud.eu")
+		"https://elb.eu-west-101.myhuaweicloud.com")
 	AF_SOUTH_1 = region.NewRegion("af-south-1",
 		"https://elb.af-south-1.myhuaweicloud.com")
 	CN_NORTH_4 = region.NewRegion("cn-north-4",
@@ -56,6 +56,16 @@ var (
 		"https://elb.me-east-1.myhuaweicloud.com")
 	MY_KUALALUMPUR_1 = region.NewRegion("my-kualalumpur-1",
 		"https://elb.my-kualalumpur-1.myhuaweicloud.com")
+	RU_MOSCOW_1 = region.NewRegion("ru-moscow-1",
+		"https://elb.ru-moscow-1.myhuaweicloud.com")
+	CN_EAST_4 = region.NewRegion("cn-east-4",
+		"https://elb.cn-east-4.myhuaweicloud.com")
+	AF_NORTH_1 = region.NewRegion("af-north-1",
+		"https://elb.af-north-1.myhuaweicloud.com")
+	CN_EAST_5 = region.NewRegion("cn-east-5",
+		"https://elb.cn-east-5.myhuaweicloud.com")
+	RU_NORTHWEST_2 = region.NewRegion("ru-northwest-2",
+		"https://elb.ru-northwest-2.myhuaweicloud.com")
 )
 
 var staticFields = map[string]*region.Region{
@@ -83,6 +93,11 @@ var staticFields = map[string]*region.Region{
 	"eu-west-0":        EU_WEST_0,
 	"me-east-1":        ME_EAST_1,
 	"my-kualalumpur-1": MY_KUALALUMPUR_1,
+	"ru-moscow-1":      RU_MOSCOW_1,
+	"cn-east-4":        CN_EAST_4,
+	"af-north-1":       AF_NORTH_1,
+	"cn-east-5":        CN_EAST_5,
+	"ru-northwest-2":   RU_NORTHWEST_2,
 }
 
 var provider = region.DefaultProviderChain("ELB")

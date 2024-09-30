@@ -6,10 +6,13 @@ import (
 	"strings"
 )
 
+// Configuration 访问预览配置。
 type Configuration struct {
 	IamAgency *IamAgency `json:"iam_agency,omitempty"`
 
 	ObsBucket *ObsBucket `json:"obs_bucket,omitempty"`
+
+	KmsCmk *KmsCmk `json:"kms_cmk,omitempty"`
 }
 
 func (o Configuration) String() string {

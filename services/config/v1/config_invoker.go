@@ -425,6 +425,30 @@ func (i *ShowOrganizationConformancePackDetailedStatusesInvoker) Invoke() (*mode
 	}
 }
 
+type UpdateConformancePackInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateConformancePackInvoker) Invoke() (*model.UpdateConformancePackResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateConformancePackResponse), nil
+	}
+}
+
+type UpdateOrganizationConformancePackInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateOrganizationConformancePackInvoker) Invoke() (*model.UpdateOrganizationConformancePackResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateOrganizationConformancePackResponse), nil
+	}
+}
+
 type ShowResourceHistoryInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -434,6 +458,54 @@ func (i *ShowResourceHistoryInvoker) Invoke() (*model.ShowResourceHistoryRespons
 		return nil, err
 	} else {
 		return result.(*model.ShowResourceHistoryResponse), nil
+	}
+}
+
+type BatchCreateRemediationExceptionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchCreateRemediationExceptionsInvoker) Invoke() (*model.BatchCreateRemediationExceptionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchCreateRemediationExceptionsResponse), nil
+	}
+}
+
+type BatchDeleteRemediationExceptionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchDeleteRemediationExceptionsInvoker) Invoke() (*model.BatchDeleteRemediationExceptionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchDeleteRemediationExceptionsResponse), nil
+	}
+}
+
+type CollectRemediationExecutionStatusesSummaryInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CollectRemediationExecutionStatusesSummaryInvoker) Invoke() (*model.CollectRemediationExecutionStatusesSummaryResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CollectRemediationExecutionStatusesSummaryResponse), nil
+	}
+}
+
+type CreateOrUpdateRemediationConfigurationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateOrUpdateRemediationConfigurationInvoker) Invoke() (*model.CreateOrUpdateRemediationConfigurationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateOrUpdateRemediationConfigurationResponse), nil
 	}
 }
 
@@ -482,6 +554,18 @@ func (i *DeletePolicyAssignmentInvoker) Invoke() (*model.DeletePolicyAssignmentR
 		return nil, err
 	} else {
 		return result.(*model.DeletePolicyAssignmentResponse), nil
+	}
+}
+
+type DeleteRemediationConfigurationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteRemediationConfigurationInvoker) Invoke() (*model.DeleteRemediationConfigurationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteRemediationConfigurationResponse), nil
 	}
 }
 
@@ -581,6 +665,30 @@ func (i *ListPolicyStatesByResourceIdInvoker) Invoke() (*model.ListPolicyStatesB
 	}
 }
 
+type ListRemediationExceptionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListRemediationExceptionsInvoker) Invoke() (*model.ListRemediationExceptionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListRemediationExceptionsResponse), nil
+	}
+}
+
+type ListRemediationExecutionStatusesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListRemediationExecutionStatusesInvoker) Invoke() (*model.ListRemediationExecutionStatusesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListRemediationExecutionStatusesResponse), nil
+	}
+}
+
 type RunEvaluationByPolicyAssignmentIdInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -590,6 +698,18 @@ func (i *RunEvaluationByPolicyAssignmentIdInvoker) Invoke() (*model.RunEvaluatio
 		return nil, err
 	} else {
 		return result.(*model.RunEvaluationByPolicyAssignmentIdResponse), nil
+	}
+}
+
+type RunRemediationExecutionInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RunRemediationExecutionInvoker) Invoke() (*model.RunRemediationExecutionResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RunRemediationExecutionResponse), nil
 	}
 }
 
@@ -662,6 +782,30 @@ func (i *ShowPolicyAssignmentInvoker) Invoke() (*model.ShowPolicyAssignmentRespo
 		return nil, err
 	} else {
 		return result.(*model.ShowPolicyAssignmentResponse), nil
+	}
+}
+
+type ShowRemediationConfigurationInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowRemediationConfigurationInvoker) Invoke() (*model.ShowRemediationConfigurationResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowRemediationConfigurationResponse), nil
+	}
+}
+
+type UpdateOrganizationPolicyAssignmentInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateOrganizationPolicyAssignmentInvoker) Invoke() (*model.UpdateOrganizationPolicyAssignmentResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateOrganizationPolicyAssignmentResponse), nil
 	}
 }
 
@@ -962,6 +1106,78 @@ func (i *ShowTrackedResourceDetailInvoker) Invoke() (*model.ShowTrackedResourceD
 		return nil, err
 	} else {
 		return result.(*model.ShowTrackedResourceDetailResponse), nil
+	}
+}
+
+type CountResourcesByTagInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CountResourcesByTagInvoker) Invoke() (*model.CountResourcesByTagResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CountResourcesByTagResponse), nil
+	}
+}
+
+type ListResourcesByTagInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListResourcesByTagInvoker) Invoke() (*model.ListResourcesByTagResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListResourcesByTagResponse), nil
+	}
+}
+
+type ListTagsForResourceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListTagsForResourceInvoker) Invoke() (*model.ListTagsForResourceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListTagsForResourceResponse), nil
+	}
+}
+
+type ListTagsForResourceTypeInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListTagsForResourceTypeInvoker) Invoke() (*model.ListTagsForResourceTypeResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListTagsForResourceTypeResponse), nil
+	}
+}
+
+type TagResourceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *TagResourceInvoker) Invoke() (*model.TagResourceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.TagResourceResponse), nil
+	}
+}
+
+type UnTagResourceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UnTagResourceInvoker) Invoke() (*model.UnTagResourceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UnTagResourceResponse), nil
 	}
 }
 

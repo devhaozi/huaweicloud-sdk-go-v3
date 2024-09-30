@@ -40,6 +40,27 @@ func (c *GesClient) AttachEip2Invoker(request *model.AttachEip2Request) *AttachE
 	return &AttachEip2Invoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ChangeSecurityGroup 切换安全组
+//
+// 该接口可以在图创建成功后，修改图的安全组。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *GesClient) ChangeSecurityGroup(request *model.ChangeSecurityGroupRequest) (*model.ChangeSecurityGroupResponse, error) {
+	requestDef := GenReqDefForChangeSecurityGroup()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ChangeSecurityGroupResponse), nil
+	}
+}
+
+// ChangeSecurityGroupInvoker 切换安全组
+func (c *GesClient) ChangeSecurityGroupInvoker(request *model.ChangeSecurityGroupRequest) *ChangeSecurityGroupInvoker {
+	requestDef := GenReqDefForChangeSecurityGroup()
+	return &ChangeSecurityGroupInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ClearGraph2 清空图
 //
 // 清空图中所有数据。
@@ -212,8 +233,8 @@ func (c *GesClient) DetachEip2Invoker(request *model.DetachEip2Request) *DetachE
 //
 // 扩副本能力允许动态扩容多个从节点，扩容的从节点可以处理读请求，从而提高读请求性能。
 // &gt; 1.一万边和百亿边规格的图暂不支持扩副本。
-// 2.进行扩副本操作后，不支持扩容图操作。
-// 3.如果要对图进行扩容和扩副本两个操作，需要您先进行扩容图操作，再进行扩副本操作。
+// 2.进行扩副本操作后，不支持变更图规格操作。
+// 3.如果要对图进行扩容和扩副本两个操作，需要您先进行变更图规格操作，再进行扩副本操作。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GesClient) ExpandGraph2(request *model.ExpandGraph2Request) (*model.ExpandGraph2Response, error) {
@@ -443,10 +464,10 @@ func (c *GesClient) ListQuotas2Invoker(request *model.ListQuotas2Request) *ListQ
 	return &ListQuotas2Invoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
-// ResizeGraph2 扩容图
+// ResizeGraph2 变更图规格
 //
-// 扩容图规格。
-// &gt; 扩容图以后所有索引（复合索引和全文索引）都需要重新创建。
+// 变更图规格规格。
+// &gt; 变更图规格以后所有索引（复合索引和全文索引）都需要重新创建。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *GesClient) ResizeGraph2(request *model.ResizeGraph2Request) (*model.ResizeGraph2Response, error) {
@@ -459,7 +480,7 @@ func (c *GesClient) ResizeGraph2(request *model.ResizeGraph2Request) (*model.Res
 	}
 }
 
-// ResizeGraph2Invoker 扩容图
+// ResizeGraph2Invoker 变更图规格
 func (c *GesClient) ResizeGraph2Invoker(request *model.ResizeGraph2Request) *ResizeGraph2Invoker {
 	requestDef := GenReqDefForResizeGraph2()
 	return &ResizeGraph2Invoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
@@ -484,6 +505,27 @@ func (c *GesClient) RestartGraph2(request *model.RestartGraph2Request) (*model.R
 func (c *GesClient) RestartGraph2Invoker(request *model.RestartGraph2Request) *RestartGraph2Invoker {
 	requestDef := GenReqDefForRestartGraph2()
 	return &RestartGraph2Invoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowBackupDownloadLink 获取备份下载链接
+//
+// 获取备份下载链接
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *GesClient) ShowBackupDownloadLink(request *model.ShowBackupDownloadLinkRequest) (*model.ShowBackupDownloadLinkResponse, error) {
+	requestDef := GenReqDefForShowBackupDownloadLink()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowBackupDownloadLinkResponse), nil
+	}
+}
+
+// ShowBackupDownloadLinkInvoker 获取备份下载链接
+func (c *GesClient) ShowBackupDownloadLinkInvoker(request *model.ShowBackupDownloadLinkRequest) *ShowBackupDownloadLinkInvoker {
+	requestDef := GenReqDefForShowBackupDownloadLink()
+	return &ShowBackupDownloadLinkInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowGraph2 查询图详情

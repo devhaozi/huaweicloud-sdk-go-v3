@@ -21,7 +21,7 @@ type ListVideoScriptsRequest struct {
 	// 使用AK/SK方式认证时必选，携带项目ID信息。
 	XProjectId *string `json:"X-Project-Id,omitempty"`
 
-	// 第三方用户ID。 > * 不允许输入中文。
+	// 第三方用户ID。不允许输入中文。
 	XAppUserId *string `json:"X-App-UserId,omitempty"`
 
 	// 偏移量，表示从此偏移量开始查询。
@@ -36,7 +36,7 @@ type ListVideoScriptsRequest struct {
 	// 剧本类型。默认查询VIDEO_DRAFT。 * VIDEO_DRAFT：视频草稿。 * SYSTEM_VIDEO_TEMPLET： 系统视频模板。
 	ScriptCatalog *ListVideoScriptsRequestScriptCatalog `json:"script_catalog,omitempty"`
 
-	// 横竖屏类型（内部参数，不对外开放）。默认值是LANDSCAPE。 * LANDSCAPE：横屏。 * VERTICAL： 竖屏。
+	// 横竖屏类型（内部参数，不对外开放）。默认值是LANDSCAPE。 * LANDSCAPE：横屏。 * VERTICAL：竖屏。
 	ViewMode *ListVideoScriptsRequestViewMode `json:"view_mode,omitempty"`
 }
 

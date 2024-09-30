@@ -8,11 +8,11 @@ import (
 
 type SetWtpProtectionStatusRequestInfo struct {
 
-	// 开启关闭状态
-	Status *bool `json:"status,omitempty"`
+	// 开启关闭状态，true表示enable， false表示disable
+	Status bool `json:"status"`
 
-	// HostId list
-	HostIdList *[]string `json:"host_id_list,omitempty"`
+	// 主机ID数组，不能为空
+	HostIdList []string `json:"host_id_list"`
 
 	// 资源ID
 	ResourceId *string `json:"resource_id,omitempty"`

@@ -63,6 +63,27 @@ func (c *OcrClient) RecognizeAutoClassificationInvoker(request *model.RecognizeA
 	return &RecognizeAutoClassificationInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// RecognizeBankReceipt 银行回单识别
+//
+// 支持对银行回单版式进行文字识别及键值对提取，实现高效的自动化结构化返回。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *OcrClient) RecognizeBankReceipt(request *model.RecognizeBankReceiptRequest) (*model.RecognizeBankReceiptResponse, error) {
+	requestDef := GenReqDefForRecognizeBankReceipt()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.RecognizeBankReceiptResponse), nil
+	}
+}
+
+// RecognizeBankReceiptInvoker 银行回单识别
+func (c *OcrClient) RecognizeBankReceiptInvoker(request *model.RecognizeBankReceiptRequest) *RecognizeBankReceiptInvoker {
+	requestDef := GenReqDefForRecognizeBankReceipt()
+	return &RecognizeBankReceiptInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // RecognizeBankcard 银行卡识别
 //
 // 识别银行卡上的关键文字信息，并返回识别的结构化结果。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section9)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
@@ -388,6 +409,27 @@ func (c *OcrClient) RecognizeHkIdCard(request *model.RecognizeHkIdCardRequest) (
 func (c *OcrClient) RecognizeHkIdCardInvoker(request *model.RecognizeHkIdCardRequest) *RecognizeHkIdCardInvoker {
 	requestDef := GenReqDefForRecognizeHkIdCard()
 	return &RecognizeHkIdCardInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// RecognizeHouseholdRegister 户口本识别
+//
+// 识别户口本中的文字信息，并返回识别的结构化结果。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *OcrClient) RecognizeHouseholdRegister(request *model.RecognizeHouseholdRegisterRequest) (*model.RecognizeHouseholdRegisterResponse, error) {
+	requestDef := GenReqDefForRecognizeHouseholdRegister()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.RecognizeHouseholdRegisterResponse), nil
+	}
+}
+
+// RecognizeHouseholdRegisterInvoker 户口本识别
+func (c *OcrClient) RecognizeHouseholdRegisterInvoker(request *model.RecognizeHouseholdRegisterRequest) *RecognizeHouseholdRegisterInvoker {
+	requestDef := GenReqDefForRecognizeHouseholdRegister()
+	return &RecognizeHouseholdRegisterInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // RecognizeIdCard 身份证识别

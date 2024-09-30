@@ -12,7 +12,10 @@ import (
 // ListResourceTagsRequest Request Object
 type ListResourceTagsRequest struct {
 
-	// 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts 帐号信息 organizations:roots根
+	// 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+	XSecurityToken *string `json:"X-Security-Token,omitempty"`
+
+	// 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
 	ResourceType ListResourceTagsRequestResourceType `json:"resource_type"`
 }
 
@@ -30,16 +33,16 @@ type ListResourceTagsRequestResourceType struct {
 }
 
 type ListResourceTagsRequestResourceTypeEnum struct {
-	ORGANIZATIONSROOTS    ListResourceTagsRequestResourceType
+	ORGANIZATIONSPOLICIES ListResourceTagsRequestResourceType
 	ORGANIZATIONSOUS      ListResourceTagsRequestResourceType
 	ORGANIZATIONSACCOUNTS ListResourceTagsRequestResourceType
-	ORGANIZATIONSPOLICIES ListResourceTagsRequestResourceType
+	ORGANIZATIONSROOTS    ListResourceTagsRequestResourceType
 }
 
 func GetListResourceTagsRequestResourceTypeEnum() ListResourceTagsRequestResourceTypeEnum {
 	return ListResourceTagsRequestResourceTypeEnum{
-		ORGANIZATIONSROOTS: ListResourceTagsRequestResourceType{
-			value: "organizations:roots",
+		ORGANIZATIONSPOLICIES: ListResourceTagsRequestResourceType{
+			value: "organizations:policies",
 		},
 		ORGANIZATIONSOUS: ListResourceTagsRequestResourceType{
 			value: "organizations:ous",
@@ -47,8 +50,8 @@ func GetListResourceTagsRequestResourceTypeEnum() ListResourceTagsRequestResourc
 		ORGANIZATIONSACCOUNTS: ListResourceTagsRequestResourceType{
 			value: "organizations:accounts",
 		},
-		ORGANIZATIONSPOLICIES: ListResourceTagsRequestResourceType{
-			value: "organizations:policies",
+		ORGANIZATIONSROOTS: ListResourceTagsRequestResourceType{
+			value: "organizations:roots",
 		},
 	}
 }

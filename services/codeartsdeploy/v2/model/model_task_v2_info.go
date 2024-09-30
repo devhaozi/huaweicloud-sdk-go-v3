@@ -27,7 +27,7 @@ type TaskV2Info struct {
 	// 部署步骤
 	Steps map[string]Step `json:"steps,omitempty"`
 
-	// 项目ID
+	// 项目id
 	ProjectId *string `json:"project_id,omitempty"`
 
 	// 项目名称
@@ -42,7 +42,7 @@ type TaskV2Info struct {
 	// 修改时间
 	UpdateTime *string `json:"update_time,omitempty"`
 
-	// 角色ID
+	// 角色id
 	RoleId *int32 `json:"role_id,omitempty"`
 
 	// 是否为默认角色
@@ -54,10 +54,10 @@ type TaskV2Info struct {
 	// 应用创建者昵称
 	NickName *string `json:"nick_name,omitempty"`
 
-	// 应用创建者用户ID
+	// 应用创建者用户id
 	OwnerId *string `json:"owner_id,omitempty"`
 
-	// 应用创建者租户ID
+	// 应用创建者租户id
 	TenantId *string `json:"tenant_id,omitempty"`
 
 	// 应用创建者租户名
@@ -90,6 +90,9 @@ type TaskV2Info struct {
 	// 是否有创建环境的权限
 	CanCreateEnv *bool `json:"can_create_env,omitempty"`
 
+	// 是否有禁用应用的权限
+	CanDisable *bool `json:"can_disable,omitempty"`
+
 	// 应用组件列表
 	AppComponentList *[]AppComponentDao `json:"app_component_list,omitempty"`
 
@@ -98,6 +101,9 @@ type TaskV2Info struct {
 
 	// 部署任务所属应用id
 	AppId *string `json:"app_id,omitempty"`
+
+	// 当前应用是否被禁用
+	IsDisable *bool `json:"is_disable,omitempty"`
 }
 
 func (o TaskV2Info) String() string {

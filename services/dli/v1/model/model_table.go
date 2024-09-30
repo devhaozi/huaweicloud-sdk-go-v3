@@ -10,7 +10,7 @@ import (
 type Table struct {
 
 	// 表创建时间。是单位为“毫秒”的时间戳。
-	CreateTime int32 `json:"create_time"`
+	CreateTime int64 `json:"create_time"`
 
 	// 所列OBS表数据的类型，目前支持：parquet、ORC、CSV、JSON、Carbon、Avro格式。只有OBS表有该参数，其他表没有该参数。
 	DataType *string `json:"data_type,omitempty"`
@@ -19,7 +19,7 @@ type Table struct {
 	DataLocation string `json:"data_location"`
 
 	// 最近更新时间。是单位为“毫秒”的时间戳。
-	LastAccessTime int32 `json:"last_access_time"`
+	LastAccessTime int64 `json:"last_access_time"`
 
 	// OBS表上的存储路径。
 	Location *string `json:"location,omitempty"`
@@ -31,13 +31,13 @@ type Table struct {
 	TableName string `json:"table_name"`
 
 	// DLI表的大小。非DLI表该参数值为0。
-	TableSize int32 `json:"table_size"`
+	TableSize int64 `json:"table_size"`
 
 	// 表类型： OBS表为EXTERNAL DLI表为MANAGED View为VIEW
 	TableType string `json:"table_type"`
 
 	// 分区字段。只有OBS分区表有该参数，其他表没有该参数。
-	PartitionColumns *string `json:"partition_columns,omitempty"`
+	PartitionColumns *[]string `json:"partition_columns,omitempty"`
 
 	// 分页大小，最小为1，最大为100。
 	PageSize *int32 `json:"page-size,omitempty"`

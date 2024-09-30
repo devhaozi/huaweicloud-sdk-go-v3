@@ -31,6 +31,8 @@
 go get github.com/huaweicloud/huaweicloud-sdk-go-v3
 ```
 
+您可以通过 [SDK中心](https://console.huaweicloud.com/apiexplorer/#/sdkcenter?language=Go) 或 [Github Releases](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/releases?page=1) 查询SDK版本信息。
+
 ## 代码示例
 
 - 使用如下代码在指定 Region 下查询 VPC 列表，实际使用中请将 `vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"`
@@ -201,7 +203,7 @@ func main() {
 ## 在线调试
 
 [API Explorer](https://apiexplorer.developer.huaweicloud.com/apiexplorer/overview)
-提供API检索及平台调试，支持全量快速检索、可视化调试、帮助文档查看、在线咨询。
+提供API检索、SDK示例及平台调试，支持全量快速检索、可视化调试、帮助文档查看、在线咨询。
 
 ## 变更日志
 
@@ -336,13 +338,16 @@ client := vpc.NewVpcClient(hcClient)
 
 #### 1.6 自定义HTTP传输 [:top:](#用户手册-top)
 
-**注意：** 该配置项拥有最高优先级。
+支持配置**HttpTransport**或**HttpRoundTripper**(v0.1.114版本以上)，前者是对后者的接口实现，选择其一配置即可。
 
-如果配置了自定义HTTP传输，**会导致 [1.2 网络代理](#12-网络代理-top)、[1.4 SSL配置](#14-ssl-配置-top)、[1.5 自定义网络连接创建](#15-自定义网络连接创建-top) 配置失效。**
+**注意：** HttpTransport配置项拥有最高优先级。
+
+如果配置了**HttpTransport**或**HttpRoundTripper**，**会导致 [1.2 网络代理](#12-网络代理-top)、[1.4 SSL配置](#14-ssl-配置-top)、[1.5 自定义网络连接创建](#15-自定义网络连接创建-top) 配置失效。**
 
 ``` go
 transport := &http.Transport{}
 httpConfig := config.DefaultHttpConfig().WithHttpTransport(transport)
+// httpConfig.WithHttpRoundTripper(&YourRoundTripper{})
 
 hcClient, err := vpc.VpcClientBuilder().
     WithHttpConfig(httpConfig).
@@ -825,8 +830,7 @@ func main() {
 
 - **不适用**于 `多ProjectId` 的场景。
 
-- 当前支持指定 Region 方式初始化客户端的 region_id : af-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-3, cn-east-2, cn-east-3,
-  cn-north-1, cn-north-4, cn-south-1, cn-southwest-2, ru-northwest-2。调用其他 region 可能会抛出 `Unsupported regionId` 的异常信息。
+- 支持指定的 Region 可通过[地区和终端节点](https://console.huaweicloud.com/apiexplorer/#/endpoint)查询。调用不支持的 region 可能会抛出 `Unsupported regionId` 的异常信息。
 
 **两种方式对比：**
 

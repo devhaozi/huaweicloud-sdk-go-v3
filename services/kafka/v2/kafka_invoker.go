@@ -53,6 +53,18 @@ func (i *BatchDeleteInstanceUsersInvoker) Invoke() (*model.BatchDeleteInstanceUs
 	}
 }
 
+type BatchDeleteMessageDiagnosisReportsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchDeleteMessageDiagnosisReportsInvoker) Invoke() (*model.BatchDeleteMessageDiagnosisReportsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchDeleteMessageDiagnosisReportsResponse), nil
+	}
+}
+
 type BatchRestartOrDeleteInstancesInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -74,18 +86,6 @@ func (i *CloseKafkaManagerInvoker) Invoke() (*model.CloseKafkaManagerResponse, e
 		return nil, err
 	} else {
 		return result.(*model.CloseKafkaManagerResponse), nil
-	}
-}
-
-type CreateDeleteConnectorOrderInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *CreateDeleteConnectorOrderInvoker) Invoke() (*model.CreateDeleteConnectorOrderResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.CreateDeleteConnectorOrderResponse), nil
 	}
 }
 
@@ -149,6 +149,18 @@ func (i *CreateKafkaUserClientQuotaTaskInvoker) Invoke() (*model.CreateKafkaUser
 	}
 }
 
+type CreateMessageDiagnosisTaskInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateMessageDiagnosisTaskInvoker) Invoke() (*model.CreateMessageDiagnosisTaskResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateMessageDiagnosisTaskResponse), nil
+	}
+}
+
 type CreatePostPaidInstanceInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -170,18 +182,6 @@ func (i *CreateReassignmentTaskInvoker) Invoke() (*model.CreateReassignmentTaskR
 		return nil, err
 	} else {
 		return result.(*model.CreateReassignmentTaskResponse), nil
-	}
-}
-
-type CreateSinkTaskInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *CreateSinkTaskInvoker) Invoke() (*model.CreateSinkTaskResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.CreateSinkTaskResponse), nil
 	}
 }
 
@@ -218,18 +218,6 @@ func (i *DeleteKafkaUserClientQuotaTaskInvoker) Invoke() (*model.DeleteKafkaUser
 		return nil, err
 	} else {
 		return result.(*model.DeleteKafkaUserClientQuotaTaskResponse), nil
-	}
-}
-
-type DeleteSinkTaskInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *DeleteSinkTaskInvoker) Invoke() (*model.DeleteSinkTaskResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.DeleteSinkTaskResponse), nil
 	}
 }
 
@@ -305,6 +293,18 @@ func (i *ListInstancesInvoker) Invoke() (*model.ListInstancesResponse, error) {
 	}
 }
 
+type ListMessageDiagnosisReportsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListMessageDiagnosisReportsInvoker) Invoke() (*model.ListMessageDiagnosisReportsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListMessageDiagnosisReportsResponse), nil
+	}
+}
+
 type ListProductsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -314,18 +314,6 @@ func (i *ListProductsInvoker) Invoke() (*model.ListProductsResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ListProductsResponse), nil
-	}
-}
-
-type ListSinkTasksInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ListSinkTasksInvoker) Invoke() (*model.ListSinkTasksResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ListSinkTasksResponse), nil
 	}
 }
 
@@ -521,6 +509,18 @@ func (i *ShowCoordinatorsInvoker) Invoke() (*model.ShowCoordinatorsResponse, err
 	}
 }
 
+type ShowDiagnosisPreCheckInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowDiagnosisPreCheckInvoker) Invoke() (*model.ShowDiagnosisPreCheckResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowDiagnosisPreCheckResponse), nil
+	}
+}
+
 type ShowEngineInstanceExtendProductInfoInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -677,6 +677,18 @@ func (i *ShowMaintainWindowsInvoker) Invoke() (*model.ShowMaintainWindowsRespons
 	}
 }
 
+type ShowMessageDiagnosisReportInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowMessageDiagnosisReportInvoker) Invoke() (*model.ShowMessageDiagnosisReportResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowMessageDiagnosisReportResponse), nil
+	}
+}
+
 type ShowMessagesInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -722,18 +734,6 @@ func (i *ShowPartitionMessageInvoker) Invoke() (*model.ShowPartitionMessageRespo
 		return nil, err
 	} else {
 		return result.(*model.ShowPartitionMessageResponse), nil
-	}
-}
-
-type ShowSinkTaskDetailInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowSinkTaskDetailInvoker) Invoke() (*model.ShowSinkTaskDetailResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowSinkTaskDetailResponse), nil
 	}
 }
 

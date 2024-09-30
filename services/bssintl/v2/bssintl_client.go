@@ -145,6 +145,27 @@ func (c *BssintlClient) CheckUserIdentityInvoker(request *model.CheckUserIdentit
 	return &CheckUserIdentityInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateEnterpriseProjectAuth 开通客户企业项目权限
+//
+// 客户在自建平台开通客户企业项目权限。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *BssintlClient) CreateEnterpriseProjectAuth(request *model.CreateEnterpriseProjectAuthRequest) (*model.CreateEnterpriseProjectAuthResponse, error) {
+	requestDef := GenReqDefForCreateEnterpriseProjectAuth()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateEnterpriseProjectAuthResponse), nil
+	}
+}
+
+// CreateEnterpriseProjectAuthInvoker 开通客户企业项目权限
+func (c *BssintlClient) CreateEnterpriseProjectAuthInvoker(request *model.CreateEnterpriseProjectAuthRequest) *CreateEnterpriseProjectAuthInvoker {
+	requestDef := GenReqDefForCreateEnterpriseProjectAuth()
+	return &CreateEnterpriseProjectAuthInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateEnterpriseRealnameAuthentication 申请企业实名认证
 //
 // 功能描述：企业客户可以进行企业实名认证申请。
@@ -189,7 +210,7 @@ func (c *BssintlClient) CreatePersonalRealnameAuthInvoker(request *model.CreateP
 
 // CreateSubCustomer 创建客户
 //
-// 功能描述：在伙伴销售平台创建客户时同步创建华为云账号，并将客户在伙伴销售平台上的账号与华为云账号进行映射。同时，创建的华为云账号与伙伴账号关联绑定。华为云伙伴能力中心（一级经销商）可以注册精英服务商伙伴（二级经销商）的子客户。注册完成后，子客户可以自动和精英服务商伙伴绑定。
+// 功能描述：在伙伴销售平台创建客户时同步创建华为云账号，并将客户在伙伴销售平台上的账号与华为云账号进行映射。同时，创建的华为云账号与伙伴账号关联绑定。华为云伙伴能力中心（一级经销商）可以注册云经销商伙伴（二级经销商）的子客户。注册完成后，子客户可以自动和云经销商伙伴绑定。
 //
 // Please refer to HUAWEI cloud API Explorer for details.
 func (c *BssintlClient) CreateSubCustomer(request *model.CreateSubCustomerRequest) (*model.CreateSubCustomerResponse, error) {
@@ -693,6 +714,27 @@ func (c *BssintlClient) ListServiceTypesInvoker(request *model.ListServiceTypesR
 	return &ListServiceTypesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ListSubCustomerBudget 批量查询客户预算
+//
+// 功能描述：批量查询客户预算
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *BssintlClient) ListSubCustomerBudget(request *model.ListSubCustomerBudgetRequest) (*model.ListSubCustomerBudgetResponse, error) {
+	requestDef := GenReqDefForListSubCustomerBudget()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListSubCustomerBudgetResponse), nil
+	}
+}
+
+// ListSubCustomerBudgetInvoker 批量查询客户预算
+func (c *BssintlClient) ListSubCustomerBudgetInvoker(request *model.ListSubCustomerBudgetRequest) *ListSubCustomerBudgetInvoker {
+	requestDef := GenReqDefForListSubCustomerBudget()
+	return &ListSubCustomerBudgetInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ListSubCustomerCoupons 查询优惠券列表
 //
 // 功能描述：伙伴/客户可以查询自身的优惠券信息。
@@ -859,6 +901,27 @@ func (c *BssintlClient) ShowCustomerOrderDetails(request *model.ShowCustomerOrde
 func (c *BssintlClient) ShowCustomerOrderDetailsInvoker(request *model.ShowCustomerOrderDetailsRequest) *ShowCustomerOrderDetailsInvoker {
 	requestDef := GenReqDefForShowCustomerOrderDetails()
 	return &ShowCustomerOrderDetailsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowPartnerConsumptionQuota 查询消费配额
+//
+// 功能描述：合作伙伴可以查询消费配额。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *BssintlClient) ShowPartnerConsumptionQuota(request *model.ShowPartnerConsumptionQuotaRequest) (*model.ShowPartnerConsumptionQuotaResponse, error) {
+	requestDef := GenReqDefForShowPartnerConsumptionQuota()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowPartnerConsumptionQuotaResponse), nil
+	}
+}
+
+// ShowPartnerConsumptionQuotaInvoker 查询消费配额
+func (c *BssintlClient) ShowPartnerConsumptionQuotaInvoker(request *model.ShowPartnerConsumptionQuotaRequest) *ShowPartnerConsumptionQuotaInvoker {
+	requestDef := GenReqDefForShowPartnerConsumptionQuota()
+	return &ShowPartnerConsumptionQuotaInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowRealnameAuthenticationReviewResult 查询实名认证审核结果

@@ -24,6 +24,9 @@ type ListGlobalConnectionBandwidthConfigs struct {
 	// 支持的带宽类型。
 	GcbType []ListGlobalConnectionBandwidthConfigsGcbType `json:"gcb_type"`
 
+	// 按增强型95计费保底消费百分比。
+	Ratio95peakPlus *int32 `json:"ratio_95peak_plus,omitempty"`
+
 	// 按传统型95计费保底消费百分比。
 	Ratio95peakGuar *int32 `json:"ratio_95peak_guar,omitempty"`
 
@@ -38,6 +41,15 @@ type ListGlobalConnectionBandwidthConfigs struct {
 
 	// 共享带宽允许绑定实例数量上限。
 	BindLimit int32 `json:"bind_limit"`
+
+	// 是否启用传统的大区带宽。
+	EnableAreaBandwidth bool `json:"enable_area_bandwidth"`
+
+	// 是否支持95转按需。
+	EnableChange95 bool `json:"enable_change_95"`
+
+	// 是否支持多SKU产品功能。
+	EnableSpecCode *bool `json:"enable_spec_code,omitempty"`
 }
 
 func (o ListGlobalConnectionBandwidthConfigs) String() string {
@@ -54,8 +66,9 @@ type ListGlobalConnectionBandwidthConfigsChargeMode struct {
 }
 
 type ListGlobalConnectionBandwidthConfigsChargeModeEnum struct {
-	BWD  ListGlobalConnectionBandwidthConfigsChargeMode
-	E_95 ListGlobalConnectionBandwidthConfigsChargeMode
+	BWD     ListGlobalConnectionBandwidthConfigsChargeMode
+	E_95    ListGlobalConnectionBandwidthConfigsChargeMode
+	E_95AVR ListGlobalConnectionBandwidthConfigsChargeMode
 }
 
 func GetListGlobalConnectionBandwidthConfigsChargeModeEnum() ListGlobalConnectionBandwidthConfigsChargeModeEnum {
@@ -65,6 +78,9 @@ func GetListGlobalConnectionBandwidthConfigsChargeModeEnum() ListGlobalConnectio
 		},
 		E_95: ListGlobalConnectionBandwidthConfigsChargeMode{
 			value: "95",
+		},
+		E_95AVR: ListGlobalConnectionBandwidthConfigsChargeMode{
+			value: "95avr",
 		},
 	}
 }

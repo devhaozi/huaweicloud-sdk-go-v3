@@ -61,6 +61,29 @@ func (c *VpcClient) AddSourcesToTrafficMirrorSessionInvoker(request *model.AddSo
 	return &AddSourcesToTrafficMirrorSessionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// BatchCreatePortTags 批量添加端口资源标签
+//
+// 为指定的端口批量添加标签。
+// 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+// 该接口在华南-深圳上线。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) BatchCreatePortTags(request *model.BatchCreatePortTagsRequest) (*model.BatchCreatePortTagsResponse, error) {
+	requestDef := GenReqDefForBatchCreatePortTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchCreatePortTagsResponse), nil
+	}
+}
+
+// BatchCreatePortTagsInvoker 批量添加端口资源标签
+func (c *VpcClient) BatchCreatePortTagsInvoker(request *model.BatchCreatePortTagsRequest) *BatchCreatePortTagsInvoker {
+	requestDef := GenReqDefForBatchCreatePortTags()
+	return &BatchCreatePortTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // BatchCreateSecurityGroupRules 批量创建安全组规则
 //
 // 在特定安全组下批量创建安全组规则
@@ -101,6 +124,74 @@ func (c *VpcClient) BatchCreateSubNetworkInterface(request *model.BatchCreateSub
 func (c *VpcClient) BatchCreateSubNetworkInterfaceInvoker(request *model.BatchCreateSubNetworkInterfaceRequest) *BatchCreateSubNetworkInterfaceInvoker {
 	requestDef := GenReqDefForBatchCreateSubNetworkInterface()
 	return &BatchCreateSubNetworkInterfaceInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// BatchDeletePortTags 批量删除端口资源标签
+//
+// 为指定的端口资源实例批量删除标签。
+// 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+// 该接口在华南-深圳上线。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) BatchDeletePortTags(request *model.BatchDeletePortTagsRequest) (*model.BatchDeletePortTagsResponse, error) {
+	requestDef := GenReqDefForBatchDeletePortTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchDeletePortTagsResponse), nil
+	}
+}
+
+// BatchDeletePortTagsInvoker 批量删除端口资源标签
+func (c *VpcClient) BatchDeletePortTagsInvoker(request *model.BatchDeletePortTagsRequest) *BatchDeletePortTagsInvoker {
+	requestDef := GenReqDefForBatchDeletePortTags()
+	return &BatchDeletePortTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CountPortsByTags 查询端口资源实例数量
+//
+// 使用标签过滤查询端口实例数量。
+// 该接口在华南-深圳上线。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) CountPortsByTags(request *model.CountPortsByTagsRequest) (*model.CountPortsByTagsResponse, error) {
+	requestDef := GenReqDefForCountPortsByTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CountPortsByTagsResponse), nil
+	}
+}
+
+// CountPortsByTagsInvoker 查询端口资源实例数量
+func (c *VpcClient) CountPortsByTagsInvoker(request *model.CountPortsByTagsRequest) *CountPortsByTagsInvoker {
+	requestDef := GenReqDefForCountPortsByTags()
+	return &CountPortsByTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreatePortTag 添加端口资源标签
+//
+// 给指定端口资源实例增加标签信息
+// 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+// 该接口在华南-深圳上线。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) CreatePortTag(request *model.CreatePortTagRequest) (*model.CreatePortTagResponse, error) {
+	requestDef := GenReqDefForCreatePortTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreatePortTagResponse), nil
+	}
+}
+
+// CreatePortTagInvoker 添加端口资源标签
+func (c *VpcClient) CreatePortTagInvoker(request *model.CreatePortTagRequest) *CreatePortTagInvoker {
+	requestDef := GenReqDefForCreatePortTag()
+	return &CreatePortTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // CreateSecurityGroup 创建安全组
@@ -229,6 +320,29 @@ func (c *VpcClient) CreateTrafficMirrorSessionInvoker(request *model.CreateTraff
 	return &CreateTrafficMirrorSessionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// DeletePortTag 删除端口资源标签
+//
+// 删除指定端口的标签信息
+// 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串。
+// 该接口在华南-深圳上线。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) DeletePortTag(request *model.DeletePortTagRequest) (*model.DeletePortTagResponse, error) {
+	requestDef := GenReqDefForDeletePortTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeletePortTagResponse), nil
+	}
+}
+
+// DeletePortTagInvoker 删除端口资源标签
+func (c *VpcClient) DeletePortTagInvoker(request *model.DeletePortTagRequest) *DeletePortTagInvoker {
+	requestDef := GenReqDefForDeletePortTag()
+	return &DeletePortTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // DeleteSecurityGroup 删除安全组
 //
 // 删除安全组
@@ -353,6 +467,50 @@ func (c *VpcClient) DeleteTrafficMirrorSession(request *model.DeleteTrafficMirro
 func (c *VpcClient) DeleteTrafficMirrorSessionInvoker(request *model.DeleteTrafficMirrorSessionRequest) *DeleteTrafficMirrorSessionInvoker {
 	requestDef := GenReqDefForDeleteTrafficMirrorSession()
 	return &DeleteTrafficMirrorSessionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListPortTags 查询端口项目标签
+//
+// 查询租户在指定Project中实例类型的所有资源标签集合。
+// 该接口在华南-深圳上线。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ListPortTags(request *model.ListPortTagsRequest) (*model.ListPortTagsResponse, error) {
+	requestDef := GenReqDefForListPortTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListPortTagsResponse), nil
+	}
+}
+
+// ListPortTagsInvoker 查询端口项目标签
+func (c *VpcClient) ListPortTagsInvoker(request *model.ListPortTagsRequest) *ListPortTagsInvoker {
+	requestDef := GenReqDefForListPortTags()
+	return &ListPortTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListPortsByTags 查询端口资源实例列表
+//
+// 使用标签过滤查询端口。
+// 该接口在华南-深圳上线。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ListPortsByTags(request *model.ListPortsByTagsRequest) (*model.ListPortsByTagsResponse, error) {
+	requestDef := GenReqDefForListPortsByTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListPortsByTagsResponse), nil
+	}
+}
+
+// ListPortsByTagsInvoker 查询端口资源实例列表
+func (c *VpcClient) ListPortsByTagsInvoker(request *model.ListPortsByTagsRequest) *ListPortsByTagsInvoker {
+	requestDef := GenReqDefForListPortsByTags()
+	return &ListPortsByTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListSecurityGroupRules 查询安全组规则列表
@@ -542,6 +700,28 @@ func (c *VpcClient) RemoveSourcesFromTrafficMirrorSession(request *model.RemoveS
 func (c *VpcClient) RemoveSourcesFromTrafficMirrorSessionInvoker(request *model.RemoveSourcesFromTrafficMirrorSessionRequest) *RemoveSourcesFromTrafficMirrorSessionInvoker {
 	requestDef := GenReqDefForRemoveSourcesFromTrafficMirrorSession()
 	return &RemoveSourcesFromTrafficMirrorSessionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowPortTags 查询端口资源标签
+//
+// 查询指定端口的标签信息。
+// 该接口在华南-深圳上线。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ShowPortTags(request *model.ShowPortTagsRequest) (*model.ShowPortTagsResponse, error) {
+	requestDef := GenReqDefForShowPortTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowPortTagsResponse), nil
+	}
+}
+
+// ShowPortTagsInvoker 查询端口资源标签
+func (c *VpcClient) ShowPortTagsInvoker(request *model.ShowPortTagsRequest) *ShowPortTagsInvoker {
+	requestDef := GenReqDefForShowPortTags()
+	return &ShowPortTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowSecurityGroup 查询安全组
@@ -838,6 +1018,71 @@ func (c *VpcClient) AssociateSubnetFirewallInvoker(request *model.AssociateSubne
 	return &AssociateSubnetFirewallInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// BatchCreateFirewallTags 批量添加ACL资源标签
+//
+// 为指定的网络ACL资源实例批量添加标签。
+// 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) BatchCreateFirewallTags(request *model.BatchCreateFirewallTagsRequest) (*model.BatchCreateFirewallTagsResponse, error) {
+	requestDef := GenReqDefForBatchCreateFirewallTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchCreateFirewallTagsResponse), nil
+	}
+}
+
+// BatchCreateFirewallTagsInvoker 批量添加ACL资源标签
+func (c *VpcClient) BatchCreateFirewallTagsInvoker(request *model.BatchCreateFirewallTagsRequest) *BatchCreateFirewallTagsInvoker {
+	requestDef := GenReqDefForBatchCreateFirewallTags()
+	return &BatchCreateFirewallTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// BatchDeleteFirewallTags 批量删除ACL资源标签
+//
+// 为指定的网络ACL资源实例批量删除标签。
+// 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) BatchDeleteFirewallTags(request *model.BatchDeleteFirewallTagsRequest) (*model.BatchDeleteFirewallTagsResponse, error) {
+	requestDef := GenReqDefForBatchDeleteFirewallTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchDeleteFirewallTagsResponse), nil
+	}
+}
+
+// BatchDeleteFirewallTagsInvoker 批量删除ACL资源标签
+func (c *VpcClient) BatchDeleteFirewallTagsInvoker(request *model.BatchDeleteFirewallTagsRequest) *BatchDeleteFirewallTagsInvoker {
+	requestDef := GenReqDefForBatchDeleteFirewallTags()
+	return &BatchDeleteFirewallTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CountFirewallsByTags 查询ACL资源实例数量
+//
+// 使用标签过滤查询ACL实例数量。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) CountFirewallsByTags(request *model.CountFirewallsByTagsRequest) (*model.CountFirewallsByTagsResponse, error) {
+	requestDef := GenReqDefForCountFirewallsByTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CountFirewallsByTagsResponse), nil
+	}
+}
+
+// CountFirewallsByTagsInvoker 查询ACL资源实例数量
+func (c *VpcClient) CountFirewallsByTagsInvoker(request *model.CountFirewallsByTagsRequest) *CountFirewallsByTagsInvoker {
+	requestDef := GenReqDefForCountFirewallsByTags()
+	return &CountFirewallsByTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateFirewall 创建网络ACL
 //
 // 创建网络ACL
@@ -859,6 +1104,28 @@ func (c *VpcClient) CreateFirewallInvoker(request *model.CreateFirewallRequest) 
 	return &CreateFirewallInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateFirewallTag 添加ACL资源标签
+//
+// 给指定IP地址组资源实例增加标签信息
+// 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) CreateFirewallTag(request *model.CreateFirewallTagRequest) (*model.CreateFirewallTagResponse, error) {
+	requestDef := GenReqDefForCreateFirewallTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateFirewallTagResponse), nil
+	}
+}
+
+// CreateFirewallTagInvoker 添加ACL资源标签
+func (c *VpcClient) CreateFirewallTagInvoker(request *model.CreateFirewallTagRequest) *CreateFirewallTagInvoker {
+	requestDef := GenReqDefForCreateFirewallTag()
+	return &CreateFirewallTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // DeleteFirewall 删除网络ACL
 //
 // 删除网络ACL
@@ -878,6 +1145,28 @@ func (c *VpcClient) DeleteFirewall(request *model.DeleteFirewallRequest) (*model
 func (c *VpcClient) DeleteFirewallInvoker(request *model.DeleteFirewallRequest) *DeleteFirewallInvoker {
 	requestDef := GenReqDefForDeleteFirewall()
 	return &DeleteFirewallInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteFirewallTag 删除ACL资源标签
+//
+// 删除指定IP地址组资源实例的标签信息
+// 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) DeleteFirewallTag(request *model.DeleteFirewallTagRequest) (*model.DeleteFirewallTagResponse, error) {
+	requestDef := GenReqDefForDeleteFirewallTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteFirewallTagResponse), nil
+	}
+}
+
+// DeleteFirewallTagInvoker 删除ACL资源标签
+func (c *VpcClient) DeleteFirewallTagInvoker(request *model.DeleteFirewallTagRequest) *DeleteFirewallTagInvoker {
+	requestDef := GenReqDefForDeleteFirewallTag()
+	return &DeleteFirewallTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // DisassociateSubnetFirewall 网络ACL解绑子网
@@ -922,6 +1211,48 @@ func (c *VpcClient) ListFirewallInvoker(request *model.ListFirewallRequest) *Lis
 	return &ListFirewallInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ListFirewallTags 查询ACL项目标签
+//
+// 查询租户在指定Project中实例类型的所有资源标签集合
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ListFirewallTags(request *model.ListFirewallTagsRequest) (*model.ListFirewallTagsResponse, error) {
+	requestDef := GenReqDefForListFirewallTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListFirewallTagsResponse), nil
+	}
+}
+
+// ListFirewallTagsInvoker 查询ACL项目标签
+func (c *VpcClient) ListFirewallTagsInvoker(request *model.ListFirewallTagsRequest) *ListFirewallTagsInvoker {
+	requestDef := GenReqDefForListFirewallTags()
+	return &ListFirewallTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListFirewallsByTags 查询ACL资源实例列表
+//
+// 使用标签过滤查询ACL实例。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ListFirewallsByTags(request *model.ListFirewallsByTagsRequest) (*model.ListFirewallsByTagsResponse, error) {
+	requestDef := GenReqDefForListFirewallsByTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListFirewallsByTagsResponse), nil
+	}
+}
+
+// ListFirewallsByTagsInvoker 查询ACL资源实例列表
+func (c *VpcClient) ListFirewallsByTagsInvoker(request *model.ListFirewallsByTagsRequest) *ListFirewallsByTagsInvoker {
+	requestDef := GenReqDefForListFirewallsByTags()
+	return &ListFirewallsByTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // RemoveFirewallRules 网络ACL移除规则
 //
 // 网络ACL移除规则
@@ -964,6 +1295,27 @@ func (c *VpcClient) ShowFirewallInvoker(request *model.ShowFirewallRequest) *Sho
 	return &ShowFirewallInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ShowFirewallTags 查询ACL资源标签
+//
+// 查询指定ACL实例的标签信息
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ShowFirewallTags(request *model.ShowFirewallTagsRequest) (*model.ShowFirewallTagsResponse, error) {
+	requestDef := GenReqDefForShowFirewallTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowFirewallTagsResponse), nil
+	}
+}
+
+// ShowFirewallTagsInvoker 查询ACL资源标签
+func (c *VpcClient) ShowFirewallTagsInvoker(request *model.ShowFirewallTagsRequest) *ShowFirewallTagsInvoker {
+	requestDef := GenReqDefForShowFirewallTags()
+	return &ShowFirewallTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // UpdateFirewall 更新网络ACL
 //
 // 更新网络ACL
@@ -1004,6 +1356,279 @@ func (c *VpcClient) UpdateFirewallRules(request *model.UpdateFirewallRulesReques
 func (c *VpcClient) UpdateFirewallRulesInvoker(request *model.UpdateFirewallRulesRequest) *UpdateFirewallRulesInvoker {
 	requestDef := GenReqDefForUpdateFirewallRules()
 	return &UpdateFirewallRulesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// AddClouddcnSubnetsTags 添加Clouddcn子网标签
+//
+// 添加Clouddcn子网的标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) AddClouddcnSubnetsTags(request *model.AddClouddcnSubnetsTagsRequest) (*model.AddClouddcnSubnetsTagsResponse, error) {
+	requestDef := GenReqDefForAddClouddcnSubnetsTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.AddClouddcnSubnetsTagsResponse), nil
+	}
+}
+
+// AddClouddcnSubnetsTagsInvoker 添加Clouddcn子网标签
+func (c *VpcClient) AddClouddcnSubnetsTagsInvoker(request *model.AddClouddcnSubnetsTagsRequest) *AddClouddcnSubnetsTagsInvoker {
+	requestDef := GenReqDefForAddClouddcnSubnetsTags()
+	return &AddClouddcnSubnetsTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// BatchCreateClouddcnSubnetsTags 批量添加Clouddcn子网标签
+//
+// 批量添加Clouddcn子网的标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) BatchCreateClouddcnSubnetsTags(request *model.BatchCreateClouddcnSubnetsTagsRequest) (*model.BatchCreateClouddcnSubnetsTagsResponse, error) {
+	requestDef := GenReqDefForBatchCreateClouddcnSubnetsTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchCreateClouddcnSubnetsTagsResponse), nil
+	}
+}
+
+// BatchCreateClouddcnSubnetsTagsInvoker 批量添加Clouddcn子网标签
+func (c *VpcClient) BatchCreateClouddcnSubnetsTagsInvoker(request *model.BatchCreateClouddcnSubnetsTagsRequest) *BatchCreateClouddcnSubnetsTagsInvoker {
+	requestDef := GenReqDefForBatchCreateClouddcnSubnetsTags()
+	return &BatchCreateClouddcnSubnetsTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// BatchDeleteClouddcnSubnetsTags 批量删除Clouddcn子网标签
+//
+// 批量删除Clouddcn子网的标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) BatchDeleteClouddcnSubnetsTags(request *model.BatchDeleteClouddcnSubnetsTagsRequest) (*model.BatchDeleteClouddcnSubnetsTagsResponse, error) {
+	requestDef := GenReqDefForBatchDeleteClouddcnSubnetsTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.BatchDeleteClouddcnSubnetsTagsResponse), nil
+	}
+}
+
+// BatchDeleteClouddcnSubnetsTagsInvoker 批量删除Clouddcn子网标签
+func (c *VpcClient) BatchDeleteClouddcnSubnetsTagsInvoker(request *model.BatchDeleteClouddcnSubnetsTagsRequest) *BatchDeleteClouddcnSubnetsTagsInvoker {
+	requestDef := GenReqDefForBatchDeleteClouddcnSubnetsTags()
+	return &BatchDeleteClouddcnSubnetsTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateClouddcnSubnet 创建clouddcn子网
+//
+// 创建clouddcn子网。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) CreateClouddcnSubnet(request *model.CreateClouddcnSubnetRequest) (*model.CreateClouddcnSubnetResponse, error) {
+	requestDef := GenReqDefForCreateClouddcnSubnet()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateClouddcnSubnetResponse), nil
+	}
+}
+
+// CreateClouddcnSubnetInvoker 创建clouddcn子网
+func (c *VpcClient) CreateClouddcnSubnetInvoker(request *model.CreateClouddcnSubnetRequest) *CreateClouddcnSubnetInvoker {
+	requestDef := GenReqDefForCreateClouddcnSubnet()
+	return &CreateClouddcnSubnetInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteClouddcnSubnet 删除clouddcn子网
+//
+// 删除clouddcn子网
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) DeleteClouddcnSubnet(request *model.DeleteClouddcnSubnetRequest) (*model.DeleteClouddcnSubnetResponse, error) {
+	requestDef := GenReqDefForDeleteClouddcnSubnet()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteClouddcnSubnetResponse), nil
+	}
+}
+
+// DeleteClouddcnSubnetInvoker 删除clouddcn子网
+func (c *VpcClient) DeleteClouddcnSubnetInvoker(request *model.DeleteClouddcnSubnetRequest) *DeleteClouddcnSubnetInvoker {
+	requestDef := GenReqDefForDeleteClouddcnSubnet()
+	return &DeleteClouddcnSubnetInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteClouddcnSubnetsTag 删除Clouddcn子网标签
+//
+// 删除Clouddcn子网的标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) DeleteClouddcnSubnetsTag(request *model.DeleteClouddcnSubnetsTagRequest) (*model.DeleteClouddcnSubnetsTagResponse, error) {
+	requestDef := GenReqDefForDeleteClouddcnSubnetsTag()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteClouddcnSubnetsTagResponse), nil
+	}
+}
+
+// DeleteClouddcnSubnetsTagInvoker 删除Clouddcn子网标签
+func (c *VpcClient) DeleteClouddcnSubnetsTagInvoker(request *model.DeleteClouddcnSubnetsTagRequest) *DeleteClouddcnSubnetsTagInvoker {
+	requestDef := GenReqDefForDeleteClouddcnSubnetsTag()
+	return &DeleteClouddcnSubnetsTagInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListClouddcnSubnets 查询clouddcn子网列表
+//
+// 查询clouddcn子网列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ListClouddcnSubnets(request *model.ListClouddcnSubnetsRequest) (*model.ListClouddcnSubnetsResponse, error) {
+	requestDef := GenReqDefForListClouddcnSubnets()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListClouddcnSubnetsResponse), nil
+	}
+}
+
+// ListClouddcnSubnetsInvoker 查询clouddcn子网列表
+func (c *VpcClient) ListClouddcnSubnetsInvoker(request *model.ListClouddcnSubnetsRequest) *ListClouddcnSubnetsInvoker {
+	requestDef := GenReqDefForListClouddcnSubnets()
+	return &ListClouddcnSubnetsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListClouddcnSubnetsCountFilterTags 查询资源实例列表数目
+//
+// 查询资源实例列表数目
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ListClouddcnSubnetsCountFilterTags(request *model.ListClouddcnSubnetsCountFilterTagsRequest) (*model.ListClouddcnSubnetsCountFilterTagsResponse, error) {
+	requestDef := GenReqDefForListClouddcnSubnetsCountFilterTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListClouddcnSubnetsCountFilterTagsResponse), nil
+	}
+}
+
+// ListClouddcnSubnetsCountFilterTagsInvoker 查询资源实例列表数目
+func (c *VpcClient) ListClouddcnSubnetsCountFilterTagsInvoker(request *model.ListClouddcnSubnetsCountFilterTagsRequest) *ListClouddcnSubnetsCountFilterTagsInvoker {
+	requestDef := GenReqDefForListClouddcnSubnetsCountFilterTags()
+	return &ListClouddcnSubnetsCountFilterTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListClouddcnSubnetsFilterTags 查询资源实例列表
+//
+// 查询资源实例列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ListClouddcnSubnetsFilterTags(request *model.ListClouddcnSubnetsFilterTagsRequest) (*model.ListClouddcnSubnetsFilterTagsResponse, error) {
+	requestDef := GenReqDefForListClouddcnSubnetsFilterTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListClouddcnSubnetsFilterTagsResponse), nil
+	}
+}
+
+// ListClouddcnSubnetsFilterTagsInvoker 查询资源实例列表
+func (c *VpcClient) ListClouddcnSubnetsFilterTagsInvoker(request *model.ListClouddcnSubnetsFilterTagsRequest) *ListClouddcnSubnetsFilterTagsInvoker {
+	requestDef := GenReqDefForListClouddcnSubnetsFilterTags()
+	return &ListClouddcnSubnetsFilterTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListClouddcnSubnetsTags 查询Clouddcn子网项目标签
+//
+// 查询Clouddcn子网的项目标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ListClouddcnSubnetsTags(request *model.ListClouddcnSubnetsTagsRequest) (*model.ListClouddcnSubnetsTagsResponse, error) {
+	requestDef := GenReqDefForListClouddcnSubnetsTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListClouddcnSubnetsTagsResponse), nil
+	}
+}
+
+// ListClouddcnSubnetsTagsInvoker 查询Clouddcn子网项目标签
+func (c *VpcClient) ListClouddcnSubnetsTagsInvoker(request *model.ListClouddcnSubnetsTagsRequest) *ListClouddcnSubnetsTagsInvoker {
+	requestDef := GenReqDefForListClouddcnSubnetsTags()
+	return &ListClouddcnSubnetsTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowClouddcnSubnet 查询clouddcn子网
+//
+// 查询clouddcn子网详情。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ShowClouddcnSubnet(request *model.ShowClouddcnSubnetRequest) (*model.ShowClouddcnSubnetResponse, error) {
+	requestDef := GenReqDefForShowClouddcnSubnet()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowClouddcnSubnetResponse), nil
+	}
+}
+
+// ShowClouddcnSubnetInvoker 查询clouddcn子网
+func (c *VpcClient) ShowClouddcnSubnetInvoker(request *model.ShowClouddcnSubnetRequest) *ShowClouddcnSubnetInvoker {
+	requestDef := GenReqDefForShowClouddcnSubnet()
+	return &ShowClouddcnSubnetInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowClouddcnSubnetsTags 查询Clouddcn子网标签
+//
+// 查询Clouddcn子网的标签
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) ShowClouddcnSubnetsTags(request *model.ShowClouddcnSubnetsTagsRequest) (*model.ShowClouddcnSubnetsTagsResponse, error) {
+	requestDef := GenReqDefForShowClouddcnSubnetsTags()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowClouddcnSubnetsTagsResponse), nil
+	}
+}
+
+// ShowClouddcnSubnetsTagsInvoker 查询Clouddcn子网标签
+func (c *VpcClient) ShowClouddcnSubnetsTagsInvoker(request *model.ShowClouddcnSubnetsTagsRequest) *ShowClouddcnSubnetsTagsInvoker {
+	requestDef := GenReqDefForShowClouddcnSubnetsTags()
+	return &ShowClouddcnSubnetsTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UpdateClouddcnSubnet 更新clouddcn子网
+//
+// 更新clouddcn子网。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *VpcClient) UpdateClouddcnSubnet(request *model.UpdateClouddcnSubnetRequest) (*model.UpdateClouddcnSubnetResponse, error) {
+	requestDef := GenReqDefForUpdateClouddcnSubnet()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateClouddcnSubnetResponse), nil
+	}
+}
+
+// UpdateClouddcnSubnetInvoker 更新clouddcn子网
+func (c *VpcClient) UpdateClouddcnSubnetInvoker(request *model.UpdateClouddcnSubnetRequest) *UpdateClouddcnSubnetInvoker {
+	requestDef := GenReqDefForUpdateClouddcnSubnet()
+	return &UpdateClouddcnSubnetInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // CreateAddressGroup 创建地址组

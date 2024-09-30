@@ -64,6 +64,27 @@ func (c *EvsClient) BatchDeleteVolumeTagsInvoker(request *model.BatchDeleteVolum
 	return &BatchDeleteVolumeTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ChangeVolumeChargeMode 修改云硬盘计费模式
+//
+// 将挂载状态下的云硬盘的计费模式有按需转成包周期，且到期时间和挂载的虚拟机保持一致。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EvsClient) ChangeVolumeChargeMode(request *model.ChangeVolumeChargeModeRequest) (*model.ChangeVolumeChargeModeResponse, error) {
+	requestDef := GenReqDefForChangeVolumeChargeMode()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ChangeVolumeChargeModeResponse), nil
+	}
+}
+
+// ChangeVolumeChargeModeInvoker 修改云硬盘计费模式
+func (c *EvsClient) ChangeVolumeChargeModeInvoker(request *model.ChangeVolumeChargeModeRequest) *ChangeVolumeChargeModeInvoker {
+	requestDef := GenReqDefForChangeVolumeChargeMode()
+	return &ChangeVolumeChargeModeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CinderAcceptVolumeTransfer 接受云硬盘过户
 //
 // 通过云硬盘过户记录ID以及身份认证密钥来接受云硬盘过户。
@@ -453,6 +474,32 @@ func (c *EvsClient) ResizeVolumeInvoker(request *model.ResizeVolumeRequest) *Res
 	return &ResizeVolumeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// RetypeVolume 磁盘类型变更
+//
+// 对按需或者包周期云硬盘进行磁盘类型变更。
+// [在磁盘类型变更包周期云硬盘的场景下：](tag:hws)
+// - [如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。](tag:hws)
+// - [如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/api_order_00030.html)\&quot;。](tag:hws)
+// - [如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。](tag:hws)
+// - [如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。](tag:hws)
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EvsClient) RetypeVolume(request *model.RetypeVolumeRequest) (*model.RetypeVolumeResponse, error) {
+	requestDef := GenReqDefForRetypeVolume()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.RetypeVolumeResponse), nil
+	}
+}
+
+// RetypeVolumeInvoker 磁盘类型变更
+func (c *EvsClient) RetypeVolumeInvoker(request *model.RetypeVolumeRequest) *RetypeVolumeInvoker {
+	requestDef := GenReqDefForRetypeVolume()
+	return &RetypeVolumeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // RollbackSnapshot 回滚快照到云硬盘
 //
 // 将快照数据回滚到云硬盘。支持企业项目授权功能。
@@ -557,6 +604,29 @@ func (c *EvsClient) ShowVolumeTags(request *model.ShowVolumeTagsRequest) (*model
 func (c *EvsClient) ShowVolumeTagsInvoker(request *model.ShowVolumeTagsRequest) *ShowVolumeTagsInvoker {
 	requestDef := GenReqDefForShowVolumeTags()
 	return &ShowVolumeTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UnsubscribePostpaidVolume 退订包周期计费模式的云硬盘
+//
+// 退订包周期计费模式的云硬盘，有如下约束：
+// -  系统盘、启动盘不可使用当前接口退订，必须和弹性云服务器一起退订
+// -  接口的请求body体最多可以传60个云硬盘id
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EvsClient) UnsubscribePostpaidVolume(request *model.UnsubscribePostpaidVolumeRequest) (*model.UnsubscribePostpaidVolumeResponse, error) {
+	requestDef := GenReqDefForUnsubscribePostpaidVolume()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UnsubscribePostpaidVolumeResponse), nil
+	}
+}
+
+// UnsubscribePostpaidVolumeInvoker 退订包周期计费模式的云硬盘
+func (c *EvsClient) UnsubscribePostpaidVolumeInvoker(request *model.UnsubscribePostpaidVolumeRequest) *UnsubscribePostpaidVolumeInvoker {
+	requestDef := GenReqDefForUnsubscribePostpaidVolume()
+	return &UnsubscribePostpaidVolumeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // UpdateSnapshot 更新云硬盘快照

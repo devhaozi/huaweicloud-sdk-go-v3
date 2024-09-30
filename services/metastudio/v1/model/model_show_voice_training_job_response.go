@@ -27,6 +27,9 @@ type ShowVoiceTrainingJobResponse struct {
 
 	State *JobState `json:"state,omitempty"`
 
+	// 本次任务中该状态出现的次数
+	RejectTimes *int32 `json:"reject_times,omitempty"`
+
 	// 当任务状态为成功时呈现,音色模型在资产库中的id。
 	AssetId *string `json:"asset_id,omitempty"`
 
@@ -47,7 +50,13 @@ type ShowVoiceTrainingJobResponse struct {
 
 	CreateType *CreateType `json:"create_type,omitempty"`
 
-	Tag            *JobTag `json:"tag,omitempty"`
+	Tag *JobTag `json:"tag,omitempty"`
+
+	// 手机号
+	Phone *string `json:"phone,omitempty"`
+
+	// 形象制作任务id
+	DhtmsJobId     *string `json:"dhtms_job_id,omitempty"`
 	HttpStatusCode int     `json:"-"`
 }
 

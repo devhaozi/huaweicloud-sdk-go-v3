@@ -11,24 +11,21 @@ import (
 
 type ShootScriptDetail struct {
 
-	// 脚本类型，即视频制作的驱动方式。默认TEXT * TEXT: 文本驱动，即通过TTS合成语音 * AUDIO: 语音驱动
+	// **参数解释**： 脚本类型，即视频制作的驱动方式 **约束限制**： 不涉及 **取值范围** * TEXT: 文本驱动，即通过TTS合成语音 * AUDIO: 语音驱动
 	ScriptType *ShootScriptDetailScriptType `json:"script_type,omitempty"`
 
 	TextConfig *TextConfig `json:"text_config,omitempty"`
 
-	// 动作配置。 > * 推荐使用text_config中插入动作标签，不配置animation_config。 > * 使用animation_config方式配置动作，在整个讲解过程中动作循环播放。 > * 分身数字人视频制作时此参数不生效。
-	AnimationConfig *[]AnimationConfig `json:"animation_config,omitempty"`
+	// 语音驱动时的动作配置。
+	AudioDriveActionConfig *[]AudioDriveActionConfig `json:"audio_drive_action_config,omitempty"`
 
 	// 背景配置。
 	BackgroundConfig *[]BackgroundConfigInfo `json:"background_config,omitempty"`
 
-	// 情感标签配置。  > * 分身数字人视频制作时此参数不生效。  > * 推荐在text_config中插入情感标签，此参数将被废弃。
-	EmotionConfig *[]EmotionConfig `json:"emotion_config,omitempty"`
-
 	// 图层配置。
 	LayerConfig *[]LayerConfig `json:"layer_config,omitempty"`
 
-	// 剧本场景缩略图url。
+	// **参数解释**： 剧本场景缩略图url。 **约束限制**： 不涉及。 **取值范围**： 字符长度1-2048位。 **默认取值**： 不涉及。
 	ThumbnailUrl *string `json:"thumbnail_url,omitempty"`
 }
 

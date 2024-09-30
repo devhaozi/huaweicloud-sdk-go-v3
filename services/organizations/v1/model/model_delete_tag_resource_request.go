@@ -12,10 +12,13 @@ import (
 // DeleteTagResourceRequest Request Object
 type DeleteTagResourceRequest struct {
 
-	// 资源类型 organizations:policies服务策略 organizations:ous组织OU organizations:accounts 帐号信息 organizations:roots根
+	// 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+	XSecurityToken *string `json:"X-Security-Token,omitempty"`
+
+	// 资源类型。枚举值：organizations:policies（服务策略）、organizations:ous（组织OU）、organizations:accounts（账号信息） 、organizations:roots：（根）。
 	ResourceType DeleteTagResourceRequestResourceType `json:"resource_type"`
 
-	// 根、组织单元、帐号或策略的唯一标识符（ID）。
+	// 根、组织单元、账号或策略的唯一标识符（ID）。
 	ResourceId string `json:"resource_id"`
 
 	Body *TagResourceReqBody `json:"body,omitempty"`
@@ -35,16 +38,16 @@ type DeleteTagResourceRequestResourceType struct {
 }
 
 type DeleteTagResourceRequestResourceTypeEnum struct {
-	ORGANIZATIONSROOTS    DeleteTagResourceRequestResourceType
+	ORGANIZATIONSPOLICIES DeleteTagResourceRequestResourceType
 	ORGANIZATIONSOUS      DeleteTagResourceRequestResourceType
 	ORGANIZATIONSACCOUNTS DeleteTagResourceRequestResourceType
-	ORGANIZATIONSPOLICIES DeleteTagResourceRequestResourceType
+	ORGANIZATIONSROOTS    DeleteTagResourceRequestResourceType
 }
 
 func GetDeleteTagResourceRequestResourceTypeEnum() DeleteTagResourceRequestResourceTypeEnum {
 	return DeleteTagResourceRequestResourceTypeEnum{
-		ORGANIZATIONSROOTS: DeleteTagResourceRequestResourceType{
-			value: "organizations:roots",
+		ORGANIZATIONSPOLICIES: DeleteTagResourceRequestResourceType{
+			value: "organizations:policies",
 		},
 		ORGANIZATIONSOUS: DeleteTagResourceRequestResourceType{
 			value: "organizations:ous",
@@ -52,8 +55,8 @@ func GetDeleteTagResourceRequestResourceTypeEnum() DeleteTagResourceRequestResou
 		ORGANIZATIONSACCOUNTS: DeleteTagResourceRequestResourceType{
 			value: "organizations:accounts",
 		},
-		ORGANIZATIONSPOLICIES: DeleteTagResourceRequestResourceType{
-			value: "organizations:policies",
+		ORGANIZATIONSROOTS: DeleteTagResourceRequestResourceType{
+			value: "organizations:roots",
 		},
 	}
 }

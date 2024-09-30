@@ -12,6 +12,9 @@ import (
 // UpdateDigitalAssetResponse Response Object
 type UpdateDigitalAssetResponse struct {
 
+	// 租户id
+	ProjectId *string `json:"project_id,omitempty"`
+
 	// 资产ID。
 	AssetId *string `json:"asset_id,omitempty"`
 
@@ -33,7 +36,7 @@ type UpdateDigitalAssetResponse struct {
 	// 资产类型。  公共资产类型： * VOICE_MODEL：音色模型 * VIDEO：视频文件 * IMAGE：图片文件 * PPT：幻灯片文件 * MUSIC: 音乐 * AUDIO: 音频 * COMMON_FILE：通用文件  分身数字人资产类型： * HUMAN_MODEL_2D：分身数字人模型 * BUSINESS_CARD_TEMPLET: 数字人名片模板  3D数字人资产类型： * HUMAN_MODEL：3D数字人模型 * SCENE：场景模型 * ANIMATION：动作动画 * MATERIAL：风格化素材 * NORMAL_MODEL: 普通模型
 	AssetType *UpdateDigitalAssetResponseAssetType `json:"asset_type,omitempty"`
 
-	// 资产状态。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK: 资产被冻结，资产不可用，不可查看文件。
+	// 资产状态。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK: 资产被冻结，资产不可用，不可查看文件。 * WAITING_DELETE：资产将被下线
 	AssetState *UpdateDigitalAssetResponseAssetState `json:"asset_state,omitempty"`
 
 	// 失败原因。 * AUTOMATIC_REVIEW_REJECT：自动审核失败 * MANUAL_REVIEW_REJECT：人工审核失败
@@ -42,7 +45,7 @@ type UpdateDigitalAssetResponse struct {
 	// 冻结/解冻/失败 原因。
 	Reason *string `json:"reason,omitempty"`
 
-	// 标签列表。
+	// 标签列表。 > 分身形象系统资产的tag定义如下： > - 行业：NEWS,BUSINESS,E-COMMERCE,MARKETING,KNOWLEDGE,EDUCATION,SPORTS > - 性别：MALE,FEMALE > - 姿势：FULL-BODY,HALF-BODY,STANDING,SITTING,WALKING > - 区域：ASIAN,WESTERN,MIDDLE-EASTERNER,AFRICAN,LATINO
 	Tags *[]string `json:"tags,omitempty"`
 
 	AssetExtraMeta *AssetExtraMeta `json:"asset_extra_meta,omitempty"`
@@ -52,6 +55,12 @@ type UpdateDigitalAssetResponse struct {
 
 	// 资产下的文件。
 	Files *[]AssetFileInfo `json:"files,omitempty"`
+
+	// 展示顺序
+	AssetOrder *int32 `json:"asset_order,omitempty"`
+
+	// 支持的业务类型。： * VIDEO_2D：分身数字人视频制作 * LIVE_2D：分身数字人直播 * CHAT_2D：分身数字人智能交互
+	SupportedService *[]SupportedServiceEnum `json:"supported_service,omitempty"`
 
 	XRequestId     *string `json:"X-Request-Id,omitempty"`
 	HttpStatusCode int     `json:"-"`
@@ -166,13 +175,14 @@ type UpdateDigitalAssetResponseAssetState struct {
 }
 
 type UpdateDigitalAssetResponseAssetStateEnum struct {
-	CREATING  UpdateDigitalAssetResponseAssetState
-	FAILED    UpdateDigitalAssetResponseAssetState
-	UNACTIVED UpdateDigitalAssetResponseAssetState
-	ACTIVED   UpdateDigitalAssetResponseAssetState
-	DELETING  UpdateDigitalAssetResponseAssetState
-	DELETED   UpdateDigitalAssetResponseAssetState
-	BLOCK     UpdateDigitalAssetResponseAssetState
+	CREATING       UpdateDigitalAssetResponseAssetState
+	FAILED         UpdateDigitalAssetResponseAssetState
+	UNACTIVED      UpdateDigitalAssetResponseAssetState
+	ACTIVED        UpdateDigitalAssetResponseAssetState
+	DELETING       UpdateDigitalAssetResponseAssetState
+	DELETED        UpdateDigitalAssetResponseAssetState
+	BLOCK          UpdateDigitalAssetResponseAssetState
+	WAITING_DELETE UpdateDigitalAssetResponseAssetState
 }
 
 func GetUpdateDigitalAssetResponseAssetStateEnum() UpdateDigitalAssetResponseAssetStateEnum {
@@ -197,6 +207,9 @@ func GetUpdateDigitalAssetResponseAssetStateEnum() UpdateDigitalAssetResponseAss
 		},
 		BLOCK: UpdateDigitalAssetResponseAssetState{
 			value: "BLOCK",
+		},
+		WAITING_DELETE: UpdateDigitalAssetResponseAssetState{
+			value: "WAITING_DELETE",
 		},
 	}
 }

@@ -101,6 +101,30 @@ func (i *ListBackPoolsInvoker) Invoke() (*model.ListBackPoolsResponse, error) {
 	}
 }
 
+type AddNetworkSwitchPolicyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *AddNetworkSwitchPolicyInvoker) Invoke() (*model.AddNetworkSwitchPolicyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.AddNetworkSwitchPolicyResponse), nil
+	}
+}
+
+type ListNetworkSwitchPoliciesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListNetworkSwitchPoliciesInvoker) Invoke() (*model.ListNetworkSwitchPoliciesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListNetworkSwitchPoliciesResponse), nil
+	}
+}
+
 type ListProPricePlansInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -134,6 +158,18 @@ func (i *EnableSimCardInvoker) Invoke() (*model.EnableSimCardResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.EnableSimCardResponse), nil
+	}
+}
+
+type ListSimCardFlowPerDayInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListSimCardFlowPerDayInvoker) Invoke() (*model.ListSimCardFlowPerDayResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListSimCardFlowPerDayResponse), nil
 	}
 }
 
@@ -254,6 +290,42 @@ func (i *StopSimCardInvoker) Invoke() (*model.StopSimCardResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.StopSimCardResponse), nil
+	}
+}
+
+type ListSimDeviceMultiplyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListSimDeviceMultiplyInvoker) Invoke() (*model.ListSimDeviceMultiplyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListSimDeviceMultiplyResponse), nil
+	}
+}
+
+type SetNetworkSwitchPolicyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SetNetworkSwitchPolicyInvoker) Invoke() (*model.SetNetworkSwitchPolicyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SetNetworkSwitchPolicyResponse), nil
+	}
+}
+
+type SwitchNetworkInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SwitchNetworkInvoker) Invoke() (*model.SwitchNetworkResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SwitchNetworkResponse), nil
 	}
 }
 

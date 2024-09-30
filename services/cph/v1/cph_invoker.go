@@ -5,6 +5,18 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/cph/v1/model"
 )
 
+type AddImageMemberInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *AddImageMemberInvoker) Invoke() (*model.AddImageMemberResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.AddImageMemberResponse), nil
+	}
+}
+
 type BatchCreateTagsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -53,6 +65,30 @@ func (i *BatchImportCloudPhoneDataInvoker) Invoke() (*model.BatchImportCloudPhon
 	}
 }
 
+type BatchShowPhoneConnectInfosInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchShowPhoneConnectInfosInvoker) Invoke() (*model.BatchShowPhoneConnectInfosResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchShowPhoneConnectInfosResponse), nil
+	}
+}
+
+type ChangeCloudPhoneServerInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ChangeCloudPhoneServerInvoker) Invoke() (*model.ChangeCloudPhoneServerResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ChangeCloudPhoneServerResponse), nil
+	}
+}
+
 type ChangeCloudPhoneServerModelInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -74,6 +110,42 @@ func (i *CreateNet2CloudPhoneServerInvoker) Invoke() (*model.CreateNet2CloudPhon
 		return nil, err
 	} else {
 		return result.(*model.CreateNet2CloudPhoneServerResponse), nil
+	}
+}
+
+type DeleteCloudPhoneServerInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteCloudPhoneServerInvoker) Invoke() (*model.DeleteCloudPhoneServerResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteCloudPhoneServerResponse), nil
+	}
+}
+
+type DeleteImageInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteImageInvoker) Invoke() (*model.DeleteImageResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteImageResponse), nil
+	}
+}
+
+type DeleteImageMemberInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteImageMemberInvoker) Invoke() (*model.DeleteImageMemberResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteImageMemberResponse), nil
 	}
 }
 
@@ -182,6 +254,30 @@ func (i *ListEncodeServersInvoker) Invoke() (*model.ListEncodeServersResponse, e
 		return nil, err
 	} else {
 		return result.(*model.ListEncodeServersResponse), nil
+	}
+}
+
+type ListImageMembersInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListImageMembersInvoker) Invoke() (*model.ListImageMembersResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListImageMembersResponse), nil
+	}
+}
+
+type ListImagesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListImagesInvoker) Invoke() (*model.ListImagesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListImagesResponse), nil
 	}
 }
 

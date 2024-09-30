@@ -324,6 +324,27 @@ func (c *EcsClient) ChangeServerChargeModeInvoker(request *model.ChangeServerCha
 	return &ChangeServerChargeModeInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ChangeServerNetworkInterface 更新云服务器指定网卡属性
+//
+// 更新云服务器指定网卡属性，当前仅支持更新网卡IP。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EcsClient) ChangeServerNetworkInterface(request *model.ChangeServerNetworkInterfaceRequest) (*model.ChangeServerNetworkInterfaceResponse, error) {
+	requestDef := GenReqDefForChangeServerNetworkInterface()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ChangeServerNetworkInterfaceResponse), nil
+	}
+}
+
+// ChangeServerNetworkInterfaceInvoker 更新云服务器指定网卡属性
+func (c *EcsClient) ChangeServerNetworkInterfaceInvoker(request *model.ChangeServerNetworkInterfaceRequest) *ChangeServerNetworkInterfaceInvoker {
+	requestDef := GenReqDefForChangeServerNetworkInterface()
+	return &ChangeServerNetworkInterfaceInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ChangeServerOsWithCloudInit 切换弹性云服务器操作系统(安装Cloud init)
 //
 // 切换弹性云服务器操作系统。支持弹性云服务器数据盘不变的情况下，使用新镜像重装系统盘。
@@ -368,6 +389,27 @@ func (c *EcsClient) ChangeServerOsWithoutCloudInit(request *model.ChangeServerOs
 func (c *EcsClient) ChangeServerOsWithoutCloudInitInvoker(request *model.ChangeServerOsWithoutCloudInitRequest) *ChangeServerOsWithoutCloudInitInvoker {
 	requestDef := GenReqDefForChangeServerOsWithoutCloudInit()
 	return &ChangeServerOsWithoutCloudInitInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ChangeVpc 云服务器切换虚拟私有云
+//
+// 云服务器切换虚拟私有云。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EcsClient) ChangeVpc(request *model.ChangeVpcRequest) (*model.ChangeVpcResponse, error) {
+	requestDef := GenReqDefForChangeVpc()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ChangeVpcResponse), nil
+	}
+}
+
+// ChangeVpcInvoker 云服务器切换虚拟私有云
+func (c *EcsClient) ChangeVpcInvoker(request *model.ChangeVpcRequest) *ChangeVpcInvoker {
+	requestDef := GenReqDefForChangeVpc()
+	return &ChangeVpcInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // CreatePostPaidServers 创建云服务器(按需)
@@ -621,6 +663,27 @@ func (c *EcsClient) DisassociateServerVirtualIp(request *model.DisassociateServe
 func (c *EcsClient) DisassociateServerVirtualIpInvoker(request *model.DisassociateServerVirtualIpRequest) *DisassociateServerVirtualIpInvoker {
 	requestDef := GenReqDefForDisassociateServerVirtualIp()
 	return &DisassociateServerVirtualIpInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListCloudServers 查询云服务器列表接口
+//
+// 查询云服务器列表接口。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EcsClient) ListCloudServers(request *model.ListCloudServersRequest) (*model.ListCloudServersResponse, error) {
+	requestDef := GenReqDefForListCloudServers()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListCloudServersResponse), nil
+	}
+}
+
+// ListCloudServersInvoker 查询云服务器列表接口
+func (c *EcsClient) ListCloudServersInvoker(request *model.ListCloudServersRequest) *ListCloudServersInvoker {
+	requestDef := GenReqDefForListCloudServers()
+	return &ListCloudServersInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListFlavorSellPolicies 查询规格销售策略
@@ -1145,27 +1208,6 @@ func (c *EcsClient) NovaShowServerInterfaceInvoker(request *model.NovaShowServer
 	return &NovaShowServerInterfaceInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
-// RegisterServerAutoRecovery 管理云服务器自动恢复动作
-//
-// 配置、删除云服务器自动恢复动作。
-//
-// Please refer to HUAWEI cloud API Explorer for details.
-func (c *EcsClient) RegisterServerAutoRecovery(request *model.RegisterServerAutoRecoveryRequest) (*model.RegisterServerAutoRecoveryResponse, error) {
-	requestDef := GenReqDefForRegisterServerAutoRecovery()
-
-	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
-		return nil, err
-	} else {
-		return resp.(*model.RegisterServerAutoRecoveryResponse), nil
-	}
-}
-
-// RegisterServerAutoRecoveryInvoker 管理云服务器自动恢复动作
-func (c *EcsClient) RegisterServerAutoRecoveryInvoker(request *model.RegisterServerAutoRecoveryRequest) *RegisterServerAutoRecoveryInvoker {
-	requestDef := GenReqDefForRegisterServerAutoRecovery()
-	return &RegisterServerAutoRecoveryInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
-}
-
 // RegisterServerMonitor 注册云服务器监控
 //
 // 将云服务器添加到监控表中。
@@ -1352,27 +1394,6 @@ func (c *EcsClient) ShowServer(request *model.ShowServerRequest) (*model.ShowSer
 func (c *EcsClient) ShowServerInvoker(request *model.ShowServerRequest) *ShowServerInvoker {
 	requestDef := GenReqDefForShowServer()
 	return &ShowServerInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
-}
-
-// ShowServerAutoRecovery 查询云服务器是否配置了自动恢复动作
-//
-// 查询云服务器是否配置了自动恢复动作。
-//
-// Please refer to HUAWEI cloud API Explorer for details.
-func (c *EcsClient) ShowServerAutoRecovery(request *model.ShowServerAutoRecoveryRequest) (*model.ShowServerAutoRecoveryResponse, error) {
-	requestDef := GenReqDefForShowServerAutoRecovery()
-
-	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
-		return nil, err
-	} else {
-		return resp.(*model.ShowServerAutoRecoveryResponse), nil
-	}
-}
-
-// ShowServerAutoRecoveryInvoker 查询云服务器是否配置了自动恢复动作
-func (c *EcsClient) ShowServerAutoRecoveryInvoker(request *model.ShowServerAutoRecoveryRequest) *ShowServerAutoRecoveryInvoker {
-	requestDef := GenReqDefForShowServerAutoRecovery()
-	return &ShowServerAutoRecoveryInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowServerBlockDevice 查询弹性云服务器单个磁盘信息
@@ -1595,6 +1616,57 @@ func (c *EcsClient) UpdateServerMetadata(request *model.UpdateServerMetadataRequ
 func (c *EcsClient) UpdateServerMetadataInvoker(request *model.UpdateServerMetadataRequest) *UpdateServerMetadataInvoker {
 	requestDef := GenReqDefForUpdateServerMetadata()
 	return &UpdateServerMetadataInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// NovaListVersions 查询API版本信息列表
+//
+// 返回Nova当前所有可用的版本。
+//
+// 为了支持功能不断扩展，Nova API支持版本号区分。Nova中有两种形式的版本号：
+//
+// - \&quot;主版本号\&quot;: 具有独立的url。
+// - \&quot;微版本号\&quot;: 通过Http请求头X-OpenStack-Nova-API-Version来使用，从2.27版本后更改为OpenStack-API-Version。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EcsClient) NovaListVersions(request *model.NovaListVersionsRequest) (*model.NovaListVersionsResponse, error) {
+	requestDef := GenReqDefForNovaListVersions()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.NovaListVersionsResponse), nil
+	}
+}
+
+// NovaListVersionsInvoker 查询API版本信息列表
+func (c *EcsClient) NovaListVersionsInvoker(request *model.NovaListVersionsRequest) *NovaListVersionsInvoker {
+	requestDef := GenReqDefForNovaListVersions()
+	return &NovaListVersionsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// NovaShowVersion 查询指定API版本信息
+//
+// 返回指定版本的信息。
+// 为了支持功能不断扩展，Nova API支持版本号区分。Nova中有两种形式的版本号：
+//
+// - \&quot;主版本号\&quot;: 具有独立的url。
+// - \&quot;微版本号\&quot;: 通过Http请求头X-OpenStack-Nova-API-Version来使用，从2.27版本后更改为OpenStack-API-Version。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EcsClient) NovaShowVersion(request *model.NovaShowVersionRequest) (*model.NovaShowVersionResponse, error) {
+	requestDef := GenReqDefForNovaShowVersion()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.NovaShowVersionResponse), nil
+	}
+}
+
+// NovaShowVersionInvoker 查询指定API版本信息
+func (c *EcsClient) NovaShowVersionInvoker(request *model.NovaShowVersionRequest) *NovaShowVersionInvoker {
+	requestDef := GenReqDefForNovaShowVersion()
+	return &NovaShowVersionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowJob 查询任务的执行状态

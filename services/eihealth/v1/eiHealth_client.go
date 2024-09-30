@@ -19,6 +19,27 @@ func EiHealthClientBuilder() *httpclient.HcHttpClientBuilder {
 	return builder
 }
 
+// AddDrugDatabaseFile 数据库追加文件
+//
+// 数据库追加文件
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) AddDrugDatabaseFile(request *model.AddDrugDatabaseFileRequest) (*model.AddDrugDatabaseFileResponse, error) {
+	requestDef := GenReqDefForAddDrugDatabaseFile()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.AddDrugDatabaseFileResponse), nil
+	}
+}
+
+// AddDrugDatabaseFileInvoker 数据库追加文件
+func (c *EiHealthClient) AddDrugDatabaseFileInvoker(request *model.AddDrugDatabaseFileRequest) *AddDrugDatabaseFileInvoker {
+	requestDef := GenReqDefForAddDrugDatabaseFile()
+	return &AddDrugDatabaseFileInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // BatchCancelJob 批量取消作业
 //
 // 批量取消作业
@@ -649,6 +670,27 @@ func (c *EiHealthClient) CreateDockingJobInvoker(request *model.CreateDockingJob
 	return &CreateDockingJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateDrugDatabase 创建数据库
+//
+// 创建数据库
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) CreateDrugDatabase(request *model.CreateDrugDatabaseRequest) (*model.CreateDrugDatabaseResponse, error) {
+	requestDef := GenReqDefForCreateDrugDatabase()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateDrugDatabaseResponse), nil
+	}
+}
+
+// CreateDrugDatabaseInvoker 创建数据库
+func (c *EiHealthClient) CreateDrugDatabaseInvoker(request *model.CreateDrugDatabaseRequest) *CreateDrugDatabaseInvoker {
+	requestDef := GenReqDefForCreateDrugDatabase()
+	return &CreateDrugDatabaseInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateDrugModel 创建模型
 //
 // 创建模型
@@ -689,6 +731,27 @@ func (c *EiHealthClient) CreateFepJob(request *model.CreateFepJobRequest) (*mode
 func (c *EiHealthClient) CreateFepJobInvoker(request *model.CreateFepJobRequest) *CreateFepJobInvoker {
 	requestDef := GenReqDefForCreateFepJob()
 	return &CreateFepJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateGenJob 创建分子生成作业
+//
+// 创建分子生成作业
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) CreateGenJob(request *model.CreateGenJobRequest) (*model.CreateGenJobResponse, error) {
+	requestDef := GenReqDefForCreateGenJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateGenJobResponse), nil
+	}
+}
+
+// CreateGenJobInvoker 创建分子生成作业
+func (c *EiHealthClient) CreateGenJobInvoker(request *model.CreateGenJobRequest) *CreateGenJobInvoker {
+	requestDef := GenReqDefForCreateGenJob()
+	return &CreateGenJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // CreateImage 创建镜像
@@ -773,6 +836,27 @@ func (c *EiHealthClient) CreateLabelPage(request *model.CreateLabelPageRequest) 
 func (c *EiHealthClient) CreateLabelPageInvoker(request *model.CreateLabelPageRequest) *CreateLabelPageInvoker {
 	requestDef := GenReqDefForCreateLabelPage()
 	return &CreateLabelPageInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateMolBatchDownloadTask 创建分子或分子复合物批量下载任务
+//
+// 创建分子或分子复合物批量下载任务
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) CreateMolBatchDownloadTask(request *model.CreateMolBatchDownloadTaskRequest) (*model.CreateMolBatchDownloadTaskResponse, error) {
+	requestDef := GenReqDefForCreateMolBatchDownloadTask()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateMolBatchDownloadTaskResponse), nil
+	}
+}
+
+// CreateMolBatchDownloadTaskInvoker 创建分子或分子复合物批量下载任务
+func (c *EiHealthClient) CreateMolBatchDownloadTaskInvoker(request *model.CreateMolBatchDownloadTaskRequest) *CreateMolBatchDownloadTaskInvoker {
+	requestDef := GenReqDefForCreateMolBatchDownloadTask()
+	return &CreateMolBatchDownloadTaskInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // CreateOptmJob 创建分子优化作业
@@ -901,6 +985,27 @@ func (c *EiHealthClient) CreateScaleOutPolicyInvoker(request *model.CreateScaleO
 	return &CreateScaleOutPolicyInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateSearchJob 创建分子搜索作业
+//
+// 创建分子搜索作业
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) CreateSearchJob(request *model.CreateSearchJobRequest) (*model.CreateSearchJobResponse, error) {
+	requestDef := GenReqDefForCreateSearchJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateSearchJobResponse), nil
+	}
+}
+
+// CreateSearchJobInvoker 创建分子搜索作业
+func (c *EiHealthClient) CreateSearchJobInvoker(request *model.CreateSearchJobRequest) *CreateSearchJobInvoker {
+	requestDef := GenReqDefForCreateSearchJob()
+	return &CreateSearchJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateStudy 创建study
 //
 // 创建study
@@ -962,6 +1067,27 @@ func (c *EiHealthClient) CreateSynthesisJob(request *model.CreateSynthesisJobReq
 func (c *EiHealthClient) CreateSynthesisJobInvoker(request *model.CreateSynthesisJobRequest) *CreateSynthesisJobInvoker {
 	requestDef := GenReqDefForCreateSynthesisJob()
 	return &CreateSynthesisJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateTargetOptJob 创建靶点优化作业
+//
+// 创建靶点优化作业
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) CreateTargetOptJob(request *model.CreateTargetOptJobRequest) (*model.CreateTargetOptJobResponse, error) {
+	requestDef := GenReqDefForCreateTargetOptJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateTargetOptJobResponse), nil
+	}
+}
+
+// CreateTargetOptJobInvoker 创建靶点优化作业
+func (c *EiHealthClient) CreateTargetOptJobInvoker(request *model.CreateTargetOptJobRequest) *CreateTargetOptJobInvoker {
+	requestDef := GenReqDefForCreateTargetOptJob()
+	return &CreateTargetOptJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // CreateTemplate 创建模板
@@ -1193,6 +1319,27 @@ func (c *EiHealthClient) DeleteDatabaseResource(request *model.DeleteDatabaseRes
 func (c *EiHealthClient) DeleteDatabaseResourceInvoker(request *model.DeleteDatabaseResourceRequest) *DeleteDatabaseResourceInvoker {
 	requestDef := GenReqDefForDeleteDatabaseResource()
 	return &DeleteDatabaseResourceInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteDrugDatabase 删除数据库
+//
+// 删除数据库
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) DeleteDrugDatabase(request *model.DeleteDrugDatabaseRequest) (*model.DeleteDrugDatabaseResponse, error) {
+	requestDef := GenReqDefForDeleteDrugDatabase()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteDrugDatabaseResponse), nil
+	}
+}
+
+// DeleteDrugDatabaseInvoker 删除数据库
+func (c *EiHealthClient) DeleteDrugDatabaseInvoker(request *model.DeleteDrugDatabaseRequest) *DeleteDrugDatabaseInvoker {
+	requestDef := GenReqDefForDeleteDrugDatabase()
+	return &DeleteDrugDatabaseInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // DeleteDrugJob 删除药物作业
@@ -1972,6 +2119,27 @@ func (c *EiHealthClient) ListBackupInvoker(request *model.ListBackupRequest) *Li
 	return &ListBackupInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ListBaseModel 获取基模型列表
+//
+// 获取基模型列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ListBaseModel(request *model.ListBaseModelRequest) (*model.ListBaseModelResponse, error) {
+	requestDef := GenReqDefForListBaseModel()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListBaseModelResponse), nil
+	}
+}
+
+// ListBaseModelInvoker 获取基模型列表
+func (c *EiHealthClient) ListBaseModelInvoker(request *model.ListBaseModelRequest) *ListBaseModelInvoker {
+	requestDef := GenReqDefForListBaseModel()
+	return &ListBaseModelInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ListBucket 获取桶列表
 //
 // 获取桶列表(包含当前项目桶和引用项目桶)
@@ -2180,6 +2348,27 @@ func (c *EiHealthClient) ListDatabaseResourceFlavor(request *model.ListDatabaseR
 func (c *EiHealthClient) ListDatabaseResourceFlavorInvoker(request *model.ListDatabaseResourceFlavorRequest) *ListDatabaseResourceFlavorInvoker {
 	requestDef := GenReqDefForListDatabaseResourceFlavor()
 	return &ListDatabaseResourceFlavorInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListDrugDatabase 获取数据库列表
+//
+// 获取数据库列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ListDrugDatabase(request *model.ListDrugDatabaseRequest) (*model.ListDrugDatabaseResponse, error) {
+	requestDef := GenReqDefForListDrugDatabase()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListDrugDatabaseResponse), nil
+	}
+}
+
+// ListDrugDatabaseInvoker 获取数据库列表
+func (c *EiHealthClient) ListDrugDatabaseInvoker(request *model.ListDrugDatabaseRequest) *ListDrugDatabaseInvoker {
+	requestDef := GenReqDefForListDrugDatabase()
+	return &ListDrugDatabaseInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListDrugJob 获取药物作业列表
@@ -3148,6 +3337,27 @@ func (c *EiHealthClient) RetryJobInvoker(request *model.RetryJobRequest) *RetryJ
 	return &RetryJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// RunFastaPreprocess 受体预处理（Fasta格式）
+//
+// 受体预处理（Fasta格式），用于前端计算预期扣费次数
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) RunFastaPreprocess(request *model.RunFastaPreprocessRequest) (*model.RunFastaPreprocessResponse, error) {
+	requestDef := GenReqDefForRunFastaPreprocess()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.RunFastaPreprocessResponse), nil
+	}
+}
+
+// RunFastaPreprocessInvoker 受体预处理（Fasta格式）
+func (c *EiHealthClient) RunFastaPreprocessInvoker(request *model.RunFastaPreprocessRequest) *RunFastaPreprocessInvoker {
+	requestDef := GenReqDefForRunFastaPreprocess()
+	return &RunFastaPreprocessInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // Show3dStructureContent 获取生成study作业3D结构的内容
 //
 // 获取生成study作业3D结构的内容
@@ -3526,6 +3736,27 @@ func (c *EiHealthClient) ShowFepJobInvoker(request *model.ShowFepJobRequest) *Sh
 	return &ShowFepJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ShowGenJob 查询分子生成作业详情
+//
+// 查询分子生成作业详情
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ShowGenJob(request *model.ShowGenJobRequest) (*model.ShowGenJobResponse, error) {
+	requestDef := GenReqDefForShowGenJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowGenJobResponse), nil
+	}
+}
+
+// ShowGenJobInvoker 查询分子生成作业详情
+func (c *EiHealthClient) ShowGenJobInvoker(request *model.ShowGenJobRequest) *ShowGenJobInvoker {
+	requestDef := GenReqDefForShowGenJob()
+	return &ShowGenJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ShowInstance 查询实例详情
 //
 // 查询实例详情
@@ -3713,6 +3944,27 @@ func (c *EiHealthClient) ShowMessageReceiveConfig(request *model.ShowMessageRece
 func (c *EiHealthClient) ShowMessageReceiveConfigInvoker(request *model.ShowMessageReceiveConfigRequest) *ShowMessageReceiveConfigInvoker {
 	requestDef := GenReqDefForShowMessageReceiveConfig()
 	return &ShowMessageReceiveConfigInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowMolBatchDownloadTask 查询分子或分子复合物批量下载任务详情
+//
+// 查询分子或分子复合物批量下载任务详情
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ShowMolBatchDownloadTask(request *model.ShowMolBatchDownloadTaskRequest) (*model.ShowMolBatchDownloadTaskResponse, error) {
+	requestDef := GenReqDefForShowMolBatchDownloadTask()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowMolBatchDownloadTaskResponse), nil
+	}
+}
+
+// ShowMolBatchDownloadTaskInvoker 查询分子或分子复合物批量下载任务详情
+func (c *EiHealthClient) ShowMolBatchDownloadTaskInvoker(request *model.ShowMolBatchDownloadTaskRequest) *ShowMolBatchDownloadTaskInvoker {
+	requestDef := GenReqDefForShowMolBatchDownloadTask()
+	return &ShowMolBatchDownloadTaskInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowOptmJob 查询分子优化作业详情
@@ -3946,6 +4198,27 @@ func (c *EiHealthClient) ShowScheduleInvoker(request *model.ShowScheduleRequest)
 	return &ShowScheduleInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ShowSearchJob 查询分子搜索作业详情
+//
+// 查询分子搜索作业详情
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ShowSearchJob(request *model.ShowSearchJobRequest) (*model.ShowSearchJobResponse, error) {
+	requestDef := GenReqDefForShowSearchJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowSearchJobResponse), nil
+	}
+}
+
+// ShowSearchJobInvoker 查询分子搜索作业详情
+func (c *EiHealthClient) ShowSearchJobInvoker(request *model.ShowSearchJobRequest) *ShowSearchJobInvoker {
+	requestDef := GenReqDefForShowSearchJob()
+	return &ShowSearchJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ShowSynthesisJob 查询分子合成路径规划作业详情
 //
 // 查询分子合成路径规划作业详情
@@ -3965,6 +4238,27 @@ func (c *EiHealthClient) ShowSynthesisJob(request *model.ShowSynthesisJobRequest
 func (c *EiHealthClient) ShowSynthesisJobInvoker(request *model.ShowSynthesisJobRequest) *ShowSynthesisJobInvoker {
 	requestDef := GenReqDefForShowSynthesisJob()
 	return &ShowSynthesisJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowTargetOptJob 查询靶点优化作业详情
+//
+// 查询靶点优化作业详情
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ShowTargetOptJob(request *model.ShowTargetOptJobRequest) (*model.ShowTargetOptJobResponse, error) {
+	requestDef := GenReqDefForShowTargetOptJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowTargetOptJobResponse), nil
+	}
+}
+
+// ShowTargetOptJobInvoker 查询靶点优化作业详情
+func (c *EiHealthClient) ShowTargetOptJobInvoker(request *model.ShowTargetOptJobRequest) *ShowTargetOptJobInvoker {
+	requestDef := GenReqDefForShowTargetOptJob()
+	return &ShowTargetOptJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowTaskEvents 获取子任务启动事件
@@ -4555,6 +4849,48 @@ func (c *EiHealthClient) UpdateDatabaseDataInvoker(request *model.UpdateDatabase
 	return &UpdateDatabaseDataInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// UpdateDrugDatabase 更新药物数据库
+//
+// 更新药物数据库
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) UpdateDrugDatabase(request *model.UpdateDrugDatabaseRequest) (*model.UpdateDrugDatabaseResponse, error) {
+	requestDef := GenReqDefForUpdateDrugDatabase()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateDrugDatabaseResponse), nil
+	}
+}
+
+// UpdateDrugDatabaseInvoker 更新药物数据库
+func (c *EiHealthClient) UpdateDrugDatabaseInvoker(request *model.UpdateDrugDatabaseRequest) *UpdateDrugDatabaseInvoker {
+	requestDef := GenReqDefForUpdateDrugDatabase()
+	return &UpdateDrugDatabaseInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UpdateDrugJob 更新药物作业
+//
+// 更新药物作业
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) UpdateDrugJob(request *model.UpdateDrugJobRequest) (*model.UpdateDrugJobResponse, error) {
+	requestDef := GenReqDefForUpdateDrugJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateDrugJobResponse), nil
+	}
+}
+
+// UpdateDrugJobInvoker 更新药物作业
+func (c *EiHealthClient) UpdateDrugJobInvoker(request *model.UpdateDrugJobRequest) *UpdateDrugJobInvoker {
+	requestDef := GenReqDefForUpdateDrugJob()
+	return &UpdateDrugJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // UpdateDrugModel 更新药物模型
 //
 // 更新药物模型
@@ -5101,6 +5437,27 @@ func (c *EiHealthClient) ShowAdmetPropertiesInvoker(request *model.ShowAdmetProp
 	return &ShowAdmetPropertiesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateCpiJob 创建CPI作业
+//
+// 创建CPI作业
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) CreateCpiJob(request *model.CreateCpiJobRequest) (*model.CreateCpiJobResponse, error) {
+	requestDef := GenReqDefForCreateCpiJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateCpiJobResponse), nil
+	}
+}
+
+// CreateCpiJobInvoker 创建CPI作业
+func (c *EiHealthClient) CreateCpiJobInvoker(request *model.CreateCpiJobRequest) *CreateCpiJobInvoker {
+	requestDef := GenReqDefForCreateCpiJob()
+	return &CreateCpiJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // CreateCpiTask 新建CPI任务接口
 //
 // 输入蛋白序列、小分子库，创建分子-蛋白互作预测任务。
@@ -5122,6 +5479,27 @@ func (c *EiHealthClient) CreateCpiTaskInvoker(request *model.CreateCpiTaskReques
 	return &CreateCpiTaskInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// ShowCpiJob 查询CPI作业详情
+//
+// 查询CPI作业详情
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ShowCpiJob(request *model.ShowCpiJobRequest) (*model.ShowCpiJobResponse, error) {
+	requestDef := GenReqDefForShowCpiJob()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowCpiJobResponse), nil
+	}
+}
+
+// ShowCpiJobInvoker 查询CPI作业详情
+func (c *EiHealthClient) ShowCpiJobInvoker(request *model.ShowCpiJobRequest) *ShowCpiJobInvoker {
+	requestDef := GenReqDefForShowCpiJob()
+	return &ShowCpiJobInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ShowCpiTaskResult 查询CPI任务
 //
 // 通过CPI任务ID查询CPI任务状态及结果。
@@ -5141,6 +5519,111 @@ func (c *EiHealthClient) ShowCpiTaskResult(request *model.ShowCpiTaskResultReque
 func (c *EiHealthClient) ShowCpiTaskResultInvoker(request *model.ShowCpiTaskResultRequest) *ShowCpiTaskResultInvoker {
 	requestDef := GenReqDefForShowCpiTaskResult()
 	return &ShowCpiTaskResultInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateCssCluster 绑定CSS集群
+//
+// 绑定CSS集群
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) CreateCssCluster(request *model.CreateCssClusterRequest) (*model.CreateCssClusterResponse, error) {
+	requestDef := GenReqDefForCreateCssCluster()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateCssClusterResponse), nil
+	}
+}
+
+// CreateCssClusterInvoker 绑定CSS集群
+func (c *EiHealthClient) CreateCssClusterInvoker(request *model.CreateCssClusterRequest) *CreateCssClusterInvoker {
+	requestDef := GenReqDefForCreateCssCluster()
+	return &CreateCssClusterInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteCssCluster CSS集群解绑
+//
+// # CSS集群解绑
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) DeleteCssCluster(request *model.DeleteCssClusterRequest) (*model.DeleteCssClusterResponse, error) {
+	requestDef := GenReqDefForDeleteCssCluster()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteCssClusterResponse), nil
+	}
+}
+
+// DeleteCssClusterInvoker CSS集群解绑
+func (c *EiHealthClient) DeleteCssClusterInvoker(request *model.DeleteCssClusterRequest) *DeleteCssClusterInvoker {
+	requestDef := GenReqDefForDeleteCssCluster()
+	return &DeleteCssClusterInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListCssCluster 获取CSS集群列表
+//
+// 获取CSS集群列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ListCssCluster(request *model.ListCssClusterRequest) (*model.ListCssClusterResponse, error) {
+	requestDef := GenReqDefForListCssCluster()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListCssClusterResponse), nil
+	}
+}
+
+// ListCssClusterInvoker 获取CSS集群列表
+func (c *EiHealthClient) ListCssClusterInvoker(request *model.ListCssClusterRequest) *ListCssClusterInvoker {
+	requestDef := GenReqDefForListCssCluster()
+	return &ListCssClusterInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListTermTenantCssCluster 获取最终租户CSS集群列表
+//
+// 获取最终租户CSS集群列表
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ListTermTenantCssCluster(request *model.ListTermTenantCssClusterRequest) (*model.ListTermTenantCssClusterResponse, error) {
+	requestDef := GenReqDefForListTermTenantCssCluster()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListTermTenantCssClusterResponse), nil
+	}
+}
+
+// ListTermTenantCssClusterInvoker 获取最终租户CSS集群列表
+func (c *EiHealthClient) ListTermTenantCssClusterInvoker(request *model.ListTermTenantCssClusterRequest) *ListTermTenantCssClusterInvoker {
+	requestDef := GenReqDefForListTermTenantCssCluster()
+	return &ListTermTenantCssClusterInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ValidateCssConnection 测试CSS集群连接
+//
+// 测试CSS集群连接
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *EiHealthClient) ValidateCssConnection(request *model.ValidateCssConnectionRequest) (*model.ValidateCssConnectionResponse, error) {
+	requestDef := GenReqDefForValidateCssConnection()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ValidateCssConnectionResponse), nil
+	}
+}
+
+// ValidateCssConnectionInvoker 测试CSS集群连接
+func (c *EiHealthClient) ValidateCssConnectionInvoker(request *model.ValidateCssConnectionRequest) *ValidateCssConnectionInvoker {
+	requestDef := GenReqDefForValidateCssConnection()
+	return &ValidateCssConnectionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // CreateCustomPropsTask 新建自定义属性任务接口

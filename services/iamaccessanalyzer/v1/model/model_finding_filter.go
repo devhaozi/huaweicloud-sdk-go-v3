@@ -9,7 +9,6 @@ import (
 	"strings"
 )
 
-// FindingFilter 匹配要返回的调查结果的筛选器。
 type FindingFilter struct {
 	Criterion *Criterion `json:"criterion"`
 
@@ -50,6 +49,8 @@ type FindingFilterKeyEnum struct {
 	CONDITION_GPRINCIPAL_ORG_MANAGEMENT_ACCOUNT_ID FindingFilterKey
 	CONDITION_GSOURCE_IP                           FindingFilterKey
 	CONDITION_GSOURCE_VPC                          FindingFilterKey
+	CONDITION_GSOURCE_VPCE                         FindingFilterKey
+	FINDING_TYPE                                   FindingFilterKey
 }
 
 func GetFindingFilterKeyEnum() FindingFilterKeyEnum {
@@ -110,6 +111,12 @@ func GetFindingFilterKeyEnum() FindingFilterKeyEnum {
 		},
 		CONDITION_GSOURCE_VPC: FindingFilterKey{
 			value: "condition.g:SourceVpc",
+		},
+		CONDITION_GSOURCE_VPCE: FindingFilterKey{
+			value: "condition.g:SourceVpce",
+		},
+		FINDING_TYPE: FindingFilterKey{
+			value: "finding_type",
 		},
 	}
 }

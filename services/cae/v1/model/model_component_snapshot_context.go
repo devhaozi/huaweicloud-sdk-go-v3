@@ -103,6 +103,10 @@ type ComponentSnapshotContextRuntimeEnum struct {
 	NODEJS14 ComponentSnapshotContextRuntime
 	NODEJS16 ComponentSnapshotContextRuntime
 	PHP7     ComponentSnapshotContextRuntime
+	PHP8     ComponentSnapshotContextRuntime
+	DOTNET6  ComponentSnapshotContextRuntime
+	DOTNET7  ComponentSnapshotContextRuntime
+	DOTNET8  ComponentSnapshotContextRuntime
 }
 
 func GetComponentSnapshotContextRuntimeEnum() ComponentSnapshotContextRuntimeEnum {
@@ -139,6 +143,18 @@ func GetComponentSnapshotContextRuntimeEnum() ComponentSnapshotContextRuntimeEnu
 		},
 		PHP7: ComponentSnapshotContextRuntime{
 			value: "Php7",
+		},
+		PHP8: ComponentSnapshotContextRuntime{
+			value: "Php8",
+		},
+		DOTNET6: ComponentSnapshotContextRuntime{
+			value: "Dotnet6",
+		},
+		DOTNET7: ComponentSnapshotContextRuntime{
+			value: "Dotnet7",
+		},
+		DOTNET8: ComponentSnapshotContextRuntime{
+			value: "Dotnet8",
 		},
 	}
 }

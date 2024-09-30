@@ -26,20 +26,17 @@ type Flavor struct {
 	// 日志存储
 	LogStorage *int32 `json:"log_storage,omitempty"`
 
-	// 目前的会话数
-	SessionConcurrent *int32 `json:"session_concurrent,omitempty"`
+	// 默认防火墙带宽
+	DefaultBandwidth *int32 `json:"default_bandwidth,omitempty"`
 
-	// 创建会话数
-	SessionCreate *int32 `json:"session_create,omitempty"`
+	// 默认eip数
+	DefaultEipCount *int32 `json:"default_eip_count,omitempty"`
 
-	// 总计规则数
-	TotalRuleCount *int32 `json:"total_rule_count,omitempty"`
+	// 默认日志存储
+	DefaultLogStorage *int32 `json:"default_log_storage,omitempty"`
 
-	// 已使用规则数
-	UsedRuleCount *int32 `json:"used_rule_count,omitempty"`
-
-	// vpc间带宽
-	VpcBandwith *int32 `json:"vpc_bandwith,omitempty"`
+	// 默认vpc数
+	DefaultVpcCount *int32 `json:"default_vpc_count,omitempty"`
 }
 
 func (o Flavor) String() string {

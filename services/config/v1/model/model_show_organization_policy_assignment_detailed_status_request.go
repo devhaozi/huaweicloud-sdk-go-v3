@@ -16,7 +16,10 @@ type ShowOrganizationPolicyAssignmentDetailedStatusRequest struct {
 	OrganizationId string `json:"organization_id"`
 
 	// 组织合规规则名称。
-	OrganizationPolicyAssignmentName string `json:"organization_policy_assignment_name"`
+	OrganizationPolicyAssignmentName *string `json:"organization_policy_assignment_name,omitempty"`
+
+	// 组织合规规则ID
+	OrganizationPolicyAssignmentId *string `json:"organization_policy_assignment_id,omitempty"`
 
 	// 成员帐号规则部署状态，区分大小写。
 	Status *ShowOrganizationPolicyAssignmentDetailedStatusRequestStatus `json:"status,omitempty"`

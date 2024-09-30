@@ -8,21 +8,25 @@ import (
 
 type ApproverParam struct {
 
-	// 审批人姓名
+	// 调用审核系统的应用名称，开发人员自己定。
+	AppName *string `json:"app_name,omitempty"`
+
+	// 审批人姓名。
 	ApproverName string `json:"approver_name"`
 
-	// 审批人user_id
+	// 审批人ID。
 	UserId string `json:"user_id"`
 
+	// 邮箱地址。
 	Email *string `json:"email,omitempty"`
 
-	// 电话号码
+	// 电话号码。
 	PhoneNumber *string `json:"phone_number,omitempty"`
 
-	// 邮件通知
+	// 邮件通知。
 	EmailNotify *bool `json:"email_notify,omitempty"`
 
-	// 短信通知
+	// 短信通知。
 	SmsNotify *bool `json:"sms_notify,omitempty"`
 }
 

@@ -5,6 +5,30 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/organizations/v1/model"
 )
 
+type CloseAccountInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CloseAccountInvoker) Invoke() (*model.CloseAccountResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CloseAccountResponse), nil
+	}
+}
+
+type CreateAccountInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateAccountInvoker) Invoke() (*model.CreateAccountResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateAccountResponse), nil
+	}
+}
+
 type InviteAccountInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -26,6 +50,18 @@ func (i *ListAccountsInvoker) Invoke() (*model.ListAccountsResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ListAccountsResponse), nil
+	}
+}
+
+type ListCloseAccountStatusesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListCloseAccountStatusesInvoker) Invoke() (*model.ListCloseAccountStatusesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListCloseAccountStatusesResponse), nil
 	}
 }
 
@@ -86,6 +122,18 @@ func (i *ShowCreateAccountStatusInvoker) Invoke() (*model.ShowCreateAccountStatu
 		return nil, err
 	} else {
 		return result.(*model.ShowCreateAccountStatusResponse), nil
+	}
+}
+
+type UpdateAccountInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateAccountInvoker) Invoke() (*model.UpdateAccountResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateAccountResponse), nil
 	}
 }
 

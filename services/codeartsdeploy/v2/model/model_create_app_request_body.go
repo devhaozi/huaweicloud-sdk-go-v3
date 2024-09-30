@@ -12,7 +12,7 @@ import (
 // CreateAppRequestBody 创建应用请求体
 type CreateAppRequestBody struct {
 
-	// 项目ID
+	// 项目id
 	ProjectId string `json:"project_id"`
 
 	// 应用名称
@@ -20,6 +20,9 @@ type CreateAppRequestBody struct {
 
 	// 描述
 	Description *string `json:"description,omitempty"`
+
+	// 分组id
+	GroupId *string `json:"group_id,omitempty"`
 
 	// 是否为草稿
 	IsDraft bool `json:"is_draft"`

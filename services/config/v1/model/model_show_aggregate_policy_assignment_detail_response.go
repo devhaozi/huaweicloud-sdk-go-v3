@@ -46,8 +46,16 @@ type ShowAggregatePolicyAssignmentDetailResponse struct {
 	// 规则参数
 	Parameters map[string]PolicyParameterValue `json:"parameters,omitempty"`
 
+	Tags *[]ResourceTag `json:"tags,omitempty"`
+
 	// 规则的创建者
-	CreatedBy      *string `json:"created_by,omitempty"`
+	CreatedBy *string `json:"created_by,omitempty"`
+
+	// 合规规则修正方式。
+	TargetType *string `json:"target_type,omitempty"`
+
+	// 修正执行的目标id。
+	TargetId       *string `json:"target_id,omitempty"`
 	HttpStatusCode int     `json:"-"`
 }
 

@@ -65,6 +65,30 @@ func (i *ShowEdgeNodeInvoker) Invoke() (*model.ShowEdgeNodeResponse, error) {
 	}
 }
 
+type ShowEdgeNodeHostsInfoInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowEdgeNodeHostsInfoInvoker) Invoke() (*model.ShowEdgeNodeHostsInfoResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowEdgeNodeHostsInfoResponse), nil
+	}
+}
+
+type UpdateEdgeNodeInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateEdgeNodeInvoker) Invoke() (*model.UpdateEdgeNodeResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateEdgeNodeResponse), nil
+	}
+}
+
 type ExecuteDeviceControlsReleaseInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -86,6 +110,18 @@ func (i *ExecuteDeviceControlsSetInvoker) Invoke() (*model.ExecuteDeviceControls
 		return nil, err
 	} else {
 		return result.(*model.ExecuteDeviceControlsSetResponse), nil
+	}
+}
+
+type SetDeviceControlDefaultValuesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *SetDeviceControlDefaultValuesInvoker) Invoke() (*model.SetDeviceControlDefaultValuesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.SetDeviceControlDefaultValuesResponse), nil
 	}
 }
 
@@ -449,6 +485,18 @@ func (i *DeleteDcPointInvoker) Invoke() (*model.DeleteDcPointResponse, error) {
 	}
 }
 
+type DeleteDcPointsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteDcPointsInvoker) Invoke() (*model.DeleteDcPointsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteDcPointsResponse), nil
+	}
+}
+
 type ShowDcPointInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -554,6 +602,18 @@ func (i *DeleteModuleInvoker) Invoke() (*model.DeleteModuleResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.DeleteModuleResponse), nil
+	}
+}
+
+type InvokeModuleMsgInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *InvokeModuleMsgInvoker) Invoke() (*model.InvokeModuleMsgResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.InvokeModuleMsgResponse), nil
 	}
 }
 

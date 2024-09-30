@@ -75,8 +75,11 @@ type ConfigurationRequestDataSpec struct {
 
 	PreStop *ConfigurationRequestDataSpecPreStop `json:"preStop,omitempty"`
 
-	// 自定义日志路径数组。  ConfigurationItem.type为\"log\"时，配置此参数。
+	// 自定义本地磁盘日志路径数组。  ConfigurationItem.type为\"log\"时，配置此参数。
 	LogPaths *[]string `json:"log_paths,omitempty"`
+
+	// 自定义云存储日志路径数组。  ConfigurationItem.type为\"log\"时，配置此参数。
+	CloudStorageLogPaths *[]CloudStorageLogPathInfo `json:"cloud_storage_log_paths,omitempty"`
 
 	// 探针注入方式。  ConfigurationItem.type为\"apm2\"时，配置此参数。
 	Instrumentation *string `json:"instrumentation,omitempty"`
@@ -85,7 +88,7 @@ type ConfigurationRequestDataSpec struct {
 	Path *string `json:"path,omitempty"`
 
 	// 自定义监控指标配置采集端口。  ConfigurationItem.type为\"customMetric\"时，配置此参数。
-	Port *string `json:"port,omitempty"`
+	Port *int32 `json:"port,omitempty"`
 
 	// 自定义监控指标配置指标名称。  ConfigurationItem.type为\"customMetric\"时，配置此参数。
 	Metrics *[]string `json:"metrics,omitempty"`

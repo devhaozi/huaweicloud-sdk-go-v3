@@ -355,6 +355,27 @@ func (c *LiveClient) DeleteRecordRuleInvoker(request *model.DeleteRecordRuleRequ
 	return &DeleteRecordRuleInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// DeleteRefererChain 删除Referer防盗链黑白名单
+//
+// 删除Referer防盗链黑白名单
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) DeleteRefererChain(request *model.DeleteRefererChainRequest) (*model.DeleteRefererChainResponse, error) {
+	requestDef := GenReqDefForDeleteRefererChain()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteRefererChainResponse), nil
+	}
+}
+
+// DeleteRefererChainInvoker 删除Referer防盗链黑白名单
+func (c *LiveClient) DeleteRefererChainInvoker(request *model.DeleteRefererChainRequest) *DeleteRefererChainInvoker {
+	requestDef := GenReqDefForDeleteRefererChain()
+	return &DeleteRefererChainInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // DeleteSnapshotConfig 删除直播截图配置
 //
 // 删除直播截图配置接口
@@ -458,6 +479,27 @@ func (c *LiveClient) ListGeoBlockingConfig(request *model.ListGeoBlockingConfigR
 func (c *LiveClient) ListGeoBlockingConfigInvoker(request *model.ListGeoBlockingConfigRequest) *ListGeoBlockingConfigInvoker {
 	requestDef := GenReqDefForListGeoBlockingConfig()
 	return &ListGeoBlockingConfigInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListHlsConfig 查询域名HLS配置
+//
+// 查询域名HLS配置。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ListHlsConfig(request *model.ListHlsConfigRequest) (*model.ListHlsConfigResponse, error) {
+	requestDef := GenReqDefForListHlsConfig()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListHlsConfigResponse), nil
+	}
+}
+
+// ListHlsConfigInvoker 查询域名HLS配置
+func (c *LiveClient) ListHlsConfigInvoker(request *model.ListHlsConfigRequest) *ListHlsConfigInvoker {
+	requestDef := GenReqDefForListHlsConfig()
+	return &ListHlsConfigInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ListIpAuthList 查询IP黑/白名单
@@ -673,6 +715,27 @@ func (c *LiveClient) RunRecordInvoker(request *model.RunRecordRequest) *RunRecor
 	return &RunRecordInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// SetRefererChain 设置Referer防盗链黑白名单
+//
+// 设置Referer黑白名单，直播服务会根据配置的referer黑白名单，对访问者的身份进行识别和过滤，符合规则的可以顺利访问到该内容。如果不符合规则，该访问请求将会被禁止。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) SetRefererChain(request *model.SetRefererChainRequest) (*model.SetRefererChainResponse, error) {
+	requestDef := GenReqDefForSetRefererChain()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.SetRefererChainResponse), nil
+	}
+}
+
+// SetRefererChainInvoker 设置Referer防盗链黑白名单
+func (c *LiveClient) SetRefererChainInvoker(request *model.SetRefererChainRequest) *SetRefererChainInvoker {
+	requestDef := GenReqDefForSetRefererChain()
+	return &SetRefererChainInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // ShowDomain 查询直播域名
 //
 // 查询直播域名
@@ -776,6 +839,27 @@ func (c *LiveClient) ShowRecordRule(request *model.ShowRecordRuleRequest) (*mode
 func (c *LiveClient) ShowRecordRuleInvoker(request *model.ShowRecordRuleRequest) *ShowRecordRuleInvoker {
 	requestDef := GenReqDefForShowRecordRule()
 	return &ShowRecordRuleInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ShowRefererChain 查询Referer防盗链黑白名单
+//
+// 查询Referer防盗链黑白名单
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ShowRefererChain(request *model.ShowRefererChainRequest) (*model.ShowRefererChainResponse, error) {
+	requestDef := GenReqDefForShowRefererChain()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ShowRefererChainResponse), nil
+	}
+}
+
+// ShowRefererChainInvoker 查询Referer防盗链黑白名单
+func (c *LiveClient) ShowRefererChainInvoker(request *model.ShowRefererChainRequest) *ShowRefererChainInvoker {
+	requestDef := GenReqDefForShowRefererChain()
+	return &ShowRefererChainInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // ShowTranscodingsTemplate 查询直播转码模板
@@ -902,6 +986,27 @@ func (c *LiveClient) UpdateGeoBlockingConfig(request *model.UpdateGeoBlockingCon
 func (c *LiveClient) UpdateGeoBlockingConfigInvoker(request *model.UpdateGeoBlockingConfigRequest) *UpdateGeoBlockingConfigInvoker {
 	requestDef := GenReqDefForUpdateGeoBlockingConfig()
 	return &UpdateGeoBlockingConfigInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UpdateHlsConfig 修改域名HLS配置
+//
+// 修改域名HLS配置。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) UpdateHlsConfig(request *model.UpdateHlsConfigRequest) (*model.UpdateHlsConfigResponse, error) {
+	requestDef := GenReqDefForUpdateHlsConfig()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateHlsConfigResponse), nil
+	}
+}
+
+// UpdateHlsConfigInvoker 修改域名HLS配置
+func (c *LiveClient) UpdateHlsConfigInvoker(request *model.UpdateHlsConfigRequest) *UpdateHlsConfigInvoker {
+	requestDef := GenReqDefForUpdateHlsConfig()
+	return &UpdateHlsConfigInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 // UpdateIpAuthList 修改IP黑/白名单
@@ -1138,6 +1243,111 @@ func (c *LiveClient) UpdateDomainHttpsCertInvoker(request *model.UpdateDomainHtt
 	return &UpdateDomainHttpsCertInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+// CreateHarvestTask 创建Live2VOD任务
+//
+// 创建Live2VOD任务。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) CreateHarvestTask(request *model.CreateHarvestTaskRequest) (*model.CreateHarvestTaskResponse, error) {
+	requestDef := GenReqDefForCreateHarvestTask()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateHarvestTaskResponse), nil
+	}
+}
+
+// CreateHarvestTaskInvoker 创建Live2VOD任务
+func (c *LiveClient) CreateHarvestTaskInvoker(request *model.CreateHarvestTaskRequest) *CreateHarvestTaskInvoker {
+	requestDef := GenReqDefForCreateHarvestTask()
+	return &CreateHarvestTaskInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteHarvestTask 删除Live2VOD任务
+//
+// 删除Live2VOD任务。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) DeleteHarvestTask(request *model.DeleteHarvestTaskRequest) (*model.DeleteHarvestTaskResponse, error) {
+	requestDef := GenReqDefForDeleteHarvestTask()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteHarvestTaskResponse), nil
+	}
+}
+
+// DeleteHarvestTaskInvoker 删除Live2VOD任务
+func (c *LiveClient) DeleteHarvestTaskInvoker(request *model.DeleteHarvestTaskRequest) *DeleteHarvestTaskInvoker {
+	requestDef := GenReqDefForDeleteHarvestTask()
+	return &DeleteHarvestTaskInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListHarvestTask 查询Live2VOD任务
+//
+// 查询Live2VOD任务，支持批量查询。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ListHarvestTask(request *model.ListHarvestTaskRequest) (*model.ListHarvestTaskResponse, error) {
+	requestDef := GenReqDefForListHarvestTask()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListHarvestTaskResponse), nil
+	}
+}
+
+// ListHarvestTaskInvoker 查询Live2VOD任务
+func (c *LiveClient) ListHarvestTaskInvoker(request *model.ListHarvestTaskRequest) *ListHarvestTaskInvoker {
+	requestDef := GenReqDefForListHarvestTask()
+	return &ListHarvestTaskInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ModifyHarvestTask 修改Live2VOD任务
+//
+// 修改Live2VOD任务。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ModifyHarvestTask(request *model.ModifyHarvestTaskRequest) (*model.ModifyHarvestTaskResponse, error) {
+	requestDef := GenReqDefForModifyHarvestTask()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ModifyHarvestTaskResponse), nil
+	}
+}
+
+// ModifyHarvestTaskInvoker 修改Live2VOD任务
+func (c *LiveClient) ModifyHarvestTaskInvoker(request *model.ModifyHarvestTaskRequest) *ModifyHarvestTaskInvoker {
+	requestDef := GenReqDefForModifyHarvestTask()
+	return &ModifyHarvestTaskInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// UpdateHarvestJobStatus 修改Live2VOD任务状态
+//
+// 修改Live2VOD任务状态。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) UpdateHarvestJobStatus(request *model.UpdateHarvestJobStatusRequest) (*model.UpdateHarvestJobStatusResponse, error) {
+	requestDef := GenReqDefForUpdateHarvestJobStatus()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateHarvestJobStatusResponse), nil
+	}
+}
+
+// UpdateHarvestJobStatusInvoker 修改Live2VOD任务状态
+func (c *LiveClient) UpdateHarvestJobStatusInvoker(request *model.UpdateHarvestJobStatusRequest) *UpdateHarvestJobStatusInvoker {
+	requestDef := GenReqDefForUpdateHarvestJobStatus()
+	return &UpdateHarvestJobStatusInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 // UpdateObsBucketAuthorityPublic OBS桶授权及取消授权
 //
 // # OBS桶授权及取消授权
@@ -1157,4 +1367,193 @@ func (c *LiveClient) UpdateObsBucketAuthorityPublic(request *model.UpdateObsBuck
 func (c *LiveClient) UpdateObsBucketAuthorityPublicInvoker(request *model.UpdateObsBucketAuthorityPublicRequest) *UpdateObsBucketAuthorityPublicInvoker {
 	requestDef := GenReqDefForUpdateObsBucketAuthorityPublic()
 	return &UpdateObsBucketAuthorityPublicInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// CreateOttChannelInfo 新建OTT频道
+//
+// 创建频道接口，支持创建OTT频道。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) CreateOttChannelInfo(request *model.CreateOttChannelInfoRequest) (*model.CreateOttChannelInfoResponse, error) {
+	requestDef := GenReqDefForCreateOttChannelInfo()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateOttChannelInfoResponse), nil
+	}
+}
+
+// CreateOttChannelInfoInvoker 新建OTT频道
+func (c *LiveClient) CreateOttChannelInfoInvoker(request *model.CreateOttChannelInfoRequest) *CreateOttChannelInfoInvoker {
+	requestDef := GenReqDefForCreateOttChannelInfo()
+	return &CreateOttChannelInfoInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// DeleteOttChannelInfo 删除频道信息
+//
+// 删除频道信息。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) DeleteOttChannelInfo(request *model.DeleteOttChannelInfoRequest) (*model.DeleteOttChannelInfoResponse, error) {
+	requestDef := GenReqDefForDeleteOttChannelInfo()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteOttChannelInfoResponse), nil
+	}
+}
+
+// DeleteOttChannelInfoInvoker 删除频道信息
+func (c *LiveClient) DeleteOttChannelInfoInvoker(request *model.DeleteOttChannelInfoRequest) *DeleteOttChannelInfoInvoker {
+	requestDef := GenReqDefForDeleteOttChannelInfo()
+	return &DeleteOttChannelInfoInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ListOttChannelInfo 查询频道信息
+//
+// 查询频道信息，支持批量查询。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ListOttChannelInfo(request *model.ListOttChannelInfoRequest) (*model.ListOttChannelInfoResponse, error) {
+	requestDef := GenReqDefForListOttChannelInfo()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListOttChannelInfoResponse), nil
+	}
+}
+
+// ListOttChannelInfoInvoker 查询频道信息
+func (c *LiveClient) ListOttChannelInfoInvoker(request *model.ListOttChannelInfoRequest) *ListOttChannelInfoInvoker {
+	requestDef := GenReqDefForListOttChannelInfo()
+	return &ListOttChannelInfoInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ModifyOttChannelInfoEncoderSettings 修改频道转码模板信息
+//
+// 修改频道转码模板信息。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ModifyOttChannelInfoEncoderSettings(request *model.ModifyOttChannelInfoEncoderSettingsRequest) (*model.ModifyOttChannelInfoEncoderSettingsResponse, error) {
+	requestDef := GenReqDefForModifyOttChannelInfoEncoderSettings()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ModifyOttChannelInfoEncoderSettingsResponse), nil
+	}
+}
+
+// ModifyOttChannelInfoEncoderSettingsInvoker 修改频道转码模板信息
+func (c *LiveClient) ModifyOttChannelInfoEncoderSettingsInvoker(request *model.ModifyOttChannelInfoEncoderSettingsRequest) *ModifyOttChannelInfoEncoderSettingsInvoker {
+	requestDef := GenReqDefForModifyOttChannelInfoEncoderSettings()
+	return &ModifyOttChannelInfoEncoderSettingsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ModifyOttChannelInfoEndPoints 修改频道打包信息
+//
+// 修改频道打包信息。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ModifyOttChannelInfoEndPoints(request *model.ModifyOttChannelInfoEndPointsRequest) (*model.ModifyOttChannelInfoEndPointsResponse, error) {
+	requestDef := GenReqDefForModifyOttChannelInfoEndPoints()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ModifyOttChannelInfoEndPointsResponse), nil
+	}
+}
+
+// ModifyOttChannelInfoEndPointsInvoker 修改频道打包信息
+func (c *LiveClient) ModifyOttChannelInfoEndPointsInvoker(request *model.ModifyOttChannelInfoEndPointsRequest) *ModifyOttChannelInfoEndPointsInvoker {
+	requestDef := GenReqDefForModifyOttChannelInfoEndPoints()
+	return &ModifyOttChannelInfoEndPointsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ModifyOttChannelInfoGeneral 修改频道通用信息
+//
+// 修改频道通用信息。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ModifyOttChannelInfoGeneral(request *model.ModifyOttChannelInfoGeneralRequest) (*model.ModifyOttChannelInfoGeneralResponse, error) {
+	requestDef := GenReqDefForModifyOttChannelInfoGeneral()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ModifyOttChannelInfoGeneralResponse), nil
+	}
+}
+
+// ModifyOttChannelInfoGeneralInvoker 修改频道通用信息
+func (c *LiveClient) ModifyOttChannelInfoGeneralInvoker(request *model.ModifyOttChannelInfoGeneralRequest) *ModifyOttChannelInfoGeneralInvoker {
+	requestDef := GenReqDefForModifyOttChannelInfoGeneral()
+	return &ModifyOttChannelInfoGeneralInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ModifyOttChannelInfoInput 修改频道入流信息
+//
+// 修改频道入流信息。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ModifyOttChannelInfoInput(request *model.ModifyOttChannelInfoInputRequest) (*model.ModifyOttChannelInfoInputResponse, error) {
+	requestDef := GenReqDefForModifyOttChannelInfoInput()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ModifyOttChannelInfoInputResponse), nil
+	}
+}
+
+// ModifyOttChannelInfoInputInvoker 修改频道入流信息
+func (c *LiveClient) ModifyOttChannelInfoInputInvoker(request *model.ModifyOttChannelInfoInputRequest) *ModifyOttChannelInfoInputInvoker {
+	requestDef := GenReqDefForModifyOttChannelInfoInput()
+	return &ModifyOttChannelInfoInputInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ModifyOttChannelInfoRecordSettings 修改频道录制信息
+//
+// 修改频道录制信息。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ModifyOttChannelInfoRecordSettings(request *model.ModifyOttChannelInfoRecordSettingsRequest) (*model.ModifyOttChannelInfoRecordSettingsResponse, error) {
+	requestDef := GenReqDefForModifyOttChannelInfoRecordSettings()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ModifyOttChannelInfoRecordSettingsResponse), nil
+	}
+}
+
+// ModifyOttChannelInfoRecordSettingsInvoker 修改频道录制信息
+func (c *LiveClient) ModifyOttChannelInfoRecordSettingsInvoker(request *model.ModifyOttChannelInfoRecordSettingsRequest) *ModifyOttChannelInfoRecordSettingsInvoker {
+	requestDef := GenReqDefForModifyOttChannelInfoRecordSettings()
+	return &ModifyOttChannelInfoRecordSettingsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+// ModifyOttChannelInfoStats 修改频道状态
+//
+// 修改频道状态。
+//
+// Please refer to HUAWEI cloud API Explorer for details.
+func (c *LiveClient) ModifyOttChannelInfoStats(request *model.ModifyOttChannelInfoStatsRequest) (*model.ModifyOttChannelInfoStatsResponse, error) {
+	requestDef := GenReqDefForModifyOttChannelInfoStats()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ModifyOttChannelInfoStatsResponse), nil
+	}
+}
+
+// ModifyOttChannelInfoStatsInvoker 修改频道状态
+func (c *LiveClient) ModifyOttChannelInfoStatsInvoker(request *model.ModifyOttChannelInfoStatsRequest) *ModifyOttChannelInfoStatsInvoker {
+	requestDef := GenReqDefForModifyOttChannelInfoStats()
+	return &ModifyOttChannelInfoStatsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }

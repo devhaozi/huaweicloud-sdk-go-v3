@@ -60,6 +60,9 @@ type ShowSqlJobStatusResponse struct {
 	// 查询结果OBS路径
 	ResultPath *string `json:"result_path,omitempty"`
 
+	// 查询作业执行计划OBS路径
+	ExecutionDetailsPath *string `json:"execution_details_path,omitempty"`
+
 	// 查询结果格式
 	ResultFormat *string `json:"result_format,omitempty"`
 
@@ -76,8 +79,8 @@ type ShowSqlJobStatusResponse struct {
 	JobMode *string `json:"job_mode,omitempty"`
 
 	// 作业标签
-	Tags           *[]TmsTagEntity `json:"tags,omitempty"`
-	HttpStatusCode int             `json:"-"`
+	Tags           *[]Tag `json:"tags,omitempty"`
+	HttpStatusCode int    `json:"-"`
 }
 
 func (o ShowSqlJobStatusResponse) String() string {
