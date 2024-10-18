@@ -23,7 +23,6 @@ import (
 	"crypto/ecdsa"
 	"crypto/rand"
 	"encoding/asn1"
-	"github.com/tjfoc/gmsm/sm2"
 	"math/big"
 )
 
@@ -76,35 +75,4 @@ func (k P256SigningKey) Verify(signature, data []byte) bool {
 
 	publicKey := &k.privateKey.PublicKey
 	return ecdsa.Verify(publicKey, hashed, ecSig.R, ecSig.S)
-}
-
-type SM2SigningKey struct {
-	privateKey *sm2.PrivateKey
-}
-
-func (k SM2SigningKey) Sign(data []byte) ([]byte, error) {
-	r, s, err := sm2.Sm2Sign(k.privateKey, data, []byte{}, rand.Reader)
-	if err != nil {
-		return nil, err
-	}
-
-	ecSig := ecSignature{
-		R: r,
-		S: s,
-	}
-	sig, err := asn1.Marshal(ecSig)
-	if err != nil {
-		return nil, err
-	}
-	return sig, nil
-}
-
-func (k SM2SigningKey) Verify(signature, data []byte) bool {
-	ecSig := ecSignature{}
-	_, err := asn1.Unmarshal(signature, &ecSig)
-	if err != nil {
-		return false
-	}
-
-	return sm2.Sm2Verify(&k.privateKey.PublicKey, data, []byte{}, ecSig.R, ecSig.S)
 }

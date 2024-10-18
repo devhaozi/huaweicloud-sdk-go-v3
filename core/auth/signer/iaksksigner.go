@@ -33,12 +33,8 @@ func GetSigner(alg algorithm.SigningAlgorithm) (IAKSKSigner, error) {
 	switch alg {
 	case algorithm.HmacSHA256:
 		return signerInst, nil
-	case algorithm.HmacSM3:
-		return sm3SignerInst, nil
 	case algorithm.EcdsaP256SHA256:
 		return p256sha256SignerInst, nil
-	case algorithm.SM2SM3:
-		return sm2sm3SignerInst, nil
 	default:
 		return nil, errors.New("unsupported signing algorithm: " + string(alg))
 	}

@@ -23,41 +23,12 @@ import (
 	chmac "crypto/hmac"
 	"crypto/sha256"
 	"encoding/hex"
-	"github.com/tjfoc/gmsm/sm3"
 )
 
 type iHasher interface {
 	hash(data []byte) ([]byte, error)
 	hashHexString(data []byte) (string, error)
 	hmac(data []byte, key []byte) ([]byte, error)
-}
-
-type sm3Hasher struct {
-}
-
-func (h sm3Hasher) hash(data []byte) ([]byte, error) {
-	hash := sm3.New()
-	_, err := hash.Write(data)
-	if err != nil {
-		return nil, err
-	}
-	return hash.Sum(nil), nil
-}
-
-func (h sm3Hasher) hashHexString(data []byte) (string, error) {
-	hash, err := h.hash(data)
-	if err != nil {
-		return "", err
-	}
-	return hex.EncodeToString(hash), nil
-}
-
-func (h sm3Hasher) hmac(data []byte, key []byte) ([]byte, error) {
-	hash := chmac.New(sm3.New, key)
-	if _, err := hash.Write(data); err != nil {
-		return nil, err
-	}
-	return hash.Sum(nil), nil
 }
 
 type sha256Hasher struct {

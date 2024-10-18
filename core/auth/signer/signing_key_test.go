@@ -35,15 +35,3 @@ func TestP256SigningKey_Sign(t *testing.T) {
 	assert.Nil(t, err)
 	assert.True(t, signingKey.Verify(sig, data))
 }
-
-func TestSM2SigningKey_Sign(t *testing.T) {
-	data := []byte("HelloWorld")
-	signingKey, err := sm2sm3SignerInst.GetSigningKey(ak, sk)
-	assert.Nil(t, err)
-	_, ok := signingKey.(SM2SigningKey)
-	assert.True(t, ok)
-
-	sig, err := signingKey.Sign(data)
-	assert.Nil(t, err)
-	assert.True(t, signingKey.Verify(sig, data))
-}

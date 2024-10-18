@@ -21,22 +21,16 @@ package signer
 
 var (
 	sha256HasherInst     sha256Hasher
-	sm3HasherInst        sm3Hasher
 	signerInst           Signer
 	derivedSignerInst    DerivedSigner
-	sm3SignerInst        SM3Signer
 	p256sha256SignerInst P256SHA256Signer
-	sm2sm3SignerInst     SM2SM3Signer
 )
 
 func init() {
 	sha256HasherInst = sha256Hasher{}
-	sm3HasherInst = sm3Hasher{}
 	signerInst = Signer{}
 	derivedSignerInst = DerivedSigner{}
-	sm3SignerInst = SM3Signer{}
 	p256sha256SignerInst = P256SHA256Signer{}
-	sm2sm3SignerInst = SM2SM3Signer{}
 }
 
 func GetDerivedSigner() DerivedSigner {

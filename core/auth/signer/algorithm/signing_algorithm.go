@@ -23,9 +23,7 @@ type SigningAlgorithm string
 
 const (
 	HmacSHA256      = "HmacSHA256"
-	HmacSM3         = "HmacSM3"
 	EcdsaP256SHA256 = "EcdsaP256SHA256"
-	SM2SM3          = "SM2SM3"
 )
 
 func GetDefaultSigningAlgorithm() SigningAlgorithm {
