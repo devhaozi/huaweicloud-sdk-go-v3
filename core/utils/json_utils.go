@@ -21,6 +21,7 @@ package utils
 
 import (
 	"bytes"
+	"encoding/json"
 )
 
 func Marshal(i interface{}) ([]byte, error) {
