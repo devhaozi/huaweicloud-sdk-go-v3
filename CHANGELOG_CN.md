@@ -1,3 +1,515 @@
+# 0.1.118 2024-10-17
+
+### HuaweiCloud SDK CC
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListInterRegionBandwidths**
+    - 响应参数变更
+      - `* inter_region_bandwidths.bandwidth: int32 -> int64`
+  - **CreateInterRegionBandwidth**
+    - 响应参数变更
+      - `* inter_region_bandwidth.bandwidth: int32 -> int64`
+  - **ShowInterRegionBandwidth**
+    - 响应参数变更
+      - `* inter_region_bandwidth.bandwidth: int32 -> int64`
+  - **UpdateInterRegionBandwidth**
+    - 响应参数变更
+      - `* inter_region_bandwidth.bandwidth: int32 -> int64`
+  - **ListCentralNetworks**
+    - 响应参数变更
+      - `+ central_networks.planes.is_full_mesh`
+      - `+ central_networks.planes.custom_er_connections`
+  - **CreateCentralNetwork**
+    - 请求参数变更
+      - `+ central_network.policy_document.planes.custom_er_connections`
+    - 响应参数变更
+      - `+ central_network.planes.is_full_mesh`
+      - `+ central_network.planes.custom_er_connections`
+  - **ShowCentralNetwork**
+    - 响应参数变更
+      - `+ central_network.planes.is_full_mesh`
+      - `+ central_network.planes.custom_er_connections`
+  - **UpdateCentralNetwork**
+    - 响应参数变更
+      - `+ central_network.planes.is_full_mesh`
+      - `+ central_network.planes.custom_er_connections`
+  - **DeleteCentralNetwork**
+    - 响应参数变更
+      - `+ central_network.planes.is_full_mesh`
+      - `+ central_network.planes.custom_er_connections`
+  - **ListCentralNetworksByTags**
+    - 响应参数变更
+      - `+ central_networks.planes.is_full_mesh`
+      - `+ central_networks.planes.custom_er_connections`
+  - **ListCentralNetworkPolicies**
+    - 响应参数变更
+      - `+ central_network_policies.document.planes.is_full_mesh`
+      - `+ central_network_policies.document.planes.custom_er_connections`
+  - **CreateCentralNetworkPolicy**
+    - 请求参数变更
+      - `+ central_network_policy_document.planes.custom_er_connections`
+    - 响应参数变更
+      - `+ central_network_policy.document.planes.is_full_mesh`
+      - `+ central_network_policy.document.planes.custom_er_connections`
+  - **ApplyCentralNetworkPolicy**
+    - 响应参数变更
+      - `+ central_network_policy.document.planes.is_full_mesh`
+      - `+ central_network_policy.document.planes.custom_er_connections`
+
+### HuaweiCloud SDK CDN
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateDomain**
+    - 请求参数变更
+      - `+ domain.sources.http_port`
+      - `+ domain.sources.https_port`
+
+### HuaweiCloud SDK DAS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListSpaceAnalysis**
+    - 响应参数变更
+      - `+ db_objects.free_size`
+      - `+ db_objects.free_rate`
+  - **ExportSlowSqlTemplatesDetails**
+    - 响应参数变更
+      - `+ slow_sql_templates.sql_sample_user`
+
+### HuaweiCloud SDK DBSS
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持以下接口：
+    - `AddAuditDatabase`
+    - `AddRdsDatabase`
+    - `ListRdsDatabases`
+    - `DeleteAuditDatabase`
+    - `SwitchAuditDatabase`
+    - `DownloadAuditAgent`
+    - `DeleteAuditAgent`
+    - `ListAuditSummaryInfos`
+    - `StartAuditInstance`
+    - `StopAuditInstance`
+    - `RebootAuditInstance`
+    - `UpdateAuditInstance`
+    - `ListAuditAlarmLog`
+    - `ListAuditSqls`
+    - `ListAuditAgent`
+    - `AddAuditAgent`
+    - `DeleteInstances`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowAuditQuota**
+    - 响应参数变更
+      - `- quota`
+  - **ListAuditRuleRisks**
+    - 请求参数变更
+      - `+ risk_levels: enum value [LOW,MEDIUM,HIGH,NO_RISK]`
+    - 响应参数变更
+      - `+ rules.rule_type`
+  - **ListProjectResourceTags**
+    - 请求参数变更
+      - `+ resource_type: enum value [auditInstance]`
+  - **BatchAddResourceTag**
+    - 请求参数变更
+      - `+ resource_type: enum value [auditInstance]`
+      - `* tags: list<KeyValueBean> -> list<object>`
+      - `* sys_tags: list<KeyValueBean> -> list<object>`
+  - **BatchDeleteResourceTag**
+    - 请求参数变更
+      - `+ resource_type: enum value [auditInstance]`
+      - `* tags: list<KeyValueBean> -> list<object>`
+      - `* sys_tags: list<KeyValueBean> -> list<object>`
+      - `* body: object<ResourceTagRequest> -> object<ResourceTagDeleteRequest>`
+  - **UpdateAuditSecurityGroup**
+    - 请求参数变更
+      - `+ instance_id`
+      - `- resource_id`
+  - **SwitchAgent**
+    - 请求参数变更
+      - `+ status: enum value [0,1]`
+  - **ListEcsSpecification**
+    - 响应参数变更
+      - `+ specification.az_type`
+  - **ListAuditInstanceJobs**
+    - 响应参数变更
+      - `+ jobs.resource_id`
+  - **ListAuditOperateLogs**
+    - 请求参数变更
+      - `+ action`
+      - `- operate_name`
+      - `+ result: enum value [success,fail]`
+      - `+ time.time_range: enum value [HALF_HOUR, HOUR, THREE_HOUR, TWELVE_HOUR, DAY, WEEK, MONTH]`
+  - **ListResourceInstanceByTag**
+    - 请求参数变更
+      - `+ resource_type: enum value [auditInstance]`
+  - **CountResourceInstanceByTag**
+    - 请求参数变更
+      - `+ resource_type: enum value [auditInstance]`
+  - **ListAuditDatabases**
+    - 响应参数变更
+      - `+ databases.database.rds_audit_switch_mismatch`
+      - `+ databases.database.rds_id`
+      - `+ databases.database.rds_obj_info`
+      - `+ databases.database.dws_obj_info`
+      - `+ databases.database.clouddb_obj_info`
+
+### HuaweiCloud SDK DeH
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 移除接口`CreateDedicatedHost`、`DeleteDedicatedHost`
+
+### HuaweiCloud SDK ECS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 支持接口`NovaShowFlavorExtraSpecs`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK GSL
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListSimPools**
+    - 请求参数变更
+      - `+ status`
+    - 响应参数变更
+      - `+ pools.status`
+
+### HuaweiCloud SDK KVS
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ScanSkeyKv**
+    - 请求参数变更
+      - `+ return_count_only`
+
+# 0.1.117 2024-10-10
+
+### HuaweiCloud SDK AAD
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持接口`AssociateIpToPolicyAndPackage`、`DisassociateIpFromPolicyAndPackage`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK CCE
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowAutopilotCluster**
+    - 响应参数变更
+      - `+ spec.deletionProtection`
+  - **UpdateAutopilotCluster**
+    - 响应参数变更
+      - `+ spec.deletionProtection`
+  - **DeleteAutopilotCluster**
+    - 响应参数变更
+      - `+ spec.deletionProtection`
+  - **CreateAutopilotCluster**
+    - 请求参数变更
+      - `+ spec.deletionProtection`
+    - 响应参数变更
+      - `+ spec.deletionProtection`
+  - **ListAutopilotClusters**
+    - 响应参数变更
+      - `+ items.spec.deletionProtection`
+
+### HuaweiCloud SDK DataArtsStudio
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持接口`CreateLineageInfo`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DGC
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowJob**
+    - 响应参数变更
+      - `+ downstreamJobs`
+
+### HuaweiCloud SDK DRS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **BatchListJobDetails**
+    - 响应参数变更
+      - `* results.node_num: string -> int32`
+
+### HuaweiCloud SDK DRS
+
+- _接口版本_
+  - V5
+- _新增特性_
+  - 支持以下接口：
+    - `ListReplicationJobs`
+    - `CreateReplicationJob`
+    - `ShowReplicationJob`
+    - `UpdateReplicationJob`
+    - `DeleteReplicationJob`
+    - `ChangeToPeriod`
+    - `ListConnections`
+    - `CreateConnection`
+    - `ModifyConnection`
+    - `DeleteConnection`
+    - `ListJobDdls`
+    - `CleanAlarms`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK ELB
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListMembers**
+    - 请求参数变更
+      - `+ enterprise_project_id`
+
+### HuaweiCloud SDK EVS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowVolume**
+    - 响应参数变更
+      - `- volume.snapshot_policy_id`
+  - **ListVolumes**
+    - 请求参数变更
+      - `- snapshot_policy_id`
+    - 响应参数变更
+      - `- volumes.snapshot_policy_id`
+
+### HuaweiCloud SDK GaussDB
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateStarrocksInstance**
+    - 请求参数变更
+      - `+ security_group_id`
+  - **CheckStarrocksParams**
+    - 响应参数变更
+      - `+ differences`
+      - `- check_starrocks_params_responce`
+
+### HuaweiCloud SDK KVS
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateTable**
+    - 请求参数变更
+      - `+ bill_mode`
+      - `+ provisioned_throughput`
+      - `+ global_secondary_index_schema.provisioned_throughput`
+      - `- pre_split_key_options.hash_count`
+    - 响应参数变更
+      - `+ bill_mode`
+      - `+ provisioned_throughput`
+      - `+ global_secondary_index_schema.provisioned_throughput`
+      - `- pre_split_key_options.hash_count`
+  - **DescribeTable**
+    - 响应参数变更
+      - `+ global_secondary_index_schema.provisioned_throughput`
+
+### HuaweiCloud SDK MetaStudio
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ExecuteSmartLiveCommand**
+    - 请求参数变更
+      - `+ command: enum value [CLEAN_UP_INSERT_COMMAND]`
+    - 响应参数变更
+      - `+ command: enum value [CLEAN_UP_INSERT_COMMAND]`
+  - **ShowAsset**
+    - 响应参数变更
+      - `+ system_properties.key: enum value [DIGITAL_HUMAN_2D_VIDEO,DIGITAL_HUMAN_3D_VIDEO,PHOTO_VIDEO,TRANSLATED_VIDEO]`
+      - `+ asset_extra_meta.voice_model_meta.voice_capability.conversion_rate`
+      - `+ asset_extra_meta.voice_model_meta.voice_capability.conversion_rate_en`
+  - **UpdateDigitalAsset**
+    - 请求参数变更
+      - `+ system_properties.key: enum value [DIGITAL_HUMAN_2D_VIDEO,DIGITAL_HUMAN_3D_VIDEO,PHOTO_VIDEO,TRANSLATED_VIDEO]`
+      - `+ asset_extra_meta.voice_model_meta.voice_capability.conversion_rate`
+      - `+ asset_extra_meta.voice_model_meta.voice_capability.conversion_rate_en`
+    - 响应参数变更
+      - `+ system_properties.key: enum value [DIGITAL_HUMAN_2D_VIDEO,DIGITAL_HUMAN_3D_VIDEO,PHOTO_VIDEO,TRANSLATED_VIDEO]`
+      - `+ asset_extra_meta.voice_model_meta.voice_capability.conversion_rate`
+      - `+ asset_extra_meta.voice_model_meta.voice_capability.conversion_rate_en`
+  - **CreateDigitalAsset**
+    - 请求参数变更
+      - `+ system_properties`
+      - `+ asset_extra_meta.voice_model_meta.voice_capability.conversion_rate`
+      - `+ asset_extra_meta.voice_model_meta.voice_capability.conversion_rate_en`
+  - **ListAssets**
+    - 响应参数变更
+      - `+ assets.system_properties.key: enum value [DIGITAL_HUMAN_2D_VIDEO,DIGITAL_HUMAN_3D_VIDEO,PHOTO_VIDEO,TRANSLATED_VIDEO]`
+      - `+ assets.asset_extra_meta.voice_model_meta.voice_capability.conversion_rate`
+      - `+ assets.asset_extra_meta.voice_model_meta.voice_capability.conversion_rate_en`
+  - **CreateSmartLiveRoom**
+    - 请求参数变更
+      - `+ interaction_config`
+      - `+ interaction_rules.trigger.play_type`
+  - **ShowSmartLiveRoom**
+    - 响应参数变更
+      - `+ interaction_config`
+      - `+ interaction_rules.trigger.play_type`
+  - **UpdateSmartLiveRoom**
+    - 请求参数变更
+      - `+ interaction_config`
+      - `+ interaction_rules.trigger.play_type`
+    - 响应参数变更
+      - `+ interaction_config`
+      - `+ interaction_rules.trigger.play_type`
+  - **UpdateInteractionRuleGroup**
+    - 请求参数变更
+      - `+ interaction_rules.trigger.play_type`
+    - 响应参数变更
+      - `+ interaction_rules.trigger.play_type`
+  - **CreateInteractionRuleGroup**
+    - 请求参数变更
+      - `+ interaction_rules.trigger.play_type`
+  - **ListInteractionRuleGroups**
+    - 响应参数变更
+      - `+ interaction_rule_groups.interaction_rules.trigger.play_type`
+
+### HuaweiCloud SDK RDS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 支持接口`ShowRecoveryTimeWindow`、`UpdateToPeriod`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK WAF
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowWhiteBlackIpRule**
+    - 响应参数变更
+      - `+ start`
+      - `+ terminal`
+  - **UpdateWhiteblackipRule**
+    - 请求参数变更
+      - `+ time_mode`
+      - `+ start`
+      - `+ terminal`
+    - 响应参数变更
+      - `+ start`
+      - `+ terminal`
+  - **DeleteWhiteBlackIpRule**
+    - 响应参数变更
+      - `+ start`
+      - `+ terminal`
+  - **CreateWhiteblackipRule**
+    - 请求参数变更
+      - `+ time_mode`
+      - `+ start`
+      - `+ terminal`
+    - 响应参数变更
+      - `+ start`
+      - `+ terminal`
+  - **ListWhiteblackipRule**
+    - 响应参数变更
+      - `+ items.start`
+      - `+ items.terminal`
+
 # 0.1.116 2024-09-26
 
 ### HuaweiCloud SDK BSS
