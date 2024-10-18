@@ -20,14 +20,8 @@
 package provider
 
 import (
-	"fmt"
+	"errors"
 	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth"
-	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
-	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/global"
-	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/sdkerr"
-	"gopkg.in/ini.v1"
-	"os"
-	"path/filepath"
 	"strings"
 )
 
@@ -68,58 +62,5 @@ func GlobalCredentialProfileProvider() *ProfileCredentialProvider {
 
 // GetCredentials get basic.Credentials or global.Credentials from profile
 func (p *ProfileCredentialProvider) GetCredentials() (auth.ICredential, error) {
-	filePath, err := getCredentialsFilePath()
-	if err != nil {
-		return nil, err
-	}
-	file, err := ini.Load(filePath)
-	if err != nil {
-		return nil, err
-	}
-
-	section := file.Section(p.credentialType)
-	if section == nil {
-		return nil, sdkerr.NewCredentialsTypeError(fmt.Sprintf("credential type '%s' does not exist in '%s'", p.credentialType, filePath))
-	}
-
-	if strings.HasPrefix(p.credentialType, basicCredentialType) {
-		builder := basic.NewCredentialsBuilder().WithProjectId(section.Key(projectIdName).String())
-		err := fillCommonAttrs(builder, getCommonAttrsFromProfile(section))
-		if err != nil {
-			return nil, err
-		}
-		return builder.Build(), nil
-	} else if strings.HasPrefix(p.credentialType, globalCredentialType) {
-		builder := global.NewCredentialsBuilder().WithDomainId(section.Key(domainIdName).String())
-		err := fillCommonAttrs(builder, getCommonAttrsFromProfile(section))
-		if err != nil {
-			return nil, err
-		}
-		return builder.Build(), nil
-	}
-	return nil, sdkerr.NewCredentialsTypeError("unsupported credential type: " + p.credentialType)
-}
-
-func getCredentialsFilePath() (string, error) {
-	if path := os.Getenv(credentialsFileEnvName); path != "" {
-		return path, nil
-	}
-
-	dir, err := os.UserHomeDir()
-	if err != nil {
-		return "", err
-	}
-
-	return filepath.Join(dir, defaultDir, defaultFile), nil
-}
-
-func getCommonAttrsFromProfile(section *ini.Section) commonAttrs {
-	return commonAttrs{
-		ak:            section.Key(akName).String(),
-		sk:            section.Key(skName).String(),
-		securityToken: section.Key(securityTokenName).String(),
-		idpId:         section.Key(idpIdName).String(),
-		idTokenFile:   section.Key(idTokenFileName).String(),
-		iamEndpoint:   section.Key(iamEndpointName).String(),
-	}
+	return nil, errors.New("not support")
 }

@@ -28,7 +28,6 @@ import (
 	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
 	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/converter"
 	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/progress"
-	"go.mongodb.org/mongo-driver/bson"
 	"io"
 	"mime/multipart"
 	"net/http"
@@ -125,12 +124,6 @@ func (httpRequest *DefaultHttpRequest) GetBodyToBytes() (*bytes.Buffer, error) {
 			if httpRequest.headerParams["Content-Type"] == "application/xml" {
 				encoder := xml.NewEncoder(buf)
 				err = encoder.Encode(httpRequest.body)
-			} else if httpRequest.headerParams["Content-Type"] == "application/bson" {
-				buffer, err := bson.Marshal(httpRequest.body)
-				if err != nil {
-					return nil, err
-				}
-				buf.Write(buffer)
 			} else {
 				encoder := json.NewEncoder(buf)
 				encoder.SetEscapeHTML(false)

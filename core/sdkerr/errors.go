@@ -21,7 +21,6 @@ package sdkerr
 
 import (
 	"fmt"
-	"go.mongodb.org/mongo-driver/bson"
 	"io/ioutil"
 	"net/http"
 
@@ -118,12 +117,7 @@ func NewServiceResponseError(resp *http.Response) *ServiceResponseError {
 	}
 
 	dataBuf := errMap{}
-	if resp.Header.Get("Content-Type") == "application/bson" {
-		err = bson.Unmarshal(data, &sr)
-	} else {
-		err = utils.Unmarshal(data, &dataBuf)
-	}
-	if err != nil {
+	if err = utils.Unmarshal(data, &dataBuf); err != nil {
 		sr.ErrorMessage = string(data)
 	} else {
 		processServiceResponseError(dataBuf, sr)

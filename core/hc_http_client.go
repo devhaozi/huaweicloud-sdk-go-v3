@@ -34,7 +34,6 @@ import (
 	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/response"
 	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/sdkerr"
 	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/utils"
-	"go.mongodb.org/mongo-driver/bson"
 	"net"
 	"net/url"
 	"reflect"
@@ -43,11 +42,10 @@ import (
 )
 
 const (
-	userAgent       = "User-Agent"
-	xRequestId      = "X-Request-Id"
-	contentType     = "Content-Type"
-	applicationXml  = "application/xml"
-	applicationBson = "application/bson"
+	userAgent      = "User-Agent"
+	xRequestId     = "X-Request-Id"
+	contentType    = "Content-Type"
+	applicationXml = "application/xml"
 )
 
 type HcHttpClient struct {
@@ -412,8 +410,6 @@ func (hc *HcHttpClient) deserializeResponseFields(resp *response.DefaultHttpResp
 	if len(data) != 0 && !hasBody {
 		if strings.Contains(resp.Response.Header.Get(contentType), applicationXml) {
 			err = xml.Unmarshal(data, &reqDef.Response)
-		} else if strings.Contains(resp.Response.Header.Get(contentType), applicationBson) {
-			err = bson.Unmarshal(data, reqDef.Response)
 		} else {
 			err = utils.Unmarshal(data, &reqDef.Response)
 		}
@@ -451,13 +447,8 @@ func (hc *HcHttpClient) deserializeResponseBody(reqDef *def.HttpRequestDef, data
 			} else {
 				bodyIns = reflect.New(body.Type).Interface()
 			}
-			var err error
-			if reqDef.ContentType == applicationBson {
-				err = bson.Unmarshal(data, bodyIns)
-			} else {
-				err = json.Unmarshal(data, bodyIns)
-			}
-			if err != nil {
+
+			if err := json.Unmarshal(data, bodyIns); err != nil {
 				return err
 			}
 
