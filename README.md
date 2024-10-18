@@ -28,16 +28,16 @@ Run the following command to install Huawei Cloud Go SDK:
 
 ``` bash
 # Install the library of Huawei Cloud Go SDK
-go get github.com/huaweicloud/huaweicloud-sdk-go-v3
+go get github.com/devhaozi/huaweicloud-sdk-go-v3
 ```
 
-You can get the SDK version information through [SDK center](https://console-intl.huaweicloud.com/apiexplorer/#/sdkcenter?language=Go) or [Github Releases](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/releases?page=1).
+You can get the SDK version information through [SDK center](https://console-intl.huaweicloud.com/apiexplorer/#/sdkcenter?language=Go) or [Github Releases](https://github.com/devhaozi/huaweicloud-sdk-go-v3/releases?page=1).
 
 ## Code Example
 
 - The following example shows how to query a list of VPCs in a specific region, you need to substitute your
-  real `{service} "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/{service}/{version}"`
-  for `vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"` in actual use, and initialize the client
+  real `{service} "github.com/devhaozi/huaweicloud-sdk-go-v3/services/{service}/{version}"`
+  for `vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2"` in actual use, and initialize the client
   as `{service}.New{Service}Client`.
 - Hard-coding ak and sk for authentication into the code has a great security risk. It is recommended to store the ciphertext in the profile or environment variables and decrypt it when used to ensure security.
 - In this example, ak and sk are stored in environment variables. Please configure the environment variables `HUAWEICLOUD_SDK_AK` and `HUAWEICLOUD_SDK_SK` before running this example.
@@ -50,10 +50,10 @@ package main
 import (
     "os"
 	"fmt"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-	vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"
-	vpcModel "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2/model"
-	vpcRegion "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2/region"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+	vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2"
+	vpcModel "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2/model"
+	vpcRegion "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2/region"
 )
 
 func main() {
@@ -106,12 +106,12 @@ import (
 	"context"
 	"fmt"
 	"os"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/httphandler"
-	vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"
-	vpcModel "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2/model"
-	vpcRegion "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2/region"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/config"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/httphandler"
+	vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2"
+	vpcModel "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2/model"
+	vpcRegion "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2/region"
 	"net"
 	"net/http"
 )
@@ -208,7 +208,7 @@ func main() {
 ## Changelog
 
 Detailed changes for each released version are documented in
-the [CHANGELOG.md](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/blob/master/CHANGELOG.md).
+the [CHANGELOG.md](https://github.com/devhaozi/huaweicloud-sdk-go-v3/blob/master/CHANGELOG.md).
 
 ## User Manual [:top:](#huawei-cloud-go-software-development-kit-go-sdk)
 
@@ -249,8 +249,8 @@ the [CHANGELOG.md](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/blob/mas
 
 ``` go
 import (
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-    vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/config"
+    vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2"
 )
 
 // Use default configuration
@@ -493,8 +493,8 @@ Obtain a federated identity authentication token using an OpenID Connect ID toke
 
 ```go
 import (
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/global"
 )
 
 // Regional service
@@ -545,7 +545,7 @@ set HUAWEICLOUD_SDK_SK=YOUR_SK
 Get the credentials from configured environment variables:
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/provider"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/provider"
 
 // basic
 basicProvider := provider.BasicCredentialEnvProvider()
@@ -584,7 +584,7 @@ set HUAWEICLOUD_SDK_DOMAIN_ID=YOUR_DOMAIN_ID // For global credentials, this par
 Get the credentials from configured environment variables:
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/provider"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/provider"
 
 // basic
 basicProvider := provider.BasicCredentialEnvProvider()
@@ -625,7 +625,7 @@ sk = your_sk
 Get the credentials from profile:
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/provider"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/provider"
 
 // basic
 basicProvider := provider.BasicCredentialProfileProvider()
@@ -663,7 +663,7 @@ domainId = your_domain_id
 Get the credentials from profile:
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/provider"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/provider"
 
 // basic
 basicProvider := provider.BasicCredentialProfileProvider()
@@ -681,7 +681,7 @@ Get temporary AK/SK and securitytoken from instance's metadata. Refer to the [Ob
 Manually obtain authentication from instance metadata:
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/provider"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/provider"
 
 // basic
 basicProvider := provider.BasicCredentialMetadataProvider()
@@ -699,7 +699,7 @@ When creating a service client without credentials, try to load authentication i
 Get authentication from provider chain:
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/provider"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/provider"
 
 // basic
 basicChain := provider.BasicCredentialProviderChain()
@@ -713,7 +713,7 @@ globalCred, err := globalChain.GetCredentials()
 Custom credentials provider chain is supported:
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/provider"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/provider"
 
 providers := []provider.ICredentialProvider{
     provider.BasicCredentialMetadataProvider(),
@@ -733,9 +733,9 @@ There are two ways to initialize the {Service}Client, you could choose one you p
 package main
 
 import (
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-    vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/config"
+    vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2"
     "os"
 )
 
@@ -780,10 +780,10 @@ func main() {
 package main
 
 import (
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-    iam "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/iam/v3"
-    iamRegion "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/iam/v3/region"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/global"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/config"
+    iam "github.com/devhaozi/huaweicloud-sdk-go-v3/services/iam/v3"
+    iamRegion "github.com/devhaozi/huaweicloud-sdk-go-v3/services/iam/v3/region"
     "os"
 )
 
@@ -856,7 +856,7 @@ set HUAWEICLOUD_SDK_IAM_ENDPOINT=https://iam.cn-north-4.myhuaweicloud.com
 This configuration is only valid for a credential, and it will override the global configuration
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
 
 iamEndpoint := "https://iam.cn-north-4.myhuaweicloud.com"
 cred, err := basic.NewCredentialsBuilder().
@@ -872,8 +872,8 @@ cred, err := basic.NewCredentialsBuilder().
 
 ```go
 import (
-    vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ecs/v2"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/region"
+    vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/ecs/v2"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/region"
 )
 
 // Create a region with custom region id and endpoint
@@ -946,7 +946,7 @@ ECS:
 The default lookup order is **environment variables -> profile -> region defined in SDK** of method **region.ValueOf(regionId)**, if the region is not found in the above ways, an exception will be thrown.
 
 ```go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ecs/v2/region"
+import "github.com/devhaozi/huaweicloud-sdk-go-v3/services/ecs/v2/region"
 
 region1, err := region.SafeValueOf("cn-north-1")
 region2, err := region.SafeValueOf("cn-north-9")
@@ -999,9 +999,9 @@ package main
 
 import (
     "fmt"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/httphandler"
-    vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/config"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/httphandler"
+    vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2"
     "net/http"
 )
 
@@ -1039,10 +1039,10 @@ package main
 
 import (
     "fmt"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/def"
-    dsc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/dsc/v1"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/dsc/v1/model"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/def"
+    dsc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/dsc/v1"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/services/dsc/v1/model"
     "os"
 )
 
@@ -1116,9 +1116,9 @@ package main
 
 import (
     "fmt"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-    vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2/model"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+    vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2/model"
     "os"
 )
 
@@ -1175,10 +1175,10 @@ package main
 
 import (
     "fmt"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/invoker/retry"
-    vpc "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/vpc/v2/model"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/core/invoker/retry"
+    vpc "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2"
+    "github.com/devhaozi/huaweicloud-sdk-go-v3/services/vpc/v2/model"
     "os"
 )
 

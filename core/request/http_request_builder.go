@@ -20,9 +20,9 @@
 package request
 
 import (
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/def"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/progress"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/def"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/progress"
 	"reflect"
 	"strings"
 )

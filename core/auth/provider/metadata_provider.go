@@ -20,10 +20,10 @@
 package provider
 
 import (
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/sdkerr"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/global"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/sdkerr"
 	"strings"
 )
 

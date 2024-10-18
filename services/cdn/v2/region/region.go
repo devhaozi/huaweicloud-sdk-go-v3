@@ -2,7 +2,7 @@ package region
 
 import (
 	"fmt"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/region"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/region"
 	"sort"
 	"strings"
 )

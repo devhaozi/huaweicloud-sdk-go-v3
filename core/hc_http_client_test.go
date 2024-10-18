@@ -21,10 +21,10 @@ package core
 
 import (
 	"fmt"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/def"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/exchange"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/basic"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/config"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/def"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/exchange"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"

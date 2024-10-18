@@ -22,7 +22,7 @@ package def
 import (
 	"errors"
 	"fmt"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/converter"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/converter"
 	"io"
 	"mime/multipart"
 	"net/textproto"

@@ -22,8 +22,8 @@ package config
 import (
 	"context"
 	"fmt"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/httphandler"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/httphandler"
 	"net"
 	"net/http"
 	"time"

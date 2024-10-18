@@ -25,7 +25,7 @@ import (
 	"crypto/elliptic"
 	"encoding/hex"
 	"errors"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/request"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/request"
 	"math/big"
 )
 

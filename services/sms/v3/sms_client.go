@@ -1,9 +1,9 @@
 package v3
 
 import (
-	httpclient "github.com/huaweicloud/huaweicloud-sdk-go-v3/core"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/invoker"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/sms/v3/model"
+	httpclient "github.com/devhaozi/huaweicloud-sdk-go-v3/core"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/invoker"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/services/sms/v3/model"
 )
 
 type SmsClient struct {

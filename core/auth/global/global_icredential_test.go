@@ -22,9 +22,9 @@ package global
 import (
 	"errors"
 	"fmt"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/impl"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/sdkerr"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/config"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/impl"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/sdkerr"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"

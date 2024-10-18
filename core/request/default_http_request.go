@@ -25,9 +25,9 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/converter"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/progress"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/converter"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/progress"
 	"go.mongodb.org/mongo-driver/bson"
 	"io"
 	"mime/multipart"
@@ -38,7 +38,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/def"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/def"
 )
 
 type DefaultHttpRequest struct {

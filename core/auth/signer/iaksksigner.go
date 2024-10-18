@@ -21,8 +21,8 @@ package signer
 
 import (
 	"errors"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/request"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/auth/signer/algorithm"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/request"
 )
 
 type IAKSKSigner interface {

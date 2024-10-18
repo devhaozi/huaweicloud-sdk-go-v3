@@ -20,8 +20,8 @@
 package internal
 
 import (
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/sdkerr"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/utils"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/sdkerr"
+	"github.com/devhaozi/huaweicloud-sdk-go-v3/core/utils"
 	"io/ioutil"
 	"net/http"
 	"time"
